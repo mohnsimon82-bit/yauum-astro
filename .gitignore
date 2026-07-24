@@ -3,3 +3,5 @@ dist/
 .astro/
 .wrangler/
 .DS_Store
+review/
+*.zip
