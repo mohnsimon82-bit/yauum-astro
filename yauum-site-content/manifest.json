@@ -1,0 +1,132 @@
+[
+  {
+    "slug": "home",
+    "label": "Home",
+    "route": "/",
+    "file": "index.html",
+    "url": "https://yauum.com/",
+    "title": "Custom Clothing Manufacturers​ - YAUUM",
+    "copyFile": "pages/home.md",
+    "snapshotFile": "snapshot-html/home.html"
+  },
+  {
+    "slug": "our-services",
+    "label": "Our Services",
+    "route": "/our-services/",
+    "file": "our-services/index.html",
+    "url": "https://yauum.com/our-services/",
+    "title": "Our Services - YAUUM",
+    "copyFile": "pages/our-services.md",
+    "snapshotFile": "snapshot-html/our-services.html"
+  },
+  {
+    "slug": "production",
+    "label": "Production",
+    "route": "/production/",
+    "file": "production/index.html",
+    "url": "https://yauum.com/production/",
+    "title": "Production - YAUUM",
+    "copyFile": "pages/production.md",
+    "snapshotFile": "snapshot-html/production.html"
+  },
+  {
+    "slug": "hoodie-manufacturer",
+    "label": "Hoodie Manufacturer",
+    "route": "/hoodie-manufacturer/",
+    "file": "hoodie-manufacturer/index.html",
+    "url": "https://yauum.com/hoodie-manufacturer/",
+    "title": "Hoodie Manufacturer - YAUUM",
+    "copyFile": "pages/hoodie-manufacturer.md",
+    "snapshotFile": "snapshot-html/hoodie-manufacturer.html"
+  },
+  {
+    "slug": "t-shirt-manufacturer",
+    "label": "T-Shirt Manufacturer",
+    "route": "/t-shirt-manufacturer/",
+    "file": "t-shirt-manufacturer/index.html",
+    "url": "https://yauum.com/t-shirt-manufacturer/",
+    "title": "T Shirt Manufacturer - YAUUM",
+    "copyFile": "pages/t-shirt-manufacturer.md",
+    "snapshotFile": "snapshot-html/t-shirt-manufacturer.html"
+  },
+  {
+    "slug": "jackets-manufacturer",
+    "label": "Jackets Manufacturer",
+    "route": "/jackets-manufacturer/",
+    "file": "jackets-manufacturer/index.html",
+    "url": "https://yauum.com/jackets-manufacturer/",
+    "title": "Jackets Manufacturer - YAUUM",
+    "copyFile": "pages/jackets-manufacturer.md",
+    "snapshotFile": "snapshot-html/jackets-manufacturer.html"
+  },
+  {
+    "slug": "pants-manufacturer",
+    "label": "Pants Manufacturer",
+    "route": "/pants-manufacturer/",
+    "file": "pants-manufacturer/index.html",
+    "url": "https://yauum.com/pants-manufacturer/",
+    "title": "Pants Manufacturer - YAUUM",
+    "copyFile": "pages/pants-manufacturer.md",
+    "snapshotFile": "snapshot-html/pants-manufacturer.html"
+  },
+  {
+    "slug": "sportswear-manufacturer",
+    "label": "Sportswear Manufacturer",
+    "route": "/sportswear-manufacturer/",
+    "file": "sportswear-manufacturer/index.html",
+    "url": "https://yauum.com/sportswear-manufacturer/",
+    "title": "Sportswear Manufacturer - YAUUM",
+    "copyFile": "pages/sportswear-manufacturer.md",
+    "snapshotFile": "snapshot-html/sportswear-manufacturer.html"
+  },
+  {
+    "slug": "streetwear-manufacturer",
+    "label": "Streetwear Manufacturer",
+    "route": "/streetwear-manufacturer/",
+    "file": "streetwear-manufacturer/index.html",
+    "url": "https://yauum.com/streetwear-manufacturer/",
+    "title": "Streetwear Manufacturer - YAUUM",
+    "copyFile": "pages/streetwear-manufacturer.md",
+    "snapshotFile": "snapshot-html/streetwear-manufacturer.html"
+  },
+  {
+    "slug": "solutions",
+    "label": "Solutions",
+    "route": "/solutions/",
+    "file": "solutions/index.html",
+    "url": "https://yauum.com/solutions/",
+    "title": "Solutions - YAUUM",
+    "copyFile": "pages/solutions.md",
+    "snapshotFile": "snapshot-html/solutions.html"
+  },
+  {
+    "slug": "contact-us",
+    "label": "Contact Us",
+    "route": "/contact-us/",
+    "file": "contact-us/index.html",
+    "url": "https://yauum.com/contact-us/",
+    "title": "Contact US - YAUUM",
+    "copyFile": "pages/contact-us.md",
+    "snapshotFile": "snapshot-html/contact-us.html"
+  },
+  {
+    "slug": "about-us",
+    "label": "About Us",
+    "route": "/about-us/",
+    "file": "about-us/index.html",
+    "url": "https://yauum.com/about-us/",
+    "title": "About US - YAUUM",
+    "copyFile": "pages/about-us.md",
+    "snapshotFile": "snapshot-html/about-us.html"
+  },
+  {
+    "slug": "blog",
+    "label": "Blog",
+    "route": "/blog/",
+    "file": "blog/index.html",
+    "url": "https://yauum.com/blog/",
+    "title": "Blog - YAUUM",
+    "copyFile": "pages/blog.md",
+    "snapshotFile": "snapshot-html/blog.html"
+  }
+]

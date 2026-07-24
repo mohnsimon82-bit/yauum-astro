@@ -23,7 +23,7 @@ export type PageSection = {
   html: string;
 };
 
-const libraryRoot = path.resolve(process.cwd(), "../yauum-site-content");
+const libraryRoot = path.resolve(process.cwd(), "yauum-site-content");
 
 export async function getPageManifest(): Promise<PageEntry[]> {
   const manifest = await readFile(path.join(libraryRoot, "manifest.json"), "utf8");
