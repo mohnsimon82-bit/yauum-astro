@@ -10,11 +10,13 @@
 - `snapshot-html/`：当前静态网站原始 HTML 备份，不建议手工修改。
 - `company-info/`：请补充公司、工厂、联系方式、产能和交易信息。
 - `images/`：按 logo、factory、products、team、certificates 分类放图。
+- `rag-knowledge-base/`：六个核心产品分类的规格、工艺和关键词资料，供产品页内容完善时参考。
 
 ## 以后怎么使用
 
 1. 修改页面文案时，直接编辑 `pages/` 里对应的文件。
 2. 公司信息填写到 `company-info/company-profile.md`。
 3. 图片放进 `images/` 的对应子文件夹，尽量使用英文文件名。
-4. 不要改变 `url-map.csv` 中现有 URL，除非确定要做页面跳转。
-5. 资料补齐后，可以从这个文件夹重新设计整站，不再依赖 WordPress 或在线抓取。
+4. 产品知识资料放进 `rag-knowledge-base/`，不要直接当作未经审核的网页文案发布。
+5. 不要改变 `url-map.csv` 中现有 URL，除非确定要做页面跳转。
+6. 资料补齐后，可以从这个文件夹重新设计整站，不再依赖 WordPress 或在线抓取。

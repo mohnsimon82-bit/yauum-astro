@@ -148,6 +148,16 @@ const galleryLabels = [
   "Inspection, folding, bags, and carton reference",
 ];
 
+const factoryMedia = [
+  { src: "/uploads/factory/sewing-workshop-wide.jpg", alt: "Wide view of the supplied garment sewing workshop", label: "Sewing workshop" },
+  { src: "/uploads/factory/pattern-plotter-wide.jpg", alt: "Wide view of a garment pattern plotting machine", label: "Pattern preparation" },
+  { src: "/uploads/factory/cutting-department.jpg", alt: "Fabric cutting department with cutting tables", label: "Fabric cutting" },
+  { src: "/uploads/factory/sewing-line-operators.jpg", alt: "Garment sewing operators working at production stations", label: "Sewing line" },
+  { src: "/uploads/factory/ironing-finishing.jpg", alt: "Garment pressing and finishing workstation", label: "Pressing and finishing" },
+  { src: "/uploads/factory/finished-garment-storage.jpg", alt: "Finished garments organized in the storage area", label: "Finished-garment storage" },
+];
+const showFactoryMedia = page.slug === "production" || page.slug === "about-us";
+
 const configuration = [
   ["01 / FIT", "Silhouette and sizing", "Define the intended shape, proportions, measurement system, size range, and grading notes."],
   ["02 / FABRIC", "Material direction", "Review composition, weight, color, handfeel, stretch, drape, surface, and care considerations."],
@@ -297,7 +307,25 @@ const configuration = [
           <div class="blueprint-grid">{blueprint.items.map(([number, title, description]) => <article><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
         </div>
       </section>
-      <section class="section standard-note-section"><div class="shell standard-note"><div><p class="kicker">02 / Important note</p><h2 class="section-title">{blueprint.noteTitle}</h2></div><p>{blueprint.note}</p></div></section>
+      {showFactoryMedia && (
+        <section class="section factory-proof-section" id="factory-record">
+          <div class="shell">
+            <div class="section-head">
+              <div><p class="kicker">02 / Supplied factory record</p><h2 class="section-title">Production environments buyers can inspect visually.</h2></div>
+              <p>The image set covers pattern preparation, cutting, sewing, finishing, storage, and sample presentation. It is used as visual evidence without adding unsupported capacity or certification claims.</p>
+            </div>
+            <div class="factory-proof-grid">
+              {factoryMedia.map((item, index) => (
+                <figure class:list={[index === 0 && "factory-proof-feature"]}>
+                  <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                  <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{item.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+      <section class="section standard-note-section"><div class="shell standard-note"><div><p class="kicker">{showFactoryMedia ? "03" : "02"} / Important note</p><h2 class="section-title">{blueprint.noteTitle}</h2></div><p>{blueprint.note}</p></div></section>
       <section class="section section-accent inquiry-section"><div class="shell inquiry-inner"><div><p class="kicker">Next step</p><h2 class="section-title">Turn your requirements into a product brief that can be reviewed.</h2></div><div class="inquiry-actions"><a class="button" href="/contact-us/">Prepare your inquiry</a><a class="button button-outline" href="/#product-categories">View products</a></div></div></section>
     </>
   ) : (
