@@ -1,0 +1,309 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { WebsitePage } from "../lib/content";
+
+interface Props {
+  page: WebsitePage;
+  products?: WebsitePage[];
+}
+
+type Blueprint = {
+  kicker: string;
+  headline: string;
+  intro: string;
+  sectionTitle: string;
+  sectionIntro: string;
+  items: Array<[string, string, string]>;
+  noteTitle: string;
+  note: string;
+};
+
+const { page, products = [] } = Astro.props;
+const productImageBySlug: Record<string, string> = {
+  "hoodie-manufacturer": "/uploads/products/hoodie-manufacturer.jpg",
+  "t-shirt-manufacturer": "/uploads/products/t-shirt-manufacturer.jpg",
+  "jackets-manufacturer": "/uploads/products/jackets-manufacturer.jpg",
+  "pants-manufacturer": "/uploads/products/pants-manufacturer.jpg",
+  "sportswear-manufacturer": "/uploads/products/sportswear-manufacturer.jpg",
+  "streetwear-manufacturer": "/uploads/products/streetwear-manufacturer.jpg",
+};
+const productImage = productImageBySlug[page.slug];
+const productName = page.label.replace(" Manufacturer", "");
+const productIntroBySlug: Record<string, string> = {
+  "hoodie-manufacturer": "Develop hoodie programs through fit, fabric, construction, decoration, labels, sampling, quality review, and pack-out planning.",
+  "t-shirt-manufacturer": "Define the T-shirt through silhouette, fabric weight, measurements, artwork, labels, sample approval, and bulk references.",
+  "jackets-manufacturer": "Coordinate shell, lining, insulation, closures, trims, branding, sampling, inspection points, and packing requirements.",
+  "pants-manufacturer": "Plan pants around fit blocks, fabric, pockets, waist construction, hardware, finishing, branding, and approved measurements.",
+  "sportswear-manufacturer": "Review performance fabric direction, stretch, construction, artwork, labels, fit, sampling, and garment-specific checks.",
+  "streetwear-manufacturer": "Build coordinated streetwear through silhouette, material, washes or decoration, private labels, sampling, and pack-out rules.",
+};
+const productIntro = productIntroBySlug[page.slug] ?? page.description;
+
+const blueprints: Record<string, Blueprint> = {
+  "our-services": {
+    kicker: "B2B apparel services",
+    headline: "Manufacturing support from product brief to pack-out.",
+    intro: "Yauum organizes development around the practical decisions buyers need to make before bulk production.",
+    sectionTitle: "A connected manufacturing service—not isolated tasks.",
+    sectionIntro: "Each service creates a reference for the next stage and reduces ambiguity between buyer and production team.",
+    items: [
+      ["01", "Product clarification", "Review category, intended use, quantity, market, references, size range, price direction, and target timing."],
+      ["02", "Material and construction", "Align fabric, color, measurements, seams, pockets, closures, trims, and finishing requirements."],
+      ["03", "Sampling and revision", "Develop the physical sample, record buyer comments, revise details, and confirm the approval reference."],
+      ["04", "Private label execution", "Coordinate labels, artwork, decoration, hangtags, stickers, barcodes, and packaging details."],
+      ["05", "Production and checks", "Use approved references for bulk work and document the product, branding, and packing points to review."],
+      ["06", "Shipment preparation", "Confirm folding, bags, carton marks, packing count, destination inputs, and requested handoff documentation."],
+    ],
+    noteTitle: "The final scope depends on the confirmed product.",
+    note: "MOQ, price, lead time, material availability, inspection method, and delivery plan are reviewed after the product requirements are clear.",
+  },
+  production: {
+    kicker: "Production workflow",
+    headline: "Turn an idea into an order both sides can follow.",
+    intro: "A sample-first workflow gives buyers and production teams a shared physical reference before bulk work begins.",
+    sectionTitle: "Five stages from requirement review to shipment preparation.",
+    sectionIntro: "The objective is clarity: define the garment, approve the reference, follow it in production, and check the handoff details.",
+    items: [
+      ["01", "Review the product brief", "Clarify the garment, quantity, target market, reference files, fit, materials, branding, packing, and destination."],
+      ["02", "Define the specification", "Align measurements, fabric direction, construction, trims, artwork, labels, and packaging."],
+      ["03", "Develop and review the sample", "Measure, wear, photograph, comment on, revise, and approve the physical garment."],
+      ["04", "Produce against the reference", "Use the approved sample and recorded order details for cutting, sewing, decoration, and finishing."],
+      ["05", "Check, pack, and prepare", "Review product details, labels, folding, bags, packing count, carton information, and shipment inputs."],
+    ],
+    noteTitle: "Timelines are established after the order is defined.",
+    note: "Materials, complexity, quantity, sample revisions, decoration, packing, destination, and season can all change the production plan.",
+  },
+  solutions: {
+    kicker: "Buyer solutions",
+    headline: "A production path shaped around how your business buys.",
+    intro: "Different buyer types need different product records, approval steps, packing rules, and repeat-order controls.",
+    sectionTitle: "Manufacturing support for four common buying situations.",
+    sectionIntro: "The product remains central, while the workflow adapts to the buyer’s launch, sales, warehouse, or procurement needs.",
+    items: [
+      ["01", "New private label brands", "Start with a focused category, define the product, approve the sample, and keep brand finishing clear."],
+      ["02", "Wholesalers and retailers", "Use repeatable measurements, approved references, packing rules, and order records to support future runs."],
+      ["03", "E-commerce and marketplace sellers", "Coordinate fit, product presentation, labels, barcodes, unit packing, and carton handling inputs."],
+      ["04", "Sourcing and procurement teams", "Review specifications, production references, checkpoints, packing, destination, and document needs in one path."],
+    ],
+    noteTitle: "Start with your operational handoff.",
+    note: "Tell Yauum where the goods need to go next—retail, wholesale, e-commerce, warehouse, or another distribution point—so packing inputs can be discussed early.",
+  },
+  "about-us": {
+    kicker: "About Yauum",
+    headline: "Build buyer confidence with verifiable production information.",
+    intro: "Yauum is positioned as a B2B menswear and streetwear manufacturing partner. Detailed company facts will be published after the company profile is completed.",
+    sectionTitle: "What the current website can state responsibly.",
+    sectionIntro: "The design separates supported workflow information from facts that still need documentation.",
+    items: [
+      ["01", "Product focus", "Menswear and streetwear categories including hoodies, T-shirts, jackets, pants, sportswear, and streetwear."],
+      ["02", "Development approach", "Product brief clarification, material and construction review, physical sampling, revision, and approval before bulk."],
+      ["03", "Brand finishing", "Coordination of decoration, labels, tags, trims, unit packing, and carton requirements."],
+      ["04", "Buyer visibility", "Production, inspection, packing, and shipment references can be discussed as part of the order workflow."],
+      ["PENDING", "Company profile", "Legal name, year established, factory location, team, capacity, markets, payment terms, and trade information."],
+      ["PENDING", "Compliance evidence", "Certifications, audit reports, inspection standards, and other compliance claims require verified documents."],
+    ],
+    noteTitle: "Company information source",
+    note: "Add verified facts to yauum-site-content/company-info/company-profile.md. The website can then publish them without changing the page structure.",
+  },
+  blog: {
+    kicker: "Manufacturing insights",
+    headline: "Practical guidance for buyers developing custom apparel.",
+    intro: "The Insights area is prepared for useful B2B content based on real product decisions, buyer questions, and factory documentation.",
+    sectionTitle: "Editorial categories ready for future articles.",
+    sectionIntro: "No placeholder posts or invented case studies are published. Add verified articles to the content library when they are ready.",
+    items: [
+      ["01", "Product development", "How to prepare references, measurements, size ranges, tech packs, and sample comments."],
+      ["02", "Fabric and workmanship", "How material weight, composition, handfeel, seams, trims, and construction influence a garment."],
+      ["03", "Decoration and private label", "How to discuss artwork files, print methods, embroidery, labels, tags, and packaging."],
+      ["04", "Quality and packing", "How to define inspection points, approved references, unit packing, carton marks, and handoff evidence."],
+    ],
+    noteTitle: "Publishing rule",
+    note: "Use real experience, images, measurements, and documented examples. Avoid unsupported performance statistics, client names, or generic AI articles.",
+  },
+  "contact-us": {
+    kicker: "Start an inquiry",
+    headline: "Send the details that shape a useful manufacturing review.",
+    intro: "A product name alone is not enough. Prepare the information below so fabric, construction, sampling, branding, packing, and delivery needs can be reviewed together.",
+    sectionTitle: "Your first product brief should answer eight questions.",
+    sectionIntro: "You can start with a tech pack, reference photos, a physical sample, or a clear product direction.",
+    items: [
+      ["01", "Product and quantity", "Category, style direction, colorways, size range, and estimated order quantity."],
+      ["02", "References", "Tech pack, product photos, sketches, artwork, measurements, or details from a physical sample."],
+      ["03", "Fabric target", "Composition, weight, color, handfeel, stretch, performance, or special material needs."],
+      ["04", "Fit and sizing", "Target market, fit preference, key measurements, grading notes, or an approved reference garment."],
+      ["05", "Branding", "Logo files, print or embroidery direction, labels, trims, hangtags, stickers, and barcode inputs."],
+      ["06", "Packing and delivery", "Folding, bags, carton marks, destination, target timing, receiving, and document needs."],
+    ],
+    noteTitle: "Contact channel pending verification",
+    note: "The previous WordPress contact details were not reliable. Add the real business email, phone, and WhatsApp to company-profile.md before enabling direct submission.",
+  },
+};
+
+const blueprint = blueprints[page.slug];
+const relatedProducts = products.filter(item => item.slug !== page.slug).slice(0, 3);
+const galleryLabels = [
+  "Fabric face and inside detail",
+  "Seams, pockets, closures, and workmanship",
+  "Artwork, decoration, labels, and trims",
+  "Inspection, folding, bags, and carton reference",
+];
+
+const configuration = [
+  ["01 / FIT", "Silhouette and sizing", "Define the intended shape, proportions, measurement system, size range, and grading notes."],
+  ["02 / FABRIC", "Material direction", "Review composition, weight, color, handfeel, stretch, drape, surface, and care considerations."],
+  ["03 / BUILD", "Workmanship", "Document seams, stitching, pockets, closures, reinforcement, lining, trims, and finishing."],
+  ["04 / BRAND", "Decoration and labels", "Choose artwork applications and coordinate label, tag, trim, and packing placement."],
+];
+---
+
+<BaseLayout title={page.title} description={blueprint?.intro ?? productIntro} canonical={page.url}>
+  {productImage ? (
+    <>
+      <section class="product-hero">
+        <div class="shell product-hero-grid">
+          <div class="product-hero-copy">
+            <p class="kicker kicker-accent">B2B / OEM–ODM / Private label</p>
+            <h1>{productName} manufacturing for private label brands.</h1>
+            <p>{productIntro}</p>
+            <div class="hero-actions">
+              <a class="button button-accent" href="/contact-us/">Send a {productName.toLowerCase()} brief</a>
+              <a class="text-link text-link-light" href="#manufacturing-scope">Review manufacturing scope</a>
+            </div>
+          </div>
+          <figure class="product-hero-media">
+            <img src={productImage} alt={`${productName} product reference`} />
+            <figcaption>Supplied product reference · materials and specifications require confirmation</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="scope-strip" aria-label="Manufacturing workflow">
+        <div class="shell scope-strip-grid"><span>Product definition</span><span>Sample approval</span><span>Private label</span><span>Quality points</span><span>Pack-out</span></div>
+      </section>
+
+      <section class="section section-surface">
+        <div class="shell product-overview-grid">
+          <div><p class="kicker">01 / Product overview</p><h2 class="section-title">Start with the {productName.toLowerCase()} you need—not a generic quality claim.</h2><p class="section-lead">Define the product through fit, fabric, construction, branding, sample approval, packing, and delivery inputs that both sides can review.</p></div>
+          <aside class="brief-panel">
+            <p class="brief-label">Buyer brief / Quick scan</p>
+            <div class="brief-row"><span>Product</span><strong>{productName} category and style direction</strong></div>
+            <div class="brief-row"><span>Volume</span><strong>Estimated quantity and color breakdown</strong></div>
+            <div class="brief-row"><span>Fit</span><strong>Target market, size range, measurements, and silhouette</strong></div>
+            <div class="brief-row"><span>Brand</span><strong>Artwork, labels, trims, tags, and packing</strong></div>
+            <div class="brief-row"><span>Delivery</span><strong>Destination, target timing, and document needs</strong></div>
+            <p class="brief-note">MOQ, lead time, price, material availability, and delivery path require review of the confirmed project.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="section-head"><div><p class="kicker">02 / Product and proof media</p><h2 class="section-title">A visual product record—not an article wall.</h2></div><p>The supplied reference anchors the page. The additional positions show which real production images and documents should be added later.</p></div>
+          <div class="gallery-layout">
+            <figure class="gallery-main"><img src={productImage} alt={`Full ${productName.toLowerCase()} product reference`} loading="lazy" decoding="async" /><figcaption>01 / FULL GARMENT REFERENCE</figcaption></figure>
+            <div class="gallery-slots">
+              {galleryLabels.map((label, index) => (
+                <div class="media-slot"><span>{String(index + 2).padStart(2, "0")} / REQUIRED</span><strong>{label}</strong><small>Recommended 1600 × 1200</small></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-surface" id="manufacturing-scope">
+        <div class="shell">
+          <div class="section-head"><div><p class="kicker">03 / Manufacturing scope</p><h2 class="section-title">Plan fit, fabric, construction, and branding together.</h2></div><p>No single specification defines the whole product. The final garment comes from connected decisions made before sampling and bulk.</p></div>
+          <div class="configuration-grid">
+            {configuration.map(([number, title, description]) => <article class="configuration"><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="shell sample-layout">
+          <div><p class="kicker kicker-accent">04 / Sample approval</p><h2 class="section-title">Use the physical sample to remove guesswork before bulk.</h2><p class="section-lead">The sample turns the product plan into a garment the buyer can measure, wear, photograph, comment on, revise, and approve.</p></div>
+          <div class="sample-list">
+            <article class="sample-item"><span>01</span><div><h3>Fit and measurements</h3><p>Review shape, length, width, proportions, placement, and size reference.</p></div></article>
+            <article class="sample-item"><span>02</span><div><h3>Fabric and behavior</h3><p>Assess handfeel, weight direction, drape, surface, color, and wear behavior.</p></div></article>
+            <article class="sample-item"><span>03</span><div><h3>Workmanship and trims</h3><p>Check seams, stitching, closures, reinforcement, hardware, and finishing.</p></div></article>
+            <article class="sample-item"><span>04</span><div><h3>Brand application</h3><p>Review artwork scale, placement, print or embroidery, labels, and tags.</p></div></article>
+            <article class="sample-item"><span>05</span><div><h3>Packing instructions</h3><p>Confirm folding, bags, inserts, stickers, carton marks, and packing count.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="section-head"><div><p class="kicker">05 / Order path</p><h2 class="section-title">From requirement review to shipment preparation.</h2></div><p>Timing is established after the product, materials, customization, quantity, revisions, packing, and destination are understood.</p></div>
+          <ol class="process-grid">
+            <li><span>01 / REVIEW</span><h3>Product brief</h3><p>Clarify the category, quantity, market, references, size range, fabric, branding, packing, and destination.</p></li>
+            <li><span>02 / DEFINE</span><h3>Specification</h3><p>Align fit, measurements, materials, workmanship, trims, artwork, labels, and pack-out.</p></li>
+            <li><span>03 / SAMPLE</span><h3>Development</h3><p>Make the sample, document comments, and revise the parts that are not approved.</p></li>
+            <li><span>04 / BULK</span><h3>Production</h3><p>Use the approved sample and order notes for cutting, sewing, decoration, and finishing.</p></li>
+            <li><span>05 / HANDOFF</span><h3>Check and pack</h3><p>Review finished garments, labels, unit packing, carton details, and shipment preparation.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="shell quality-layout">
+          <div class="quality-sidebar"><p class="kicker kicker-accent">06 / Quality control</p><h2 class="section-title">Check what matters to the approved {productName.toLowerCase()}.</h2><p>Acceptance points should be confirmed for the order and connected to the approved product reference.</p></div>
+          <div class="quality-list">
+            <article class="quality-item"><span>01</span><div><h3>Material and color</h3><p>Compare fabric and trims with the approved direction.</p></div></article>
+            <article class="quality-item"><span>02</span><div><h3>Measurements and construction</h3><p>Review dimensions, seams, stitching, pockets, closures, and workmanship.</p></div></article>
+            <article class="quality-item"><span>03</span><div><h3>Decoration and labels</h3><p>Check artwork placement, application appearance, label type, and attachment.</p></div></article>
+            <article class="quality-item"><span>04</span><div><h3>Finished garment</h3><p>Compare fit, appearance, finish, and details with the approved sample.</p></div></article>
+            <article class="quality-item"><span>05</span><div><h3>Packing and cartons</h3><p>Verify folding, bags, tags, packing count, marks, and reference photos.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-surface">
+        <div class="shell">
+          <div class="section-head"><div><p class="kicker">07 / Private label and packing</p><h2 class="section-title">Finish the product for the next operational handoff.</h2></div><p>Brand details and packing instructions belong in the product plan early because they affect presentation, counting, receiving, and distribution.</p></div>
+          <div class="packing-card-grid">
+            <article><span>01 / GARMENT</span><h3>Labels</h3><p>Woven, neck, size, and care labels using supplied content and placement.</p></article>
+            <article><span>02 / MERCHANDISE</span><h3>Tags and codes</h3><p>Hangtags, stickers, barcodes, and buyer-supplied warehouse references.</p></article>
+            <article><span>03 / UNIT</span><h3>Fold and bag</h3><p>Folding, polybags, inserts, stickers, and presentation requirements.</p></article>
+            <article><span>04 / CARTON</span><h3>Pack-out rules</h3><p>Quantity, size mix, carton marks, labels, and handling instructions.</p></article>
+            <article><span>05 / PROOF</span><h3>Packing references</h3><p>Relevant packing photos, carton information, and order records.</p></article>
+            <article><span>06 / DESTINATION</span><h3>Delivery inputs</h3><p>Target market, destination, requested timing, and document needs.</p></article>
+          </div>
+        </div>
+      </section>
+
+      {relatedProducts.length > 0 && (
+        <section class="section section-dark">
+          <div class="shell"><div class="section-head"><div><p class="kicker kicker-accent">08 / Related categories</p><h2 class="section-title">Build a coordinated apparel program.</h2></div><p>Review adjacent product groups with the same structured development approach.</p></div>
+            <div class="related-grid">
+              {relatedProducts.map(item => <a class="related-card" href={item.route}><div><img src={productImageBySlug[item.slug]} alt={`${item.label} product reference`} loading="lazy" /></div><h3>{item.label.replace(" Manufacturer", "")}</h3><span>View manufacturing page →</span></a>)}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section class="section section-accent inquiry-section">
+        <div class="shell inquiry-inner"><div><p class="kicker">09 / Start an inquiry</p><h2 class="section-title">Send the product details that shape a useful review.</h2><div class="inquiry-checklist"><span>{productName} type</span><span>Estimated quantity</span><span>Tech pack or reference</span><span>Fit and size range</span><span>Fabric direction</span><span>Artwork and labels</span><span>Packing needs</span><span>Destination and timing</span></div></div><div class="inquiry-actions"><a class="button" href="/contact-us/">Send project details</a><a class="button button-outline" href="/">Back to homepage</a></div></div>
+      </section>
+    </>
+  ) : blueprint ? (
+    <>
+      <section class="standard-hero">
+        <div class="industrial-grid" aria-hidden="true"></div>
+        <div class="shell standard-hero-inner"><p class="kicker kicker-accent">{blueprint.kicker}</p><h1>{blueprint.headline}</h1><p>{blueprint.intro}</p>{page.slug !== "contact-us" && <a class="button button-accent" href="/contact-us/">Send a project brief</a>}</div>
+      </section>
+      <section class="section section-surface">
+        <div class="shell"><div class="section-head"><div><p class="kicker">01 / {page.label}</p><h2 class="section-title">{blueprint.sectionTitle}</h2></div><p>{blueprint.sectionIntro}</p></div>
+          <div class="blueprint-grid">{blueprint.items.map(([number, title, description]) => <article><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+        </div>
+      </section>
+      <section class="section standard-note-section"><div class="shell standard-note"><div><p class="kicker">02 / Important note</p><h2 class="section-title">{blueprint.noteTitle}</h2></div><p>{blueprint.note}</p></div></section>
+      <section class="section section-accent inquiry-section"><div class="shell inquiry-inner"><div><p class="kicker">Next step</p><h2 class="section-title">Turn your requirements into a product brief that can be reviewed.</h2></div><div class="inquiry-actions"><a class="button" href="/contact-us/">Prepare your inquiry</a><a class="button button-outline" href="/#product-categories">View products</a></div></div></section>
+    </>
+  ) : (
+    <>
+      <section class="standard-hero"><div class="industrial-grid" aria-hidden="true"></div><div class="shell standard-hero-inner"><p class="kicker kicker-accent">Yauum / Information</p><h1>{page.headline}</h1><p>{page.description}</p></div></section>
+      <article class="section section-surface"><div class="shell prose" set:html={page.html}></div></article>
+    </>
+  )}
+</BaseLayout>

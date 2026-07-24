@@ -1,0 +1,231 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { WebsitePage } from "../lib/content";
+
+interface Props {
+  page: WebsitePage;
+  products: WebsitePage[];
+}
+
+const { page, products } = Astro.props;
+const imageBySlug: Record<string, string> = {
+  "hoodie-manufacturer": "/uploads/products/hoodie-manufacturer.jpg",
+  "t-shirt-manufacturer": "/uploads/products/t-shirt-manufacturer.jpg",
+  "jackets-manufacturer": "/uploads/products/jackets-manufacturer.jpg",
+  "pants-manufacturer": "/uploads/products/pants-manufacturer.jpg",
+  "sportswear-manufacturer": "/uploads/products/sportswear-manufacturer.jpg",
+  "streetwear-manufacturer": "/uploads/products/streetwear-manufacturer.jpg",
+};
+
+const productSummaryBySlug: Record<string, string> = {
+  "hoodie-manufacturer": "Develop hoodie programs through fit, fabric, construction, decoration, labels, sampling, quality review, and pack-out planning.",
+  "t-shirt-manufacturer": "Define the T-shirt through silhouette, fabric weight, measurements, artwork, labels, sample approval, and bulk references.",
+  "jackets-manufacturer": "Coordinate shell, lining, insulation, closures, trims, branding, sampling, inspection points, and packing requirements.",
+  "pants-manufacturer": "Plan pants around fit blocks, fabric, pockets, waist construction, hardware, finishing, branding, and approved measurements.",
+  "sportswear-manufacturer": "Review performance fabric direction, stretch, construction, artwork, labels, fit, sampling, and garment-specific checks.",
+  "streetwear-manufacturer": "Build coordinated streetwear through silhouette, material, washes or decoration, private labels, sampling, and pack-out rules.",
+};
+
+const buyerTypes = [
+  ["01", "Apparel brands", "Develop a focused product group, approve the sample, and define brand finishing before bulk."],
+  ["02", "Wholesalers", "Use approved measurements, packing rules, and order references to support repeat production."],
+  ["03", "Sourcing teams", "Review materials, construction, artwork, labels, inspection points, and shipment preparation in one workflow."],
+  ["04", "Procurement", "Send clear specifications and assess the manufacturing path before committing an order."],
+];
+
+const process = [
+  ["01", "Product brief", "Share category, quantity, target market, reference photos or tech pack, size range, fabric direction, labels, packing, and delivery needs.", "Output / clarified requirements"],
+  ["02", "Material and detail review", "Align fabric, color, handfeel, trims, construction, decoration, labels, and packaging before the sample is developed.", "Output / product specification"],
+  ["03", "Sample development", "Use the physical sample to review fit, measurements, workmanship, artwork placement, brand details, and pack-out.", "Output / reviewable garment"],
+  ["04", "Approval and bulk", "Record revisions and use the approved sample and order notes as the reference for bulk production.", "Output / production standard"],
+  ["05", "Check, pack, hand off", "Review finished garments, labels, folding, bags, carton details, packing count, and shipment preparation.", "Output / shipment-ready order"],
+];
+
+const capabilities = [
+  ["01 / FABRICS", "Material direction", "Review product use, composition, weight, color, handfeel, stretch, drape, and special requirements.", ["Fleece and French terry", "Jersey and cotton options", "Woven shell and lining", "Stretch and performance options"]],
+  ["02 / WORKMANSHIP", "Construction", "Translate the silhouette into measurements, seams, pockets, closures, reinforcement, lining, and finishing.", ["Fit and size review", "Stitching and seam details", "Pockets and reinforcement", "Buttons, zippers, and drawcords"]],
+  ["03 / DECORATION", "Brand application", "Match the decoration method and artwork placement to the garment, fabric, intended look, and order plan.", ["Screen printing", "Heat transfer", "Embroidery", "Patches and artwork placement"]],
+  ["04 / PRIVATE LABEL", "Finishing system", "Coordinate visible and hidden brand details before packing instructions are finalized.", ["Woven, neck, size, and care labels", "Hangtags, stickers, and barcodes", "Polybags and folding rules", "Carton labels and marks"]],
+];
+
+const qualityChecks = [
+  ["01", "Material and color", "Compare fabric, color, handfeel, trims, and other material references with the approved direction."],
+  ["02", "Measurements and construction", "Review key dimensions, seams, stitching, pockets, closures, reinforcement, and visible workmanship."],
+  ["03", "Decoration and labels", "Check artwork placement, print or embroidery appearance, label type, location, and attachment."],
+  ["04", "Finished garment", "Compare fit, appearance, finishing, and product details with the approved sample and order notes."],
+  ["05", "Pack-out", "Verify folding, bags, stickers, tags, packing count, carton marks, and requested reference photography."],
+];
+
+const packingSteps = [
+  ["01", "Garment labels", "Coordinate woven, neck, size, and care labels using buyer-supplied content and placement."],
+  ["02", "Tags and codes", "Prepare hangtags, stickers, barcode files, and warehouse references supplied for the order."],
+  ["03", "Unit packing", "Define folding, polybags, inserts, stickers, and presentation requirements for each garment."],
+  ["04", "Carton handoff", "Specify quantity, size mix, carton marks, labels, destination, and document needs."],
+];
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url}>
+  <section class="home-hero">
+    <div class="hero-media"><img src="/uploads/factory/factory-floor.jpg" alt="Wide view of an apparel sewing floor with workstations and operators" fetchpriority="high" /></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="industrial-grid" aria-hidden="true"></div>
+    <div class="shell home-hero-inner">
+      <p class="kicker kicker-accent">B2B / Private label / OEM–ODM</p>
+      <h1>Custom clothing manufacturing, made clear before bulk.</h1>
+      <p class="hero-lead">{page.description}</p>
+      <div class="hero-actions">
+        <a class="button button-accent" href="/contact-us/">Send your product brief</a>
+        <a class="text-link text-link-light" href="/production/">Review the production path</a>
+      </div>
+      <div class="hero-evidence" aria-label="Manufacturing workflow summary">
+        <div><span>01</span><strong>Product brief and feasibility review</strong></div>
+        <div><span>02</span><strong>Materials, fit, trims, and branding</strong></div>
+        <div><span>03</span><strong>Sample review before bulk approval</strong></div>
+        <div><span>04</span><strong>Inspection, packing, and shipment support</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-surface">
+    <div class="shell">
+      <div class="buyer-grid">
+        <div>
+          <p class="kicker">01 / What buyers need</p>
+          <h2 class="section-title">A supplier should make every product decision easier to verify.</h2>
+        </div>
+        <div class="buyer-copy">
+          <p>Yauum works around the questions overseas buyers ask before placing an order: what can be made, how the sample is reviewed, what details are checked, and how goods are prepared for the next handoff.</p>
+          <a class="text-link" href="/our-services/">Review manufacturing services</a>
+        </div>
+      </div>
+      <div class="buyer-types">
+        {buyerTypes.map(([number, title, description]) => (
+          <article class="buyer-type"><span>BUYER / {number}</span><h3>{title}</h3><p>{description}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="product-categories">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker kicker-accent">02 / Product categories</p><h2 class="section-title">Six core categories. One controlled development path.</h2></div>
+        <p>Choose a category to review its material, construction, branding, sampling, quality, packing, and order requirements.</p>
+      </div>
+      <div class="product-grid">
+        {products.map((product, index) => (
+          <a class="product-card" href={product.route}>
+            <div class="product-card-media">
+              <img src={imageBySlug[product.slug]} alt={`${product.label} product reference`} loading="lazy" decoding="async" />
+              <span class="product-card-index">{String(index + 1).padStart(2, "0")}</span>
+            </div>
+            <div class="product-card-copy">
+              <h3>{product.label.replace(" Manufacturer", "")}</h3>
+              <p>{productSummaryBySlug[product.slug] ?? product.description}</p>
+              <span class="card-link">View manufacturing page →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-surface">
+    <div class="shell process-layout">
+      <div class="process-intro">
+        <p class="kicker">03 / Production path</p>
+        <h2 class="section-title">Make the order clear before production starts.</h2>
+        <p class="section-lead">Each stage creates a usable reference for the next stage—from initial requirements to packing instructions.</p>
+      </div>
+      <ol class="process-list">
+        {process.map(([number, title, description, output]) => (
+          <li class="process-item"><span class="process-number">{number}</span><div><h3>{title}</h3><p>{description}</p><span class="process-output">{output}</span></div></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="factory-block">
+    <div class="factory-media">
+      <img src="/uploads/factory/factory-floor.jpg" alt="Apparel sewing floor reference" loading="lazy" decoding="async" />
+      <p class="media-caption">Supplied production-floor reference. Company ownership, location, capacity, certifications, and equipment details remain pending verification.</p>
+    </div>
+    <div class="factory-copy">
+      <p class="kicker kicker-accent">04 / Production visibility</p>
+      <h2 class="section-title">Show the production work—not unsupported factory promises.</h2>
+      <p>The existing image shows a garment sewing environment. Company facts will only be added after the profile folder contains verified information.</p>
+      <div class="proof-list">
+        <div class="proof-item"><span>VISIBLE</span><strong>Sewing workstations and garment production activity</strong></div>
+        <div class="proof-item"><span>WORKFLOW</span><strong>Sample, production, inspection, and packing references</strong></div>
+        <div class="proof-item"><span>PENDING</span><strong>Factory profile, capacity, location, and equipment</strong></div>
+        <div class="proof-item"><span>PENDING</span><strong>Certifications, audits, and verified compliance</strong></div>
+      </div>
+      <a class="text-link text-link-light" href="/about-us/">Review the company information status</a>
+    </div>
+  </section>
+
+  <section class="section section-surface">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker">05 / Material to pack-out</p><h2 class="section-title">The details that shape the final garment.</h2></div>
+        <p>Manufacturing becomes easier to evaluate when fabric, workmanship, decoration, private label, quality, and packing are discussed as one connected system.</p>
+      </div>
+      <div class="capability-grid">
+        {capabilities.map(([number, title, description, items]) => (
+          <article class="capability"><span>{number}</span><h3>{title}</h3><p>{description}</p><ul>{(items as string[]).map(item => <li>{item}</li>)}</ul></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="shell quality-layout">
+      <div class="quality-sidebar">
+        <p class="kicker kicker-accent">06 / Quality control</p>
+        <h2 class="section-title">Know what should be checked before the order ships.</h2>
+        <p>Quality language is useful when it names the product details being reviewed and connects them to an approved reference.</p>
+      </div>
+      <div class="quality-list">
+        {qualityChecks.map(([number, title, description]) => (
+          <article class="quality-item"><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell packing-layout">
+      <div>
+        <p class="kicker">07 / Packaging and delivery</p>
+        <h2 class="section-title">Prepare the order for the buyer’s next handoff.</h2>
+        <div class="packing-steps">
+          {packingSteps.map(([number, title, description]) => (
+            <article class="packing-step"><span>{number}</span><h3>{title}</h3><p>{description}</p></article>
+          ))}
+        </div>
+      </div>
+      <aside class="packing-note">
+        <p class="kicker">Delivery guardrail</p>
+        <h3>Timing and method need a project-specific review.</h3>
+        <p>Product type, material availability, quantity, sample revisions, decoration, packaging, destination, and buyer requirements all affect the delivery plan.</p>
+        <a class="text-link" href="/contact-us/">Share your destination and target timing</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-accent inquiry-section">
+    <div class="shell inquiry-inner">
+      <div>
+        <p class="kicker">08 / Prepare an inquiry</p>
+        <h2 class="section-title">Send enough detail to get a useful manufacturing review.</h2>
+        <div class="inquiry-checklist">
+          <span>Product category</span><span>Estimated quantity</span><span>Tech pack or references</span><span>Fit and size range</span><span>Fabric direction</span><span>Artwork and labels</span><span>Packing needs</span><span>Destination and timing</span>
+        </div>
+      </div>
+      <div class="inquiry-actions">
+        <a class="button" href="/contact-us/">Send project details</a>
+        <a class="button button-outline" href="/production/">Review production</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

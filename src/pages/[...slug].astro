@@ -1,0 +1,27 @@
+---
+import ContentPage from "../components/ContentPage.astro";
+import { getPageManifest, getWebsitePage } from "../lib/content";
+
+export async function getStaticPaths() {
+  const pages = await getPageManifest();
+  return pages
+    .filter(page => page.slug !== "home")
+    .map(page => ({ params: { slug: page.route.replace(/^\/+|\/+$/g, "") }, props: { pageSlug: page.slug } }));
+}
+
+const { pageSlug } = Astro.props;
+const page = await getWebsitePage(pageSlug);
+const productSlugs = [
+  "hoodie-manufacturer",
+  "t-shirt-manufacturer",
+  "jackets-manufacturer",
+  "pants-manufacturer",
+  "sportswear-manufacturer",
+  "streetwear-manufacturer",
+];
+const products = productSlugs.includes(pageSlug)
+  ? await Promise.all(productSlugs.map(getWebsitePage))
+  : [];
+---
+
+<ContentPage page={page} products={products} />

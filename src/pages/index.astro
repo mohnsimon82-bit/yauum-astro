@@ -1,0 +1,16 @@
+---
+import HomePage from "../components/HomePage.astro";
+import { getWebsitePage } from "../lib/content";
+
+const page = await getWebsitePage("home");
+const products = await Promise.all([
+  "hoodie-manufacturer",
+  "t-shirt-manufacturer",
+  "jackets-manufacturer",
+  "pants-manufacturer",
+  "sportswear-manufacturer",
+  "streetwear-manufacturer",
+].map(getWebsitePage));
+---
+
+<HomePage page={page} products={products} />

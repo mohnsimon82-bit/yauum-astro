@@ -1,0 +1,96 @@
+---
+const productLinks = [
+  ["01", "Hoodies", "/hoodie-manufacturer/"],
+  ["02", "T-Shirts", "/t-shirt-manufacturer/"],
+  ["03", "Jackets", "/jackets-manufacturer/"],
+  ["04", "Pants", "/pants-manufacturer/"],
+  ["05", "Sportswear", "/sportswear-manufacturer/"],
+  ["06", "Streetwear", "/streetwear-manufacturer/"],
+];
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/" aria-label="Yauum home">
+      <img src="/uploads/logo/yauum-site-logo.png" alt="Yauum" width="852" height="215" />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a class:list={[{ active: isActive("/our-services/") }]} href="/our-services/">Services</a>
+      <div class="nav-products">
+        <button class="nav-products-trigger" type="button" aria-haspopup="true">Products</button>
+        <div class="product-panel">
+          {productLinks.map(([number, label, href]) => (
+            <a href={href}>
+              <span>{number} / PRODUCT</span>
+              <strong>{label}</strong>
+            </a>
+          ))}
+        </div>
+      </div>
+      <a class:list={[{ active: isActive("/production/") }]} href="/production/">Production</a>
+      <a class:list={[{ active: isActive("/solutions/") }]} href="/solutions/">Solutions</a>
+      <a class:list={[{ active: isActive("/about-us/") }]} href="/about-us/">About</a>
+      <a class:list={[{ active: isActive("/blog/") }]} href="/blog/">Insights</a>
+    </nav>
+
+    <a class="button header-cta" href="/contact-us/">Send an inquiry</a>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-open>
+      <span class="menu-button-lines" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-head">
+      <a class="brand brand-on-dark" href="/" aria-label="Yauum home">
+        <img src="/uploads/logo/yauum-site-logo.png" alt="Yauum" width="852" height="215" />
+      </a>
+      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>×</button>
+    </div>
+    <nav class="mobile-menu-nav" aria-label="Mobile primary navigation">
+      <a href="/our-services/">Services</a>
+      <a href="/production/">Production</a>
+      <a href="/solutions/">Solutions</a>
+      <a href="/about-us/">About</a>
+      <a href="/blog/">Insights</a>
+    </nav>
+    <p class="mobile-product-label">Product categories</p>
+    <div class="mobile-product-grid">
+      {productLinks.map(([, label, href]) => <a href={href}>{label}</a>)}
+    </div>
+    <a class="button button-accent mobile-menu-cta" href="/contact-us/">Send your project details</a>
+  </div>
+</div>
+
+<a class="mobile-inquiry" href="/contact-us/">Send an inquiry <span aria-hidden="true">↗</span></a>
+
+<script>
+  const openButton = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+  const closeButton = document.querySelector<HTMLButtonElement>("[data-menu-close]");
+  const menu = document.getElementById("mobile-menu");
+
+  if (openButton && closeButton && menu) {
+    const setMenu = (isOpen: boolean) => {
+      menu.setAttribute("aria-hidden", String(!isOpen));
+      openButton.setAttribute("aria-expanded", String(isOpen));
+      document.body.classList.toggle("menu-open", isOpen);
+      isOpen ? closeButton.focus() : openButton.focus();
+    };
+
+    openButton.addEventListener("click", () => setMenu(true));
+    closeButton.addEventListener("click", () => setMenu(false));
+    menu.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement;
+      if (target === menu || target.closest("a")) setMenu(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (menu.getAttribute("aria-hidden") === "true") return;
+      if (event.key === "Escape") setMenu(false);
+    });
+  }
+</script>
