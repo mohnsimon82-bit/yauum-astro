@@ -1,0 +1,65 @@
+---
+// Public analytics identifiers. These are intentionally centralized so the
+// integration is loaded once from the shared site layout.
+---
+
+<script is:inline>
+  (() => {
+    if (window.__yauumAnalyticsInitialized) return;
+    window.__yauumAnalyticsInitialized = true;
+
+    const GA_ID = "G-ZXP4BFXJRF";
+    const CLARITY_ID = "xu1g8remgv";
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+
+    window.gtag("js", new Date());
+    window.gtag("config", GA_ID);
+
+    const gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(gaScript);
+
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+
+    const clarityScript = document.createElement("script");
+    clarityScript.async = true;
+    clarityScript.src = `https://www.clarity.ms/tag/${CLARITY_ID}`;
+    document.head.appendChild(clarityScript);
+
+    const getButtonLocation = (link) => {
+      if (link.closest(".mobile-menu")) return "mobile_menu";
+      if (link.matches(".mobile-inquiry")) return "mobile_sticky";
+      if (link.closest(".site-header")) return "header";
+      if (link.closest(".home-hero, .product-hero, .standard-hero")) return "hero";
+      if (link.closest(".inquiry-section")) return "inquiry_section";
+      if (link.closest(".site-footer")) return "footer";
+      return "content";
+    };
+
+    document.addEventListener("click", (event) => {
+      if (!(event.target instanceof Element)) return;
+
+      const link = event.target.closest('a[href="/contact-us/"], a[href="/contact-us"]');
+      if (!link) return;
+
+      const buttonLocation = getButtonLocation(link);
+      link.dataset.analyticsEvent = "inquiry_button_click";
+      link.dataset.analyticsLocation = buttonLocation;
+
+      window.gtag("event", "inquiry_button_click", {
+        link_text: (link.textContent || "").trim().replace(/\s+/g, " "),
+        link_url: link.href,
+        page_path: window.location.pathname,
+        page_title: document.title,
+        button_location: buttonLocation,
+      });
+    });
+  })();
+</script>
