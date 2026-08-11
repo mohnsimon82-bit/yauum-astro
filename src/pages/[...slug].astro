@@ -1,5 +1,6 @@
 ---
 import ContentPage from "../components/ContentPage.astro";
+import HoodieManufacturerPage from "../components/HoodieManufacturerPage.astro";
 import { getPageManifest, getWebsitePage } from "../lib/content";
 
 export async function getStaticPaths() {
@@ -24,4 +25,6 @@ const products = productSlugs.includes(pageSlug)
   : [];
 ---
 
-<ContentPage page={page} products={products} />
+{pageSlug === "hoodie-manufacturer"
+  ? <HoodieManufacturerPage />
+  : <ContentPage page={page} products={products} />}

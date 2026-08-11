@@ -8,9 +8,10 @@ interface Props {
   title: string;
   description: string;
   canonical: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, canonical } = Astro.props;
+const { title, description, canonical, jsonLd } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,6 +27,7 @@ const { title, description, canonical } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <Analytics />
   </head>
   <body>
