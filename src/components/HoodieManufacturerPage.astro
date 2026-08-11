@@ -50,9 +50,9 @@ const jsonLd = [
             <a class="hoodie-text-link" href="#styles">Explore hoodie options</a>
           </div>
           <ul class="hero-checks" aria-label="Development scope">
-            <li>Fit and specification review</li>
-            <li>Fabric and decoration planning</li>
-            <li>Sampling before bulk discussion</li>
+            <li>Start with your references</li>
+            <li>Check the physical sample</li>
+            <li>Confirm details before bulk</li>
           </ul>
         </div>
         <figure class="hoodie-hero-media">
@@ -71,8 +71,8 @@ const jsonLd = [
     <section class="hoodie-section" id="buyers">
       <div class="hoodie-shell">
         <header class="section-intro split-intro">
-          <div><p class="eyebrow">01 / Buyer requirements</p><h2>A hoodie program shaped around how your business buys.</h2></div>
-          <p>Yauum’s role is to turn product direction into decisions that a buyer and production team can review together. The scope is confirmed per project; unsupported promises about MOQ, price, timing, capacity, or certification are intentionally excluded.</p>
+          <div><p class="eyebrow">01 / Buyer requirements</p><h2>What do you need from a hoodie manufacturer?</h2></div>
+          <p>You need clear answers before you spend money on a sample or bulk order. We’ll help organize the product details, and we won’t guess at MOQ, price, timing, capacity, or certification.</p>
         </header>
         <div class="text-card-grid three-columns">
           {page.buyers.map((item, index) => <article class="text-card"><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
@@ -83,8 +83,8 @@ const jsonLd = [
     <section class="hoodie-section section-white" id="styles">
       <div class="hoodie-shell">
         <header class="section-intro split-intro">
-          <div><p class="eyebrow">02 / Hoodie styles</p><h2>Choose the silhouette before choosing the decoration.</h2></div>
-          <p>Each style changes pattern proportions, components, construction, material behavior, and branding space. These images are visual direction references—not a claim that the pictured garments are completed customer orders.</p>
+          <div><p class="eyebrow">02 / Hoodie styles</p><h2>What kind of hoodie are you planning to make?</h2></div>
+          <p>Start with the silhouette. It affects the pattern, fabric, construction, and space available for your artwork. These images are style references, not completed customer orders.</p>
         </header>
         <div class="image-card-grid style-grid">
           {page.styles.map((item, index) => (
@@ -101,8 +101,8 @@ const jsonLd = [
       <div class="hoodie-shell spec-layout">
         <header class="section-intro sticky-intro">
           <p class="eyebrow">03 / Custom specification</p>
-          <h2>Define the hoodie as a connected system.</h2>
-          <p>A strong tech pack or product brief connects measurements, material, construction, color, branding, and packing. Changing one detail can affect several others, so decisions should be reviewed together.</p>
+          <h2>What should you confirm before sampling?</h2>
+          <p>A hoodie is more than a front and back image. Confirm the measurements, fabric, construction, color, branding, and packing together. One change can affect several other details.</p>
           <a class="hoodie-text-link dark-link" href="/contact-us/">Prepare a product brief</a>
         </header>
         <div class="spec-list">
@@ -114,8 +114,8 @@ const jsonLd = [
     <section class="hoodie-section section-dark" id="fabric">
       <div class="hoodie-shell">
         <header class="section-intro split-intro">
-          <div><p class="eyebrow accent-eyebrow">04 / Fabric and GSM</p><h2>Use GSM as one specification—not the whole fabric story.</h2></div>
-          <p>GSM describes fabric mass per square metre. It does not by itself confirm thickness, warmth, softness, durability, shrinkage, or quality. Compare composition, yarn, knit structure, face and reverse, finishing, stretch, recovery, and physical swatches.</p>
+          <div><p class="eyebrow accent-eyebrow">04 / Fabric and GSM</p><h2>Which fabric and GSM suit your hoodie?</h2></div>
+          <p>GSM tells you the fabric weight per square metre. It does not tell you everything about warmth, softness, shrinkage, or quality. Compare real swatches as well as the composition, knit, surface, and finish.</p>
         </header>
         <div class="fabric-grid">
           {page.fabrics.map((item, index) => (
@@ -128,8 +128,8 @@ const jsonLd = [
           ))}
         </div>
         <aside class="gsm-note">
-          <strong>Before selecting a GSM range</strong>
-          <p>Tell us the destination climate, selling season, intended silhouette, layering use, target handfeel, decoration, wash expectation, and price direction. Final fabric options are discussed after sourcing and sampling review.</p>
+          <strong>Not sure where to start?</strong>
+          <p>Tell us the climate, season, fit, handfeel, artwork, wash expectations, and price range. Those details help narrow the fabric options before you review swatches and samples.</p>
         </aside>
       </div>
     </section>
@@ -137,8 +137,8 @@ const jsonLd = [
     <section class="hoodie-section section-white" id="decoration">
       <div class="hoodie-shell">
         <header class="section-intro split-intro">
-          <div><p class="eyebrow">05 / Logo application</p><h2>Match the artwork method to the fabric and brand direction.</h2></div>
-          <p>Send vector artwork where possible and state the finished size, placement, colors, surface effect, and wash expectation. A strike-off or decorated sample should be reviewed before bulk approval.</p>
+          <div><p class="eyebrow">05 / Logo application</p><h2>How do you want your logo to look and feel?</h2></div>
+          <p>Send vector artwork if you have it. Tell us the size, position, colors, surface effect, and wash expectations. Review a strike-off or decorated sample before bulk production.</p>
         </header>
         <div class="image-card-grid decoration-grid">
           {page.decorations.map((item, index) => (
@@ -154,8 +154,8 @@ const jsonLd = [
     <section class="hoodie-section label-section" id="labels">
       <div class="hoodie-shell">
         <header class="section-intro split-intro">
-          <div><p class="eyebrow">06 / Private labels</p><h2>Build a consistent brand system from neck label to carton.</h2></div>
-          <p>Labels and tags need more than a logo. Confirm content ownership, legal wording, sizing, barcode data, artwork version, position, attachment, and how every item corresponds with the packing list.</p>
+          <div><p class="eyebrow">06 / Private labels</p><h2>What should carry your brand name?</h2></div>
+          <p>Your main label, size label, hangtag, bag sticker, and carton should use the same approved information. Confirm the wording, artwork, barcode, position, and attachment before production.</p>
         </header>
         <div class="label-grid">
           {page.labels.map((item, index) => (
@@ -165,15 +165,15 @@ const jsonLd = [
             </article>
           ))}
         </div>
-        <p class="source-note">The label images are concept references. Final wording, fiber content, origin statements, care instructions, compliance text, and barcodes must be supplied or approved by the buyer for the destination market.</p>
+        <p class="source-note">These label images are visual references. You must supply or approve the final wording, fiber content, origin, care instructions, compliance text, and barcode for your market.</p>
       </div>
     </section>
 
     <section class="hoodie-section section-accent" id="commercial">
       <div class="hoodie-shell">
         <header class="section-intro split-intro">
-          <div><p class="eyebrow">07 / MOQ and quotation</p><h2>Commercial answers begin with a complete product brief.</h2></div>
-          <p>Yauum does not publish an unqualified fixed MOQ or price because the practical minimum and cost depend on the actual hoodie. A transparent discussion starts by separating confirmed specifications from open decisions.</p>
+          <div><p class="eyebrow">07 / MOQ and quotation</p><h2>What affects your MOQ and unit price?</h2></div>
+          <p>There is no useful fixed answer without seeing the hoodie. Fabric, color, construction, artwork, labels, quantity, and packing can all change the MOQ and price.</p>
         </header>
         <div class="text-card-grid three-columns commercial-grid">
           {page.pricing.map((item, index) => <article class="text-card"><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
@@ -185,8 +185,8 @@ const jsonLd = [
       <div class="hoodie-shell workflow-layout">
         <header class="section-intro sticky-intro">
           <p class="eyebrow">08 / Sampling to bulk</p>
-          <h2>A sample-first hoodie manufacturing workflow.</h2>
-          <p>The purpose of the workflow is not to add steps. It is to create a traceable approval reference before bulk and make responsibilities clearer at each handoff.</p>
+          <h2>How does your hoodie move from idea to bulk production?</h2>
+          <p>The goal is simple: make the product clear, check a physical sample, record your approval, and use that reference when the order moves into production.</p>
         </header>
         <ol class="timeline">
           {page.workflow.map((item, index) => <li><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.title}</h3><p>{item.text}</p></div></li>)}
@@ -197,8 +197,8 @@ const jsonLd = [
     <section class="hoodie-section quality-section" id="quality">
       <div class="hoodie-shell">
         <header class="section-intro split-intro">
-          <div><p class="eyebrow">09 / Quality checkpoints</p><h2>Quality control follows the approved product reference.</h2></div>
-          <p>The inspection method, sample size, tolerances, defect definitions, reporting format, and third-party requirements should be confirmed per order. The checkpoints below describe what buyers should plan—not an unsupported universal AQL promise.</p>
+          <div><p class="eyebrow">09 / Quality checkpoints</p><h2>What should be checked before your hoodies are packed?</h2></div>
+          <p>Agree on the inspection method, tolerances, defect rules, and report before production. The checkpoints below show what to plan; they are not a fixed AQL promise for every order.</p>
         </header>
         <div class="quality-grid">
           {page.quality.map((item, index) => <article><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
@@ -210,8 +210,8 @@ const jsonLd = [
       <div class="hoodie-shell packing-layout">
         <div>
           <p class="eyebrow">10 / Packaging and delivery</p>
-          <h2>Plan what happens after the hoodie leaves the sewing line.</h2>
-          <p class="section-lead-copy">Packing affects warehouse receiving, retail presentation, e-commerce handling, product identification, freight efficiency, and damage risk. Share downstream requirements early instead of treating packaging as a last-minute choice.</p>
+          <h2>How should your hoodies be packed and delivered?</h2>
+          <p class="section-lead-copy">Tell us what happens after the cartons leave production. Retail, e-commerce, warehouse, and wholesale orders may need different labels, bags, carton assortments, and delivery documents.</p>
         </div>
         <div class="packing-list">
           {page.packing.map((item, index) => <article><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
@@ -222,8 +222,8 @@ const jsonLd = [
     <section class="hoodie-section section-dark" id="factory">
       <div class="hoodie-shell">
         <header class="section-intro split-intro">
-          <div><p class="eyebrow accent-eyebrow">11 / Production environment</p><h2>Factory images connected to real manufacturing stages.</h2></div>
-          <p>These supplied photographs show garment-production environments and equipment. They should support buyer due diligence alongside current company details, project records, live communication, and any verified documents requested before ordering.</p>
+          <div><p class="eyebrow accent-eyebrow">11 / Production environment</p><h2>Where does each production step happen?</h2></div>
+          <p>These photos show garment-production equipment and working areas. Use them together with live communication, current company details, project records, and any documents you need to verify before ordering.</p>
         </header>
         <div class="factory-grid">
           {page.factory.map((item, index) => (
@@ -240,8 +240,8 @@ const jsonLd = [
       <div class="hoodie-shell faq-layout">
         <header class="section-intro sticky-intro">
           <p class="eyebrow">12 / Buyer questions</p>
-          <h2>Hoodie manufacturing FAQ.</h2>
-          <p>These answers establish what information is needed for a useful discussion. Project-specific facts are confirmed in the quotation, sample record, order documents, and agreed production plan.</p>
+          <h2>Questions buyers ask before ordering hoodies.</h2>
+          <p>Start with the answers below, then confirm project-specific details in the quote, sample record, order documents, and production plan.</p>
         </header>
         <div class="faq-list">
           {page.faq.map((item, index) => (
@@ -258,14 +258,14 @@ const jsonLd = [
       <div class="hoodie-shell inquiry-grid">
         <div>
           <p class="eyebrow accent-eyebrow">13 / Start your inquiry</p>
-          <h2>Send one clear hoodie brief. Build from confirmed facts.</h2>
-          <p>Yauum can review your project more effectively when the product, quantity, branding, destination, and open questions arrive together.</p>
+          <h2>Ready to discuss your hoodie?</h2>
+          <p>Send the product, quantity, branding, destination, and open questions together. You do not need every answer before you contact us.</p>
           <a class="hoodie-button hoodie-button-accent" href="/contact-us/">Discuss your hoodie project</a>
         </div>
         <div class="inquiry-checklist">
-          <article><span>01</span><h3>Product direction</h3><p>Style references, target fit, size range, measurements, colorways, and expected quantity.</p></article>
-          <article><span>02</span><h3>Material and branding</h3><p>Fabric or GSM direction, artwork files, decoration, labels, trims, and packaging.</p></article>
-          <article><span>03</span><h3>Commercial context</h3><p>Destination, target timing, sample needs, requested trade terms, and any compliance or documentation requirements.</p></article>
+          <article><span>01</span><h3>Show us the product</h3><p>Send style references, the fit, size range, measurements, colors, and expected quantity.</p></article>
+          <article><span>02</span><h3>Explain the fabric and branding</h3><p>Add your fabric or GSM preference, artwork, decoration, labels, trims, and packaging.</p></article>
+          <article><span>03</span><h3>Add the order details</h3><p>Tell us the destination, target date, sample needs, trade terms, and any document requirements.</p></article>
         </div>
       </div>
     </section>
