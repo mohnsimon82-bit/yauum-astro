@@ -60,6 +60,15 @@ const placeholders = {
     alt: "Folded jackets in polybags packed into marked cartons",
   },
 };
+
+const displaySlots = {
+  hero: "Jacket sample from a confirmed YAUUM project",
+  types: "Jacket silhouettes from confirmed development projects",
+  materials: "Shell, lining, insulation, and hardware on a confirmed jacket",
+  decoration: "Decoration placement and private label details on a confirmed sample",
+  workflow: "Sample review with measurements and recorded revisions",
+  quality: "Finished jacket inspection, including measurements and closures",
+};
 ---
 
 <BaseLayout
@@ -69,10 +78,16 @@ const placeholders = {
 >
   <div class="jk-page">
     <section class="jk-hero" aria-labelledby="jk-title">
-      <div class="jk-shell">
-        <p class="jk-kicker">B2B / OEM-ODM / PRIVATE LABEL</p>
-        <h1 id="jk-title">Custom Jacket Manufacturer for Private Label Brands</h1>
-        <p class="jk-hero-lead">Private label jacket programs depend on decisions a catalog cannot settle: season, use case, silhouette, shell, lining, insulation, closures, and brand finishing. This page explains how a jacket brief moves from product definition through material and construction review, sampling, revision, and approval, and how quality checks, packing rules, and testing requirements are set before bulk production. Quantities, pricing, sampling time, and delivery schedules are confirmed project by project, because jacket construction varies more widely than most garment categories.</p>
+      <div class="jk-shell jk-hero-grid">
+        <div>
+          <p class="jk-kicker">B2B / OEM-ODM / PRIVATE LABEL</p>
+          <h1 id="jk-title">Custom Jacket Manufacturer for Private Label Brands</h1>
+          <p class="jk-hero-lead">Private label jacket programs depend on decisions a catalog cannot settle: season, use case, silhouette, shell, lining, insulation, closures, and brand finishing. This page explains how a jacket brief moves from product definition through material and construction review, sampling, revision, and approval, and how quality checks, packing rules, and testing requirements are set before bulk production. Quantities, pricing, sampling time, and delivery schedules are confirmed project by project, because jacket construction varies more widely than most garment categories.</p>
+        </div>
+        <figure class="jk-visual-slot jk-hero-slot" role="img" aria-label={`Image placeholder: ${displaySlots.hero}. Status: needs_company_confirmation.`}>
+          <div class="jk-visual-art" aria-hidden="true"><span>IMAGE PLACEHOLDER / 01</span></div>
+          <figcaption><strong>{displaySlots.hero}</strong><span>needs_company_confirmation</span></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -96,6 +111,10 @@ const placeholders = {
             <h3>Match the silhouette to your market</h3>
             <p>Fit direction, whether regular, relaxed, oversized, boxy, or cropped, changes how the same jacket type reads on the shelf and on the body. A boxy bomber and a regular-fit work jacket share a category but not a measurement set. Shoulder position, armhole depth, sleeve volume, and body length all move with the fit block. Buyers who state the target customer and market early give the sample room a cleaner starting pattern and fewer correction rounds later.</p>
           </article>
+          <figure class="jk-visual-slot" role="img" aria-label={`Image placeholder: ${displaySlots.types}. Status: needs_company_confirmation.`}>
+            <div class="jk-visual-art" aria-hidden="true"><span>IMAGE PLACEHOLDER / 02</span></div>
+            <figcaption><strong>{displaySlots.types}</strong><span>needs_company_confirmation</span></figcaption>
+          </figure>
           <article class="jk-block">
             <h3>Judge complexity before sampling</h3>
             <p>An unlined windbreaker, a lined coach jacket, and a quilted puffer with a two-way zip sit at very different complexity levels. Every added layer, hardware set, quilting pattern, or panel seam adds pattern work, sewing operations, and inspection points, which shapes sampling rounds and the cost structure of samples and bulk. Comparing candidate types by construction level early keeps the program realistic for its target price and timeline.</p>
@@ -140,6 +159,10 @@ const placeholders = {
             <h3>Lining for comfort and structure</h3>
             <p>Lining options such as plain polyester, mesh, fleece, or quilted lining decide how the jacket layers over midlayers, how it moves on and off, and how much structure the body holds. Lining color shows at the cuffs, hem, and open front, so it belongs with the colorway decision. For some markets, antistatic or specific care requirements are written into the lining specification at the same time.</p>
           </article>
+          <figure class="jk-visual-slot" role="img" aria-label={`Image placeholder: ${displaySlots.materials}. Status: needs_company_confirmation.`}>
+            <div class="jk-visual-art" aria-hidden="true"><span>IMAGE PLACEHOLDER / 03</span></div>
+            <figcaption><strong>{displaySlots.materials}</strong><span>needs_company_confirmation</span></figcaption>
+          </figure>
           <article class="jk-block">
             <h3>Insulation, distribution, and interactions</h3>
             <p>Synthetic fills, recycled synthetic options, and down or feather blends are candidate insulation directions. Any down program, including fiber content, down ratio, fill power, and sourcing, needs supply documentation and test files before it can be quoted or described. Fill weight and quilting pattern shape the silhouette as much as the cut does, and shell, fill, lining, and hardware all interact, so the combination is reviewed as one system rather than layer by layer.</p>
@@ -162,6 +185,10 @@ const placeholders = {
             <h3>Confirm placement and scale on the sample</h3>
             <p>Decoration positions such as chest, back, sleeve, cuff, hem, or pocket mouth are measured against the real pattern panels, not estimated from artwork files. Large or detailed graphics usually go through a strike-off or technique sample before bulk, so color, edge quality, and handfeel can be approved on the actual fabric. Placement is settled at the sampling stage because panels, seams, quilting lines, and lining all limit what can be applied later.</p>
           </article>
+          <figure class="jk-visual-slot" role="img" aria-label={`Image placeholder: ${displaySlots.decoration}. Status: needs_company_confirmation.`}>
+            <div class="jk-visual-art" aria-hidden="true"><span>IMAGE PLACEHOLDER / 04</span></div>
+            <figcaption><strong>{displaySlots.decoration}</strong><span>needs_company_confirmation</span></figcaption>
+          </figure>
           <article class="jk-block">
             <h3>Labels, tags, and packing as one set</h3>
             <p>Main, care, and size labels, hangtags, woven or silicone patches, polybags, stickers, and carton marks work as one brand set with the garment. Attachment points are chosen relative to lining, seams, and hardware so nothing conflicts at construction. Barcode or retail-ready requirements are collected while label artwork is prepared. Closing the full set together helps avoid re-opening the specification after sampling.</p>
@@ -192,6 +219,10 @@ const placeholders = {
               <li><strong>Sample and specification approval:</strong> only a sample and specification approved by both sides become the bulk reference, standing as the physical standard for shell, lining, fill, hardware, decoration, labels, and packing.</li>
             </ol>
           </article>
+          <figure class="jk-visual-slot" role="img" aria-label={`Image placeholder: ${displaySlots.workflow}. Status: needs_company_confirmation.`}>
+            <div class="jk-visual-art" aria-hidden="true"><span>IMAGE PLACEHOLDER / 05</span></div>
+            <figcaption><strong>{displaySlots.workflow}</strong><span>needs_company_confirmation</span></figcaption>
+          </figure>
           <article class="jk-block">
             <h3>Bulk preparation through shipment</h3>
             <ol class="jk-steps" start="6">
@@ -219,6 +250,10 @@ const placeholders = {
             <h3>Build integrity and fill consistency</h3>
             <p>Shell, lining, and fill are compared with the approved sample before and during production. Quilting lines are checked for direction and spacing, and fill for even distribution and for leakage at seams on insulated builds. Seams, seam taping where specified, and reinforcement at stress points such as pocket corners, zipper ends, and shoulder joins are examined, because these are where a jacket fails first in wear.</p>
           </article>
+          <figure class="jk-visual-slot" role="img" aria-label={`Image placeholder: ${displaySlots.quality}. Status: needs_company_confirmation.`}>
+            <div class="jk-visual-art" aria-hidden="true"><span>IMAGE PLACEHOLDER / 06</span></div>
+            <figcaption><strong>{displaySlots.quality}</strong><span>needs_company_confirmation</span></figcaption>
+          </figure>
           <article class="jk-block">
             <h3>Appearance, decoration, and pack-out</h3>
             <p>Print, embroidery, and patch positions are checked against the approved artwork placement, and color is compared across the batch. Washed denim styles are reviewed for effect and for shade consistency between batches. Before packing, labels, folding, unit packing, carton counts, and carton marks are verified against the order information so the shipment matches what was approved.</p>
@@ -361,6 +396,7 @@ const placeholders = {
   .jk-page * { box-sizing: border-box; }
   .jk-shell { width: min(1100px, calc(100% - 96px)); margin-inline: auto; }
   .jk-hero { background: var(--jk-dark); color: #fff; padding-block: clamp(72px, 9vw, 118px); }
+  .jk-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); align-items: center; gap: clamp(32px, 5vw, 72px); }
   .jk-kicker { margin: 0 0 18px; color: var(--jk-accent); font: 500 11px/1.4 var(--font-mono, monospace); letter-spacing: .1em; text-transform: uppercase; }
   .jk-kicker-dark { color: #4d7b21; }
   .jk-hero h1 { max-width: 800px; margin: 0; font: 600 clamp(44px, 5.6vw, 72px)/0.98 var(--font-display, sans-serif); letter-spacing: -0.02em; }
@@ -393,6 +429,20 @@ const placeholders = {
   .jk-checklist li { padding: 11px 0 11px 24px; border-bottom: 1px solid var(--jk-line); color: var(--jk-muted); font-size: 14.5px; line-height: 1.5; position: relative; }
   .jk-section-ink .jk-checklist li { border-color: rgba(255,255,255,.2); color: #b8c0b9; }
   .jk-checklist li::before { content: ""; position: absolute; left: 2px; top: 17px; width: 8px; height: 8px; background: var(--jk-accent); }
+  .jk-visual-slot { display: grid; grid-template-rows: minmax(180px, 1fr) auto; min-width: 0; margin: 0; border: 1px solid #b8c3b6; background: #edf1eb; }
+  .jk-visual-art { display: grid; min-height: 230px; place-items: center; margin: 12px; border: 1px dashed #9baa98; color: #4d6746; }
+  .jk-visual-art span { padding: 12px; font: 500 11px/1.4 var(--font-mono, monospace); text-align: center; }
+  .jk-visual-slot figcaption { display: grid; gap: 6px; padding: 0 18px 18px; color: var(--jk-ink); }
+  .jk-visual-slot figcaption strong { font: 600 16px/1.3 var(--font-display, sans-serif); }
+  .jk-visual-slot figcaption span { color: #4d6746; font: 500 10px/1.4 var(--font-mono, monospace); overflow-wrap: anywhere; }
+  .jk-hero-slot { align-self: stretch; background: #262d26; border-color: #687568; }
+  .jk-hero-slot .jk-visual-art { min-height: 360px; border-color: #788778; color: #c7dac3; }
+  .jk-hero-slot figcaption { color: #fff; }
+  .jk-hero-slot figcaption span { color: #c7dac3; }
+  .jk-section-ink .jk-visual-slot { background: #262d26; border-color: #687568; }
+  .jk-section-ink .jk-visual-art { border-color: #788778; color: #c7dac3; }
+  .jk-section-ink .jk-visual-slot figcaption { color: #fff; }
+  .jk-section-ink .jk-visual-slot figcaption span { color: #c7dac3; }
   .jk-ph { display: grid; gap: 8px; margin-top: 18px; padding: 20px; border: 1px dashed #aab4aa; background: #eceee9; }
   .jk-section-ink .jk-ph { background: #202620; border-color: rgba(255,255,255,.35); }
   .jk-ph-tag { color: #4d7b21; font: 500 10px/1.4 var(--font-mono, monospace); letter-spacing: .12em; text-transform: uppercase; }
@@ -407,7 +457,14 @@ const placeholders = {
 
   @media (max-width: 900px) {
     .jk-shell { width: min(100% - 40px, 680px); }
+    .jk-hero-grid { grid-template-columns: 1fr; }
+    .jk-hero-slot .jk-visual-art { min-height: 200px; }
     .jk-blocks { grid-template-columns: 1fr; gap: 28px; }
     .jk-ph-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .jk-hero { padding-block: 48px; }
+    .jk-visual-art { min-height: 180px; }
+    .jk-hero-slot .jk-visual-art { min-height: 150px; }
   }
 </style>
