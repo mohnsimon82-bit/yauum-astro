@@ -1,0 +1,528 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { WebsitePage } from "../lib/content";
+
+interface Props {
+  page: WebsitePage;
+}
+
+const { page } = Astro.props;
+
+const railLinks = [
+  ["#pp-construction", "Construction"],
+  ["#pp-fit", "Fit"],
+  ["#pp-grading", "Grading"],
+  ["#pp-waistband", "Waistband"],
+  ["#pp-pockets", "Pockets"],
+  ["#pp-reinforcement", "Reinforce"],
+  ["#pp-fabric", "Fabric"],
+  ["#pp-wash", "Wash"],
+  ["#pp-branding", "Branding"],
+  ["#pp-sample", "Sample"],
+  ["#pp-qc", "QC"],
+  ["#pp-faq", "FAQ"],
+];
+
+// Internal image sourcing notes, not rendered to visitors: each slot awaits a verified photo.
+// Use `alt` only when a matching image is actually installed.
+const placeholders = {
+  hero: {
+    subject: "Full-length front view of a finished pants sample from a confirmed YAUUM project",
+    section: "H1 hero",
+    purpose: "Anchor the page with a real finished garment instead of a stock image",
+    alt: "Finished pants sample shown full length on a neutral background",
+    evidence: "Photographs from a confirmed YAUUM pants project, with buyer-sensitive information removed",
+  },
+  silhouettes: {
+    subject: "Four pants silhouettes such as slim, straight, relaxed, and wide-leg, shown side by side",
+    section: "H2 1, Choose the Right Pants Construction for Your Market",
+    purpose: "Let buyers compare silhouette directions before choosing a pattern",
+    alt: "Slim, straight, relaxed, and wide-leg pants silhouettes compared side by side",
+    evidence: "Confirmed YAUUM pants project photos or verified reference garments, no stock images",
+  },
+  measurements: {
+    subject: "Flat-lay pants with waist, hip, and front and back rise measurement points marked",
+    section: "H2 2, Pants Fit Starts at the Waist, Rise, and Hip",
+    purpose: "Show where each fit measurement is taken on the garment",
+    alt: "Flat-lay pants marked with waist, hip, and front and back rise measurement points and a tape",
+    evidence: "Measurement photographs from a confirmed YAUUM pants development project",
+  },
+  grading: {
+    subject: "Graded size set or measurement chart from a confirmed pants project",
+    section: "H2 3, How Pants Patterns Should Be Graded Across Sizes",
+    purpose: "Show how grading points are documented across the size run",
+    alt: "Pants patterns graded across a size run next to a measurement chart",
+    evidence: "Grading documents or sample-set photographs from a confirmed YAUUM project",
+  },
+  waistband: {
+    subject: "Close-up of waistband construction with the fly and closure",
+    section: "H2 4, Design the Waistband, Fly, and Closure System",
+    purpose: "Show waistband internals, fly type, and closure hardware",
+    alt: "Close-up of a pants waistband with button-and-zip fly construction detail",
+    evidence: "Detail photographs from a confirmed YAUUM pants project",
+  },
+  pockets: {
+    subject: "Cargo, welt, and patch pocket construction details on pants",
+    section: "H2 5, Plan Pockets for Function, Position, and Load",
+    purpose: "Show pocket types, attachment, and edge construction",
+    alt: "Pants pocket construction details including cargo, welt, and patch pockets",
+    evidence: "Detail photographs from a confirmed YAUUM pants project",
+  },
+  reinforcement: {
+    subject: "Bar tack and reinforced crotch seam close-up",
+    section: "H2 6, Specify Reinforcement at Pants Stress Points",
+    purpose: "Show stress point reinforcement as specified for wear",
+    alt: "Close-up of a bar-tacked and reinforced pants crotch seam",
+    evidence: "Detail photographs from a confirmed YAUUM pants project",
+  },
+  fabric: {
+    subject: "Fabric swatch stack showing twill, denim, and knit candidates with drape",
+    section: "H2 7, Match Fabric Behavior to the Pants Pattern",
+    purpose: "Show hand, weight, and drape differences between fabric directions",
+    alt: "Pants fabric swatches showing twill, denim, and knit textures and drape",
+    evidence: "Verified swatch photographs for fabrics actually offered, confirmed per project",
+  },
+  wash: {
+    subject: "The same pants style before and after wash, side by side",
+    section: "H2 8, Control Wash and Finishing Results",
+    purpose: "Show how the specified wash changes color and measurements",
+    alt: "Pants shown before and after washing to compare color and measurements",
+    evidence: "Wash trial photographs from a confirmed YAUUM project",
+  },
+  branding: {
+    subject: "Branding positions marked on waistband, back pocket, and hem",
+    section: "H2 9, Add Branding Without Disrupting Fit or Construction",
+    purpose: "Show placement landmarks for brand details",
+    alt: "Pants branding placement shown at the waistband, back pocket, and hem",
+    evidence: "Branded samples or placement photographs from a confirmed YAUUM project",
+  },
+  sample: {
+    subject: "Approved pants sample photographed with its measurement record",
+    section: "H2 10, What an Approved Pants Sample Must Confirm",
+    purpose: "Show what an approval reference looks like as a physical record",
+    alt: "Approved pants sample laid out with its measurement record sheet",
+    evidence: "Approval photographs from a confirmed YAUUM pants project",
+  },
+  qc: {
+    subject: "In-production measurement of pants during quality control",
+    section: "H2 11, Pants-Specific Quality Control During Production",
+    purpose: "Show production checks tied to the size chart",
+    alt: "Quality check measuring pants waist and inseam during production",
+    evidence: "Inspection photographs from a confirmed YAUUM order",
+  },
+};
+
+const faqs = [
+  {
+    q: "Can you produce pants from our own size chart?",
+    a: "A buyer size chart is a strong starting point for the brief. Once the chart or reference materials are received, the pattern approach, tolerances, and grading are evaluated and agreed per project before sampling, so later checks have a fixed reference. Whether the chart can be followed exactly or needs adjustment is confirmed at that stage rather than assumed.",
+  },
+  {
+    q: "Which fabric makes sense for a first pants program?",
+    a: "It depends on the use case and the market. Cotton twill and canvas directions suit casual and work builds, denim carries its own wash and construction rules, and knit fabrics such as french terry suit jogger directions. Fabric weight for the selected material is a required field in the brief, but the right value comes from the target use and season rather than from a generic range.",
+  },
+  {
+    q: "How is shrinkage handled in washed pants?",
+    a: "The pattern carries a shrinkage allowance based on how the selected fabric actually behaves in the intended wash, and that allowance is confirmed through testing per project. The sample is then measured after washing, not only at cutting, so the finished measurements match the chart. In production, a post-wash measurement checkpoint can be agreed in the inspection plan for the order.",
+  },
+  {
+    q: "Can we add a leather patch, custom hardware, and branded trims?",
+    a: "A leather or PU patch, custom zipper pull, button, rivet, or drawcord end can be proposed in the brief, but availability and suitability are not assumed. Share the artwork, size, material, attachment method, and target quantity for each item. We review sourcing, fabric compatibility, and minimums for the project before confirming which trims can be sampled and approved for bulk.",
+  },
+  {
+    q: "What is checked on pants before packing?",
+    a: "Measurements against the chart, waistband and fly symmetry, pocket position and attachment, reinforcement at the specified stress points, closure function, wash shade against the reference, labels, and packing details. The inspection plan and its tolerances are agreed per order and tied to the approved sample rather than applied as a fixed standard.",
+  },
+  {
+    q: "What should the first pants inquiry include?",
+    a: "The pants family and use case, target fit, size chart or reference measurements, fabric direction with weight, waistband and closure preferences, pocket plan, reinforcement needs, wash direction, branding files, label and packing requirements, destination market, estimated quantity with size split, and target timing. Missing items are recorded as open points in the specification instead of being filled by assumption.",
+  },
+];
+---
+
+<BaseLayout
+  title="Custom Pants Manufacturer for Private Label Brands | YAUUM"
+  description="Custom pants development for private label brands: construction families, waist and rise fit, grading, waistband and fly, pockets, reinforcement, fabric behavior, wash control, branding, sample approval, and production checks."
+  canonical={page.url}
+>
+  <div class="pp-page">
+    <section class="pp-hero" aria-labelledby="pp-title">
+      <div class="pp-shell pp-hero-grid">
+        <div class="pp-hero-copy">
+          <p class="pp-kicker">B2B / OEM-ODM / PRIVATE LABEL</p>
+          <h1 id="pp-title">Custom Pants Manufacturer for Private Label Brands</h1>
+          <p class="pp-hero-lead">Private label pants programs depend on decisions that lock in early: the pants family, the fit block, waist and rise, pockets, reinforcement, fabric behavior, and wash. This page walks through the specification points that shape sampling and bulk production, what an approved pants sample should confirm, and what to check during production. Quantities, pricing, sampling time, and delivery schedules are confirmed project by project, because pants construction and wash requirements vary widely.</p>
+        </div>
+        <div class="pp-slot pp-slot-hero">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="pp-rail" aria-label="Pants page sections">
+      <div class="pp-shell pp-rail-grid">
+        {railLinks.map(([href, label]) => <a href={href}>{label}</a>)}
+      </div>
+    </nav>
+
+    <section class="pp-section pp-section-light" id="pp-construction" aria-labelledby="pp-construction-title">
+      <div class="pp-shell">
+        <p class="pp-kicker pp-kicker-dark">01 / CONSTRUCTION</p>
+        <h2 id="pp-construction-title">Choose the Right Pants Construction for Your Market</h2>
+        <p class="pp-section-lead">Pants families differ more than a photo suggests. A chino, a cargo pant, a jogger, and a five-pocket jean share a category but not a pattern, a sewing sequence, or a cost structure. The products below are development directions to judge against your market, not a stocked line list.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Start with the wearer and the use case</h3>
+            <p>Daily commuting, streetwear, workwear, training, and formal settings push a pants program in different directions. Work pockets, articulation, and reinforcement make sense on a job site and look heavy in an office lineup. A knit waistband that reads as comfort in one market reads as loungewear in another. Naming the wearer and the occasion first keeps the type list short and the specification honest.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Compare pants families before the pattern</h3>
+            <p>Casual pants, chinos, trousers, joggers and sweatpants, cargo and work pants, jeans, and wide-leg or flare directions each carry default construction: a tailored trouser assumes a clean waistband and a pressed crease, a cargo build assumes bellowed pockets and stronger thread paths. Comparing families against the target retail price and season prevents a hybrid that costs like one family and reads like another.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Judge construction complexity early</h3>
+            <p>Pocket count, fly type, waistband internals, reinforcements, and wash steps drive sewing time more than fabric does. A simple pull-on pant and a multi-pocket cargo build differ in operations per unit, which moves sampling rounds, minimums, and cost. Ranking candidate builds by complexity early keeps the program aligned with its budget and timeline.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-ink" id="pp-fit" aria-labelledby="pp-fit-title">
+      <div class="pp-shell">
+        <p class="pp-kicker">02 / FIT</p>
+        <h2 id="pp-fit-title">Pants Fit Starts at the Waist, Rise, and Hip</h2>
+        <p class="pp-section-lead">Waist, hip, and rise measurements interact. A pair that measures right at the waist can still fit wrong because the rise or the hip curve was set independently. These three points should be specified together, on the body that will wear the pants.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Measure waist and hip as a pair</h3>
+            <p>Waist circumference sets the anchor, and hip circumference sets how the pants clear the seat. If only one is defined, the pattern room fills the gap with assumption. Specify where the waist actually sits on the body, high or low, then give both measurements plus the waistband width, because the same waist number behaves differently under a wide band and a narrow one.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Set front and back rise on purpose</h3>
+            <p>Front rise and back rise decide whether the pants sit where the design intends and whether the crotch has room to move. A low front rise with a standard back rise changes the visual proportion and the walking comfort at the same time. Rise values should come from a reference garment or a target body measurement, not from a generic block.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Carry the fit through thigh, knee, and leg opening</h3>
+            <p>Thigh, knee, and leg opening turn waist and hip numbers into a silhouette: slim, straight, relaxed, tapered, baggy, or wide. The same hip measurement supports several leg shapes, and the knee position decides where taper begins. Locking these points in the specification gives the sample a defined shape to be measured against.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-light" id="pp-grading" aria-labelledby="pp-grading-title">
+      <div class="pp-shell">
+        <p class="pp-kicker pp-kicker-dark">03 / GRADING</p>
+        <h2 id="pp-grading-title">How Pants Patterns Should Be Graded Across Sizes</h2>
+        <p class="pp-section-lead">Grading turns one approved pattern into a size run. The method should be agreed before sampling, because it decides whether every size keeps the intended fit or only the base size does.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Start from one documented base size</h3>
+            <p>Build the base pattern at one size with every measurement point documented: waist, hip, front and back rise, thigh, knee, inseam, and leg opening. This document becomes the reference for grading, for sampling, and later for production checks. If a buyer size chart exists, it becomes the reference for the base pattern; if not, the pattern, chart, and grading approach are evaluated and agreed per project once reference materials are received.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Agree grading increments per project</h3>
+            <p>Waist, hip, rise, and inseam do not grow at the same rate, and a single percentage step across all points produces distorted shapes at the ends of the run. Increments per measurement point, the size range, and the tolerance for each point are agreed with the specification rather than assumed from a house rule. Graded samples can then be checked against the chart point by point.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-ink" id="pp-waistband" aria-labelledby="pp-waistband-title">
+      <div class="pp-shell">
+        <p class="pp-kicker">04 / WAISTBAND AND FLY</p>
+        <h2 id="pp-waistband-title">Design the Waistband, Fly, and Closure System</h2>
+        <p class="pp-section-lead">The waistband, fly, and closure system carries most of the physical load of wearing pants and most of the visual identity at the waist. The options below are construction choices to specify, not a fixed capability list.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Choose the waistband structure first</h3>
+            <p>A fixed waistband with belt loops, a part-elastic band, a full elastic band, and a drawcord channel each imply a different pattern and a different wearer. Fixed bands hold a crisp line and assume a belt; elastic and drawcord builds trade that line for comfort and size forgiveness. Waistband internals, such as interlining and curtain options, belong in the same decision because they set how the band holds shape after washing.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Match the fly to the fabric and wearer</h3>
+            <p>A button-and-zip fly, a snap closure, and a pull-on build without a fly each fit a different pants family and age group. A zip fly assumes the fabric and seam work support clean installation; a pull-on build shifts the fit responsibility to the elastic and the rise. The closure choice also decides what hardware needs to be sourced and tested.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Finish with loops, adjusters, and drawcords</h3>
+            <p>Belt loop count and placement, side adjusters, and drawcord exits are small details that change how the waist behaves in wear. Loops should align with seam positions and carry the belt load without pulling the band out of shape. Specify cord ends, stops, and channel stitching so the cord stays centered through washing.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-light" id="pp-pockets" aria-labelledby="pp-pockets-title">
+      <div class="pp-shell">
+        <p class="pp-kicker pp-kicker-dark">05 / POCKETS</p>
+        <h2 id="pp-pockets-title">Plan Pockets for Function, Position, and Load</h2>
+        <p class="pp-section-lead">Pockets define both the function and the look of a pants program. Position decides reach, construction decides load, and visible edges decide how the pocket reads on the shelf. All three belong in the specification.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Place pockets by reach, not by habit</h3>
+            <p>Side entry, back welt or patch, cargo, and interior pockets each sit where a hand or a tool expects them. A pocket placed by copying a photo can sit out of reach or break the side seam balance of the pattern. Positions should be given from defined anchor points on the pattern, so the sample can be measured against the same points.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Match pocket construction to load</h3>
+            <p>A welt pocket that holds a card and a cargo pocket that holds tools are different engineering problems. Loaded pockets need bag fabric, seam type, and reinforcement that match the expected weight, and they change how the pants hang when full. State what the pocket is for, and the construction follows.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Specify pocket bags and visible edges</h3>
+            <p>Pocket bag fabric affects bulk, drape, and how the pocket shows through lightweight fabrics. Bound edges, topstitched edges, and hidden closures each read differently and cost differently. For lined or faced garments, the bag also has to be coordinated with the lining plan rather than chosen at cutting.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-ink" id="pp-reinforcement" aria-labelledby="pp-reinforcement-title">
+      <div class="pp-shell">
+        <p class="pp-kicker">06 / REINFORCEMENT</p>
+        <h2 id="pp-reinforcement-title">Specify Reinforcement at Pants Stress Points</h2>
+        <p class="pp-section-lead">Pants fail at predictable points: the crotch seam, the pocket corners, the belt loops, and the hem. Reinforcement is specified by use case instead of applied uniformly.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Treat the crotch seam as the primary failure point</h3>
+            <p>The crotch curve takes body movement, friction, and tension in every wear cycle. Seam type, a second stitch row, a gusset where the use case calls for one, and bar tacks at the curve ends are candidate specifications rather than defaults. The approved sample should show the exact construction, so production can be checked against a physical reference.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Reinforce knees, pocket corners, and hems where the use case demands it</h3>
+            <p>Work and outdoor builds may specify knee structure or articulation, double-layer hems, and corner tacks on loaded pockets; a dress chino may specify none of these. Reinforcement adds operations and stiffness, so each point should earn its place from the intended use. What is specified is what can be checked, at sampling and in production.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-light" id="pp-fabric" aria-labelledby="pp-fabric-title">
+      <div class="pp-shell">
+        <p class="pp-kicker pp-kicker-dark">07 / FABRIC BEHAVIOR</p>
+        <h2 id="pp-fabric-title">Match Fabric Behavior to the Pants Pattern</h2>
+        <p class="pp-section-lead">Fabric behavior decides whether the pattern on paper is the pants in the box. Shrinkage, stretch, and drape change measurements and silhouette between cutting and the customer, so they belong in the pattern conversation, not just the fabric one.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Plan for shrinkage before cutting</h3>
+            <p>Woven and knit fabrics can both change length and width through washing. The pattern has to carry a shrinkage allowance based on how the selected fabric actually behaves in the intended wash, and that allowance is confirmed through testing per project. Pants that skip this step can measure right at cutting and wrong after the first wash.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Decide how stretch changes the pattern</h3>
+            <p>Stretch wovens and knit fabrics allow the pattern to sit closer to the body than rigid fabrics do, and recovery decides whether that fit survives the day. Stretch direction, content, and expected recovery are fabric requirements to define with the mill or supplier. The same silhouette in rigid and stretch versions is not the same pattern.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Balance weight and drape with the silhouette</h3>
+            <p>A wide-leg shape needs fabric that falls clean from the hip; a tapered shape can carry heavier fabric without losing the line. Fabric weight, expressed as GSM or ounces for the selected fabric, sits with drape and handfeel in the specification rather than as an isolated number. Weight targets are confirmed with the actual fabric per project.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-ink" id="pp-wash" aria-labelledby="pp-wash-title">
+      <div class="pp-shell">
+        <p class="pp-kicker">08 / WASH AND FINISHING</p>
+        <h2 id="pp-wash-title">Control Wash and Finishing Results</h2>
+        <p class="pp-section-lead">Wash is a specification, not an afterthought. It changes color, handfeel, and measurements, and it interacts with branding and hardware. The wash plan should be written down with the same care as the pattern.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Write the wash as a specification</h3>
+            <p>Garment wash, enzyme wash, stone wash, acid or vintage effects, and distressing for denim directions are candidates to specify, together with where the effect should appear and how strong it should read. Each wash changes construction order and what can be applied before or after. The wash step also decides which fabric tests and aftercare rules apply.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Verify measurements after wash</h3>
+            <p>A washed garment should be measured after the wash step, not only at cutting or sewing, because shrinkage and relaxation land there. Post-wash measurements against the size chart belong in sample approval, and a repeat check in production can be set as a checkpoint in the order's inspection plan. This closes the loop between the shrinkage allowance and the real result.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Keep shade consistent across batches</h3>
+            <p>Washed and dyed programs can drift in shade between lots. A physical shade reference approved at sampling, batch-to-batch comparison under consistent light, and an agreed tolerance keep repeats close to the approved look. Shade consistency is a discussion point for the order, not a standard to assume.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-light" id="pp-branding" aria-labelledby="pp-branding-title">
+      <div class="pp-shell">
+        <p class="pp-kicker pp-kicker-dark">09 / BRANDING</p>
+        <h2 id="pp-branding-title">Add Branding Without Disrupting Fit or Construction</h2>
+        <p class="pp-section-lead">Branding on pants works when it sits with the construction rather than on top of it. Placement, method, and the label set should be chosen alongside the pattern, not after production starts.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Choose placements that survive wear and wash</h3>
+            <p>Common pants placements include the back waistband area under the belt line, the back pocket, the coin pocket side, and the hem. Each placement interacts with fold lines, topstitching, and how the garment is packed. Placement measured from pattern landmarks survives production; placement described only in words drifts.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Match the method to the fabric</h3>
+            <p>Embroidery on heavy denim, a leather or PU patch at the back waistband, a woven label inside the band, and print on pocket bags are different methods with different fabric requirements. The method list comes from the artwork, the fabric, and the quantity together. What suits a rigid twill can pucker a lightweight knit.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-ink" id="pp-sample" aria-labelledby="pp-sample-title">
+      <div class="pp-shell">
+        <p class="pp-kicker">10 / SAMPLE APPROVAL</p>
+        <h2 id="pp-sample-title">What an Approved Pants Sample Must Confirm</h2>
+        <p class="pp-section-lead">The approved sample is the reference the whole order follows. For pants, it should confirm three layers at once: the fit, the material and finish, and the construction with every trim.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Confirm fit and measurements on the body</h3>
+            <p>The sample should be measured flat against the size chart and assessed on the intended body or form: waist sitting position, rise comfort, seat room, leg line, and hem break. Fit comments and measurement corrections are recorded in one set per round, so the next sample or the bulk reference starts from a documented point.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Confirm fabric, wash, and color against references</h3>
+            <p>The sample is where handfeel, weight, drape, wash effect, and shade are compared with the references named in the brief. If the fabric or wash is not final, the sample should say so explicitly, and what it stands in for should be recorded. A sample approved without this note can lock the wrong material into the order.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Confirm construction, trims, and labels</h3>
+            <p>Fly function, waistband internals, pocket bags, bar tacks, closures, labels, and the packing fold are confirmed on the sample as physical facts. Only a sample approved by both sides becomes the bulk reference, and every later check in production points back to it.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-light" id="pp-qc" aria-labelledby="pp-qc-title">
+      <div class="pp-shell">
+        <p class="pp-kicker pp-kicker-dark">11 / PRODUCTION CHECKS</p>
+        <h2 id="pp-qc-title">Pants-Specific Quality Control During Production</h2>
+        <p class="pp-section-lead">Production checks for pants concentrate on measurements, closures, stress points, and batch consistency. Inspection levels and tolerances are agreed per order and tied to the approved sample, not applied as a fixed standard.</p>
+        <div class="pp-blocks">
+          <article class="pp-block">
+            <h3>Check measurements and waistband symmetry in production</h3>
+            <p>Typical checkpoints cover waist, hip, rise, inseam, and leg opening against the chart, during sewing and again at final check, as defined in the order's inspection plan. The waistband is checked for even width, straight grain, and symmetric closure alignment, because a twisted band shows immediately on the hanger and on the body.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Work the closures and inspect stress points</h3>
+            <p>Where the inspection plan includes them, zippers, buttons, snaps, and drawcords are checked by working them, not just viewing them. Crotch seams, pocket corners, belt loops, and hem edges are inspected for the reinforcement specified in the order. On stretch builds, seams are checked for skipped stitches where the fabric tests the machine settings.</p>
+          </article>
+          <article class="pp-block">
+            <h3>Verify wash shade, labeling, and packing</h3>
+            <p>For washed programs, shade can be compared across pieces and against the approved reference as part of the agreed plan. Main, care, and size labels, hangtags, and stickers are verified against order information, then folding, polybags, carton counts, and carton marks. Packing checks close the loop between what was approved and what ships.</p>
+          </article>
+        </div>
+        <div class="pp-slot">
+          <div class="pp-slot-frame">
+            <span>IMAGE PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section-ink" id="pp-faq" aria-labelledby="pp-faq-title">
+      <div class="pp-shell">
+        <p class="pp-kicker">12 / BUYER QUESTIONS</p>
+        <h2 id="pp-faq-title">Custom Pants Manufacturing Questions</h2>
+        <p class="pp-section-lead">Questions buyers raise before a pants program starts, answered in terms of what to specify and what to confirm per project.</p>
+        <div class="pp-faq-list">
+          {faqs.map(item => (
+            <article class="pp-faq-item">
+              <h3>{item.q}</h3>
+              <p>{item.a}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .pp-page {
+    --pp-ink: #111511;
+    --pp-dark: #151915;
+    --pp-muted: #5f675f;
+    --pp-line: #dbe0d9;
+    --pp-surface: #f5f6f2;
+    --pp-accent: #9bd63e;
+    --pp-accent-ink: #15200d;
+    background: var(--pp-surface);
+    color: var(--pp-ink);
+  }
+  .pp-page * { box-sizing: border-box; }
+  .pp-shell { width: min(1100px, calc(100% - 96px)); margin-inline: auto; }
+  .pp-hero { background: var(--pp-dark); color: #fff; padding-block: clamp(64px, 8vw, 104px); }
+  .pp-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .pp-kicker { margin: 0 0 16px; color: var(--pp-accent); font: 500 11px/1.4 var(--font-mono, monospace); letter-spacing: .1em; text-transform: uppercase; }
+  .pp-kicker-dark { color: #4d7b21; }
+  .pp-hero h1 { margin: 0; font: 600 clamp(40px, 5vw, 64px)/0.98 var(--font-display, sans-serif); letter-spacing: -0.02em; }
+  .pp-hero-lead { margin: 22px 0 0; color: #cbd2cc; font-size: 16px; line-height: 1.7; }
+  .pp-slot-hero .pp-slot-frame { aspect-ratio: 4 / 5; }
+  .pp-rail { background: var(--pp-accent); color: var(--pp-accent-ink); overflow-x: auto; }
+  .pp-rail-grid { display: grid; width: max-content; min-width: 100%; grid-template-columns: repeat(12, minmax(88px, 1fr)); }
+  .pp-rail a { display: flex; min-height: 52px; align-items: center; justify-content: center; padding: 10px 8px; border-right: 1px solid rgba(21,32,13,.18); color: inherit; font: 600 10px/1.3 var(--font-mono, monospace); letter-spacing: .04em; text-align: center; text-decoration: none; text-transform: uppercase; }
+  .pp-rail a:first-child { border-left: 1px solid rgba(21,32,13,.18); }
+  .pp-rail a:hover { background: rgba(255,255,255,.2); }
+  .pp-section { padding-block: clamp(60px, 7vw, 96px); }
+  .pp-section-light { background: #fff; }
+  .pp-section-ink { background: var(--pp-dark); color: #fff; }
+  .pp-section h2 { max-width: 780px; margin: 0; font: 600 clamp(30px, 3.8vw, 48px)/1.02 var(--font-display, sans-serif); letter-spacing: -0.015em; }
+  .pp-section-lead { max-width: 780px; margin: 16px 0 0; color: var(--pp-muted); font-size: 15.5px; line-height: 1.7; }
+  .pp-section-ink .pp-section-lead { color: #b8c0b9; }
+  .pp-blocks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; margin-top: 40px; }
+  .pp-block { min-width: 0; padding-top: 18px; border-top: 1px solid var(--pp-line); }
+  .pp-section-ink .pp-block { border-color: rgba(255,255,255,.2); }
+  .pp-block h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--font-display, sans-serif); letter-spacing: -0.01em; }
+  .pp-block p { margin: 0; color: var(--pp-muted); font-size: 14.5px; line-height: 1.65; }
+  .pp-section-ink .pp-block p { color: #b8c0b9; }
+  .pp-slot { margin-top: 34px; max-width: 640px; }
+  .pp-slot-frame { display: grid; aspect-ratio: 16 / 10; place-content: center; justify-items: center; gap: 8px; padding: 18px; border: 1px dashed #aab4aa; background: #eceee9; }
+  .pp-section-ink .pp-slot-frame { background: #202620; border-color: rgba(255,255,255,.35); }
+  .pp-slot-frame span { color: #4d7b21; font: 500 11px/1.4 var(--font-mono, monospace); letter-spacing: .12em; text-transform: uppercase; }
+  .pp-section-ink .pp-slot-frame span { color: var(--pp-accent); }
+  .pp-faq-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,.2); }
+  .pp-faq-item { padding: 20px 0 24px; border-bottom: 1px solid rgba(255,255,255,.2); }
+  .pp-faq-item h3 { margin: 0 0 10px; font: 600 20px/1.2 var(--font-display, sans-serif); letter-spacing: -0.01em; }
+  .pp-faq-item p { margin: 0; color: #b8c0b9; font-size: 14px; line-height: 1.65; }
+
+  @media (max-width: 900px) {
+    .pp-shell { width: min(100% - 40px, 680px); }
+    .pp-hero-grid { grid-template-columns: 1fr; gap: 30px; }
+    .pp-blocks { grid-template-columns: 1fr; gap: 26px; }
+    .pp-faq-list { grid-template-columns: 1fr; }
+    .pp-slot { max-width: none; }
+  }
+</style>

@@ -3,6 +3,7 @@ import ContentPage from "../components/ContentPage.astro";
 import HoodieManufacturerPage from "../components/HoodieManufacturerPage.astro";
 import JacketsManufacturerPage from "../components/JacketsManufacturerPage.astro";
 import TShirtManufacturerPage from "../components/TShirtManufacturerPage.astro";
+import PantsManufacturerPage from "../components/PantsManufacturerPage.astro";
 import { getPageManifest, getWebsitePage } from "../lib/content";
 
 export async function getStaticPaths() {
@@ -33,4 +34,6 @@ const products = productSlugs.includes(pageSlug)
     ? <TShirtManufacturerPage page={page} />
   : pageSlug === "jackets-manufacturer"
     ? <JacketsManufacturerPage page={page} />
+  : pageSlug === "pants-manufacturer"
+    ? <PantsManufacturerPage page={page} />
   : <ContentPage page={page} products={products} />}
