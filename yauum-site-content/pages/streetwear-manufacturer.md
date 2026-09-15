@@ -1,236 +1,240 @@
 # Streetwear Manufacturer
 
 - URL: https://yauum.com/streetwear-manufacturer/
-- Page title: Streetwear Manufacturer - YAUUM
+- Page title: Custom Streetwear Clothing Manufacturer - YAUUM
 - Slug: streetwear-manufacturer
 - Original HTML snapshot: ../snapshot-html/streetwear-manufacturer.html
 
 ## Current page copy
 
-### Streetwear Manufacturer Low MOQ Private Label Production
+# Custom Streetwear Clothing Manufacturer
 
-Launch your streetwear brand with a manufacturer that understands startup reality. We produce for brands shipping 50 to 50,000 units per order.
+Choosing a streetwear manufacturer starts with the product decisions behind the collection. Define the product mix, silhouette, fabric, artwork, wash, labels, and order structure before sampling. YAUUM works with private label brands, wholesalers, retailers, e-commerce sellers, and sourcing teams. Start with a tech pack, reference garment, product photos, or a clear concept.
 
-- 50-unit minimum order
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: one verified full-look streetwear collection showing coordinated tops, bottoms, and an outer layer. Use a real YAUUM project only after image ownership and publishing approval are confirmed.
 
-- 7-day sample production
+## Choose the Silhouette That Makes Your Collection Recognizable
 
-- Step-by-step QC inspection
+Streetwear is recognized first by proportion. Shoulder position, body width, length, sleeve volume, rise, and leg shape create the collection's visual language. Choose a few repeatable proportions instead of treating every item as a separate fit exercise.
 
-- Direct production team contact
+### Build the Core With Tees, Hoodies, and Sweatshirts
 
-We work with: Amazon FBA sellers / Shopify brands / 3PL / Wholesalers / POD platforms
+Custom streetwear T-shirts may follow regular, relaxed, oversized, boxy, cropped, drop-shoulder, long-sleeve, or sleeveless directions. Hoodies may be pullovers, zip-ups, graphic pieces, or washed styles. Decide which upper-body proportion connects the range so different tops still look intentional together.
 
-### Why 60% of Streetwear Brands Start With Less Than 100 Units
+### Give the Bottoms a Clear Role
 
-Ten years ago, manufacturers required 300-500 unit minimums. Entrepreneurs had to invest thousands before validating a single design. That model buried good ideas under inventory risk.
+Cargo pants, joggers, denim, wide-leg pants, track pants, and shorts create different outfits. Define rise, seat volume, thigh width, leg shape, and opening before adding decoration. For custom streetwear pants, state whether the direction is clean, utility-led, athletic, or distressed.
 
-Now the math has changed. Modular production lines, shorter setup runs, and on-demand color mixing let manufacturers absorb smaller batches without bleeding margin on setup costs. Brands can test 3-5 designs with 50-100 units each, collect real sales data, and scale only what works.
+### Add Layers and Sets Without Losing the Main Shape
 
-One brand we worked with launched with 50 tee shirts in three colorways. Eighteen months later, they reorder 300 units per drop and have expanded into hoodies and trackpants. Another started with a single hoodie drop of 75 units. That hoodie now accounts for 40% of their revenue.
+Coach, varsity, puffer, denim, and track jacket directions can add a second silhouette. Tracksuits and jersey sets must work as one outfit. Share the intended layering order because an outer piece worn over an oversized hoodie needs different allowance from one worn over a fitted base.
 
-You do not need 500 units to start a credible streetwear brand. You need a manufacturer with flexible MOQ and a commitment to quality that does not waver between 50 units and 5,000.
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified front and side views comparing an oversized tee, hoodie, cargo or wide-leg pant, and jacket or coordinated set.
 
-The barrier is no longer capital. It is finding a manufacturer you can trust to deliver consistent quality at startup quantities.
+## Match Fabric Weight, Hand Feel, and Drape to the Look
 
-### Our Factory & Monthly Production Capacity
+A useful material brief connects fiber content, structure, GSM, surface, stretch, drape, warmth, and care to the silhouette and selling season. Send a physical reference when words such as "heavy," "soft," or "vintage" could be interpreted differently.
 
-8,000 square meters near major export shipping hubs. Three production lines configured for streetwear: hoodies, tees, sweatpants, and outerwear. Each line has dedicated equipment for cutting, sewing, printing, and finishing.
+### Select the Structure for Tees and Lightweight Tops
 
-120 workers on staff. 80% on direct production, 20% on QC, logistics, and support. Annual turnover rate below 8% — meaning the people sewing your garments have been doing this for years, not weeks.
+Jersey is a common tee direction, while waffle, mesh, and other knits create different surfaces and movement. Cotton, polyester, elastane, and blends are candidate compositions. Confirm composition, weight, color, and finish with the selected material, then check its compatibility with the intended artwork.
 
-We hold OEKO-TEX Standard 100, BSCI, and WRAP certifications. Third-party auditors verify compliance annually. Request our most recent audit report when you place an inquiry.
+### Balance Body and Comfort in Hoodies and Sweatshirts
 
-#### Production Lines & Equipment
+French terry, loopback terry, fleece, and heavyweight cotton are possible hoodie and sweatshirt directions. Fabric density, softness, stretch, and structure change how a pattern hangs. Review hood weight, shoulder drop, rib behavior, and hem balance together on the sample.
 
-#### Quality Certifications
+### Choose Bottom and Outerwear Fabrics by Use
 
-OEKO-TEX Standard 100, BSCI, and WRAP — all current, all verified by third-party auditors. Audit report access is included in our standard quote package.
+Cotton twill, canvas, denim, nylon, mesh, and blends may suit different pants, shorts, jackets, and sets. State whether the priority is firm shape, movement, hand feel, texture, or layering. Performance claims require an agreed material, test method, and acceptance target.
 
-### What We Manufacture: From Hoodies to Trackpants
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified swatch group showing face, reverse, edge, and drape for jersey, French terry or fleece, twill or canvas, denim, and nylon or mesh. Include confirmed composition and GSM only when documentation is available.
 
-Core categories that define modern streetwear. Full customization available: fabric weight, color (Pantone-matched), construction details, branding placements.
+## Shape the Details: Hoods, Pockets, Panels, and Hardware
 
-Customization scope: Fabric weight, color matching (Pantone C/U), construction (pocket placement, hood shape, cuff style), labels (woven, printed, hang tags), packaging (poly bag, box, tissue paper, sticker).
+Details must be clear enough to sample, cost, sew, and check. Mark each custom component on a technical drawing or reference photo, with dimensions and placement where possible.
 
-If you need something outside these categories, ask. We manufacturer denim, woven shirts, and accessories on a case-by-case basis.
+### Set the Fit Before Adding Complexity
 
-### Fabric Selection for Streetwear: GSM, Blends & Performance
+Confirm the base size and fit-critical measurements. For tops, include chest, shoulder, body length, sleeve, armhole, cuff, and hem as needed. For bottoms, define waist, hip, rise, thigh, inseam, and opening. Supply the target size chart and grading direction.
 
-Fabric choice determines how your streetwear feels, how it prints, and how it ages. We guide every client through fabric selection because the wrong GSM or blend will cost you in returns and reviews, even if the construction is perfect.
+### Specify Hoods, Pockets, and Panel Lines
 
-### GSM Guide: When to Go Heavy, When to Stay Light
+For hoodies and jackets, show hood shape, construction, opening, drawcord position, and worn appearance. For cargo or utility pieces, define pocket purpose, opening, depth, flap, closure, and reinforcement. Map panel lines and asymmetrical cuts before finalizing artwork placement.
 
-GSM (grams per square meter) measures fabric weight. Higher GSM does not automatically mean better. It means heavier.
+### Identify Every Trim and Attachment
 
-For most streetwear brands, GSM 320-380 hits the sweet spot: heavy enough that the garment feels substantial, light enough to layer under a jacket without bulk.
+List zippers, pullers, snaps, buttons, drawcords, webbing, eyelets, patches, and badges. Provide color, finish, size, branding, and placement. Because custom hardware can affect minimums and cost, separate essential pieces from acceptable alternatives.
 
-### Cotton Blends: Tradeoffs
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified close-up set of a hood, cargo pocket, multi-panel seam, zipper or puller, drawcord, webbing, and attachment method.
 
-### Shrinkage Control
+## Make the Artwork Work: Print, Embroidery, Patches, and Labels
 
-French terry shrinks 3-5% if not pre-washed. Fleece shrinks 5-7%. Pure cotton can shrink 7-10% without proper treatment.
+Supply the artwork source file, finished dimensions, colors, position, coverage, and intended effect. Method selection depends on fabric, stretch, wash, construction, quantity, and required hand feel.
 
-Our process: All fleece, French terry, and heavy cotton fabrics go through a pre-wash cycle at 60°C before cutting. Documented shrinkage rate below 3%.
+### Choose a Print Route for the Actual Artwork
 
-### Decoration Techniques: Screen Print, DTG, Embroidery & Beyond
+Candidate directions include screen print, DTG, DTF, heat transfer, sublimation, puff, silicone, foil, reflective, flocking, and embossing. Fine detail, coverage, color count, texture, stretch, and fabric surface affect suitability. Review the chosen custom streetwear printing route on a relevant sample.
 
-Your brand lives in your graphics. We support the full range of streetwear decoration techniques and help you match the right method to your artwork, quantity, and budget.
+### Use Embroidery and Patches With Deliberate Scale
 
-### Screen Printing
+Flat or 3D embroidery, applique, chenille, chain embroidery, and patches can add texture. Define size, density, edge finish, backing, attachment, and reverse-side appearance. Large placements may change drape; small detailed marks may need simplification.
 
-Artwork: Vector files (AI, EPS). 300 DPI minimum. Screen print adds 2-3 days per color layer.
+### Finish the Product With Private Label Details
 
-#### Direct-to-Garment (DTG)
+Private label streetwear inputs may include main, size, and care labels, woven tags, hangtags, stickers, barcodes, bags, and carton marks. Provide final wording, size, material, placement, and attachment. Keep approved files connected to the correct style and size range.
 
-DTG prints directly onto fabric using inkjet technology. No screens, no setup fees, no color limitations.
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified comparison of print surfaces, embroidery or chenille, patch attachment, neck and care labels, hangtag, barcode, and individual packaging.
 
-- Full color including white ink
+## Control Washes, Fades, and Distressing Before Bulk
 
-- Minimum 30 units (economical at 50+)
+Washes and distressing introduce variation. Treat color, contrast, placement, softness, abrasion, and edge condition as approval points. The sample must show what "vintage" or "faded" means for this order.
 
-- Best on 100% cotton, 80/20 blends
+### Define the Wash or Dye Direction Visually
 
-- Good durability: 30+ washes
+Garment wash, enzyme wash, acid wash, pigment dye, tie-dye, vintage fade, and gradient effects are candidate routes. Show the preferred base color, highlights, low areas, contrast, and intensity. Confirm the process for the selected garment and material.
 
-### Embroidery & Chenille
+### Map Distressing and Raw Edges by Location
 
-### Additional Techniques
+Mark abrasion, holes, fraying, grinding, and raw edges on the garment drawing. State where variation is acceptable and where placement must stay controlled. Check how each effect meets seams, pockets, labels, artwork, and panel lines.
 
-- Sublimation (performance fabrics, polyester blends)
+### Approve a Range, Not an Impossible Identical Result
 
-- Rhinestone / sequin appliques (50-unit minimum)
+For naturally variable processes, approve appearance boundaries rather than expecting identical units. Record the accepted color direction, effect level, placement rules, and unacceptable results, then link them to the sample and specification.
 
-- Distressed / vintage wash effects (acid wash, enzyme wash, sandwash)
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified wash and finish board showing the approved target, acceptable variation, and rejected extremes for one real project.
 
-- Applique / patchwork (quote required)
+## What Will Determine the MOQ and Quote for Your Streetwear?
 
-### How We Inspect Every Batch: The QC Process Competitors Will Not Show You
+MOQ and price depend on the specification. A blank-based print order, custom cut-and-sew garment, and multi-style private label collection require different materials, setups, and approvals. YAUUM confirms commercial terms for the actual project.
 
-Most manufacturers skip this section entirely. They claim quality. We show you exactly how we verify it.
+### Show the Real Order Breakdown
 
-Quality control is not a single checkpoint. It is a continuous process from raw fabric to finished package
+List total quantity and the split by style, color, size, and artwork version. Show whether pieces share a fabric, trim package, or label system. Do not group unrelated products under one quantity.
 
-#### Pre-Production Inspection
+### Identify the Choices That Affect Cost and Minimums
 
-Before a single garment is cut, we inspect the fabric:
+Custom fabric, color, wash, hardware, artwork positions, embroidery area, patches, labels, packing, and variant count may affect the quote. Mark the non-negotiable brand details and acceptable alternatives so pricing can compare workable options.
 
-- Fabric roll inspection: Each roll checked for defects, shade consistency, GSM verification
+### Ask for a Project-Specific Quote
 
-- Shade comparison: Fabric shade compared against your approved color standard. Shade variance tolerance: Delta E less than 1.5
+Send references or a tech pack, material direction, colors, sizes, quantity split, artwork, wash, trims, labels, packing, destination, and target timing. Confirm the quoted scope, MOQ, sample cost, revision terms, and estimated production timing.
 
-- Shrinkage test: 10cm x 10cm swatch washed and measured. Above 3% triggers rejection
+## Approve the Fit, Finish, and Artwork Before Bulk Production
 
-- GSM verification: Fabric weight measured. If deviates more than 5% from spec, we halt and consult you
+The sample makes the collection measurable. Review it on the intended wearer and with the proposed styling, using the current tech pack, artwork, material reference, and comments. Resolve open points before approval.
 
-#### Mid-Production Quality Checks
+### Review Proportion Across the Outfit
 
-If defect rate exceeds 3% at any checkpoint, production halts. Root cause is investigated, corrected, and verified before resume.
+Check the garment alone and with related pieces. Review shoulder, body, sleeve, rise, leg volume, length, and layering space. Record the sample size and agreed measurements. Compare connected styles side by side.
 
-#### Final Inspection
+### Check Surface, Wash, Artwork, and Trims Together
 
-Every garment undergoes final inspection using AQL 2.5 standard:
+Review fabric hand, drape, color, wash, artwork size and position, embroidery or patches, labels, and hardware on one sample. Record linked changes: a new fabric alters drape, while a moved pocket may shift artwork.
 
-- Seam integrity: All seams lie flat, no skipped stitches, no loose threads
+### Turn Comments Into One Approved Reference
 
-- Thread length: No thread ends exceeding 5mm
+Use dated comments with a measurement, location, photo, or file reference. Confirm which changes require another review. Once both sides approve the sample and current specification, they become the bulk reference. Sample terms remain project-specific.
 
-- Print quality: No ink bleeding, registration within 2mm tolerance
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified sample-review scene with garment measurements, annotated comments, artwork placement, trims, and an identifiable approved specification version.
 
-- Dimensions: Within 2cm of spec
+## From Approved Sample to Packed Streetwear: What Happens Next?
 
-- Visual: No contamination, clean finishing
+Bulk production carries the approved product definition through materials, cutting, sewing, decoration, finishing, checking, and packing. First confirm that the order, sample, tech pack, artwork, labels, and packing instructions show the same version.
 
-- Packaging: Correct labels, correct size tags
+### Prepare Materials and Production References
 
-Documented defect rate across all 2024 orders. If batch exceeds 2%, the entire batch is reworked and re-inspected.
+Match materials, colors, trims, artwork, labels, sizes, and quantities to the order. Resolve substitutions and open points before production. Keep the approved measurement and appearance references available at the relevant stage.
 
-We include a QC report with every shipment: inspection photos, defect count, and a statement of compliance.
+### Follow the Garment Through the Main Stages
 
-### Communication During Production: When You Will Hear From Us
+The workflow covers material confirmation, sampling, approval, bulk production, checking, folding, packing, and shipment preparation. Sequence varies by product because some artwork or wash routes occur before later assembly or finishing.
 
-“I’ve dealt with 15-25 different manufacturers, locally and globally.” Communication is not a nice-to-have. It is the difference between a smooth production run and a disaster you discover at customs.
+### Request Records That Support a Decision
 
-### Update Cadence
+Buyers can request stage photos, measurement information, packing details, or related documents. Agree the record, timing, and order requirement in advance. Labelled evidence from the relevant stage is more useful than unstructured photos.
 
-Your contact: Production coordinator assigned to your order. Not a sales rep. The person who can answer “where is my order right now” with actual knowledge.
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified sequence showing material preparation, cutting, sewing, decoration or wash, finishing, folding, and packing for the same streetwear project.
 
-Response time: We respond to all inquiries within 24 hours during business days.
+## What Gets Checked Before Your Streetwear Ships?
 
-### What Happens If There Is a Problem
+Checks follow the approved sample and order specification. Define important measurements, appearance points, working parts, quantities, labels, and packing details before production. Agree any formal inspection method, tolerance, test, or report separately.
 
-We tell you before you find out.
+### Check Measurements and Workmanship
 
-If our QC team identifies a defect rate issue, material problem, or timeline risk, you receive a direct call within 4 hours of identification.
+Measure fit-critical points in the agreed sizes. Review seams, skipped stitches, loose threads, puckering, symmetry, panel alignment, pockets, and stressed areas. Use the approved specification, not an early development file.
 
-- Production supervisor identifies issue
+### Compare Color, Finish, Artwork, and Branding
 
-- QC manager assesses severity
+Compare fabric shade, surface, wash, print, embroidery, patches, labels, trims, and placement with approved references. Use the accepted range for variable finishes and check each artwork version in multi-graphic orders.
 
-- Buyer contacted within 4 hours with photos, options
+### Verify Quantities and Packing Identity
 
-- Resolution executed upon your approval
+Match unit count and size or color assortment to the order. Confirm folding, bags, hangtags, stickers, barcodes, carton quantities, and carton marks. Supply any agreed inspection or packing information before handoff.
 
-### Production Timeline & Shipping: From Order to Port
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified measurement check, workmanship close-up, artwork and label comparison, size assortment, packed units, and carton-mark review.
 
-Most manufacturers quote 20 days and deliver in 30. We quote 21 days for bulk and typically ship on day 19. Here is how we build a realistic timeline.
+## Questions Buyers Ask Before Ordering Custom Streetwear
 
-### Sample Lead Time
+### What Products Can We Discuss With a Custom Streetwear Manufacturer?
 
-Total: 7-10 days to your door
+The current product directions include tees, hoodies, sweatshirts, cargo pants, joggers, denim, wide-leg pants, shorts, jackets, tracksuits, and jersey sets. These are inquiry and sampling directions, not a stock catalog. Send the intended product mix so the actual styles, materials, and processes can be reviewed.
 
-### Shipping Methods
+### Can We Start From a Photo or Reference Garment?
 
-Peak season (October-January): Add 3-5 days. Book 30+ days before target delivery.
+Yes. A photo, sketch, physical reference, or early tech pack can start the discussion. Add the changes you want, target measurements, material direction, artwork, quantity, labels, and packing. The final production reference must be defined and approved through the project workflow.
 
-We handle customs documentation for all exports.
+### Which Fabric and GSM Should We Choose?
 
-### Bulk Production Lead Time
+Start with the garment, silhouette, season, hand feel, drape, warmth, stretch, wash, artwork, and care expectations. Then compare candidate materials by composition, structure, weight, surface, and color. Confirm the actual fabric and GSM during development rather than choosing from an unverified generic range.
 
-Total: 21 days from deposit to port departure
+### Can We Add Special Washes or Decoration?
 
-We build in a 5-day buffer for fabric shade matching, decoration approval, and unexpected quality holds.
+Send the required visual effect, location, dimensions, colors, material, and quantity. Washes, specialty prints, embroidery, patches, distressing, and hardware are reviewed by project because availability, method, minimums, price, and appearance can change with the product specification.
 
-### Your Designs Are Protected: Our Confidentiality Commitment
+### What Is the MOQ and How Long Will Sampling Take?
 
-Your graphics are your brand. We treat them as confidential assets, not production inputs.
+Both are confirmed for the specific order. Product type, fabric, custom color, size and color split, decoration, wash, trims, labels, packing, and revisions can affect the answer. A complete brief is the fastest route to a useful MOQ, sample plan, quotation, and timeline.
 
-### NDA Policy
+### Can We Add Our Own Labels and Packaging?
 
-We do not require NDAs to begin working together, but we will sign your NDA upon request before you share any artwork or design files. We have worked with NDA agreements from most major brands’ legal templates.
+The published private label workflow includes main or neck labels, size and care labels, hangtags, stickers, barcodes, packaging bags, and carton marks. Supply the files, wording, dimensions, material, placement, packing method, and destination requirements for review.
 
-### Confidentiality Procedures
+## Send Your Streetwear Brief and Start the First Sample
 
-- Artwork files stored on dedicated server with restricted access. Only production staff with direct need can access your files.
+The strongest first message is specific enough to reveal what still needs a decision. Send your product concept and separate confirmed requirements from open options. YAUUM can then review the brief and define the next project-specific steps.
 
-- Production files deleted from our systems 90 days after order completion, unless you request immediate deletion.
+### Include These Inputs
 
-- We do not use client artwork, designs, or product photos in marketing without explicit written consent.
+- Product types and the role of each style in the collection
+- Tech packs, sketches, photos, or physical reference garments
+- Target fit, base size, size range, and key measurements
+- Fabric composition, structure, GSM, color, hand feel, and wash direction
+- Artwork files, finished dimensions, colors, placements, and intended methods
+- Hoods, pockets, panels, zippers, drawcords, webbing, patches, and hardware
+- Main, size, and care labels; hangtags; barcodes; packaging; and carton marks
+- Quantity split by style, color, size, and artwork version
+- Delivery destination, target timing, and any required project records
 
-- Production samples not retained or displayed without buyer approval.
+Mark which decisions are fixed and where you want alternatives. This gives the quotation and first sample a clear purpose: resolve the product, commercial, and approval questions that stand between the concept and a controlled bulk order.
 
-In the rare event of a design leak from our systems, we commit to immediate notification, full investigation, and a remediation plan that may include financial compensation for verified damages.
-
-### Frequently Asked Questions
-
-Standard MOQ is 50 units per design for most categories. For multi-color orders, the per-color minimum applies (50 units per color).
-
-Yes. Every order includes a sample as a separate line item. Timeline is 7-10 days. Fees range from $60-180 depending on complexity. 80% of your sample fee is credited toward bulk orders of 200+ units.
-
-If your bulk order does not match the approved sample standard, we rework the entire batch at our cost. We keep your approved sample on file. Before shipping, every unit is checked against the sample spec.
-
-We provide OEKO-TEX, BSCI, and WRAP certificates with current audit dates. We can arrange a video walkthrough of our facility before you place an order. We also accept third-party inspection companies (SGS, Bureau Veritas) for pre-shipment inspection at your cost.
-
-Photos and written updates at each milestone: cutting, sewing start, decoration, final inspection, and shipping. Your production coordinator is your direct contact and responds within 24 hours. If a problem arises, we call you directly.
-
-Sample: 7-10 days. Bulk: 21 days from deposit to port departure. Express shipping adds 3-5 days. Sea freight adds 25-35 days. We build in a 5-day buffer. Peak season (Oct-Jan) adds 3-5 days.
-
-Bulk orders: T/T, Wise, L/C (for orders $10,000+). Samples: PayPal, credit card. Payment schedule: 30% deposit, 40% at production start, 30% before shipping.
-
-Artwork files stored on restricted-access servers and deleted 90 days after order completion. We sign NDAs upon request. We do not use client designs or photos in marketing without written consent.
-
-Monthly capacity is 45,000 units across all product categories. We have produced orders from 50 units to 10,000+ units for the same brand. The production process scales; the quality standard does not change.
-
-Screen printing is most cost-effective at 100+ units per color. DTG is best for photographic artwork at 50+ units. Embroidery communicates premium positioning. Puff/3D print creates signature streetwear dimensional effect. We guide technique selection based on your artwork, quantity, and budget.
-
-**Button:** Get Your Sample Quote
+> **IMAGE PLACEHOLDER - needs_company_confirmation**
+>
+> Required image: verified streetwear project brief laid out with a tech pack, approved sample, swatches, artwork, trims, labels, and packing reference.

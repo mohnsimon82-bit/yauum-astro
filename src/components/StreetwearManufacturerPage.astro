@@ -1,0 +1,393 @@
+---
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { marked } from "marked";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { WebsitePage } from "../lib/content";
+
+interface Props {
+  page: WebsitePage;
+}
+
+type ContentItem = {
+  title: string;
+  html: string;
+};
+
+type ContentSection = {
+  id: string;
+  number: string;
+  rail: string;
+  title: string;
+  leadHtml: string;
+  items: ContentItem[];
+  mediaDetail?: string;
+  tone: "light" | "ink";
+};
+
+const { page } = Astro.props;
+const sourcePath = path.resolve(process.cwd(), "yauum-site-content/pages/streetwear-manufacturer.md");
+const source = await readFile(sourcePath, "utf8");
+const markdown = source.split(/\n## Current page copy\s*\n/i)[1]?.trim() ?? source.trim();
+const tokens = marked.lexer(markdown);
+const railLabels = ["Silhouette", "Fabric", "Details", "Artwork", "Washes", "MOQ", "Sample", "Production", "Quality", "FAQ", "Brief"];
+
+let heroTitle = "Custom Streetwear Clothing Manufacturer";
+let heroHtml = "";
+let heroMediaDetail = "Verified coordinated streetwear range from one approved project.";
+const sections: ContentSection[] = [];
+let currentSection: ContentSection | undefined;
+let currentItem: ContentItem | undefined;
+
+function placeholderDetail(text: string) {
+  return text
+    .replace(/\*\*/g, "")
+    .replace(/^IMAGE PLACEHOLDER\s*-\s*needs_company_confirmation\s*/i, "")
+    .replace(/^Required image:\s*/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+for (const token of tokens) {
+  if (token.type === "heading") {
+    if (token.depth === 1) {
+      heroTitle = token.text;
+      currentSection = undefined;
+      currentItem = undefined;
+      continue;
+    }
+
+    if (token.depth === 2) {
+      const index = sections.length;
+      const rail = railLabels[index] ?? `Section ${index + 1}`;
+      currentSection = {
+        id: `streetwear-${rail.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+        number: String(index + 1).padStart(2, "0"),
+        rail,
+        title: token.text,
+        leadHtml: "",
+        items: [],
+        tone: index % 2 === 0 ? "light" : "ink",
+      };
+      sections.push(currentSection);
+      currentItem = undefined;
+      continue;
+    }
+
+    if (token.depth === 3 && currentSection) {
+      currentItem = { title: token.text, html: "" };
+      currentSection.items.push(currentItem);
+      continue;
+    }
+  }
+
+  if (token.type === "blockquote") {
+    const detail = placeholderDetail(token.text);
+    if (currentSection) currentSection.mediaDetail = detail;
+    else heroMediaDetail = detail;
+    continue;
+  }
+
+  if (token.type === "space") continue;
+  const html = await marked.parse(token.raw);
+  if (currentItem) currentItem.html += html;
+  else if (currentSection) currentSection.leadHtml += html;
+  else heroHtml += html;
+}
+---
+
+<BaseLayout
+  title="Custom Streetwear Clothing Manufacturer | YAUUM"
+  description="Plan custom streetwear clothing around silhouettes, fabrics, details, artwork, washes, MOQ, sampling, production, quality checks, labels, and packing."
+  canonical={page.url}
+>
+  <div class="sw-page">
+    <section class="sw-hero" aria-labelledby="sw-title">
+      <div class="sw-shell sw-hero-grid">
+        <div class="sw-hero-copy">
+          <p class="sw-kicker">B2B / PRIVATE LABEL / SAMPLE-FIRST</p>
+          <h1 id="sw-title">{heroTitle}</h1>
+          <div class="sw-hero-intro" set:html={heroHtml} />
+          <div class="sw-actions">
+            <a class="sw-button" href="/contact-us/">Start your streetwear project</a>
+            <a class="sw-text-link" href="#streetwear-silhouette">Choose the silhouette</a>
+          </div>
+          <div class="sw-signals" aria-label="Streetwear project priorities">
+            <span><strong>01</strong> Product direction</span>
+            <span><strong>02</strong> Sample approval</span>
+            <span><strong>03</strong> Bulk reference</span>
+          </div>
+        </div>
+        <div class="sw-placeholder sw-placeholder-hero" role="img" aria-label={heroMediaDetail}>
+          <span>IMAGE PLACEHOLDER</span>
+          <strong>Coordinated streetwear collection</strong>
+          <small>{heroMediaDetail}</small>
+        </div>
+      </div>
+    </section>
+
+    <nav class="sw-rail" aria-label="Streetwear page sections">
+      <div class="sw-rail-inner">
+        {sections.map(section => <a href={`#${section.id}`}><span>{section.number}</span>{section.rail}</a>)}
+      </div>
+    </nav>
+
+    {sections.map(section => (
+      <section class:list={["sw-section", `sw-section-${section.tone}`]} id={section.id} aria-labelledby={`${section.id}-title`}>
+        <div class="sw-shell">
+          <div class="sw-section-grid">
+            <header class="sw-section-heading">
+              <p class="sw-kicker">{section.number} / {section.rail}</p>
+              <h2 id={`${section.id}-title`}>{section.title}</h2>
+              <div class="sw-section-lead" set:html={section.leadHtml} />
+            </header>
+            <div class="sw-items">
+              {section.items.map((item, index) => (
+                <article class="sw-item">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{item.title}</h3>
+                  <div class="sw-item-copy" set:html={item.html} />
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {section.mediaDetail && (
+            <div class="sw-placeholder" role="img" aria-label={section.mediaDetail}>
+              <span>IMAGE PLACEHOLDER</span>
+              <strong>{section.rail} reference</strong>
+              <small>{section.mediaDetail}</small>
+            </div>
+          )}
+
+          {section.rail === "Brief" && (
+            <div class="sw-final-action">
+              <p>Bring the product decisions for your first sample into one brief.</p>
+              <a class="sw-button" href="/contact-us/">Send your streetwear brief</a>
+            </div>
+          )}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .sw-page {
+    --sw-ink: #151515;
+    --sw-paper: #f4f5f2;
+    --sw-white: #ffffff;
+    --sw-muted: #616660;
+    --sw-line: #d8dcd6;
+    --sw-accent: #c9ff32;
+    --sw-signal: #ff5b3d;
+    --sw-blue: #72c9e8;
+    overflow: clip;
+    background: var(--sw-paper);
+    color: var(--sw-ink);
+  }
+
+  .sw-page * { box-sizing: border-box; }
+  .sw-shell { width: min(1160px, calc(100% - 96px)); margin-inline: auto; }
+
+  .sw-hero {
+    min-height: 660px;
+    padding: 76px 0 62px;
+    background: var(--sw-ink);
+    color: var(--sw-white);
+  }
+
+  .sw-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.16fr) minmax(320px, .84fr);
+    gap: 64px;
+    align-items: center;
+  }
+
+  .sw-kicker {
+    margin: 0 0 16px;
+    color: #557000;
+    font: 750 11px/1.4 var(--font-mono, monospace);
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .sw-hero .sw-kicker,
+  .sw-section-ink .sw-kicker { color: var(--sw-accent); }
+
+  .sw-hero h1 {
+    max-width: 760px;
+    margin: 0;
+    font: 680 66px/.98 var(--font-display, sans-serif);
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .sw-hero-intro :global(p) {
+    max-width: 720px;
+    margin: 26px 0 0;
+    color: #c9cfca;
+    font-size: 16px;
+    line-height: 1.72;
+  }
+
+  .sw-actions { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-top: 28px; }
+  .sw-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 20px;
+    border: 1px solid var(--sw-accent);
+    border-radius: 4px;
+    background: var(--sw-accent);
+    color: #182100;
+    font-size: 13px;
+    font-weight: 780;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+  .sw-button:hover,
+  .sw-button:focus-visible { background: #dcff78; border-color: #dcff78; }
+  .sw-text-link { color: #fff; font-size: 13px; text-underline-offset: 5px; }
+  .sw-text-link:hover,
+  .sw-text-link:focus-visible { color: var(--sw-accent); }
+
+  .sw-signals {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 720px;
+    margin-top: 34px;
+    border-block: 1px solid #3a3a3a;
+  }
+  .sw-signals span { padding: 14px 12px 14px 0; color: #b7bcb7; font-size: 11px; line-height: 1.35; }
+  .sw-signals strong { display: block; margin-bottom: 5px; color: var(--sw-signal); font-family: var(--font-mono, monospace); }
+
+  .sw-placeholder {
+    position: relative;
+    display: grid;
+    min-height: 280px;
+    margin-top: 48px;
+    place-content: center;
+    justify-items: center;
+    gap: 10px;
+    padding: 36px;
+    border: 1px dashed #8c948c;
+    border-radius: 4px;
+    background: #eaede8;
+    text-align: center;
+  }
+  .sw-placeholder::before {
+    position: absolute;
+    inset: 14px auto auto 14px;
+    width: 34px;
+    height: 5px;
+    background: var(--sw-signal);
+    content: "";
+  }
+  .sw-placeholder-hero { min-height: 520px; margin-top: 0; background: #202020; border-color: #5d625d; }
+  .sw-placeholder span { color: #506600; font: 750 10px/1.4 var(--font-mono, monospace); }
+  .sw-placeholder strong { max-width: 560px; font: 680 24px/1.15 var(--font-display, sans-serif); letter-spacing: 0; }
+  .sw-placeholder small { max-width: 640px; color: #656d65; font-size: 12px; line-height: 1.6; }
+  .sw-placeholder-hero span { color: var(--sw-accent); }
+  .sw-placeholder-hero strong { color: #fff; font-size: 30px; }
+  .sw-placeholder-hero small { color: #adb4ad; }
+
+  .sw-rail { overflow-x: auto; background: var(--sw-accent); color: #172000; }
+  .sw-rail-inner { display: grid; width: max-content; min-width: 100%; grid-template-columns: repeat(11, minmax(106px, 1fr)); }
+  .sw-rail a {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px;
+    border-right: 1px solid rgba(23, 32, 0, .2);
+    color: inherit;
+    font: 760 10px/1.2 var(--font-mono, monospace);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .sw-rail a:hover,
+  .sw-rail a:focus-visible { background: #e2ff92; }
+  .sw-rail a span { color: #5d711b; }
+
+  .sw-section { padding: 84px 0; scroll-margin-top: 20px; }
+  .sw-section-light { background: var(--sw-white); }
+  .sw-section-ink { background: var(--sw-ink); color: var(--sw-white); }
+  .sw-section-grid { display: grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); gap: 76px; align-items: start; }
+  .sw-section-heading h2 {
+    max-width: 540px;
+    margin: 0;
+    font: 680 43px/1.05 var(--font-display, sans-serif);
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+  .sw-section-lead :global(p) {
+    max-width: 540px;
+    margin: 18px 0 0;
+    color: var(--sw-muted);
+    font-size: 15px;
+    line-height: 1.72;
+  }
+  .sw-section-ink .sw-section-lead :global(p) { color: #adb4ad; }
+
+  .sw-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 34px; border-top: 1px solid var(--sw-line); }
+  .sw-section-ink .sw-items { border-color: #3a3a3a; }
+  .sw-item { min-width: 0; padding: 22px 0 27px; border-bottom: 1px solid var(--sw-line); }
+  .sw-section-ink .sw-item { border-color: #3a3a3a; }
+  .sw-item > span { display: block; margin-bottom: 12px; color: var(--sw-signal); font: 750 10px/1.2 var(--font-mono, monospace); }
+  .sw-item h3 { margin: 0; font: 680 21px/1.2 var(--font-display, sans-serif); letter-spacing: 0; overflow-wrap: anywhere; }
+  .sw-item-copy :global(p) { margin: 12px 0 0; color: var(--sw-muted); font-size: 14px; line-height: 1.7; }
+  .sw-section-ink .sw-item-copy :global(p) { color: #adb4ad; }
+  .sw-item-copy :global(ul) { margin: 16px 0 0; padding: 0; list-style: none; }
+  .sw-item-copy :global(li) { position: relative; padding: 8px 0 8px 20px; border-bottom: 1px solid var(--sw-line); color: var(--sw-muted); font-size: 13px; line-height: 1.55; }
+  .sw-item-copy :global(li::before) { position: absolute; left: 0; top: 15px; width: 7px; height: 7px; background: var(--sw-signal); content: ""; }
+  .sw-section-ink .sw-item-copy :global(li) { border-color: #3a3a3a; color: #adb4ad; }
+
+  .sw-section-ink .sw-placeholder { background: #202020; border-color: #5d625d; }
+  .sw-section-ink .sw-placeholder span { color: var(--sw-accent); }
+  .sw-section-ink .sw-placeholder strong { color: #fff; }
+  .sw-section-ink .sw-placeholder small { color: #adb4ad; }
+
+  .sw-final-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 34px;
+    padding: 28px;
+    border: 1px solid #3a3a3a;
+    border-left: 6px solid var(--sw-blue);
+  }
+  .sw-final-action p { max-width: 580px; margin: 0; color: #e0e4e0; font-size: 17px; line-height: 1.5; }
+
+  @media (max-width: 920px) {
+    .sw-shell { width: min(100% - 40px, 720px); }
+    .sw-hero { min-height: 0; padding: 56px 0 48px; }
+    .sw-hero-grid,
+    .sw-section-grid { grid-template-columns: 1fr; gap: 38px; }
+    .sw-hero h1 { font-size: 48px; }
+    .sw-placeholder-hero { min-height: 390px; }
+    .sw-section { padding: 66px 0; }
+    .sw-section-heading h2 { font-size: 35px; }
+  }
+
+  @media (max-width: 620px) {
+    .sw-shell { width: calc(100% - 32px); }
+    .sw-hero { padding: 34px 0 26px; }
+    .sw-hero-grid { gap: 24px; }
+    .sw-hero h1 { font-size: 38px; line-height: 1.03; }
+    .sw-hero-intro :global(p) { margin-top: 18px; font-size: 14px; line-height: 1.58; }
+    .sw-actions { margin-top: 20px; }
+    .sw-signals { display: none; }
+    .sw-items { grid-template-columns: 1fr; }
+    .sw-placeholder { min-height: 230px; padding: 28px 18px; }
+    .sw-placeholder-hero { min-height: 220px; }
+    .sw-placeholder strong { font-size: 21px; }
+    .sw-placeholder-hero strong { font-size: 23px; }
+    .sw-placeholder-hero small { font-size: 10px; line-height: 1.45; }
+    .sw-final-action { align-items: flex-start; flex-direction: column; padding: 22px; }
+    .sw-button { width: 100%; }
+  }
+</style>
