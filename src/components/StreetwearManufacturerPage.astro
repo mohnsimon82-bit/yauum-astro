@@ -14,14 +14,23 @@ type ContentItem = {
   html: string;
 };
 
+type ContentLink = {
+  label: string;
+  href: string;
+};
+
 type ContentSection = {
   id: string;
+  aliases?: string[];
   number: string;
   rail: string;
   title: string;
   leadHtml: string;
   items: ContentItem[];
   mediaDetail?: string;
+  cta?: ContentLink;
+  textCta?: ContentLink;
+  formFields?: string[];
   tone: "light" | "ink";
 };
 
@@ -30,11 +39,58 @@ const sourcePath = path.resolve(process.cwd(), "yauum-site-content/pages/streetw
 const source = await readFile(sourcePath, "utf8");
 const markdown = source.split(/\n## Current page copy\s*\n/i)[1]?.trim() ?? source.trim();
 const tokens = marked.lexer(markdown);
-const railLabels = ["Silhouette", "Fabric", "Details", "Artwork", "Washes", "MOQ", "Sample", "Production", "Quality", "FAQ", "Brief"];
+const sectionDefinitions = [
+  { id: "buyer-fit", rail: "Buyer fit" },
+  { id: "streetwear-styles", rail: "Styles" },
+  { id: "fabric", rail: "Fabric" },
+  { id: "custom-manufacturing", rail: "Details" },
+  { id: "printing-embroidery", rail: "Artwork" },
+  { id: "private-label", rail: "Private label" },
+  { id: "washes-finishes", rail: "Washes" },
+  { id: "moq", rail: "MOQ", aliases: ["wholesale-bulk"] },
+  { id: "sampling", rail: "Sampling" },
+  { id: "production", rail: "Production" },
+  { id: "quality", rail: "Quality" },
+  { id: "factory-evidence", rail: "Factory" },
+  { id: "faq", rail: "FAQ" },
+  { id: "inquiry", rail: "Inquiry" },
+];
 
-let heroTitle = "Custom Streetwear Clothing Manufacturer";
+const factoryEvidence = [
+  {
+    src: "/uploads/factory/factory-pattern.jpg",
+    alt: "Pattern pieces and work surfaces in a pattern preparation setting",
+    width: 2000,
+    height: 1500,
+    copy: "YAUUM limits the caption to the visible pattern pieces and work surfaces. This image is not identified as a specific streetwear order.",
+  },
+  {
+    src: "/uploads/factory/factory-cutting.jpg",
+    alt: "Fabric cutting equipment and the surrounding work area",
+    width: 2400,
+    height: 1600,
+    copy: "YAUUM limits this view to the visible cutting equipment and surrounding work area, without attaching output or buyer-specific claims.",
+  },
+  {
+    src: "/uploads/factory/factory-sewing-line-detail.jpg",
+    alt: "Sewing equipment and a visible workstation",
+    width: 2400,
+    height: 1600,
+    copy: "YAUUM presents this as a sewing workstation, not as proof that a listed streetwear style or candidate process is currently in production.",
+  },
+  {
+    src: "/uploads/factory/factory-packout.jpg",
+    alt: "Visible packing and pack-out work area",
+    width: 2400,
+    height: 1798,
+    copy: "YAUUM keeps the caption to observable objects in the pack-out area and does not describe the image as inspection evidence or shipment approval.",
+  },
+];
+
+let heroTitle = "Streetwear Manufacturer for Custom and Private Label Brands";
 let heroHtml = "";
 let heroMediaDetail = "Verified coordinated streetwear range from one approved project.";
+let heroCta: ContentLink = { label: "Send Your Streetwear Brief", href: "/contact-us/" };
 const sections: ContentSection[] = [];
 let currentSection: ContentSection | undefined;
 let currentItem: ContentItem | undefined;
@@ -59,11 +115,15 @@ for (const token of tokens) {
 
     if (token.depth === 2) {
       const index = sections.length;
-      const rail = railLabels[index] ?? `Section ${index + 1}`;
+      const definition = sectionDefinitions[index] ?? {
+        id: `section-${index + 1}`,
+        rail: `Section ${index + 1}`,
+      };
       currentSection = {
-        id: `streetwear-${rail.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+        id: definition.id,
+        aliases: "aliases" in definition ? definition.aliases : undefined,
         number: String(index + 1).padStart(2, "0"),
-        rail,
+        rail: definition.rail,
         title: token.text,
         leadHtml: "",
         items: [],
@@ -79,6 +139,30 @@ for (const token of tokens) {
       currentSection.items.push(currentItem);
       continue;
     }
+  }
+
+  if (token.type === "html" && /^(?:<a id="[^"]+"><\/a>\s*)+$/i.test(token.raw.trim())) {
+    continue;
+  }
+
+  const raw = token.raw.trim();
+  const action = raw.match(/^(CTA|Text CTA):\s*\[([^\]]+)\]\(([^)]+)\)$/i);
+  if (action) {
+    const link = { label: action[2], href: action[3] };
+    if (!currentSection) heroCta = link;
+    else if (action[1].toLowerCase().startsWith("text")) currentSection.textCta = link;
+    else currentSection.cta = link;
+    continue;
+  }
+
+  const formFields = raw.match(/^Final form fields:\s*(.+)$/i);
+  if (formFields && currentSection) {
+    currentSection.formFields = formFields[1].split(";").map(field => field.trim()).filter(Boolean);
+    continue;
+  }
+
+  if (/^Image-use rule:/i.test(raw) && currentSection) {
+    continue;
   }
 
   if (token.type === "blockquote") {
@@ -97,9 +181,9 @@ for (const token of tokens) {
 ---
 
 <BaseLayout
-  title="Custom Streetwear Clothing Manufacturer | YAUUM"
-  description="Plan custom streetwear clothing around silhouettes, fabrics, details, artwork, washes, MOQ, sampling, production, quality checks, labels, and packing."
-  canonical={page.url}
+  title="Streetwear Manufacturer for Private Label Brands | YAUUM"
+  description="Work with YAUUM on custom streetwear development, sampling, private labels, artwork, washes, production review, quality checks, and packing."
+  canonical="https://yauum.com/streetwear-manufacturer/"
 >
   <div class="sw-page">
     <section class="sw-hero" aria-labelledby="sw-title">
@@ -109,8 +193,7 @@ for (const token of tokens) {
           <h1 id="sw-title">{heroTitle}</h1>
           <div class="sw-hero-intro" set:html={heroHtml} />
           <div class="sw-actions">
-            <a class="sw-button" href="/contact-us/">Start your streetwear project</a>
-            <a class="sw-text-link" href="#streetwear-silhouette">Choose the silhouette</a>
+            <a class="sw-button" href={heroCta.href}>{heroCta.label}</a>
           </div>
           <div class="sw-signals" aria-label="Streetwear project priorities">
             <span><strong>01</strong> Product direction</span>
@@ -134,6 +217,7 @@ for (const token of tokens) {
 
     {sections.map(section => (
       <section class:list={["sw-section", `sw-section-${section.tone}`]} id={section.id} aria-labelledby={`${section.id}-title`}>
+        {section.aliases?.map(alias => <span class="sw-anchor-alias" id={alias} aria-hidden="true"></span>)}
         <div class="sw-shell">
           <div class="sw-section-grid">
             <header class="sw-section-heading">
@@ -141,15 +225,30 @@ for (const token of tokens) {
               <h2 id={`${section.id}-title`}>{section.title}</h2>
               <div class="sw-section-lead" set:html={section.leadHtml} />
             </header>
-            <div class="sw-items">
-              {section.items.map((item, index) => (
-                <article class="sw-item">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{item.title}</h3>
-                  <div class="sw-item-copy" set:html={item.html} />
-                </article>
-              ))}
-            </div>
+            {section.id === "factory-evidence" ? (
+              <div class="sw-factory-grid">
+                {factoryEvidence.map((image, index) => (
+                  <article class="sw-factory-card">
+                    <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" />
+                    <div>
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <h3>{section.items[index]?.title}</h3>
+                      <p>{image.copy}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div class="sw-items">
+                {section.items.map((item, index) => (
+                  <article class="sw-item">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <h3>{item.title}</h3>
+                    <div class="sw-item-copy" set:html={item.html} />
+                  </article>
+                ))}
+              </div>
+            )}
           </div>
 
           {section.mediaDetail && (
@@ -160,10 +259,30 @@ for (const token of tokens) {
             </div>
           )}
 
-          {section.rail === "Brief" && (
+          {section.cta && section.id !== "inquiry" && (
+            <div class="sw-section-action">
+              <a class="sw-button" href={section.cta.href}>{section.cta.label}</a>
+            </div>
+          )}
+
+          {section.textCta && (
+            <div class="sw-section-action sw-section-action-text">
+              <a class="sw-text-link" href={section.textCta.href}>{section.textCta.label}</a>
+            </div>
+          )}
+
+          {section.formFields && (
+            <div class="sw-form-fields" aria-label="Streetwear project brief fields">
+              {section.formFields.map((field, index) => (
+                <span><strong>{String(index + 1).padStart(2, "0")}</strong>{field}</span>
+              ))}
+            </div>
+          )}
+
+          {section.id === "inquiry" && section.cta && (
             <div class="sw-final-action">
               <p>Bring the product decisions for your first sample into one brief.</p>
-              <a class="sw-button" href="/contact-us/">Send your streetwear brief</a>
+              <a class="sw-button" href={section.cta.href}>{section.cta.label}</a>
             </div>
           )}
         </div>
@@ -294,7 +413,7 @@ for (const token of tokens) {
   .sw-placeholder-hero small { color: #adb4ad; }
 
   .sw-rail { overflow-x: auto; background: var(--sw-accent); color: #172000; }
-  .sw-rail-inner { display: grid; width: max-content; min-width: 100%; grid-template-columns: repeat(11, minmax(106px, 1fr)); }
+  .sw-rail-inner { display: grid; width: max-content; min-width: 100%; grid-template-columns: repeat(14, minmax(106px, 1fr)); }
   .sw-rail a {
     display: flex;
     min-height: 58px;
@@ -312,7 +431,8 @@ for (const token of tokens) {
   .sw-rail a:focus-visible { background: #e2ff92; }
   .sw-rail a span { color: #5d711b; }
 
-  .sw-section { padding: 84px 0; scroll-margin-top: 20px; }
+  .sw-section { position: relative; padding: 84px 0; scroll-margin-top: 20px; }
+  .sw-anchor-alias { position: absolute; inset: 0 auto auto 0; }
   .sw-section-light { background: var(--sw-white); }
   .sw-section-ink { background: var(--sw-ink); color: var(--sw-white); }
   .sw-section-grid { display: grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); gap: 76px; align-items: start; }
@@ -344,6 +464,24 @@ for (const token of tokens) {
   .sw-item-copy :global(li) { position: relative; padding: 8px 0 8px 20px; border-bottom: 1px solid var(--sw-line); color: var(--sw-muted); font-size: 13px; line-height: 1.55; }
   .sw-item-copy :global(li::before) { position: absolute; left: 0; top: 15px; width: 7px; height: 7px; background: var(--sw-signal); content: ""; }
   .sw-section-ink .sw-item-copy :global(li) { border-color: #3a3a3a; color: #adb4ad; }
+  .sw-item-copy :global(a),
+  .sw-section-lead :global(a) { color: inherit; text-decoration-color: var(--sw-signal); text-underline-offset: 4px; }
+
+  .sw-factory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .sw-factory-card { min-width: 0; overflow: hidden; border: 1px solid #3a3a3a; background: #202020; }
+  .sw-factory-card img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .sw-factory-card > div { padding: 20px; }
+  .sw-factory-card span { color: var(--sw-accent); font: 750 10px/1.2 var(--font-mono, monospace); }
+  .sw-factory-card h3 { margin: 10px 0 0; font: 680 21px/1.2 var(--font-display, sans-serif); letter-spacing: 0; }
+  .sw-factory-card p { margin: 10px 0 0; color: #adb4ad; font-size: 13px; line-height: 1.65; }
+
+
+  .sw-section-action { display: flex; margin-top: 30px; }
+  .sw-section-action-text .sw-text-link { color: inherit; }
+
+  .sw-form-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 38px; border-top: 1px solid var(--sw-line); border-left: 1px solid var(--sw-line); }
+  .sw-form-fields span { min-width: 0; padding: 16px; border-right: 1px solid var(--sw-line); border-bottom: 1px solid var(--sw-line); color: var(--sw-muted); font-size: 12px; line-height: 1.45; }
+  .sw-form-fields strong { display: block; margin-bottom: 7px; color: var(--sw-signal); font: 750 9px/1.2 var(--font-mono, monospace); }
 
   .sw-section-ink .sw-placeholder { background: #202020; border-color: #5d625d; }
   .sw-section-ink .sw-placeholder span { color: var(--sw-accent); }
@@ -367,6 +505,7 @@ for (const token of tokens) {
     .sw-hero { min-height: 0; padding: 56px 0 48px; }
     .sw-hero-grid,
     .sw-section-grid { grid-template-columns: 1fr; gap: 38px; }
+    .sw-form-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .sw-hero h1 { font-size: 48px; }
     .sw-placeholder-hero { min-height: 390px; }
     .sw-section { padding: 66px 0; }
@@ -382,6 +521,8 @@ for (const token of tokens) {
     .sw-actions { margin-top: 20px; }
     .sw-signals { display: none; }
     .sw-items { grid-template-columns: 1fr; }
+    .sw-factory-grid,
+    .sw-form-fields { grid-template-columns: 1fr; }
     .sw-placeholder { min-height: 230px; padding: 28px 18px; }
     .sw-placeholder-hero { min-height: 220px; }
     .sw-placeholder strong { font-size: 21px; }
