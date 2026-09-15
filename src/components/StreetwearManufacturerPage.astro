@@ -141,7 +141,7 @@ for (const token of tokens) {
     }
   }
 
-  if (token.type === "html" && /^(?:<a id="[^"]+"><\/a>\s*)+$/i.test(token.raw.trim())) {
+  if (/^(?:<a id="[^"]+"><\/a>\s*)+$/i.test(token.raw.trim())) {
     continue;
   }
 
