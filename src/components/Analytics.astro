@@ -37,8 +37,8 @@
       if (link.closest(".mobile-menu")) return "mobile_menu";
       if (link.matches(".mobile-inquiry")) return "mobile_sticky";
       if (link.closest(".site-header")) return "header";
-      if (link.closest(".home-hero, .product-hero, .standard-hero")) return "hero";
-      if (link.closest(".inquiry-section")) return "inquiry_section";
+      if (link.closest(".home-hero, .product-hero, .standard-hero, .hero")) return "hero";
+      if (link.closest(".inquiry-section, [data-od-id='inquiry-conversion']")) return "inquiry_section";
       if (link.closest(".site-footer")) return "footer";
       return "content";
     };

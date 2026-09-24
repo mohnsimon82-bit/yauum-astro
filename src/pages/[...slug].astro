@@ -1,45 +1,38 @@
 ---
 import ContentPage from "../components/ContentPage.astro";
-import HoodieManufacturerPage from "../components/HoodieManufacturerPage.astro";
-import JacketsManufacturerPage from "../components/JacketsManufacturerPage.astro";
-import TShirtManufacturerPage from "../components/TShirtManufacturerPage.astro";
-import PantsManufacturerPage from "../components/PantsManufacturerPage.astro";
-import SportswearManufacturerPage from "../components/SportswearManufacturerPage.astro";
-import StreetwearManufacturerPage from "../components/StreetwearManufacturerPage.astro";
 import { getPageManifest, getWebsitePage } from "../lib/content";
 
+// 产品页已改为专属路由文件（src/pages/<product>.astro），各自只加载自己的设计 CSS。
+// 这里把它们的 slug 排除，避免与本文件生成重复的输出路径，也避免把 BaseLayout 的
+// global.css 带进新设计页面的样式图。
+// 注意：getStaticPaths 在独立作用域执行，不能引用 frontmatter 变量，因此此处重复声明。
 export async function getStaticPaths() {
+  const productSlugs = [
+    "hoodie-manufacturer",
+    "t-shirt-manufacturer",
+    "jackets-manufacturer",
+    "pants-manufacturer",
+    "sportswear-manufacturer",
+    "streetwear-manufacturer",
+  ];
   const pages = await getPageManifest();
   return pages
-    .filter(page => page.slug !== "home")
+    .filter(page => page.slug !== "home" && !productSlugs.includes(page.slug))
     .map(page => ({ params: { slug: page.route.replace(/^\/+|\/+$/g, "") }, props: { pageSlug: page.slug } }));
 }
 
 const { pageSlug } = Astro.props;
 const page = await getWebsitePage(pageSlug);
-const productSlugs = [
-  "hoodie-manufacturer",
-  "t-shirt-manufacturer",
-  "jackets-manufacturer",
-  "pants-manufacturer",
-  "sportswear-manufacturer",
-  "streetwear-manufacturer",
-];
-const products = productSlugs.includes(pageSlug)
-  ? await Promise.all(productSlugs.map(getWebsitePage))
+const products = pageSlug === "production"
+  ? await Promise.all([
+      "hoodie-manufacturer",
+      "t-shirt-manufacturer",
+      "jackets-manufacturer",
+      "pants-manufacturer",
+      "sportswear-manufacturer",
+      "streetwear-manufacturer",
+    ].map(getWebsitePage))
   : [];
 ---
 
-{pageSlug === "hoodie-manufacturer"
-  ? <HoodieManufacturerPage />
-  : pageSlug === "t-shirt-manufacturer"
-    ? <TShirtManufacturerPage page={page} />
-  : pageSlug === "jackets-manufacturer"
-    ? <JacketsManufacturerPage page={page} />
-  : pageSlug === "pants-manufacturer"
-    ? <PantsManufacturerPage page={page} />
-  : pageSlug === "sportswear-manufacturer"
-    ? <SportswearManufacturerPage page={page} />
-  : pageSlug === "streetwear-manufacturer"
-    ? <StreetwearManufacturerPage page={page} />
-  : <ContentPage page={page} products={products} />}
+<ContentPage page={page} products={products} />

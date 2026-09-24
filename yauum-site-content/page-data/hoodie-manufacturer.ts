@@ -70,6 +70,36 @@ export const hoodiePage = {
       alt: "Sleeveless hoodie on a model",
       text: "Useful for athletic, streetwear, and layered looks. Confirm the armhole, shoulder width, edge finish, hood weight, and how the fabric hangs on the body.",
     },
+    {
+      name: "Acid-Wash Vintage Hoodies",
+      image: "/uploads/hoodie-manufacturer/style-acid-wash.webp",
+      alt: "Acid-wash vintage hoodie on a model",
+      text: "A washed finish changes the base color, surface, and handfeel. Confirm the wash recipe, shade tolerance, placement, and appearance after laundering.",
+    },
+    {
+      name: "Camo Hoodies",
+      image: "/uploads/hoodie-manufacturer/style-camo.webp",
+      alt: "Camouflage hoodie on a model",
+      text: "Camouflage graphics need a clear repeat, color direction, and placement plan. Confirm how the artwork aligns across the hood, body, sleeves, and pocket.",
+    },
+    {
+      name: "Embroidered Hoodies",
+      image: "/uploads/hoodie-manufacturer/style-embroidered.webp",
+      alt: "Embroidered hoodie on a model",
+      text: "Embroidery adds texture and structure to the garment. Review the digitized file, stitch density, backing, placement, and how the fabric supports the design.",
+    },
+    {
+      name: "Graphic Screen-Printed Hoodies",
+      image: "/uploads/hoodie-manufacturer/style-graphic-screen-print.webp",
+      alt: "Graphic screen-printed hoodie on a model",
+      text: "Large graphics need a clear artwork file and placement reference. Confirm ink colors, print size, registration, handfeel, and wash expectations before bulk.",
+    },
+    {
+      name: "Puff-Print Hoodies",
+      image: "/uploads/hoodie-manufacturer/style-puff-print.webp",
+      alt: "Puff-print hoodie on a model",
+      text: "Puff print creates a raised graphic surface. Check the artwork detail, expansion, edge definition, pressure, placement, and final handfeel on the selected fabric.",
+    },
   ],
   specification: [
     {
@@ -262,26 +292,26 @@ export const hoodiePage = {
   factory: [
     {
       title: "Prepare the pattern and marker",
-      image: "/uploads/factory/pattern-plotter-wide.jpg",
-      alt: "Pattern plotting equipment in the supplied garment production environment",
+      image: "/uploads/factory/factory-pattern.jpg",
+      alt: "Pattern preparation and garment construction work in the supplied production environment",
       text: "Patterns define the garment pieces. Markers organize those pieces for cutting and help the team follow the approved measurements and size range.",
     },
     {
       title: "Cut the fabric",
-      image: "/uploads/factory/cutting-department.jpg",
-      alt: "Fabric cutting tables in the supplied garment production environment",
+      image: "/uploads/factory/factory-cutting.jpg",
+      alt: "Fabric cutting table and cutting equipment in the supplied production environment",
       text: "Fabric is prepared and cut into the required panels. The cutting plan depends on the fabric, sizes, colors, and product construction.",
     },
     {
       title: "Sew the hoodie",
-      image: "/uploads/factory/sewing-line-operators.jpg",
-      alt: "Garment sewing operators in the supplied production environment",
+      image: "/uploads/factory/factory-sewing-line-detail.jpg",
+      alt: "Garment sewing operators working at production stations",
       text: "The sewing team joins the body, sleeves, hood, pocket, rib, zipper, labels, and reinforcement points according to the approved specification.",
     },
     {
       title: "Finish and prepare for packing",
-      image: "/uploads/factory/ironing-finishing.jpg",
-      alt: "Garment pressing and finishing station in the supplied production environment",
+      image: "/uploads/factory/factory-packout.jpg",
+      alt: "Finished garments being folded and prepared for packing",
       text: "Finished hoodies are checked, trimmed, pressed where suitable, folded, and prepared for the packing method confirmed with the buyer.",
     },
   ],

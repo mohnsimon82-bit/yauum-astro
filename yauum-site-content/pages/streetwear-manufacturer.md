@@ -1,331 +1,236 @@
 # Streetwear Manufacturer
 
 - URL: https://yauum.com/streetwear-manufacturer/
-- Page title: Streetwear Manufacturer for Private Label Brands | YAUUM
+- Page title: Streetwear Manufacturer - YAUUM
 - Slug: streetwear-manufacturer
 - Original HTML snapshot: ../snapshot-html/streetwear-manufacturer.html
 
 ## Current page copy
 
-# Streetwear Manufacturer for Custom and Private Label Brands
+### Streetwear Manufacturer Low MOQ Private Label Production
 
-YAUUM works with brands, wholesalers, retailers, product teams, and sourcing teams to turn a streetwear direction into a project that can be sampled and reviewed. Share a tech pack, sketch, reference garment, product image, or early concept. YAUUM reviews the intended product mix, silhouette, material, artwork, finish, branding, quantity breakdown, and approval needs before discussing project-specific terms. If you are comparing a custom streetwear manufacturer or streetwear supplier, this page shows where decisions are made and what information moves the project forward.
+Launch your streetwear brand with a manufacturer that understands startup reality. We produce for brands shipping 50 to 50,000 units per order.
 
-CTA: [Send Your Streetwear Brief](/contact-us/)
+- 50-unit minimum order
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: one verified full-look streetwear collection with coordinated tops, bottoms, and an outer layer. Publish only after project ownership, product accuracy, and image-use permission are confirmed.
+- 7-day sample production
 
-<a id="buyer-fit"></a>
-## Is YAUUM the Right Fit for Your Streetwear Project?
+- Step-by-step QC inspection
 
-The first review separates fixed requirements from open decisions. YAUUM checks the references and frames a discussion for each buyer type.
+- Direct production team contact
 
-### Private Label Brands
+We work with: Amazon FBA sellers / Shopify brands / 3PL / Wholesalers / POD platforms
 
-Brand teams send a product concept, target fit, fabric direction, artwork, labels, packaging, and priorities. YAUUM uses them to identify first-sample decisions.
+### Why 60% of Streetwear Brands Start With Less Than 100 Units
 
-### Wholesalers and Retailers
+Ten years ago, manufacturers required 300-500 unit minimums. Entrepreneurs had to invest thousands before validating a single design. That model buried good ideas under inventory risk.
 
-A wholesale streetwear review covers style mix, variant breakdown, target market, branding, and packing. YAUUM checks what may be shared without treating unrelated styles as one specification.
+Now the math has changed. Modular production lines, shorter setup runs, and on-demand color mixing let manufacturers absorb smaller batches without bleeding margin on setup costs. Brands can test 3-5 designs with 50-100 units each, collect real sales data, and scale only what works.
 
-### Streetwear Product Teams
+One brand we worked with launched with 50 tee shirts in three colorways. Eighteen months later, they reorder 300 units per drop and have expanded into hoodies and trackpants. Another started with a single hoodie drop of 75 units. That hoodie now accounts for 40% of their revenue.
 
-When a range connects tees, hoodies, pants, and jackets, YAUUM checks how proportion and styling carry between products. See the related [T-shirt](/t-shirt-manufacturer/), [hoodie](/hoodie-manufacturer/), [pants](/pants-manufacturer/), and [jacket](/jackets-manufacturer/) pages for category-specific decisions.
+You do not need 500 units to start a credible streetwear brand. You need a manufacturer with flexible MOQ and a commitment to quality that does not waver between 50 units and 5,000.
 
-### Sourcing Teams
+The barrier is no longer capital. It is finding a manufacturer you can trust to deliver consistent quality at startup quantities.
 
-Sourcing teams comparing a streetwear supplier can ask YAUUM to work through product scope, approval points, documentation needs, destination, and open commercial questions. The wider [buyer cooperation paths](/solutions/) explain how different sourcing situations can be approached.
+### Our Factory & Monthly Production Capacity
 
-<a id="streetwear-styles"></a>
-## Choose the Silhouette That Makes Your Collection Recognizable
+8,000 square meters near major export shipping hubs. Three production lines configured for streetwear: hoodies, tees, sweatpants, and outerwear. Each line has dedicated equipment for cutting, sewing, printing, and finishing.
 
-YAUUM reviews the intended shoulder, body, sleeve, rise, leg, length, and layering relationships against the buyer's references before sampling.
+120 workers on staff. 80% on direct production, 20% on QC, logistics, and support. Annual turnover rate below 8% — meaning the people sewing your garments have been doing this for years, not weeks.
 
-### Build the Core With Tees, Hoodies, and Sweatshirts
+We hold OEKO-TEX Standard 100, BSCI, and WRAP certifications. Third-party auditors verify compliance annually. Request our most recent audit report when you place an inquiry.
 
-Regular, relaxed, oversized, boxy, cropped, drop-shoulder, long-sleeve, and sleeveless shapes are candidate directions. YAUUM compares the selected upper-body proportions across the range and records which measurements must be confirmed on the sample.
+#### Production Lines & Equipment
 
-### Give Bottoms a Clear Role
+#### Quality Certifications
 
-Cargo pants, joggers, denim, wide-leg pants, and shorts create different outfits. YAUUM reviews rise, seat volume, thigh, leg shape, opening, and pocket direction so the bottoms support the intended collection rather than compete with it.
+OEKO-TEX Standard 100, BSCI, and WRAP — all current, all verified by third-party auditors. Audit report access is included in our standard quote package.
 
-### Add Layers and Sets Without Losing the Main Shape
+### What We Manufacture: From Hoodies to Trackpants
 
-Coach, varsity, puffer, denim jacket, tracksuit, and jersey-set directions require project confirmation. YAUUM discusses the wearing and layering order with the buyer, then checks whether connected pieces need shared fit or material references.
+Core categories that define modern streetwear. Full customization available: fabric weight, color (Pantone-matched), construction details, branding placements.
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: verified front and side views comparing approved upper-body, bottom, jacket, and coordinated-set silhouettes. Publish only after the represented products and image rights are confirmed.
+Customization scope: Fabric weight, color matching (Pantone C/U), construction (pocket placement, hood shape, cuff style), labels (woven, printed, hang tags), packaging (poly bag, box, tissue paper, sticker).
 
-<a id="fabric"></a>
-## Match Fabric Weight, Hand Feel, and Drape to the Look
+If you need something outside these categories, ask. We manufacturer denim, woven shirts, and accessories on a case-by-case basis.
 
-Material review starts with the buyer's reference. YAUUM discusses candidate composition, structure, GSM, stretch, drape, finish, artwork, and seasonal use for the project.
+### Fabric Selection for Streetwear: GSM, Blends & Performance
 
-### For Tees and Lightweight Tops
+Fabric choice determines how your streetwear feels, how it prints, and how it ages. We guide every client through fabric selection because the wrong GSM or blend will cost you in returns and reviews, even if the construction is perfect.
 
-Jersey, waffle, mesh, cotton, polyester, elastane, and blends are candidate directions. YAUUM compares the requested hand feel and movement with the intended fit and artwork, then confirms the selected fabric through the development process.
+### GSM Guide: When to Go Heavy, When to Stay Light
 
-### For Hoodies and Sweatshirts
+GSM (grams per square meter) measures fabric weight. Higher GSM does not automatically mean better. It means heavier.
 
-For hoodies and sweatshirts, French terry, loopback terry, fleece, and heavyweight cotton may create different body and warmth. YAUUM checks hood weight, shoulder drop, rib behavior, and hem balance with the proposed material on the actual sample.
+For most streetwear brands, GSM 320-380 hits the sweet spot: heavy enough that the garment feels substantial, light enough to layer under a jacket without bulk.
 
-### For Bottoms and Outer Layers
+### Cotton Blends: Tradeoffs
 
-Bottom and outer-layer materials are considered against shape, movement, texture, layering, or hand feel. YAUUM discusses cotton twill, canvas, denim, nylon, mesh, and blend candidates; performance targets need an agreed material and test basis.
+### Shrinkage Control
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: verified swatches showing face, reverse, edge, and drape. Add composition and GSM only when the selected material and supporting information are confirmed.
+French terry shrinks 3-5% if not pre-washed. Fleece shrinks 5-7%. Pure cotton can shrink 7-10% without proper treatment.
 
-<a id="custom-manufacturing"></a>
-## Shape the Details: Hoods, Pockets, Panels, and Hardware
+Our process: All fleece, French terry, and heavy cotton fabrics go through a pre-wash cycle at 60°C before cutting. Documented shrinkage rate below 3%.
 
-YAUUM reviews each custom component against drawings, reference images, measurements, placement, material, and acceptable alternatives before it is sampled or quoted.
+### Decoration Techniques: Screen Print, DTG, Embroidery & Beyond
 
-### Set the Fit Before Adding Complexity
+Your brand lives in your graphics. We support the full range of streetwear decoration techniques and help you match the right method to your artwork, quantity, and budget.
 
-Buyers provide the base size, size range, grade direction, and fit-critical measurements before added details obscure fit issues. YAUUM checks them against the measurement points relevant to each top or bottom construction.
+### Screen Printing
 
-### Specify Hoods, Pockets, and Panel Lines
+Artwork: Vector files (AI, EPS). 300 DPI minimum. Screen print adds 2-3 days per color layer.
 
-YAUUM works with the buyer to define hood shape, pocket purpose and depth, closures, reinforcement, panel lines, and asymmetrical cuts. These placements are reviewed before artwork and wash effects are treated as final.
+#### Direct-to-Garment (DTG)
 
-### Identify Trims and Attachments
+DTG prints directly onto fabric using inkjet technology. No screens, no setup fees, no color limitations.
 
-Zippers, pullers, snaps, buttons, drawcords, webbing, eyelets, patches, and badges remain project-specific. YAUUM reviews color, finish, size, branding, placement, and substitution limits before confirming the workable route.
+- Full color including white ink
 
-CTA: [Share Your Streetwear Reference](/contact-us/)
+- Minimum 30 units (economical at 50+)
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: verified close-ups of approved hood, pocket, panel, hardware, drawcord, webbing, or attachment details. Publish only after each detail is accurately identified.
+- Best on 100% cotton, 80/20 blends
 
-<a id="printing-embroidery"></a>
-## Make the Artwork Work: Print, Embroidery, and Patches
+- Good durability: 30+ washes
 
-Artwork review starts with the source file and garment. YAUUM checks fabric, stretch, wash, placement, quantity, and hand feel before discussing a route.
+### Embroidery & Chenille
 
-### Review Printing Against the Actual Artwork
+### Additional Techniques
 
-Screen print, DTG, DTF, heat transfer, sublimation, puff, silicone, foil, reflective, flocking, and embossing are candidate directions. YAUUM compares detail, coverage, color, texture, stretch, and surface before a method is confirmed per project.
+- Sublimation (performance fabrics, polyester blends)
 
-### Set Embroidery Scale and Construction
+- Rhinestone / sequin appliques (50-unit minimum)
 
-Before an embroidery route is settled, YAUUM checks how flat or 3D embroidery, applique, chenille, or chain embroidery may affect weight and texture, then reviews dimensions, density, edge finish, backing, attachment, and reverse appearance.
+- Distressed / vintage wash effects (acid wash, enzyme wash, sandwash)
 
-### Control Every Artwork Version
+- Applique / patchwork (quote required)
 
-For each style or variant, YAUUM records the approved file, finished size, colors, location, orientation, and method. Artwork that crosses a seam, pocket, or panel is flagged for sample review.
+### How We Inspect Every Batch: The QC Process Competitors Will Not Show You
 
-CTA: [Send Your Artwork for Review](/contact-us/)
+Most manufacturers skip this section entirely. They claim quality. We show you exactly how we verify it.
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: verified decoration samples showing only project-confirmed print, embroidery, or patch methods on relevant materials, with publishing permission confirmed.
+Quality control is not a single checkpoint. It is a continuous process from raw fabric to finished package
 
-<a id="private-label"></a>
-## Build a Private Label System Buyers Can Recognize
+#### Pre-Production Inspection
 
-When buyers compare a private label streetwear manufacturer, they need to know how brand files stay connected to the correct product. YAUUM reviews labels, identification, and packing inputs as one system rather than isolated add-ons.
+Before a single garment is cut, we inspect the fabric:
 
-### Define Garment Labels
+- Fabric roll inspection: Each roll checked for defects, shade consistency, GSM verification
 
-Neck or main labels, size labels, care labels, and woven tags are candidate items. YAUUM reviews final wording, dimensions, material, color, placement, attachment, and the styles or sizes to which each file applies.
+- Shade comparison: Fabric shade compared against your approved color standard. Shade variance tolerance: Delta E less than 1.5
 
-### Connect Hangtags and Product Identification
+- Shrinkage test: 10cm x 10cm swatch washed and measured. Above 3% triggers rejection
 
-YAUUM works with buyers to map hangtags, stickers, barcodes, and other supplied identification to the correct product variants. Required formats, data ownership, and scanning needs must be provided and confirmed per project.
+- GSM verification: Fabric weight measured. If deviates more than 5% from spec, we halt and consult you
 
-### Confirm Packaging and Carton Marks
+#### Mid-Production Quality Checks
 
-Polybag, size sticker, branded box, custom tape, and carton-mark directions require project review. YAUUM discusses the proposed packing method, assortment, destination requirements, and supplied artwork before confirming scope.
+If defect rate exceeds 3% at any checkpoint, production halts. Root cause is investigated, corrected, and verified before resume.
 
-Text CTA: [Discuss a Private Label Streetwear Order](/contact-us/)
+#### Final Inspection
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: verified group of approved labels, hangtags, identifiers, individual packaging, and carton marks from a publishable project. Do not imply that every shown option is standard.
+Every garment undergoes final inspection using AQL 2.5 standard:
 
-<a id="washes-finishes"></a>
-## Control Washes, Fades, and Distressing Before Bulk
+- Seam integrity: All seams lie flat, no skipped stitches, no loose threads
 
-YAUUM reviews the target finish, material, artwork, placement, acceptable variation, and reject conditions per project before bulk approval.
+- Thread length: No thread ends exceeding 5mm
 
-### Define the Wash or Dye Direction Visually
+- Print quality: No ink bleeding, registration within 2mm tolerance
 
-Garment wash, enzyme wash, acid wash, pigment dye, tie-dye, and faded effects are candidate routes. YAUUM compares the buyer's visual target with the selected garment and material before discussing process availability.
+- Dimensions: Within 2cm of spec
 
-### Map Distressing and Raw Edges
+- Visual: No contamination, clean finishing
 
-YAUUM reviews marked locations for abrasion, holes, fraying, grinding, and raw edges, including their relationship to seams, pockets, labels, artwork, and panels. The degree of permitted variation must be agreed for the project.
+- Packaging: Correct labels, correct size tags
 
-### Approve an Appearance Range
+Documented defect rate across all 2024 orders. If batch exceeds 2%, the entire batch is reworked and re-inspected.
 
-Where a finish naturally varies, YAUUM works with the buyer to record an approved target, acceptable boundaries, and unacceptable results. These references support later comparison without promising impossible unit-to-unit identity.
+We include a QC report with every shipment: inspection photos, defect count, and a statement of compliance.
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: a verified finish board showing the approved target and documented appearance boundaries for one publishable project. Do not present an unapproved sample as a bulk standard.
+### Communication During Production: When You Will Hear From Us
 
-<a id="wholesale-bulk"></a>
-<a id="moq"></a>
-## What Will Determine the MOQ and Quote for Your Streetwear?
+“I’ve dealt with 15-25 different manufacturers, locally and globally.” Communication is not a nice-to-have. It is the difference between a smooth production run and a disaster you discover at customs.
 
-Once the product scope and variant breakdown are clear enough, YAUUM reviews the MOQ, pricing, sampling, timing, and wholesale or multi-style terms for that project.
+### Update Cadence
 
-### Show the Real Order Breakdown
+Your contact: Production coordinator assigned to your order. Not a sales rep. The person who can answer “where is my order right now” with actual knowledge.
 
-The order breakdown shows total quantity alongside each style, color, size, artwork, label, and packing split. YAUUM keeps unrelated products separate so every quoted term refers to a clear specification.
+Response time: We respond to all inquiries within 24 hours during business days.
 
-### Flag Choices That Affect the Quote
+### What Happens If There Is a Problem
 
-Custom fabric or color, washes, hardware, artwork, patches, labels, packing, and variant count may change the route. YAUUM compares shared items, essential brand details, and acceptable alternatives before confirming a quote.
+We tell you before you find out.
 
-### Ask for Project-Specific Terms
+If our QC team identifies a defect rate issue, material problem, or timeline risk, you receive a direct call within 4 hours of identification.
 
-For the submitted project, YAUUM discusses MOQ, sample cost, revision terms, timing, and scope. Buyers should provide destination, target timing, pack ratios, product codes, and required records rather than assume a standard promise.
+- Production supervisor identifies issue
 
-CTA: [Send Quantity and Specifications](/contact-us/)
+- QC manager assesses severity
 
-<a id="sampling"></a>
-## Approve the Fit, Finish, and Artwork Before Bulk Production
+- Buyer contacted within 4 hours with photos, options
 
-YAUUM works with the buyer to connect sample fit, material, finish, artwork, trims, labels, and comments to one current project reference.
+- Resolution executed upon your approval
 
-### Review Proportion Across the Outfit
+### Production Timeline & Shipping: From Order to Port
 
-The fit review covers the sample alone and with related pieces. YAUUM compares shoulder, body, sleeve, rise, leg volume, length, and layering space; the sample size and measurement references stay with the comments.
+Most manufacturers quote 20 days and deliver in 30. We quote 21 days for bulk and typically ship on day 19. Here is how we build a realistic timeline.
 
-### Check Surface and Details Together
+### Sample Lead Time
 
-Fabric hand, drape, color, wash, artwork, embroidery, patches, labels, and hardware are checked together on the relevant sample. YAUUM notes linked changes because a material or construction revision may affect another approved detail.
+Total: 7-10 days to your door
 
-### Turn Comments Into an Approved Reference
+### Shipping Methods
 
-Comments become usable when they are dated and tied to a measurement, location, image, or file version. YAUUM works from that record until both sides approve the sample and current specification as the bulk reference.
+Peak season (October-January): Add 3-5 days. Book 30+ days before target delivery.
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: verified sample-review scene with measurements, dated comments, artwork placement, trims, and a clearly identified specification version. Remove confidential buyer information before publication.
+We handle customs documentation for all exports.
 
-<a id="production"></a>
-## From Approved Sample to Packed Streetwear: What Happens Next?
+### Bulk Production Lead Time
 
-Before production proceeds, YAUUM checks that the order, sample, specifications, artwork, labels, and packing instructions all point to the same approved version.
+Total: 21 days from deposit to port departure
 
-### Prepare Materials and References
+We build in a 5-day buffer for fabric shade matching, decoration approval, and unexpected quality holds.
 
-Material preparation starts with the order and its current references. YAUUM checks color, trims, artwork, labels, sizes, and quantities, returning substitutions or open points for project confirmation rather than treating them as equivalent.
+### Your Designs Are Protected: Our Confidentiality Commitment
 
-### Follow the Relevant Production Sequence
+Your graphics are your brand. We treat them as confidential assets, not production inputs.
 
-YAUUM works through the applicable material, cutting, sewing, decoration, finishing, checking, folding, packing, and shipment-preparation stages. The sequence varies by garment and process; the broader [production workflow](/production/) explains the control points.
+### NDA Policy
 
-### Request Useful Stage Records
+We do not require NDAs to begin working together, but we will sign your NDA upon request before you share any artwork or design files. We have worked with NDA agreements from most major brands’ legal templates.
 
-Buyers may request stage photos, measurement information, packing details, or related records. YAUUM discusses what is needed and when for the project; labelled stage information is more useful for decisions than an unstructured photo stream.
+### Confidentiality Procedures
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: verified production sequence for one publishable project. Use only stages that are accurately identified and approved for publication; do not combine unrelated projects into a false sequence.
+- Artwork files stored on dedicated server with restricted access. Only production staff with direct need can access your files.
 
-<a id="quality"></a>
-## What Gets Checked Before Your Streetwear Ships?
+- Production files deleted from our systems 90 days after order completion, unless you request immediate deletion.
 
-YAUUM reviews measurement, workmanship, appearance, working parts, quantities, branding, and packing against the approved sample and project requirements.
+- We do not use client artwork, designs, or product photos in marketing without explicit written consent.
 
-### Check Measurements and Workmanship
+- Production samples not retained or displayed without buyer approval.
 
-Measurements are compared at the agreed fit-critical points. YAUUM also checks relevant seams, stitching, puckering, symmetry, panel alignment, pockets, and stressed areas; any tolerance or formal inspection method must be agreed separately.
+In the rare event of a design leak from our systems, we commit to immediate notification, full investigation, and a remediation plan that may include financial compensation for verified damages.
 
-### Compare Finish, Artwork, and Branding
+### Frequently Asked Questions
 
-Against the approved references, YAUUM checks fabric shade, surface, wash, print, embroidery, patches, labels, trims, and placement. Variable finishes are compared with the accepted range documented for that project.
+Standard MOQ is 50 units per design for most categories. For multi-color orders, the per-color minimum applies (50 units per color).
 
-### Verify Assortment and Packing Identity
+Yes. Every order includes a sample as a separate line item. Timeline is 7-10 days. Fees range from $60-180 depending on complexity. 80% of your sample fee is credited toward bulk orders of 200+ units.
 
-Packing review starts with the agreed quantity and size or color assortment. YAUUM matches them to the instructions for applicable tags, stickers, barcodes, bags, carton quantities, and carton marks; required records must be defined before handoff.
+If your bulk order does not match the approved sample standard, we rework the entire batch at our cost. We keep your approved sample on file. Before shipping, every unit is checked against the sample spec.
 
-> **IMAGE PLACEHOLDER - needs_company_confirmation**
->
-> Required image: verified measurement, workmanship, artwork, label, assortment, and packing checks from a publishable project. Do not claim a test result, pass rate, or inspection standard unless separately confirmed.
+We provide OEKO-TEX, BSCI, and WRAP certificates with current audit dates. We can arrange a video walkthrough of our facility before you place an order. We also accept third-party inspection companies (SGS, Bureau Veritas) for pre-shipment inspection at your cost.
 
-<a id="factory-evidence"></a>
-## See the Production Environment Behind the Process
+Photos and written updates at each milestone: cutting, sewing start, decoration, final inspection, and shipping. Your production coordinator is your direct contact and responds within 24 hours. If a problem arises, we call you directly.
 
-YAUUM uses existing factory-environment images only with factual captions, and keeps them separate from buyer-specific order evidence.
+Sample: 7-10 days. Bulk: 21 days from deposit to port departure. Express shipping adds 3-5 days. Sea freight adds 25-35 days. We build in a 5-day buffer. Peak season (Oct-Jan) adds 3-5 days.
 
-### Pattern Preparation
+Bulk orders: T/T, Wise, L/C (for orders $10,000+). Samples: PayPal, credit card. Payment schedule: 30% deposit, 40% at production start, 30% before shipping.
 
-For pattern preparation, YAUUM may use `/uploads/factory/factory-pattern.jpg` to show visible pattern pieces and work surfaces. The caption must stay with what can be observed and must not identify a specific streetwear order.
+Artwork files stored on restricted-access servers and deleted 90 days after order completion. We sign NDAs upon request. We do not use client designs or photos in marketing without written consent.
 
-### Cutting Environment
+Monthly capacity is 45,000 units across all product categories. We have produced orders from 50 units to 10,000+ units for the same brand. The production process scales; the quality standard does not change.
 
-The cutting view may use `/uploads/factory/factory-cutting.jpg`, with YAUUM limiting the caption to visible equipment and the surrounding work area. It must not imply ownership, output claims, third-party approval, or buyer-specific production.
+Screen printing is most cost-effective at 100+ units per color. DTG is best for photographic artwork at 50+ units. Embroidery communicates premium positioning. Puff/3D print creates signature streetwear dimensional effect. We guide technique selection based on your artwork, quantity, and budget.
 
-### Sewing-Line Detail
-
-A sewing workstation can be shown through `/uploads/factory/factory-sewing-line-detail.jpg`. YAUUM does not present the image as proof that a listed candidate streetwear style or process is currently in production.
-
-### Packing Environment
-
-For pack-out, `/uploads/factory/factory-packout.jpg` may show the visible work area. YAUUM keeps the caption to observable objects and does not describe the image as inspection evidence or shipment approval.
-
-Image-use rule: use only these existing environment files in this section. Confirm publishing permission and visible details before release. Do not label them as a buyer's order, a dedicated streetwear line, factory ownership proof, third-party approval evidence, or inspection evidence.
-
-<a id="faq"></a>
-## Questions Buyers Ask Before Ordering Custom Streetwear
-
-YAUUM uses these questions to identify the buyer inputs and limits that affect a project-specific product, process, and commercial review.
-
-### What Products Can We Discuss?
-
-Buyers can bring inquiry directions across tees, hoodies, sweatshirts, cargo pants, joggers, denim, wide-leg pants, shorts, coach or varsity-style jackets, tracksuits, and jersey sets to YAUUM. These are candidate development directions, not a stock catalog or a promise that every construction is available. Send the intended style mix, target market, fit references, quantity by variant, and any non-negotiable details. YAUUM then reviews which product, material, decoration, and sampling questions must be resolved for that specific project.
-
-### Can We Start Without a Complete Tech Pack?
-
-When the tech pack is incomplete, YAUUM can begin with a sketch, product photo, physical reference garment, or early specification. Mark what should be copied, what must change, and which details remain open. Add target measurements, material and color direction, artwork files, labels, packing, quantities, and destination when available. Missing information is identified during review, but a clear and mutually approved sample and specification are still needed before they can serve as the bulk reference.
-
-### Which Fabric and GSM Should We Choose?
-
-YAUUM reviews fabric direction against the garment type, silhouette, selling season, hand feel, drape, warmth, stretch, wash, artwork, and care expectations. Send a physical swatch or reference garment when terms such as heavy, soft, structured, or vintage could be interpreted differently. Candidate composition, knit or woven structure, surface, color, and GSM can then be compared. The final fabric and weight are confirmed during development; YAUUM does not publish an unverified universal GSM range.
-
-### Can We Combine Washes, Artwork, and Private Labels?
-
-When a project combines washes, artwork, labels, patches, and hardware, YAUUM checks how each choice interacts with the fabric and process route. Provide the artwork source, finished dimensions, colors, placement, target finish, label files, garment material, and quantity breakdown. The review identifies the proposed sequence and which effects need sampling or external confirmation. Candidate techniques require project confirmation, and naturally variable finishes need an agreed appearance range rather than a promise that every unit will look identical.
-
-### What Is the MOQ and How Long Will the Project Take?
-
-Once buyers send a tech pack or references, quantity by style and variant, artwork, branding requirements, destination, and target timing, YAUUM can review the project terms. Product type, custom material or color, style and size split, wash, decoration, trims, labels, packaging, and approval rounds may affect MOQ, quotation, sampling, revisions, and estimated timing. YAUUM discusses the resulting scope without turning an early estimate into a standing commitment.
-
-### What Should We Check Before Approval?
-
-YAUUM asks buyers to review the sample against the current specification rather than memory or an early file. Check fit and measurements, fabric hand and color, construction, pockets and hardware, wash or finish, artwork size and placement, embroidery or patches, labels, and packing direction. Return one dated comment set with photos, measurements, locations, and file references. Also state which points are approved, which require revision, and whether another physical review is needed before the sample becomes the agreed bulk reference.
-
-<a id="inquiry"></a>
-## Send Your Streetwear Brief and Start the First Sample
-
-YAUUM reviews fixed requirements, open options, and missing decisions in the submitted brief through its [manufacturing services](/our-services/) and inquiry workflow.
-
-### Include These Project Inputs
-
-The first review is more effective when each input is tied to the correct style and variant. YAUUM can then assess:
-
-- Product types and the role of each style in the collection
-- Tech packs, sketches, photos, or physical reference garments
-- Target fit, base size, size range, and key measurements
-- Fabric composition, structure, GSM, color, hand feel, and finish direction
-- Artwork files, finished dimensions, colors, placements, and intended effects
-- Hoods, pockets, panels, zippers, drawcords, webbing, patches, and hardware
-- Main, size, and care labels; hangtags; identifiers; packaging; and carton marks
-- Quantity split by style, color, size, and artwork version
-- Destination, target timing, and requested project records
-
-Mark which decisions are fixed and where alternatives are acceptable. YAUUM uses that distinction to keep the first review focused on the product, commercial, and approval questions that still stand between the concept and a controlled bulk order.
-
-Final form fields: Name; Work email; Company or brand; Buyer type; Product types; Tech pack or reference upload; Target fit and size range; Fabric, GSM, and finish direction; Artwork and branding requirements; Quantity by style/color/size; Destination; Target timing; Notes and open questions.
-
-CTA: [Send Your Streetwear Brief](/contact-us/)
+**Button:** Get Your Sample Quote

@@ -1,534 +1,264 @@
 ---
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-import { marked } from "marked";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import type { WebsitePage } from "../lib/content";
-
-interface Props {
-  page: WebsitePage;
-}
-
-type ContentItem = {
-  title: string;
-  html: string;
-};
-
-type ContentLink = {
-  label: string;
-  href: string;
-};
-
-type ContentSection = {
-  id: string;
-  aliases?: string[];
-  number: string;
-  rail: string;
-  title: string;
-  leadHtml: string;
-  items: ContentItem[];
-  mediaDetail?: string;
-  cta?: ContentLink;
-  textCta?: ContentLink;
-  formFields?: string[];
-  tone: "light" | "ink";
-};
-
-const { page } = Astro.props;
-const sourcePath = path.resolve(process.cwd(), "yauum-site-content/pages/streetwear-manufacturer.md");
-const source = await readFile(sourcePath, "utf8");
-const markdown = source.split(/\n## Current page copy\s*\n/i)[1]?.trim() ?? source.trim();
-const tokens = marked.lexer(markdown);
-const sectionDefinitions = [
-  { id: "buyer-fit", rail: "Buyer fit" },
-  { id: "streetwear-styles", rail: "Styles" },
-  { id: "fabric", rail: "Fabric" },
-  { id: "custom-manufacturing", rail: "Details" },
-  { id: "printing-embroidery", rail: "Artwork" },
-  { id: "private-label", rail: "Private label" },
-  { id: "washes-finishes", rail: "Washes" },
-  { id: "moq", rail: "MOQ", aliases: ["wholesale-bulk"] },
-  { id: "sampling", rail: "Sampling" },
-  { id: "production", rail: "Production" },
-  { id: "quality", rail: "Quality" },
-  { id: "factory-evidence", rail: "Factory" },
-  { id: "faq", rail: "FAQ" },
-  { id: "inquiry", rail: "Inquiry" },
-];
-
-const factoryEvidence = [
-  {
-    src: "/uploads/factory/factory-pattern.jpg",
-    alt: "Pattern pieces and work surfaces in a pattern preparation setting",
-    width: 2000,
-    height: 1500,
-    copy: "YAUUM limits the caption to the visible pattern pieces and work surfaces. This image is not identified as a specific streetwear order.",
-  },
-  {
-    src: "/uploads/factory/factory-cutting.jpg",
-    alt: "Fabric cutting equipment and the surrounding work area",
-    width: 2400,
-    height: 1600,
-    copy: "YAUUM limits this view to the visible cutting equipment and surrounding work area, without attaching output or buyer-specific claims.",
-  },
-  {
-    src: "/uploads/factory/factory-sewing-line-detail.jpg",
-    alt: "Sewing equipment and a visible workstation",
-    width: 2400,
-    height: 1600,
-    copy: "YAUUM presents this as a sewing workstation, not as proof that a listed streetwear style or candidate process is currently in production.",
-  },
-  {
-    src: "/uploads/factory/factory-packout.jpg",
-    alt: "Visible packing and pack-out work area",
-    width: 2400,
-    height: 1798,
-    copy: "YAUUM keeps the caption to observable objects in the pack-out area and does not describe the image as inspection evidence or shipment approval.",
-  },
-];
-
-let heroTitle = "Streetwear Manufacturer for Custom and Private Label Brands";
-let heroHtml = "";
-let heroMediaDetail = "Verified coordinated streetwear range from one approved project.";
-let heroCta: ContentLink = { label: "Send Your Streetwear Brief", href: "/contact-us/" };
-const sections: ContentSection[] = [];
-let currentSection: ContentSection | undefined;
-let currentItem: ContentItem | undefined;
-
-function placeholderDetail(text: string) {
-  return text
-    .replace(/\*\*/g, "")
-    .replace(/^IMAGE PLACEHOLDER\s*-\s*needs_company_confirmation\s*/i, "")
-    .replace(/^Required image:\s*/i, "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-for (const token of tokens) {
-  if (token.type === "heading") {
-    if (token.depth === 1) {
-      heroTitle = token.text;
-      currentSection = undefined;
-      currentItem = undefined;
-      continue;
-    }
-
-    if (token.depth === 2) {
-      const index = sections.length;
-      const definition = sectionDefinitions[index] ?? {
-        id: `section-${index + 1}`,
-        rail: `Section ${index + 1}`,
-      };
-      currentSection = {
-        id: definition.id,
-        aliases: "aliases" in definition ? definition.aliases : undefined,
-        number: String(index + 1).padStart(2, "0"),
-        rail: definition.rail,
-        title: token.text,
-        leadHtml: "",
-        items: [],
-        tone: index % 2 === 0 ? "light" : "ink",
-      };
-      sections.push(currentSection);
-      currentItem = undefined;
-      continue;
-    }
-
-    if (token.depth === 3 && currentSection) {
-      currentItem = { title: token.text, html: "" };
-      currentSection.items.push(currentItem);
-      continue;
-    }
-  }
-
-  if (/^(?:<a id="[^"]+"><\/a>\s*)+$/i.test(token.raw.trim())) {
-    continue;
-  }
-
-  const raw = token.raw.trim();
-  const action = raw.match(/^(CTA|Text CTA):\s*\[([^\]]+)\]\(([^)]+)\)$/i);
-  if (action) {
-    const link = { label: action[2], href: action[3] };
-    if (!currentSection) heroCta = link;
-    else if (action[1].toLowerCase().startsWith("text")) currentSection.textCta = link;
-    else currentSection.cta = link;
-    continue;
-  }
-
-  const formFields = raw.match(/^Final form fields:\s*(.+)$/i);
-  if (formFields && currentSection) {
-    currentSection.formFields = formFields[1].split(";").map(field => field.trim()).filter(Boolean);
-    continue;
-  }
-
-  if (/^Image-use rule:/i.test(raw) && currentSection) {
-    continue;
-  }
-
-  if (token.type === "blockquote") {
-    const detail = placeholderDetail(token.text);
-    if (currentSection) currentSection.mediaDetail = detail;
-    else heroMediaDetail = detail;
-    continue;
-  }
-
-  if (token.type === "space") continue;
-  const html = await marked.parse(token.raw);
-  if (currentItem) currentItem.html += html;
-  else if (currentSection) currentSection.leadHtml += html;
-  else heroHtml += html;
-}
+import EditorialLayout from "../layouts/EditorialLayout.astro";
+import "../styles/pages/streetwear-manufacturer.css";
 ---
 
-<BaseLayout
-  title="Streetwear Manufacturer for Private Label Brands | YAUUM"
-  description="Work with YAUUM on custom streetwear development, sampling, private labels, artwork, washes, production review, quality checks, and packing."
+<EditorialLayout
+  title={"Streetwear Manufacturer - YAUUM"}
+  description={"Build coordinated streetwear through silhouette, material, washes or decoration, private labels, sampling, and pack-out rules."}
   canonical="https://yauum.com/streetwear-manufacturer/"
+  variant="product-b"
+  navCurrent={["/production/", "/streetwear-manufacturer/"]}
+  showMobileInquiry
 >
-  <div class="sw-page">
-    <section class="sw-hero" aria-labelledby="sw-title">
-      <div class="sw-shell sw-hero-grid">
-        <div class="sw-hero-copy">
-          <p class="sw-kicker">B2B / PRIVATE LABEL / SAMPLE-FIRST</p>
-          <h1 id="sw-title">{heroTitle}</h1>
-          <div class="sw-hero-intro" set:html={heroHtml} />
-          <div class="sw-actions">
-            <a class="sw-button" href={heroCta.href}>{heroCta.label}</a>
-          </div>
-          <div class="sw-signals" aria-label="Streetwear project priorities">
-            <span><strong>01</strong> Product direction</span>
-            <span><strong>02</strong> Sample approval</span>
-            <span><strong>03</strong> Bulk reference</span>
-          </div>
-        </div>
-        <div class="sw-placeholder sw-placeholder-hero" role="img" aria-label={heroMediaDetail}>
-          <span>IMAGE PLACEHOLDER</span>
-          <strong>Coordinated streetwear collection</strong>
-          <small>{heroMediaDetail}</small>
+<!-- ============ 1 HERO ============ -->
+<section class="pd-hero" data-od-id="streetwear-hero">
+  <div class="shell">
+    <div class="pd-hero-grid">
+      <div class="pd-hero-copy">
+        <p class="label">B2B / OEM–ODM / Private label</p>
+        <h1>Streetwear manufacturing for private label brands.</h1>
+        <p class="lead pd-hero-lead">Build coordinated streetwear through silhouette, material, washes or decoration, private labels, sampling, and pack-out rules.</p>
+        <div class="sw-hero-actions">
+          <a class="button" href="/contact-us/">Send a streetwear brief</a>
+          <a class="link" href="#manufacturing-scope">Review manufacturing scope</a>
         </div>
       </div>
-    </section>
-
-    <nav class="sw-rail" aria-label="Streetwear page sections">
-      <div class="sw-rail-inner">
-        {sections.map(section => <a href={`#${section.id}`}><span>{section.number}</span>{section.rail}</a>)}
-      </div>
-    </nav>
-
-    {sections.map(section => (
-      <section class:list={["sw-section", `sw-section-${section.tone}`]} id={section.id} aria-labelledby={`${section.id}-title`}>
-        {section.aliases?.map(alias => <span class="sw-anchor-alias" id={alias} aria-hidden="true"></span>)}
-        <div class="sw-shell">
-          <div class="sw-section-grid">
-            <header class="sw-section-heading">
-              <p class="sw-kicker">{section.number} / {section.rail}</p>
-              <h2 id={`${section.id}-title`}>{section.title}</h2>
-              <div class="sw-section-lead" set:html={section.leadHtml} />
-            </header>
-            {section.id === "factory-evidence" ? (
-              <div class="sw-factory-grid">
-                {factoryEvidence.map((image, index) => (
-                  <article class="sw-factory-card">
-                    <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" />
-                    <div>
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-                      <h3>{section.items[index]?.title}</h3>
-                      <p>{image.copy}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div class="sw-items">
-                {section.items.map((item, index) => (
-                  <article class="sw-item">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <h3>{item.title}</h3>
-                    <div class="sw-item-copy" set:html={item.html} />
-                  </article>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {section.mediaDetail && (
-            <div class="sw-placeholder" role="img" aria-label={section.mediaDetail}>
-              <span>IMAGE PLACEHOLDER</span>
-              <strong>{section.rail} reference</strong>
-              <small>{section.mediaDetail}</small>
-            </div>
-          )}
-
-          {section.cta && section.id !== "inquiry" && (
-            <div class="sw-section-action">
-              <a class="sw-button" href={section.cta.href}>{section.cta.label}</a>
-            </div>
-          )}
-
-          {section.textCta && (
-            <div class="sw-section-action sw-section-action-text">
-              <a class="sw-text-link" href={section.textCta.href}>{section.textCta.label}</a>
-            </div>
-          )}
-
-          {section.formFields && (
-            <div class="sw-form-fields" aria-label="Streetwear project brief fields">
-              {section.formFields.map((field, index) => (
-                <span><strong>{String(index + 1).padStart(2, "0")}</strong>{field}</span>
-              ))}
-            </div>
-          )}
-
-          {section.id === "inquiry" && section.cta && (
-            <div class="sw-final-action">
-              <p>Bring the product decisions for your first sample into one brief.</p>
-              <a class="sw-button" href={section.cta.href}>{section.cta.label}</a>
-            </div>
-          )}
-        </div>
-      </section>
-    ))}
+      <figure class="pd-hero-media">
+        <img src="/uploads/products/streetwear-manufacturer.webp" alt="Streetwear product reference" width="844" height="1448" decoding="async" />
+        <figcaption>Supplied product reference · materials and specifications require confirmation</figcaption>
+      </figure>
+    </div>
   </div>
-</BaseLayout>
+</section>
 
-<style>
-  .sw-page {
-    --sw-ink: #151515;
-    --sw-paper: #f4f5f2;
-    --sw-white: #ffffff;
-    --sw-muted: #616660;
-    --sw-line: #d8dcd6;
-    --sw-accent: #c9ff32;
-    --sw-signal: #ff5b3d;
-    --sw-blue: #72c9e8;
-    overflow: clip;
-    background: var(--sw-paper);
-    color: var(--sw-ink);
-  }
+<!-- ============ SCOPE STRIP ============ -->
+<section class="st-strip" aria-label="Manufacturing workflow" data-od-id="page-section-index">
+  <div class="shell">
+    <span>Product definition</span>
+    <span>Sample approval</span>
+    <span>Private label</span>
+    <span>Quality points</span>
+    <span>Pack-out</span>
+  </div>
+</section>
 
-  .sw-page * { box-sizing: border-box; }
-  .sw-shell { width: min(1160px, calc(100% - 96px)); margin-inline: auto; }
+<!-- ============ 01 PRODUCT OVERVIEW ============ -->
+<section class="section band-alt" aria-labelledby="streetwear-overview-title" data-od-id="sw-overview">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label">01 / Product overview</p>
+        <h2 id="streetwear-overview-title">Start with the streetwear you need—not a generic quality claim.</h2>
+      </div>
+      <div class="pd-note" data-reveal>
+        <p class="lead">Define the product through fit, fabric, construction, branding, sample approval, packing, and delivery inputs that both sides can review.</p>
+      </div>
+    </div>
+    <div class="st-brief" data-reveal>
+      <p class="label">Buyer brief / Quick scan</p>
+      <div class="st-brief-row"><span>Product</span><strong>Streetwear category and style direction</strong></div>
+      <div class="st-brief-row"><span>Volume</span><strong>Estimated quantity and color breakdown</strong></div>
+      <div class="st-brief-row"><span>Fit</span><strong>Target market, size range, measurements, and silhouette</strong></div>
+      <div class="st-brief-row"><span>Brand</span><strong>Artwork, labels, trims, tags, and packing</strong></div>
+      <div class="st-brief-row"><span>Delivery</span><strong>Destination, target timing, and document needs</strong></div>
+      <p class="st-brief-note">MOQ, lead time, price, material availability, and delivery path require review of the confirmed project.</p>
+    </div>
+  </div>
+</section>
 
-  .sw-hero {
-    min-height: 660px;
-    padding: 76px 0 62px;
-    background: var(--sw-ink);
-    color: var(--sw-white);
-  }
+<!-- ============ 02 PRODUCT AND PROOF MEDIA ============ -->
+<section class="section" aria-labelledby="streetwear-proof-title" data-od-id="sw-proof">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label">02 / Product and proof media</p>
+        <h2 id="streetwear-proof-title">A visual product record—not an article wall.</h2>
+      </div>
+      <div class="pd-note" data-reveal>
+        <p class="lead">The supplied reference anchors the page. The additional positions show which real production images and documents should be added later.</p>
+      </div>
+    </div>
+    <div class="st-gallery" data-reveal>
+      <figure class="st-gallery-main">
+        <img src="/uploads/products/streetwear-manufacturer.webp" alt="Full streetwear product reference" width="844" height="1448" loading="lazy" decoding="async" />
+        <figcaption>01 / FULL GARMENT REFERENCE</figcaption>
+      </figure>
+      <div class="st-slots">
+        <div class="sw-ph"><div class="sw-ph-media"><span class="sw-ph-tag">02 / REQUIRED</span></div><div class="sw-ph-copy"><strong>Fabric face and inside detail</strong><small>Recommended 1600 × 1200</small></div></div>
+        <div class="sw-ph"><div class="sw-ph-media"><span class="sw-ph-tag">03 / REQUIRED</span></div><div class="sw-ph-copy"><strong>Seams, pockets, closures, and workmanship</strong><small>Recommended 1600 × 1200</small></div></div>
+        <div class="sw-ph"><div class="sw-ph-media"><span class="sw-ph-tag">04 / REQUIRED</span></div><div class="sw-ph-copy"><strong>Artwork, decoration, labels, and trims</strong><small>Recommended 1600 × 1200</small></div></div>
+        <div class="sw-ph"><div class="sw-ph-media"><span class="sw-ph-tag">05 / REQUIRED</span></div><div class="sw-ph-copy"><strong>Inspection, folding, bags, and carton reference</strong><small>Recommended 1600 × 1200</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  .sw-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.16fr) minmax(320px, .84fr);
-    gap: 64px;
-    align-items: center;
-  }
+<!-- ============ 03 MANUFACTURING SCOPE ============ -->
+<section class="section band-alt" id="manufacturing-scope" aria-labelledby="streetwear-scope-title" data-od-id="sw-scope">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label">03 / Manufacturing scope</p>
+        <h2 id="streetwear-scope-title">Plan fit, fabric, construction, and branding together.</h2>
+      </div>
+      <div class="pd-note" data-reveal>
+        <p class="lead">No single specification defines the whole product. The final garment comes from connected decisions made before sampling and bulk.</p>
+      </div>
+    </div>
+    <div class="sw-grid sw-grid--2">
+      <article class="sw-block" data-reveal><span class="sw-num">01 / FIT</span><h3>Silhouette and sizing</h3><p>Define the intended shape, proportions, measurement system, size range, and grading notes.</p></article>
+      <article class="sw-block" data-reveal><span class="sw-num">02 / FABRIC</span><h3>Material direction</h3><p>Review composition, weight, color, handfeel, stretch, drape, surface, and care considerations.</p></article>
+      <article class="sw-block" data-reveal><span class="sw-num">03 / BUILD</span><h3>Workmanship</h3><p>Document seams, stitching, pockets, closures, reinforcement, lining, trims, and finishing.</p></article>
+      <article class="sw-block" data-reveal><span class="sw-num">04 / BRAND</span><h3>Decoration and labels</h3><p>Choose artwork applications and coordinate label, tag, trim, and packing placement.</p></article>
+    </div>
+  </div>
+</section>
 
-  .sw-kicker {
-    margin: 0 0 16px;
-    color: #557000;
-    font: 750 11px/1.4 var(--font-mono, monospace);
-    letter-spacing: 0;
-    text-transform: uppercase;
-  }
+<!-- ============ 04 SAMPLE APPROVAL ============ -->
+<section class="section band-dark" aria-labelledby="streetwear-sample-title" data-od-id="sw-sample">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label label--onDark">04 / Sample approval</p>
+        <h2 id="streetwear-sample-title">Use the physical sample to remove guesswork before bulk.</h2>
+      </div>
+      <div class="pd-note" data-reveal>
+        <p class="lead">The sample turns the product plan into a garment the buyer can measure, wear, photograph, comment on, revise, and approve.</p>
+      </div>
+    </div>
+    <div class="sw-spec">
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">01</span><div><h3>Fit and measurements</h3><p>Review shape, length, width, proportions, placement, and size reference.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">02</span><div><h3>Fabric and behavior</h3><p>Assess handfeel, weight direction, drape, surface, color, and wear behavior.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">03</span><div><h3>Workmanship and trims</h3><p>Check seams, stitching, closures, reinforcement, hardware, and finishing.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">04</span><div><h3>Brand application</h3><p>Review artwork scale, placement, print or embroidery, labels, and tags.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">05</span><div><h3>Packing instructions</h3><p>Confirm folding, bags, inserts, stickers, carton marks, and packing count.</p></div></article>
+    </div>
+  </div>
+</section>
 
-  .sw-hero .sw-kicker,
-  .sw-section-ink .sw-kicker { color: var(--sw-accent); }
+<!-- ============ 05 ORDER PATH ============ -->
+<section class="section" aria-labelledby="streetwear-path-title" data-od-id="sw-path">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label">05 / Order path</p>
+        <h2 id="streetwear-path-title">From requirement review to shipment preparation.</h2>
+      </div>
+      <div class="pd-note" data-reveal>
+        <p class="lead">Timing is established after the product, materials, customization, quantity, revisions, packing, and destination are understood.</p>
+      </div>
+    </div>
+    <div class="sw-spec st-steps">
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">01 / REVIEW</span><div><h3>Product brief</h3><p>Clarify the category, quantity, market, references, size range, fabric, branding, packing, and destination.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">02 / DEFINE</span><div><h3>Specification</h3><p>Align fit, measurements, materials, workmanship, trims, artwork, labels, and pack-out.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">03 / SAMPLE</span><div><h3>Development</h3><p>Make the sample, document comments, and revise the parts that are not approved.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">04 / BULK</span><div><h3>Production</h3><p>Use the approved sample and order notes for cutting, sewing, decoration, and finishing.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">05 / HANDOFF</span><div><h3>Check and pack</h3><p>Review finished garments, labels, unit packing, carton details, and shipment preparation.</p></div></article>
+    </div>
+  </div>
+</section>
 
-  .sw-hero h1 {
-    max-width: 760px;
-    margin: 0;
-    font: 680 66px/.98 var(--font-display, sans-serif);
-    letter-spacing: 0;
-    overflow-wrap: anywhere;
-  }
+<!-- ============ 06 QUALITY CONTROL ============ -->
+<section class="section band-dark" aria-labelledby="streetwear-quality-title" data-od-id="sw-quality">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label label--onDark">06 / Quality control</p>
+        <h2 id="streetwear-quality-title">Check what matters to the approved streetwear.</h2>
+      </div>
+      <div class="pd-note" data-reveal>
+        <p class="lead">Acceptance points should be confirmed for the order and connected to the approved product reference.</p>
+      </div>
+    </div>
+    <div class="sw-spec">
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">01</span><div><h3>Material and color</h3><p>Compare fabric and trims with the approved direction.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">02</span><div><h3>Measurements and construction</h3><p>Review dimensions, seams, stitching, pockets, closures, and workmanship.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">03</span><div><h3>Decoration and labels</h3><p>Check artwork placement, application appearance, label type, and attachment.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">04</span><div><h3>Finished garment</h3><p>Compare fit, appearance, finish, and details with the approved sample.</p></div></article>
+      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">05</span><div><h3>Packing and cartons</h3><p>Verify folding, bags, tags, packing count, marks, and reference photos.</p></div></article>
+    </div>
+  </div>
+</section>
 
-  .sw-hero-intro :global(p) {
-    max-width: 720px;
-    margin: 26px 0 0;
-    color: #c9cfca;
-    font-size: 16px;
-    line-height: 1.72;
-  }
+<!-- ============ 07 PRIVATE LABEL AND PACKING ============ -->
+<section class="section band-alt" aria-labelledby="streetwear-packing-title" data-od-id="sw-packing">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label">07 / Private label and packing</p>
+        <h2 id="streetwear-packing-title">Finish the product for the next operational handoff.</h2>
+      </div>
+      <div class="pd-note" data-reveal>
+        <p class="lead">Brand details and packing instructions belong in the product plan early because they affect presentation, counting, receiving, and distribution.</p>
+      </div>
+    </div>
+    <div class="sw-cards sw-cards--3">
+      <article class="sw-card" data-reveal><span class="sw-card-num">01 / GARMENT</span><h3>Labels</h3><p>Woven, neck, size, and care labels using supplied content and placement.</p></article>
+      <article class="sw-card" data-reveal><span class="sw-card-num">02 / MERCHANDISE</span><h3>Tags and codes</h3><p>Hangtags, stickers, barcodes, and buyer-supplied warehouse references.</p></article>
+      <article class="sw-card" data-reveal><span class="sw-card-num">03 / UNIT</span><h3>Fold and bag</h3><p>Folding, polybags, inserts, stickers, and presentation requirements.</p></article>
+      <article class="sw-card" data-reveal><span class="sw-card-num">04 / CARTON</span><h3>Pack-out rules</h3><p>Quantity, size mix, carton marks, labels, and handling instructions.</p></article>
+      <article class="sw-card" data-reveal><span class="sw-card-num">05 / PROOF</span><h3>Packing references</h3><p>Relevant packing photos, carton information, and order records.</p></article>
+      <article class="sw-card" data-reveal><span class="sw-card-num">06 / DESTINATION</span><h3>Delivery inputs</h3><p>Target market, destination, requested timing, and document needs.</p></article>
+    </div>
+  </div>
+</section>
 
-  .sw-actions { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-top: 28px; }
-  .sw-button {
-    display: inline-flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 20px;
-    border: 1px solid var(--sw-accent);
-    border-radius: 4px;
-    background: var(--sw-accent);
-    color: #182100;
-    font-size: 13px;
-    font-weight: 780;
-    line-height: 1.2;
-    text-decoration: none;
-  }
-  .sw-button:hover,
-  .sw-button:focus-visible { background: #dcff78; border-color: #dcff78; }
-  .sw-text-link { color: #fff; font-size: 13px; text-underline-offset: 5px; }
-  .sw-text-link:hover,
-  .sw-text-link:focus-visible { color: var(--sw-accent); }
+<!-- ============ 08 RELATED CATEGORIES ============ -->
+<section class="section band-dark" aria-labelledby="streetwear-related-title" data-od-id="sw-related">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label label--onDark">08 / Related categories</p>
+        <h2 id="streetwear-related-title">Build a coordinated apparel program.</h2>
+      </div>
+      <div class="pd-note" data-reveal>
+        <p class="lead">Review adjacent product groups with the same structured development approach.</p>
+      </div>
+    </div>
+    <div class="st-related">
+      <a href="/hoodie-manufacturer/">
+        <img src="/uploads/products/hoodie-manufacturer.webp" alt="Hoodie Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" />
+        <h3>Hoodie</h3>
+        <span>View manufacturing page →</span>
+      </a>
+      <a href="/t-shirt-manufacturer/">
+        <img src="/uploads/products/t-shirt-manufacturer.webp" alt="T-Shirt Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" />
+        <h3>T-Shirt</h3>
+        <span>View manufacturing page →</span>
+      </a>
+      <a href="/jackets-manufacturer/">
+        <img src="/uploads/products/jackets-manufacturer.webp" alt="Jackets Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" />
+        <h3>Jackets</h3>
+        <span>View manufacturing page →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-  .sw-signals {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 720px;
-    margin-top: 34px;
-    border-block: 1px solid #3a3a3a;
-  }
-  .sw-signals span { padding: 14px 12px 14px 0; color: #b7bcb7; font-size: 11px; line-height: 1.35; }
-  .sw-signals strong { display: block; margin-bottom: 5px; color: var(--sw-signal); font-family: var(--font-mono, monospace); }
-
-  .sw-placeholder {
-    position: relative;
-    display: grid;
-    min-height: 280px;
-    margin-top: 48px;
-    place-content: center;
-    justify-items: center;
-    gap: 10px;
-    padding: 36px;
-    border: 1px dashed #8c948c;
-    border-radius: 4px;
-    background: #eaede8;
-    text-align: center;
-  }
-  .sw-placeholder::before {
-    position: absolute;
-    inset: 14px auto auto 14px;
-    width: 34px;
-    height: 5px;
-    background: var(--sw-signal);
-    content: "";
-  }
-  .sw-placeholder-hero { min-height: 520px; margin-top: 0; background: #202020; border-color: #5d625d; }
-  .sw-placeholder span { color: #506600; font: 750 10px/1.4 var(--font-mono, monospace); }
-  .sw-placeholder strong { max-width: 560px; font: 680 24px/1.15 var(--font-display, sans-serif); letter-spacing: 0; }
-  .sw-placeholder small { max-width: 640px; color: #656d65; font-size: 12px; line-height: 1.6; }
-  .sw-placeholder-hero span { color: var(--sw-accent); }
-  .sw-placeholder-hero strong { color: #fff; font-size: 30px; }
-  .sw-placeholder-hero small { color: #adb4ad; }
-
-  .sw-rail { overflow-x: auto; background: var(--sw-accent); color: #172000; }
-  .sw-rail-inner { display: grid; width: max-content; min-width: 100%; grid-template-columns: repeat(14, minmax(106px, 1fr)); }
-  .sw-rail a {
-    display: flex;
-    min-height: 58px;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 10px;
-    border-right: 1px solid rgba(23, 32, 0, .2);
-    color: inherit;
-    font: 760 10px/1.2 var(--font-mono, monospace);
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  .sw-rail a:hover,
-  .sw-rail a:focus-visible { background: #e2ff92; }
-  .sw-rail a span { color: #5d711b; }
-
-  .sw-section { position: relative; padding: 84px 0; scroll-margin-top: 20px; }
-  .sw-anchor-alias { position: absolute; inset: 0 auto auto 0; }
-  .sw-section-light { background: var(--sw-white); }
-  .sw-section-ink { background: var(--sw-ink); color: var(--sw-white); }
-  .sw-section-grid { display: grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); gap: 76px; align-items: start; }
-  .sw-section-heading h2 {
-    max-width: 540px;
-    margin: 0;
-    font: 680 43px/1.05 var(--font-display, sans-serif);
-    letter-spacing: 0;
-    overflow-wrap: anywhere;
-  }
-  .sw-section-lead :global(p) {
-    max-width: 540px;
-    margin: 18px 0 0;
-    color: var(--sw-muted);
-    font-size: 15px;
-    line-height: 1.72;
-  }
-  .sw-section-ink .sw-section-lead :global(p) { color: #adb4ad; }
-
-  .sw-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 34px; border-top: 1px solid var(--sw-line); }
-  .sw-section-ink .sw-items { border-color: #3a3a3a; }
-  .sw-item { min-width: 0; padding: 22px 0 27px; border-bottom: 1px solid var(--sw-line); }
-  .sw-section-ink .sw-item { border-color: #3a3a3a; }
-  .sw-item > span { display: block; margin-bottom: 12px; color: var(--sw-signal); font: 750 10px/1.2 var(--font-mono, monospace); }
-  .sw-item h3 { margin: 0; font: 680 21px/1.2 var(--font-display, sans-serif); letter-spacing: 0; overflow-wrap: anywhere; }
-  .sw-item-copy :global(p) { margin: 12px 0 0; color: var(--sw-muted); font-size: 14px; line-height: 1.7; }
-  .sw-section-ink .sw-item-copy :global(p) { color: #adb4ad; }
-  .sw-item-copy :global(ul) { margin: 16px 0 0; padding: 0; list-style: none; }
-  .sw-item-copy :global(li) { position: relative; padding: 8px 0 8px 20px; border-bottom: 1px solid var(--sw-line); color: var(--sw-muted); font-size: 13px; line-height: 1.55; }
-  .sw-item-copy :global(li::before) { position: absolute; left: 0; top: 15px; width: 7px; height: 7px; background: var(--sw-signal); content: ""; }
-  .sw-section-ink .sw-item-copy :global(li) { border-color: #3a3a3a; color: #adb4ad; }
-  .sw-item-copy :global(a),
-  .sw-section-lead :global(a) { color: inherit; text-decoration-color: var(--sw-signal); text-underline-offset: 4px; }
-
-  .sw-factory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-  .sw-factory-card { min-width: 0; overflow: hidden; border: 1px solid #3a3a3a; background: #202020; }
-  .sw-factory-card img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-  .sw-factory-card > div { padding: 20px; }
-  .sw-factory-card span { color: var(--sw-accent); font: 750 10px/1.2 var(--font-mono, monospace); }
-  .sw-factory-card h3 { margin: 10px 0 0; font: 680 21px/1.2 var(--font-display, sans-serif); letter-spacing: 0; }
-  .sw-factory-card p { margin: 10px 0 0; color: #adb4ad; font-size: 13px; line-height: 1.65; }
-
-
-  .sw-section-action { display: flex; margin-top: 30px; }
-  .sw-section-action-text .sw-text-link { color: inherit; }
-
-  .sw-form-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 38px; border-top: 1px solid var(--sw-line); border-left: 1px solid var(--sw-line); }
-  .sw-form-fields span { min-width: 0; padding: 16px; border-right: 1px solid var(--sw-line); border-bottom: 1px solid var(--sw-line); color: var(--sw-muted); font-size: 12px; line-height: 1.45; }
-  .sw-form-fields strong { display: block; margin-bottom: 7px; color: var(--sw-signal); font: 750 9px/1.2 var(--font-mono, monospace); }
-
-  .sw-section-ink .sw-placeholder { background: #202020; border-color: #5d625d; }
-  .sw-section-ink .sw-placeholder span { color: var(--sw-accent); }
-  .sw-section-ink .sw-placeholder strong { color: #fff; }
-  .sw-section-ink .sw-placeholder small { color: #adb4ad; }
-
-  .sw-final-action {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    margin-top: 34px;
-    padding: 28px;
-    border: 1px solid #3a3a3a;
-    border-left: 6px solid var(--sw-blue);
-  }
-  .sw-final-action p { max-width: 580px; margin: 0; color: #e0e4e0; font-size: 17px; line-height: 1.5; }
-
-  @media (max-width: 920px) {
-    .sw-shell { width: min(100% - 40px, 720px); }
-    .sw-hero { min-height: 0; padding: 56px 0 48px; }
-    .sw-hero-grid,
-    .sw-section-grid { grid-template-columns: 1fr; gap: 38px; }
-    .sw-form-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .sw-hero h1 { font-size: 48px; }
-    .sw-placeholder-hero { min-height: 390px; }
-    .sw-section { padding: 66px 0; }
-    .sw-section-heading h2 { font-size: 35px; }
-  }
-
-  @media (max-width: 620px) {
-    .sw-shell { width: calc(100% - 32px); }
-    .sw-hero { padding: 34px 0 26px; }
-    .sw-hero-grid { gap: 24px; }
-    .sw-hero h1 { font-size: 38px; line-height: 1.03; }
-    .sw-hero-intro :global(p) { margin-top: 18px; font-size: 14px; line-height: 1.58; }
-    .sw-actions { margin-top: 20px; }
-    .sw-signals { display: none; }
-    .sw-items { grid-template-columns: 1fr; }
-    .sw-factory-grid,
-    .sw-form-fields { grid-template-columns: 1fr; }
-    .sw-placeholder { min-height: 230px; padding: 28px 18px; }
-    .sw-placeholder-hero { min-height: 220px; }
-    .sw-placeholder strong { font-size: 21px; }
-    .sw-placeholder-hero strong { font-size: 23px; }
-    .sw-placeholder-hero small { font-size: 10px; line-height: 1.45; }
-    .sw-final-action { align-items: flex-start; flex-direction: column; padding: 22px; }
-    .sw-button { width: 100%; }
-  }
-</style>
+<!-- ============ 09 START AN INQUIRY ============ -->
+<section class="section band-alt" aria-labelledby="streetwear-inquiry-title" data-od-id="sw-inquiry">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label">09 / Start an inquiry</p>
+        <h2 id="streetwear-inquiry-title">Send the product details that shape a useful review.</h2>
+      </div>
+    </div>
+    <div class="st-checklist" data-reveal>
+      <span>Streetwear type</span>
+      <span>Estimated quantity</span>
+      <span>Tech pack or reference</span>
+      <span>Fit and size range</span>
+      <span>Fabric direction</span>
+      <span>Artwork and labels</span>
+      <span>Packing needs</span>
+      <span>Destination and timing</span>
+    </div>
+    <div class="sw-hero-actions" data-reveal>
+      <a class="button" href="/contact-us/">Send project details</a>
+      <a class="button button--dark" href="/">Back to homepage</a>
+    </div>
+  </div>
+</section>
+</EditorialLayout>
