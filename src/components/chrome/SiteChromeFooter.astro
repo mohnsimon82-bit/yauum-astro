@@ -1,0 +1,53 @@
+---
+// 站点公共页脚。
+interface Props {
+  navCurrent?: string[];
+  scoped?: boolean;
+}
+
+const { navCurrent = [], scoped = false } = Astro.props;
+const isCurrent = (href: string) => navCurrent.includes(href);
+const c = (base: string) => (scoped ? `${base} ed` : base);
+---
+
+    <footer class={c("site-footer")} data-od-id="site-footer">
+          <div class="shell footer-grid">
+            <div class="footer-brand-col">
+              <a class="brand brand-chip" href="/" aria-label="Yauum home">
+                <img src="/uploads/logo/yauum-site-logo.webp" alt="Yauum" width="852" height="215" loading="lazy" decoding="async" />
+              </a>
+              <p>B2B menswear and streetwear development, sampling, private label execution, quality checks, packing, and shipment preparation.</p>
+              <a class="footer-inquiry" href="/contact-us/">Discuss a product brief <span aria-hidden="true">↗</span></a>
+              <div class="footer-contact" aria-label="Direct contact details">
+                <a href="https://wa.me/8617615152039?text=Hello%20Yauum%2C%20I%27d%20like%20to%20discuss%20a%20clothing%20manufacturing%20project." target="_blank" rel="noopener noreferrer">WhatsApp / +86 176 1515 2039</a>
+                <a href="mailto:virgil.yauvy@gmail.com?subject=Yauum%20manufacturing%20inquiry">virgil.yauvy@gmail.com</a>
+              </div>
+            </div>
+            <nav class="footer-col" aria-label="Company links">
+              <p class="footer-label">Company</p>
+              <a href="/">Home</a>
+              <a aria-current={isCurrent("/our-services/") ? "page" : undefined} href="/our-services/">Our Services</a>
+              <a aria-current={isCurrent("/solutions/") ? "page" : undefined} href="/solutions/">Solutions</a>
+              <a href="/production/">Production</a>
+              <a aria-current={isCurrent("/about-us/") ? "page" : undefined} href="/about-us/">About</a>
+              <a aria-current={isCurrent("/blog/") ? "page" : undefined} href="/blog/">Blog</a>
+            </nav>
+            <nav class="footer-col" aria-label="Product links one">
+              <p class="footer-label">Products / 01–03</p>
+              <a aria-current={isCurrent("/hoodie-manufacturer/") ? "page" : undefined} href="/hoodie-manufacturer/">Hoodies</a>
+              <a aria-current={isCurrent("/t-shirt-manufacturer/") ? "page" : undefined} href="/t-shirt-manufacturer/">T-Shirts</a>
+              <a aria-current={isCurrent("/jackets-manufacturer/") ? "page" : undefined} href="/jackets-manufacturer/">Jackets</a>
+            </nav>
+            <nav class="footer-col" aria-label="Product links two">
+              <p class="footer-label">Products / 04–06</p>
+              <a aria-current={isCurrent("/pants-manufacturer/") ? "page" : undefined} href="/pants-manufacturer/">Pants</a>
+              <a aria-current={isCurrent("/sportswear-manufacturer/") ? "page" : undefined} href="/sportswear-manufacturer/">Sportswear</a>
+              <a aria-current={isCurrent("/streetwear-manufacturer/") ? "page" : undefined} href="/streetwear-manufacturer/">Streetwear</a>
+              <a href="/contact-us/">Contact Yauum ↗</a>
+            </nav>
+          </div>
+          <div class="shell footer-bottom">
+            <span>© 2026 Yauum</span>
+            <span>Static Astro website · Cloudflare ready</span>
+          </div>
+        </footer>

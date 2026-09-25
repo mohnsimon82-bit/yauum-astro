@@ -1,9 +1,13 @@
 ---
-import SiteHeader from "../components/SiteHeader.astro";
-import SiteFooter from "../components/SiteFooter.astro";
 import Analytics from "../components/Analytics.astro";
+import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
+import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
+import chromeScript from "../scripts/editorial/product-a.js?raw";
 import "../styles/global.css";
 import "../styles/redesign.css";
+// 公共页头/页脚的 Editorial 样式。带 .ed 作用域，特异性高于 global.css 中的旧页头规则，
+// 因此旧页面正文样式不受影响，页头与页脚统一成新设计。
+import "../styles/site-chrome.css";
 
 interface Props {
   title: string;
@@ -13,6 +17,18 @@ interface Props {
 }
 
 const { title, description, canonical, jsonLd } = Astro.props;
+
+// 页头来自新设计系统，用规范链接推断当前导航项以正确标注 aria-current
+const path = canonical.replace(/^https?:\/\/[^/]+/, "") || "/";
+const productSlugs = [
+  "/hoodie-manufacturer/",
+  "/t-shirt-manufacturer/",
+  "/jackets-manufacturer/",
+  "/pants-manufacturer/",
+  "/sportswear-manufacturer/",
+  "/streetwear-manufacturer/",
+];
+const navCurrent = productSlugs.includes(path) ? ["/production/", path] : [path];
 ---
 
 <!doctype html>
@@ -27,16 +43,25 @@ const { title, description, canonical, jsonLd } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" />
     <title>{title}</title>
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <Analytics />
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <SiteHeader />
+    <SiteChromeTop
+      mainId="main-content"
+      navCurrent={navCurrent}
+      showMobileInquiry={true}
+      scoped={true}
+    />
+
     <main id="main-content">
       <slot />
     </main>
-    <SiteFooter />
+
+    <SiteChromeFooter navCurrent={navCurrent} scoped={true} />
+
+    <script is:inline set:html={chromeScript} />
   </body>
 </html>

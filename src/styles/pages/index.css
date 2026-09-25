@@ -120,6 +120,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .prod-panel .prod-overview{border-bottom:1px solid var(--border);margin-bottom:6px;padding-bottom:14px}
 
 .header-cta{margin-left:auto;flex-shrink:0;padding:12px 20px;font-size:14px}
+.header-cta::after{content:"↗";margin-left:7px;font-size:.92em;line-height:1}
 .menu-btn{display:none;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid var(--border)}
 .menu-btn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .menu-lines{display:inline-flex;flex-direction:column;gap:4px}
