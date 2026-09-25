@@ -11,9 +11,11 @@ type Blueprint = {
   kicker: string;
   headline: string;
   intro: string;
+  sectionKicker?: string;
   sectionTitle: string;
-  sectionIntro: string;
+  sectionIntro?: string;
   items: Array<[string, string, string]>;
+  points?: string[][];
   noteTitle: string;
   note: string;
 };
@@ -44,15 +46,15 @@ const blueprints: Record<string, Blueprint> = {
     kicker: "B2B apparel services",
     headline: "Manufacturing support from product brief to pack-out.",
     intro: "Yauum organizes development around the practical decisions buyers need to make before bulk production.",
-    sectionTitle: "A connected manufacturing service—not isolated tasks.",
-    sectionIntro: "Each service creates a reference for the next stage and reduces ambiguity between buyer and production team.",
+    sectionKicker: "What We Handle For You",
+    sectionTitle: "Six services, one connected process.",
     items: [
-      ["01", "Product clarification", "Review category, intended use, quantity, market, references, size range, price direction, and target timing."],
-      ["02", "Material and construction", "Align fabric, color, measurements, seams, pockets, closures, trims, and finishing requirements."],
-      ["03", "Sampling and revision", "Develop the physical sample, record buyer comments, revise details, and confirm the approval reference."],
-      ["04", "Private label execution", "Coordinate labels, artwork, decoration, hangtags, stickers, barcodes, and packaging details."],
-      ["05", "Production and checks", "Use approved references for bulk work and document the product, branding, and packing points to review."],
-      ["06", "Shipment preparation", "Confirm folding, bags, carton marks, packing count, destination inputs, and requested handoff documentation."],
+      ["01", "Product Development & Sampling", "From product brief to approved sample."],
+      ["02", "Fabrics & Materials", "Cotton, polyester, blends and functional fabrics."],
+      ["03", "Printing & Decoration", "Screen print, heat transfer, embroidery, DTG."],
+      ["04", "Sizing & Fit", "XS–5XL standard, custom ranges available."],
+      ["05", "Private Label & Packaging", "Labels, tags, barcodes, carton marks."],
+      ["06", "Quality Inspection", "Checked against your approved sample."],
     ],
     noteTitle: "The final scope depends on the confirmed product.",
     note: "MOQ, price, lead time, material availability, inspection method, and delivery plan are reviewed after the product requirements are clear.",
@@ -84,6 +86,28 @@ const blueprints: Record<string, Blueprint> = {
       ["02", "Wholesalers and retailers", "Use repeatable measurements, approved references, packing rules, and order records to support future runs."],
       ["03", "E-commerce and marketplace sellers", "Coordinate fit, product presentation, labels, barcodes, unit packing, and carton handling inputs."],
       ["04", "Sourcing and procurement teams", "Review specifications, production references, checkpoints, packing, destination, and document needs in one path."],
+    ],
+    points: [
+      [
+        "Product brief and category scope confirmed before sampling begins",
+        "Sample approval required before bulk production starts",
+        "Private label finishing (woven labels, neck labels, hang tags, barcodes) coordinated per project",
+      ],
+      [
+        "Approved sample kept as the reference for repeat orders",
+        "Measurement and construction specs recorded for consistency across runs",
+        "Packing and carton marking rules set once, reused on reorders",
+      ],
+      [
+        "Barcode, hang tag and packaging inputs coordinated for listing requirements",
+        "Unit packing and carton handling set up for marketplace fulfillment, including Amazon FBA prep",
+        "Fit and product presentation confirmed against your reference or listing photos",
+      ],
+      [
+        "Specification and production checkpoints documented at each stage",
+        "Destination, shipping method (FOB/CIF) and packing requirements confirmed upfront",
+        "Full traceability from approved sample through inspection and packing",
+      ],
     ],
     noteTitle: "Start with your operational handoff.",
     note: "Tell Yauum where the goods need to go next—retail, wholesale, e-commerce, warehouse, or another distribution point—so packing inputs can be discussed early.",
@@ -303,8 +327,8 @@ const configuration = [
         <div class="shell standard-hero-inner"><p class="kicker kicker-accent">{blueprint.kicker}</p><h1>{blueprint.headline}</h1><p>{blueprint.intro}</p>{page.slug !== "contact-us" && <a class="button button-accent" href="/contact-us/">Send a project brief</a>}</div>
       </section>
       <section class="section section-surface">
-        <div class="shell"><div class="section-head"><div><p class="kicker">01 / {page.label}</p><h2 class="section-title">{blueprint.sectionTitle}</h2></div><p>{blueprint.sectionIntro}</p></div>
-          <div class="blueprint-grid">{blueprint.items.map(([number, title, description]) => <article><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+        <div class="shell"><div class="section-head"><div><p class="kicker">01 / {blueprint.sectionKicker ?? page.label}</p><h2 class="section-title">{blueprint.sectionTitle}</h2></div>{blueprint.sectionIntro && <p>{blueprint.sectionIntro}</p>}</div>
+          <div class="blueprint-grid">{blueprint.items.map(([number, title, description], index) => <article><span>{number}</span><h3>{title}</h3><p>{description}</p>{blueprint.points?.[index] && <ul class="blueprint-points">{blueprint.points[index].map((point) => <li>{point}</li>)}</ul>}</article>)}</div>
         </div>
       </section>
       {page.slug === "production" && products.length > 0 && (
