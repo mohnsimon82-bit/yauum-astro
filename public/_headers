@@ -1,2 +1,9 @@
-/*
-  X-Robots-Tag: noindex, nofollow, noarchive
+# 预览阶段这里曾设置 X-Robots-Tag: noindex, nofollow, noarchive 以阻止临时域名
+# 被收录。站点切换到正式域名 yauum.com 后必须移除，否则正式站不会被搜索引擎收录，
+# 还会丢掉旧站已经积累的搜索位置。
+#
+# 移除后预览域名（yauum-preview.pages.dev）同样可被收录，但每个页面都带 canonical
+# 指向 https://yauum.com/...，收录会归并到正式域名，属于标准做法。
+#
+# 如需重新屏蔽预览域名：Pages 的 _headers 不支持按主机名匹配，只能整站加回 noindex，
+# 会同时影响正式站，请谨慎。
