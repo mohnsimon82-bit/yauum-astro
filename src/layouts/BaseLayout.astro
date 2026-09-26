@@ -55,14 +55,13 @@ const navCurrent = productSlugs.includes(path) ? ["/production/", path] : [path]
       mainId="main-content"
       navCurrent={navCurrent}
       showMobileInquiry={true}
-      scoped={true}
     />
 
     <main id="main-content">
       <slot />
     </main>
 
-    <SiteChromeFooter navCurrent={navCurrent} scoped={true} />
+    <SiteChromeFooter navCurrent={navCurrent} />
 
     <script is:inline set:html={chromeScript} />
   </body>
