@@ -11,8 +11,8 @@
    配色 --bg:#f4f5f1 --surface:#fff --fg:#171a17 --muted:#626a63
         --line:#d9ded8 --accent:#9bd63e --accent-ink:#17210f
         --dark:#151815 --dark-muted:#b8c0b9
-   字体 Barlow Condensed（标题/产品名）/ Roboto（正文/导航链接）
-        / Roboto Mono（编号标签）
+   字体 Archivo（标题/产品名）/ Inter（正文/导航链接）
+        / IBM Plex Mono（编号标签）——全站统一视觉系统
    容器宽度 1280px
 
    页脚 / 浮动联系栏 / 回顶按钮沿用既有 Editorial 样式（仅随本
@@ -33,9 +33,9 @@
   --dark-muted: #b8c0b9;
   --dark-border: rgba(255, 255, 255, .15);
   --white: #ffffff;
-  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --body: "Roboto", "Helvetica Neue", Arial, sans-serif;
-  --mono: "Roboto Mono", monospace;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 .ed img { max-width: 100%; display: block; height: auto }
@@ -130,9 +130,9 @@
 }
 .ed .prod-panel a:hover, .ed .prod-panel a[aria-current="page"] { background: var(--dark-soft) }
 .ed .prod-panel span { color: var(--accent); font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .09em; text-transform: none }
-.ed .prod-panel strong { font-family: var(--display); font-size: 19px; font-weight: 500; line-height: 1; color: inherit; letter-spacing: normal }
+.ed .prod-panel strong { font-family: var(--display); font-size: 15px; font-weight: 500; line-height: 1; color: inherit; letter-spacing: normal }
 .ed .prod-panel .prod-overview { grid-column: 1 / -1; min-height: 58px; background: var(--dark-soft) }
-.ed .prod-panel .prod-overview strong { font-size: 18px }
+.ed .prod-panel .prod-overview strong { font-size: 14px }
 
 /* ---------- header-cta：accent 按钮，与站内 accent 按钮一致（方形/无箭头） ---------- */
 

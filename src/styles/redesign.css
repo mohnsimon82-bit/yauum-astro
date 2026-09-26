@@ -12,9 +12,9 @@
   --shell: 1280px;
   --gutter: clamp(20px, 4vw, 56px);
   --section: clamp(64px, 7vw, 96px);
-  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "Roboto Mono", monospace;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 html { scroll-behavior: smooth; }
