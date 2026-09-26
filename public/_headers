@@ -9,15 +9,18 @@
 # ============================================================
 
 # 安全响应头：全站生效。
-# HSTS 初始阶段不带 includeSubDomains：邮件相关记录为 MX/TXT（Zoho 托管），
-# 未逐一确认其余子域 HTTPS 前保持保守值。
-# CSP 先以 Report-Only 上线：允许 GA(gtag)、Clarity、Google Fonts 与 Astro
-# 内联脚本；线上验证无违规后再切强制模式。
+# HSTS：已确认全部实际生产子域支持 HTTPS（证书透明度日志 crt.sh 全量核查
+# 仅存在 yauum.com 与 www.yauum.com；DoH 枚举 22 个常见子域名仅 www 可解析；
+# 邮件走 Zoho 自有域名的 MX，不占用本域子域），故启用 includeSubDomains。
+# 不启用 preload。
+# CSP：策略内容与此前 Report-Only 完全一致（预览环境实测零违规后切换为强制）。
+# 允许 GA(gtag)、Clarity、Google Fonts 与 Astro 内联脚本；未引入通配 * 与
+# unsafe-eval。
 /*
-  Strict-Transport-Security: max-age=31536000
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.clarity.ms https://*.clarity.ms; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.clarity.ms https://*.clarity.ms; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 
 # 构建产物（文件名含内容 hash，不可变）：缓存一年
 /_astro/*
