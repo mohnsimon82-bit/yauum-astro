@@ -1,8 +1,7 @@
 ---
 import Analytics from "../components/Analytics.astro";
-import scriptHome from "../scripts/editorial/home.js?raw";
-import scriptProductA from "../scripts/editorial/product-a.js?raw";
-import scriptProductB from "../scripts/editorial/product-b.js?raw";
+import scriptSite from "../scripts/editorial/site.js?raw";
+import scriptScrollRestore from "../scripts/editorial/scroll-restore.js?raw";
 import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
 import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
 
@@ -11,7 +10,7 @@ interface Props {
   description: string;
   canonical: string;
   jsonLd?: Record<string, unknown>[];
-  variant?: "home" | "product-a" | "product-b";
+  variant?: "home" | "product";
   navCurrent?: string[];
   showMobileInquiry?: boolean;
 }
@@ -21,14 +20,12 @@ const {
   description,
   canonical,
   jsonLd,
-  variant = "product-a",
+  variant = "product",
   navCurrent = [],
   showMobileInquiry = false,
 } = Astro.props;
 
 const mainId = variant === "home" ? "main" : "main-content";
-const script =
-  variant === "home" ? scriptHome : variant === "product-b" ? scriptProductB : scriptProductA;
 ---
 
 <!doctype html>
@@ -50,7 +47,6 @@ const script =
     <SiteChromeTop
       mainId={mainId}
       navCurrent={navCurrent}
-      variant={variant}
       showMobileInquiry={showMobileInquiry}
     />
 
@@ -60,6 +56,7 @@ const script =
 
     <SiteChromeFooter navCurrent={navCurrent} />
 
-<script is:inline set:html={script} />
+<script is:inline set:html={scriptSite} />
+{variant === "home" && <script is:inline set:html={scriptScrollRestore} />}
   </body>
 </html>
