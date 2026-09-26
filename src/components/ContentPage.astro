@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSeo } from "../lib/seo";
 import type { WebsitePage } from "../lib/content";
 
 interface Props {
@@ -173,12 +174,12 @@ const galleryLabels = [
 ];
 
 const factoryMedia = [
-  { src: "/uploads/factory/factory-sewing-line-wide.jpg", alt: "Wide view of a garment sewing line with operators and workstations", label: "Sewing line" },
-  { src: "/uploads/factory/factory-pattern.jpg", alt: "Pattern preparation and garment construction work in the supplied production environment", label: "Pattern preparation" },
-  { src: "/uploads/factory/factory-cutting.jpg", alt: "Fabric cutting table and cutting equipment in the supplied production environment", label: "Fabric cutting" },
-  { src: "/uploads/factory/factory-printing.jpg", alt: "Garment printing equipment and operators in the supplied production environment", label: "Printing and decoration" },
-  { src: "/uploads/factory/factory-showroom.jpg", alt: "Garment sample showroom with apparel on display", label: "Sample showroom" },
-  { src: "/uploads/factory/factory-packout.jpg", alt: "Finished garments being folded and prepared for packing", label: "Pack-out preparation" },
+  { src: "/uploads/factory/factory-sewing-line-wide.jpg", width: 2400, height: 1600, alt: "Wide view of a garment sewing line with operators and workstations", label: "Sewing line" },
+  { src: "/uploads/factory/factory-pattern.jpg", width: 2000, height: 1500, alt: "Pattern preparation and garment construction work in the supplied production environment", label: "Pattern preparation" },
+  { src: "/uploads/factory/factory-cutting.jpg", width: 2400, height: 1600, alt: "Fabric cutting table and cutting equipment in the supplied production environment", label: "Fabric cutting" },
+  { src: "/uploads/factory/factory-printing.jpg", width: 2400, height: 1600, alt: "Garment printing equipment and operators in the supplied production environment", label: "Printing and decoration" },
+  { src: "/uploads/factory/factory-showroom.jpg", width: 2400, height: 1600, alt: "Garment sample showroom with apparel on display", label: "Sample showroom" },
+  { src: "/uploads/factory/factory-packout.jpg", width: 2400, height: 1798, alt: "Finished garments being folded and prepared for packing", label: "Pack-out preparation" },
 ];
 const showFactoryMedia = page.slug === "production" || page.slug === "about-us";
 
@@ -190,7 +191,7 @@ const configuration = [
 ];
 ---
 
-<BaseLayout title={page.title} description={blueprint?.intro ?? productIntro} canonical={page.url}>
+<BaseLayout seo={getSeo(page.route)}>
   {productImage ? (
     <>
       <section class="product-hero">
@@ -342,7 +343,7 @@ const configuration = [
               {products.map((product, index) => (
                 <a class="product-card" href={product.route}>
                   <div class="product-card-media">
-                    <img src={productImageBySlug[product.slug]} alt={`${product.label} product reference`} loading="lazy" decoding="async" />
+                    <img src={productImageBySlug[product.slug]} width="844" height="1448" alt={`${product.label} product reference`} loading="lazy" decoding="async" />
                     <span class="product-card-index">{String(index + 1).padStart(2, "0")}</span>
                   </div>
                   <div class="product-card-copy">
@@ -366,7 +367,7 @@ const configuration = [
             <div class="factory-proof-grid">
               {factoryMedia.map((item, index) => (
                 <figure class:list={[index === 0 && "factory-proof-feature"]}>
-                  <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                  <img src={item.src} width={item.width} height={item.height} alt={item.alt} loading="lazy" decoding="async" />
                   <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{item.label}</figcaption>
                 </figure>
               ))}

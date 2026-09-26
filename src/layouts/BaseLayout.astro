@@ -1,8 +1,10 @@
 ---
 import Analytics from "../components/Analytics.astro";
+import SeoMeta from "../components/SeoMeta.astro";
 import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
 import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
 import chromeScript from "../scripts/editorial/site.js?raw";
+import { canonicalUrl, type SeoData } from "../lib/seo";
 import "../styles/global.css";
 import "../styles/redesign.css";
 // 公共页头/页脚的 Editorial 样式。带 .ed 作用域，特异性高于 global.css 中的旧页头规则，
@@ -10,16 +12,16 @@ import "../styles/redesign.css";
 import "../styles/site-chrome.css";
 
 interface Props {
-  title: string;
-  description: string;
-  canonical: string;
-  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** 统一 SEO 数据，取自 src/lib/seo.ts 的 SEO 映射 */
+  seo: SeoData;
 }
 
-const { title, description, canonical, jsonLd } = Astro.props;
+const { seo } = Astro.props;
+const canonical = canonicalUrl(seo);
+const jsonLd = seo.jsonLd;
 
 // 页头来自新设计系统，用规范链接推断当前导航项以正确标注 aria-current
-const path = canonical.replace(/^https?:\/\/[^/]+/, "") || "/";
+const path = seo.path;
 const productSlugs = [
   "/hoodie-manufacturer/",
   "/t-shirt-manufacturer/",
@@ -36,9 +38,11 @@ const navCurrent = productSlugs.includes(path) ? ["/production/", path] : [path]
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="description" content={seo.description} />
     <meta name="theme-color" content="#171b18" />
     <link rel="canonical" href={canonical} />
+    {seo.noindex && <meta name="robots" content="noindex, nofollow" />}
+    <SeoMeta seo={seo} />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -46,8 +50,8 @@ const navCurrent = productSlugs.includes(path) ? ["/production/", path] : [path]
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" />
-    <title>{title}</title>
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <title>{seo.title}</title>
+    {jsonLd?.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
     <Analytics />
   </head>
   <body>

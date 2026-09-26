@@ -1,13 +1,11 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import { SEO } from "../lib/seo";
 import "../styles/pages/t-shirt-manufacturer.css";
 ---
 
 <EditorialLayout
-  title={"Custom T-Shirt Manufacturer for Private Label Brands | YAUUM"}
-  description={"Custom T-shirt manufacturing for private label brands, wholesalers, retailers, and e-commerce sellers. Review styles, fabrics, sampling, branding, quality checks, and packing."}
-  canonical="https://yauum.com/t-shirt-manufacturer/"
-  jsonLd={[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://yauum.com/"}, {"@type": "ListItem", "position": 2, "name": "T-Shirt Manufacturer", "item": "https://yauum.com/t-shirt-manufacturer/"}]}, {"@context": "https://schema.org", "@type": "Service", "name": "Custom and Private Label T-Shirt Manufacturing", "serviceType": "T-shirt manufacturing and product development", "provider": {"@type": "Organization", "name": "Yauum", "url": "https://yauum.com/"}, "areaServed": "Worldwide", "url": "https://yauum.com/t-shirt-manufacturer/", "description": "Custom T-shirt manufacturing for private label brands, wholesalers, retailers, and e-commerce sellers. Review styles, fabrics, sampling, branding, quality checks, and packing."}]}
+  seo={SEO["/t-shirt-manufacturer/"]}
   navCurrent={["/production/", "/t-shirt-manufacturer/"]}
   showMobileInquiry
 >

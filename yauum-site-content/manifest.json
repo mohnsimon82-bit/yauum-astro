@@ -5,7 +5,7 @@
     "route": "/",
     "file": "index.html",
     "url": "https://yauum.com/",
-    "title": "Custom Clothing Manufacturers​ - YAUUM",
+    "title": "Custom Clothing Manufacturers - Yauum",
     "copyFile": "pages/home.md",
     "snapshotFile": "snapshot-html/home.html"
   },
@@ -105,7 +105,7 @@
     "route": "/contact-us/",
     "file": "contact-us/index.html",
     "url": "https://yauum.com/contact-us/",
-    "title": "Contact US - YAUUM",
+    "title": "Contact Us - Yauum",
     "copyFile": "pages/contact-us.md",
     "snapshotFile": "snapshot-html/contact-us.html"
   },
@@ -115,7 +115,7 @@
     "route": "/about-us/",
     "file": "about-us/index.html",
     "url": "https://yauum.com/about-us/",
-    "title": "About US - YAUUM",
+    "title": "About Us - Yauum",
     "copyFile": "pages/about-us.md",
     "snapshotFile": "snapshot-html/about-us.html"
   },

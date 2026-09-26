@@ -1,9 +1,28 @@
-# 预览阶段这里曾设置 X-Robots-Tag: noindex, nofollow, noarchive 以阻止临时域名
-# 被收录。站点切换到正式域名 yauum.com 后必须移除，否则正式站不会被搜索引擎收录，
-# 还会丢掉旧站已经积累的搜索位置。
+# ============================================================
+# 缓存策略 + 安全响应头（随 Cloudflare Pages 部署，对
+# yauum-preview.pages.dev 与经 yauum-proxy 回源的 yauum.com 同时生效）
 #
-# 移除后预览域名（yauum-preview.pages.dev）同样可被收录，但每个页面都带 canonical
-# 指向 https://yauum.com/...，收录会归并到正式域名，属于标准做法。
-#
-# 如需重新屏蔽预览域名：Pages 的 _headers 不支持按主机名匹配，只能整站加回 noindex，
-# 会同时影响正式站，请谨慎。
+# 注意：Cloudflare Pages 会把多条匹配规则的同一响应头【合并】而非覆盖，
+# 因此 Cache-Control 只在专属路径规则里声明一次，/* 规则不设置
+# Cache-Control（HTML/sitemap/robots 自动回落到 Pages 内置默认值
+# public, max-age=0, must-revalidate）。安全头对 /* 全量生效。
+# ============================================================
+
+# 安全响应头：全站生效。
+# HSTS 初始阶段不带 includeSubDomains：邮件相关记录为 MX/TXT（Zoho 托管），
+# 未逐一确认其余子域 HTTPS 前保持保守值。
+# CSP 先以 Report-Only 上线：允许 GA(gtag)、Clarity、Google Fonts 与 Astro
+# 内联脚本；线上验证无违规后再切强制模式。
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.clarity.ms https://*.clarity.ms; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+# 构建产物（文件名含内容 hash，不可变）：缓存一年
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 媒体库（同名文件可能被 sync-assets 原地覆盖，不能 immutable）
+/uploads/*
+  Cache-Control: public, max-age=604800

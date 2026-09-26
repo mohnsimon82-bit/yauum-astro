@@ -1,13 +1,11 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import { SEO } from "../lib/seo";
 import "../styles/pages/hoodie-manufacturer.css";
 ---
 
 <EditorialLayout
-  title={"Custom Hoodie Manufacturer &amp; Private Label | Yauum"}
-  description={"Custom hoodie manufacturer for private label brands. Explore styles, fabrics, GSM, printing, embroidery, labels, sampling and quality control."}
-  canonical="https://yauum.com/hoodie-manufacturer/"
-  jsonLd={[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://yauum.com/"}, {"@type": "ListItem", "position": 2, "name": "Hoodie Manufacturer", "item": "https://yauum.com/hoodie-manufacturer/"}]}, {"@context": "https://schema.org", "@type": "Service", "name": "Custom and Private Label Hoodie Manufacturing", "serviceType": "Hoodie manufacturing and product development", "provider": {"@type": "Organization", "name": "Yauum", "url": "https://yauum.com/"}, "areaServed": "Worldwide", "url": "https://yauum.com/hoodie-manufacturer/", "description": "Custom hoodie manufacturer for private label brands. Explore styles, fabrics, GSM, printing, embroidery, labels, sampling and quality control."}]}
+  seo={SEO["/hoodie-manufacturer/"]}
   navCurrent={["/production/", "/hoodie-manufacturer/"]}
 >
 <!-- ============ 1 HERO ============ -->

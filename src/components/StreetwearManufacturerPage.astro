@@ -1,12 +1,11 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import { SEO } from "../lib/seo";
 import "../styles/pages/streetwear-manufacturer.css";
 ---
 
 <EditorialLayout
-  title={"Streetwear Manufacturer - YAUUM"}
-  description={"Build coordinated streetwear through silhouette, material, washes or decoration, private labels, sampling, and pack-out rules."}
-  canonical="https://yauum.com/streetwear-manufacturer/"
+  seo={SEO["/streetwear-manufacturer/"]}
   navCurrent={["/production/", "/streetwear-manufacturer/"]}
   showMobileInquiry
 >

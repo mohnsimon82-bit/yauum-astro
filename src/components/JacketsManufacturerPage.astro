@@ -1,13 +1,11 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import { SEO } from "../lib/seo";
 import "../styles/pages/jackets-manufacturer.css";
 ---
 
 <EditorialLayout
-  title={"Custom Jacket Manufacturer for Private Label Brands | YAUUM"}
-  description={"Custom jacket development for private label brands, wholesalers, and retailers. Review jacket types, specifications, shell, lining, insulation, decoration, sampling workflow, quality checks, testing boundaries, and quote preparation."}
-  canonical="https://yauum.com/jackets-manufacturer/"
-  jsonLd={[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://yauum.com/"}, {"@type": "ListItem", "position": 2, "name": "Jacket Manufacturer", "item": "https://yauum.com/jackets-manufacturer/"}]}, {"@context": "https://schema.org", "@type": "Service", "name": "Custom and Private Label Jacket Manufacturing", "serviceType": "Jacket manufacturing and product development", "provider": {"@type": "Organization", "name": "Yauum", "url": "https://yauum.com/"}, "areaServed": "Worldwide", "url": "https://yauum.com/jackets-manufacturer/", "description": "Custom jacket development for private label brands, wholesalers, and retailers. Review jacket types, specifications, shell, lining, insulation, decoration, sampling workflow, quality checks, testing boundaries, and quote preparation."}]}
+  seo={SEO["/jackets-manufacturer/"]}
   navCurrent={["/production/", "/jackets-manufacturer/"]}
   showMobileInquiry
 >

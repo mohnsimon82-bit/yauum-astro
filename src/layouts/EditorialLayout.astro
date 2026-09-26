@@ -1,31 +1,29 @@
 ---
 import Analytics from "../components/Analytics.astro";
+import SeoMeta from "../components/SeoMeta.astro";
 import scriptSite from "../scripts/editorial/site.js?raw";
 import scriptScrollRestore from "../scripts/editorial/scroll-restore.js?raw";
 import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
 import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
+import { canonicalUrl, type SeoData } from "../lib/seo";
 import "../styles/site-chrome.css";
 
 interface Props {
-  title: string;
-  description: string;
-  canonical: string;
-  jsonLd?: Record<string, unknown>[];
+  /** 统一 SEO 数据，取自 src/lib/seo.ts 的 SEO 映射 */
+  seo: SeoData;
   variant?: "home" | "product";
   navCurrent?: string[];
   showMobileInquiry?: boolean;
 }
 
 const {
-  title,
-  description,
-  canonical,
-  jsonLd,
+  seo,
   variant = "product",
   navCurrent = [],
   showMobileInquiry = false,
 } = Astro.props;
 
+const canonical = canonicalUrl(seo);
 const mainId = variant === "home" ? "main" : "main-content";
 ---
 
@@ -34,9 +32,11 @@ const mainId = variant === "home" ? "main" : "main-content";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
     <link rel="canonical" href={canonical} />
+    {seo.noindex && <meta name="robots" content="noindex, nofollow" />}
+    <SeoMeta seo={seo} />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -44,7 +44,7 @@ const mainId = variant === "home" ? "main" : "main-content";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;600&display=swap" />
-    {jsonLd?.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+    {seo.jsonLd?.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
     <Analytics />
   </head>
   <body>

@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSeo } from "../lib/seo";
 ---
 
-<BaseLayout title="Page not found | Yauum" description="The requested Yauum page could not be found." canonical="https://yauum.com/404/">
+<BaseLayout seo={getSeo("/404/")}>
   <section class="not-found shell">
     <p class="eyebrow eyebrow-dark"><span></span> 404</p>
     <h1>This Page Is Not on the Production Line.</h1>

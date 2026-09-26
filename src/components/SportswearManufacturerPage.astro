@@ -1,12 +1,11 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import { SEO } from "../lib/seo";
 import "../styles/pages/sportswear-manufacturer.css";
 ---
 
 <EditorialLayout
-  title={"Custom Sportswear Manufacturer for Private Label Brands | YAUUM"}
-  description={"Develop custom sportswear for private label brands. Review product styles, fabrics, fit, branding, MOQ, sampling, production, quality checks, and packing."}
-  canonical="https://yauum.com/sportswear-manufacturer/"
+  seo={SEO["/sportswear-manufacturer/"]}
   navCurrent={["/production/", "/sportswear-manufacturer/"]}
   showMobileInquiry
 >

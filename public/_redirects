@@ -1,0 +1,2 @@
+# 常见工具默认探测 /sitemap.xml；统一 301 到 Astro 生成的索引文件，避免误判重复
+/sitemap.xml /sitemap-index.xml 301

@@ -1,12 +1,11 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import { SEO } from "../lib/seo";
 import "../styles/pages/index.css";
 ---
 
 <EditorialLayout
-  title={"Custom Clothing Manufacturers - YAUUM"}
-  description={"Yauum helps B2B menswear and streetwear buyers develop hoodies, T-shirts, jackets, pants, sportswear, labels, samples, and bulk orders with controlled sampling, fit review, private label execution, quality checks, and shipment-ready packing."}
-  canonical="https://yauum.com/"
+  seo={SEO["/"]}
   variant="home"
   navCurrent={["/"]}
 >
