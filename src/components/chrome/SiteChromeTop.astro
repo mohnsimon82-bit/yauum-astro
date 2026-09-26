@@ -7,17 +7,16 @@ interface Props {
   mainId?: string;
   navCurrent?: string[];
   showMobileInquiry?: boolean;
-  scoped?: boolean;
 }
 
 const {
   mainId = "main-content",
   navCurrent = [],
   showMobileInquiry = false,
-  scoped = false,
 } = Astro.props;
 const isCurrent = (href: string) => navCurrent.includes(href);
-const c = (base: string) => (scoped ? `${base} ed` : base);
+// 全站统一页头：所有页面都挂 ed 作用域类，样式只来自 site-chrome.css
+const c = (base: string) => `${base} ed`;
 ---
 
     <a class={c("skip-link")} href={"#" + mainId}>Skip to content</a>
