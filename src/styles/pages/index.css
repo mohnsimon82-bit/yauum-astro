@@ -87,18 +87,22 @@ ul,ol{margin:0;padding:0;list-style:none}
    2 — HERO   (6 / 6 editorial split)
    ============================================================ */
 .hero{padding:40px 0 48px;min-height:660px;display:flex;align-items:center}
-.hero-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:end;width:100%}
-.hero-copy{grid-column:1 / 7}
+/* Hero 用满 1280 内容宽度（其余版块保持站点 64px 内边距），使两栏各约 612px、
+   间距 56px；视口窄于 1408px 时回落到站点内边距，避免内容贴边。 */
+@media (min-width:1408px){.hero .shell{padding-left:0;padding-right:0}}
+.hero-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px;align-items:stretch;width:100%}
+.hero-copy{grid-column:1;display:flex;flex-direction:column;justify-content:center}
 .hero-copy h1{margin-top:24px}
 .hero-lead{margin-top:26px;max-width:560px}
 .hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
-.hero-media{grid-column:7 / 13}
-.hero-media img{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--bg-alt)}
+/* 图片填满右栏并与左栏垂直居中：保持原始 3:2 比例，不裁切、不拉伸 */
+.hero-media{grid-column:2;display:flex;align-items:center}
+.hero-media img{width:100%;height:auto;object-fit:contain;display:block;background:var(--bg-alt);border:1px solid var(--border)}
 .hero-rail{
-  grid-column:1 / 13;margin-top:44px;padding-top:22px;border-top:1px solid var(--border);
-  display:flex;flex-wrap:wrap;gap:14px 56px;
+  grid-column:1 / -1;margin-top:44px;padding-top:22px;border-top:1px solid var(--border);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 56px;
 }
-.hero-rail .rail-item{display:flex;align-items:baseline;gap:10px}
+.hero-rail .rail-item{display:flex;align-items:center;gap:10px}
 .hero-rail .rail-num{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent-fg);background:var(--accent);padding:3px 7px;line-height:1.1}
 .hero-rail .rail-label{font-size:15px;font-weight:400}
 
@@ -277,11 +281,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .cap-item{padding:26px 24px 28px}
 }
 
-@media (max-width:1080px){  .hero{min-height:0;padding:40px 0 48px;align-items:stretch}
-  .hero-grid{gap:0}
-  .hero-copy,.hero-media,.hero-rail{grid-column:1 / 13}
-  .hero-media{margin-top:44px}
-  .hero-rail{margin-top:44px;gap:14px 40px}
+@media (max-width:1080px){
 
   .value-title,.value-body{grid-column:1 / 13}
   .value-body{margin-top:26px}
@@ -323,10 +323,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   :root{--gutter:20px;--sect:56px}
   body{font-size:17px}
   h1{letter-spacing:-.022em}
-  .hero{padding:30px 0 40px}
-  .hero-media{margin-top:32px}
-  .hero-rail{margin-top:34px;padding-top:18px;gap:12px 28px;flex-direction:column}
-  .hero-actions{gap:14px 22px}
   .button{padding:14px 22px;font-size:14px}
 
   .buyer-grid{grid-template-columns:1fr;margin-top:36px}
@@ -363,4 +359,16 @@ ul,ol{margin:0;padding:0;list-style:none}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.001ms!important;animation-duration:.001ms!important;animation-iteration-count:1!important}
   .js [data-reveal]{opacity:1;transform:none}
+}
+
+/* ---------- Hero：<768px 单列，顺序为 标签 / H1 / 正文 / 按钮 / 图片 / 三项信息 ---------- */
+@media (max-width:768px){
+  .hero{min-height:0;padding:30px 0 40px;align-items:stretch}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:0}
+  .hero-copy,.hero-media,.hero-rail{grid-column:1 / -1}
+  .hero-copy{display:block;justify-content:flex-start}
+  .hero-media{margin-top:32px}
+  .hero-media img{width:100%;height:auto}
+  .hero-rail{margin-top:34px;padding-top:18px;grid-template-columns:minmax(0,1fr);gap:12px 0}
+  .hero-actions{gap:14px 22px}
 }
