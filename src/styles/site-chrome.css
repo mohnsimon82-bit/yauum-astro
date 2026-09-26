@@ -204,12 +204,28 @@
 .ed.contact-dock { position: fixed; right: 20px; bottom: 20px; z-index: 70; display: flex; flex-direction: column; gap: 8px }
 .ed .dock-btn {
   width: 46px; height: 46px; display: grid; place-items: center; background: var(--white);
-  border: 1px solid var(--border); color: var(--fg);
+  border: 1px solid var(--border); border-radius: 50%; color: var(--fg);
   transition: background .18s ease, color .18s ease, border-color .18s ease;
+  /* 每 5 秒轻弹一次提示可点击；弹跳集中在前 16%，其余时间静止 */
+  animation: dock-pop 5s cubic-bezier(.34, 1.4, .5, 1) infinite;
+  transform-origin: center;
+  will-change: transform;
 }
 .ed .dock-btn:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-fg) }
-.ed .dock-btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px }
+.ed .dock-btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; animation-play-state: paused }
 .ed .dock-btn svg { width: 21px; height: 21px; display: block }
+
+@keyframes dock-pop {
+  0%   { transform: scale(1) }
+  4%   { transform: scale(1.16) }
+  8%   { transform: scale(.96) }
+  12%  { transform: scale(1.05) }
+  16%  { transform: scale(1) }
+  100% { transform: scale(1) }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed .dock-btn { animation: none }
+}
 .ed.back-top {
   position: fixed; right: 20px; bottom: 132px; z-index: 70; width: 46px; height: 46px; display: grid; place-items: center;
   background: var(--dark); color: var(--white); border: 1px solid var(--dark-border);
