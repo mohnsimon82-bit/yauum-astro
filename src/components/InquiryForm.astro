@@ -7,7 +7,10 @@ interface Props {
   product?: string;
 }
 const { product = "General inquiry" } = Astro.props;
-const ENDPOINT = "https://formsubmit.co/ajax/mumu@yauum.com";
+const ENDPOINT = "https://formsubmit.co/ajax/mumu@yauum.com"; // 收件/回件用
+// 提交提醒（不回件）：QQ 邮箱通知 + WhatsApp 推送（CallMeBot，apikey 留空则静默跳过）
+const NOTIFY_EMAIL_ENDPOINT = "https://formsubmit.co/ajax/397740930@qq.com";
+const WHATSAPP_NOTIFY = { phone: "8615733728976", apikey: "" }; // CallMeBot 激活后填 apikey
 
 const GARMENTS = ["Hoodies", "T-Shirts", "Jackets", "Pants", "Sportswear", "Streetwear", "Other"];
 const PRESELECT: Record<string, string> = {
@@ -162,12 +165,30 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         const data = new FormData(form);
         const payload: Record<string, string> = {};
         data.forEach((value, key) => (payload[key] = String(value)));
-        const res = await fetch(form.action, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) throw new Error(String(res.status));
+        payload["_replyto"] = payload["email"] || "";
+        payload["source_page"] = location.href;
+        payload["submitted_at"] = new Date().toISOString();
+
+        // 主收件（mumu@yauum.com）+ 通知抄送（397740930@qq.com），互不阻塞
+        const mailTargets = [form.action, NOTIFY_EMAIL_ENDPOINT];
+        const mailResults = await Promise.allSettled(
+          mailTargets.map((target) =>
+            fetch(target, {
+              method: "POST",
+              headers: { "Content-Type": "application/json", Accept: "application/json" },
+              body: JSON.stringify(payload),
+            }),
+          ),
+        );
+        const mainOk = mailResults[0].status === "fulfilled" && mailResults[0].value.ok;
+        if (!mainOk) throw new Error("main endpoint failed");
+
+        // WhatsApp 推送（CallMeBot；未配置 apikey 时跳过）
+        const { phone, apikey } = WHATSAPP_NOTIFY;
+        if (apikey) {
+          const text = `Yauum inquiry: ${payload.garment_type || ""} | ${payload.moq_tier || ""} | ${payload.name || ""} | ${payload.email || ""}`;
+          fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&apikey=${apikey}&text=${encodeURIComponent(text)}`, { mode: "no-cors" }).catch(() => {});
+        }
         form.reset();
         if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = "Thanks — your inquiry is on its way. We reply within one business day."; }
         if (window.gtag) window.gtag("event", "inquiry_form_submit", { product: form.dataset.product || "General", moq: payload.moq_tier || "" });
