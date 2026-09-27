@@ -167,40 +167,9 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
 </style>
 
 <script>
-  /* 来源归因：记录"首次落地页"而非提交页——访客多半先落首页再逛到产品页。
-     AI 来源（ChatGPT/Perplexity 等）常不传 referrer，必须同时看 utm_source。 */
-  const ENTRY_KEY = "yauum_entry";
-  const AI_SOURCES: Record<string, string> = {
-    "chatgpt.com": "ChatGPT", "chat.openai.com": "ChatGPT", "openai.com": "ChatGPT",
-    "perplexity.ai": "Perplexity", "gemini.google.com": "Gemini", "bard.google.com": "Gemini",
-    "copilot.microsoft.com": "Copilot", "claude.ai": "Claude", "anthropic.com": "Claude",
-    "grok.com": "Grok", "x.ai": "Grok", "you.com": "You.com", "phind.com": "Phind",
-    "kagi.com": "Kagi", "poe.com": "Poe", "deepseek.com": "DeepSeek", "mistral.ai": "Mistral",
-  };
-  const SEARCH_SOURCES: Record<string, string> = {
-    "google.com": "Google", "google.co.uk": "Google", "google.de": "Google", "google.fr": "Google",
-    "bing.com": "Bing", "duckduckgo.com": "DuckDuckGo", "baidu.com": "Baidu",
-    "yandex.com": "Yandex", "ecosia.org": "Ecosia", "search.brave.com": "Brave",
-  };
-  const SOCIAL_SOURCES: Record<string, string> = {
-    "linkedin.com": "LinkedIn", "facebook.com": "Facebook", "instagram.com": "Instagram",
-    "x.com": "X", "twitter.com": "X", "youtube.com": "YouTube", "pinterest.com": "Pinterest",
-    "tiktok.com": "TikTok", "reddit.com": "Reddit",
-  };
-  const matchSource = (map: Record<string, string>, host: string, src: string) =>
-    Object.keys(map).find((key) => host === key || host.endsWith("." + key) || src === key || src.startsWith(key.split(".")[0])) || "";
+  import { captureEntry, loadGeo, attribution, beijingTime, deliver } from "../lib/contact-intent";
 
-  try {
-    if (!sessionStorage.getItem(ENTRY_KEY)) {
-      sessionStorage.setItem(ENTRY_KEY, JSON.stringify({
-        page: location.href,
-        referrer: document.referrer || "",
-        at: new Date().toISOString(),
-      }));
-    }
-  } catch {
-    /* 隐私模式下 sessionStorage 不可用：退化为只用当次提交的上下文 */
-  }
+  captureEntry(); // 首次落地页归因（与 WhatsApp 点击追踪共用）
 
   document.querySelectorAll<HTMLFormElement>(".inq-form").forEach((form) => {
     form.addEventListener("submit", async (event) => {
@@ -214,121 +183,26 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         const payload: Record<string, string> = {};
         data.forEach((value, key) => (payload[key] = String(value)));
 
-        // 访客国家/城市：只用于邮件标题，失败不阻塞提交（超时 2.5s）
-        let country = "";
-        let city = "";
-        try {
-          const geo = await fetch("https://ipwho.is/", { signal: AbortSignal.timeout(2500) }).then((r) => r.json());
-          if (geo && geo.success !== false) {
-            country = geo.country || "";
-            city = geo.city || "";
-          }
-        } catch {
-          /* 取不到就留空，标题回落到"未知地区" */
-        }
+        const geo = await loadGeo();
+        const attr = attribution();
+        const where = geo.country ? (geo.city ? `${geo.country}（${geo.city}）` : geo.country) : "未知地区";
 
-        // 来源归因：首次落地页 + 引荐 + 渠道归类（AI / 搜索 / 社交 / 外链 / 站内 / 直接）
-        let entry: { page?: string; referrer?: string } = {};
-        try {
-          entry = JSON.parse(sessionStorage.getItem(ENTRY_KEY) || "{}");
-        } catch {
-          entry = {};
-        }
-        const referrer = entry.referrer || document.referrer || "";
-        let host = "";
-        try {
-          host = referrer ? new URL(referrer).hostname.replace(/^www\./, "") : "";
-        } catch {
-          host = "";
-        }
-        // utm 参数通常挂在落地页上，提交页可能已经不带
-        let params: URLSearchParams;
-        try {
-          params = new URL(entry.page || location.href).searchParams;
-        } catch {
-          params = new URLSearchParams();
-        }
-        const utmSource = (params.get("utm_source") || "").toLowerCase();
-        const utmMedium = (params.get("utm_medium") || "").toLowerCase();
-        const gclid = params.get("gclid") || params.get("gbraid") || params.get("wbraid") || "";
-
-        let traffic: string;
-        let channel: string;
-        const ai = matchSource(AI_SOURCES, host, utmSource);
-        const search = matchSource(SEARCH_SOURCES, host, utmSource);
-        const social = matchSource(SOCIAL_SOURCES, host, utmSource);
-        if (ai) {
-          channel = "AI 推荐";
-          traffic = `AI 推荐（${AI_SOURCES[ai]}）`;
-        } else if (gclid || /cpc|paid|ppc/.test(utmMedium)) {
-          channel = "付费搜索";
-          traffic = `付费搜索（${search ? SEARCH_SOURCES[search] : "Google Ads"}）`;
-        } else if (search) {
-          channel = "自然搜索";
-          traffic = `自然搜索（${SEARCH_SOURCES[search]}）`;
-        } else if (social) {
-          channel = "社交媒体";
-          traffic = `社交媒体（${SOCIAL_SOURCES[social]}）`;
-        } else if (/yauum\.com$/.test(host)) {
-          channel = "站内跳转";
-          traffic = `站内跳转（${host}）`;
-        } else if (host) {
-          channel = "外链";
-          traffic = `外链（${host}）`;
-        } else if (utmSource) {
-          channel = "带参来源";
-          traffic = `带参来源（utm_source=${utmSource}）`;
-        } else {
-          channel = "直接访问";
-          traffic = "直接访问（或来源被 AI/浏览器隐藏）";
-        }
-        ["utm_source", "utm_medium", "utm_campaign", "gclid"].forEach((key) => {
-          const value = params.get(key);
-          if (value) traffic += ` · ${key}=${value}`;
-        });
-
-        payload["_subject"] = `🌳 Yauum网站来 ${country ? (city ? `${country}（${city}）` : country) : "未知地区"} 的询盘了！`;
+        payload["_subject"] = `🌳 Yauum网站来 ${where} 的询盘了！`;
         payload["_template"] = "table";
         payload["_replyto"] = payload["email"] || "";
-        payload["country"] = country;
-        payload["city"] = city;
-        payload["traffic_source"] = traffic;
-        payload["channel"] = channel;
-        payload["entry_page"] = entry.page || location.href;
-        payload["entry_referrer"] = referrer;
-        payload["source_page"] = location.href;
+        payload["event_type"] = "inquiry_form";
+        payload["country"] = geo.country;
+        payload["city"] = geo.city;
+        payload["traffic_source"] = attr.traffic;
+        payload["channel"] = attr.channel;
+        payload["entry_page"] = attr.entryPage;
+        payload["entry_referrer"] = attr.entryReferrer;
+        payload["source_page"] = attr.sourcePage;
         payload["garment_page"] = form.dataset.product || "";
-        payload["submitted_at"] = new Date().toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" }) + "（北京时间）";
+        payload["submitted_at"] = beijingTime();
 
-        // 主收件（mumu@yauum.com）+ 通知抄送（397740930@qq.com）
-        // 任一端点投递成功即视为成功——避免主邮箱待激活时丢掉线索。
-        const notifyEndpoints = (form.dataset.notifyEndpoint || "")
-          .split(",")
-          .map((entry) => entry.trim())
-          .filter(Boolean);
-        const mailTargets = [form.action, ...notifyEndpoints];
-        const mailResults = await Promise.allSettled(
-          mailTargets.map(async (target) => {
-            const res = await fetch(target, {
-              method: "POST",
-              headers: { "Content-Type": "application/json", Accept: "application/json" },
-              body: JSON.stringify(payload),
-            });
-            const body = await res.json().catch(() => ({} as Record<string, unknown>));
-            // formsubmit 用 HTTP 200 + success:"false" 表示未激活/被拒，必须看内容
-            return res.ok && body.success !== "false" && body.success !== false;
-          }),
-        );
-        const anyDelivered = mailResults.some((r) => r.status === "fulfilled" && r.value === true);
-        if (!anyDelivered) throw new Error("all endpoints failed");
-
-        // WhatsApp 推送（CallMeBot；未配置 apikey 时跳过）
-        const waPhone = form.dataset.waPhone || "";
-        const waKey = form.dataset.waKey || "";
-        if (waKey && waPhone) {
-          const text = `Yauum inquiry: ${payload.garment_type || ""} | ${payload.moq_tier || ""} | ${payload.name || ""} | ${payload.email || ""}`;
-          fetch(`https://api.callmebot.com/whatsapp.php?phone=${waPhone}&apikey=${waKey}&text=${encodeURIComponent(text)}`, { mode: "no-cors" }).catch(() => {});
-        }
+        // 主收件 + 全部提醒邮箱；任一处投递成功即视为成功
+        if (!(await deliver(payload))) throw new Error("all endpoints failed");
         form.reset();
         if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = "Thanks — your inquiry is on its way. We reply within one business day."; }
         if (window.gtag) window.gtag("event", "inquiry_form_submit", { product: form.dataset.product || "General", moq: payload.moq_tier || "" });

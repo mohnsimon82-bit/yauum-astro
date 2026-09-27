@@ -1,5 +1,6 @@
 ---
 import Analytics from "../components/Analytics.astro";
+import ContactIntentTracking from "../components/ContactIntentTracking.astro";
 import SeoMeta from "../components/SeoMeta.astro";
 import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
 import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
@@ -53,6 +54,7 @@ const navCurrent = productSlugs.includes(path) ? ["/production/", path] : [path]
     <title>{seo.title}</title>
     {jsonLd?.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
     <Analytics />
+    <ContactIntentTracking />
   </head>
   <body>
     <SiteChromeTop

@@ -1,0 +1,55 @@
+---
+// Fires an email notification when a visitor taps a WhatsApp contact link,
+// so contact intent is captured the same way form submissions are.
+// Loaded site-wide from both layouts.
+---
+
+<script>
+  import { captureEntry, loadGeo, attribution, beijingTime, getClickLocation, deliver } from "../lib/contact-intent";
+
+  captureEntry();
+
+  const THROTTLE_MS = 20_000; // 同一访客 20 秒内只提醒一次，避免连点刷屏
+  let lastNotified = 0;
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    const link = event.target.closest('a[href*="wa.me/"]');
+    if (!link) return;
+
+    const location = getClickLocation(link);
+    if (window.gtag) {
+      window.gtag("event", "whatsapp_click", {
+        link_url: (link as HTMLAnchorElement).href,
+        page_path: window.location.pathname,
+        page_title: document.title,
+        button_location: location,
+      });
+    }
+
+    const now = Date.now();
+    if (now - lastNotified < THROTTLE_MS) return;
+    lastNotified = now;
+
+    void (async () => {
+      const geo = await loadGeo();
+      const attr = attribution();
+      const where = geo.country ? (geo.city ? `${geo.country}（${geo.city}）` : geo.country) : "未知地区";
+      await deliver({
+        _subject: `👋 Yauum网站有访客点开 WhatsApp 联系了！（${where}）`,
+        _template: "table",
+        event_type: "whatsapp_click",
+        country: geo.country,
+        city: geo.city,
+        click_location: location,
+        whatsapp_link: (link as HTMLAnchorElement).href,
+        traffic_source: attr.traffic,
+        channel: attr.channel,
+        entry_page: attr.entryPage,
+        entry_referrer: attr.entryReferrer,
+        source_page: attr.sourcePage,
+        clicked_at: beijingTime(),
+      });
+    })();
+  });
+</script>
