@@ -175,9 +175,50 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         const data = new FormData(form);
         const payload: Record<string, string> = {};
         data.forEach((value, key) => (payload[key] = String(value)));
+
+        // 访客国家/城市：只用于邮件标题，失败不阻塞提交（超时 2.5s）
+        let country = "";
+        let city = "";
+        try {
+          const geo = await fetch("https://ipwho.is/", { signal: AbortSignal.timeout(2500) }).then((r) => r.json());
+          if (geo && geo.success !== false) {
+            country = geo.country || "";
+            city = geo.city || "";
+          }
+        } catch {
+          /* 取不到就留空，标题回落到"未知地区" */
+        }
+
+        // 流量来源：把来源页 / 引荐 / 渠道归类 / UTM 一并放进邮件正文
+        const referrer = document.referrer || "";
+        let traffic = "Direct（直接访问）";
+        if (referrer) {
+          try {
+            const host = new URL(referrer).hostname.replace(/^www\./, "");
+            if (/yauum\.com$/.test(host)) traffic = `Internal（站内跳转 · ${host}）`;
+            else if (/google|bing|yahoo|duckduckgo|baidu|yandex|ecosia/.test(host)) traffic = `Organic search（自然搜索 · ${host}）`;
+            else if (/facebook|instagram|linkedin|pinterest|tiktok|twitter|x\.com|youtube/.test(host)) traffic = `Social（社交 · ${host}）`;
+            else traffic = `Referral（外链 · ${host}）`;
+          } catch {
+            traffic = referrer;
+          }
+        }
+        const params = new URLSearchParams(location.search);
+        ["utm_source", "utm_medium", "utm_campaign", "gclid"].forEach((key) => {
+          const value = params.get(key);
+          if (value) traffic += ` · ${key}=${value}`;
+        });
+
+        payload["_subject"] = `🌳 Yauum网站来 ${country ? (city ? `${country}（${city}）` : country) : "未知地区"} 的询盘了！`;
+        payload["_template"] = "table";
         payload["_replyto"] = payload["email"] || "";
+        payload["country"] = country;
+        payload["city"] = city;
         payload["source_page"] = location.href;
-        payload["submitted_at"] = new Date().toISOString();
+        payload["referrer"] = referrer;
+        payload["traffic_source"] = traffic;
+        payload["garment_page"] = form.dataset.product || "";
+        payload["submitted_at"] = new Date().toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" }) + "（北京时间）";
 
         // 主收件（mumu@yauum.com）+ 通知抄送（397740930@qq.com）
         // 任一端点投递成功即视为成功——避免主邮箱待激活时丢掉线索。
