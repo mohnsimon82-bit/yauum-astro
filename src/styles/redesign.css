@@ -97,9 +97,6 @@ button { font: inherit; }
 .contact-dock-email { animation-delay: .35s; }
 .contact-dock-icon { width: 23px; height: 23px; }
 .contact-dock-link:focus-visible, .back-to-top:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
-.footer-contact-links { display: grid; gap: 7px; margin-top: 22px; }
-.footer-contact-links a { color: #c7cdc8; font-size: 13px; }
-.footer-contact-links a:hover, .footer-contact-links a:focus-visible { color: var(--accent); }
 
 @keyframes contact-bounce {
   0%, 88%, 100% { transform: translateY(0); }
@@ -254,7 +251,6 @@ button { font: inherit; }
   .evidence-media img { aspect-ratio: 16 / 9; }
   .evidence-copy { padding-block: 64px; }
   .capability-list { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 600px) {
@@ -277,8 +273,6 @@ button { font: inherit; }
   .process-item { grid-template-columns: 40px 1fr; gap: 12px; }
   .process-item h3, .quality-item h3, .packing-step h3, .capability h3 { font-size: 24px; }
   .proof-item { grid-template-columns: 80px 1fr; gap: 12px; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-brand-column { grid-column: auto; }
   .mobile-inquiry { right: 20px; bottom: 14px; left: 20px; display: inline-flex; }
   body:has(.hoodie-page) .mobile-inquiry { display: none; }
   .contact-dock { right: 16px; bottom: 76px; left: auto; grid-template-columns: repeat(2, 48px); gap: 8px; }
