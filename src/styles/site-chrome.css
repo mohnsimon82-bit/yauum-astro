@@ -312,3 +312,31 @@
   .ed.contact-dock { right: 14px; bottom: 14px }
   .ed.back-top { right: 14px; bottom: 122px }
 }
+
+/* ============================================================
+   H1 scale rebalance (2026-09-27) — two-tier, per diagnosis:
+   desktop hero H1 66-78px -> statement tier (home) / work tier (rest),
+   mobile clamp separately. body-prefix wins over all legacy layers.
+   ============================================================ */
+body .home-hero h1{font-size:clamp(40px,4.6vw,60px);line-height:1.05}
+body .product-hero h1,
+body .product-hero-copy h1,
+body .standard-hero h1,
+body .pd-hero h1,
+body .pd-hero .pd-hero-copy h1,
+body .hoodie-page .hoodie-hero h1{font-size:clamp(32px,3.8vw,52px);line-height:1.05}
+@media (max-width:640px){
+  body .home-hero h1,
+  body .product-hero h1,
+  body .product-hero-copy h1,
+  body .standard-hero h1,
+  body .pd-hero h1,
+  body .pd-hero .pd-hero-copy h1{font-size:clamp(30px,8.5vw,38px)}
+}
+/* homepage hero uses .hero/.hero-copy (not .home-hero) */
+body .hero h1,
+body .hero .hero-copy h1{font-size:clamp(40px,4.6vw,60px);line-height:1.05}
+@media (max-width:640px){
+  body .hero h1,
+  body .hero .hero-copy h1{font-size:clamp(30px,8.5vw,38px)}
+}
