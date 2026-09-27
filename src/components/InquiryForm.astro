@@ -7,7 +7,7 @@ interface Props {
   product?: string;
 }
 const { product = "General inquiry" } = Astro.props;
-const ENDPOINT = "https://formsubmit.co/ajax/virgil.yauvy@gmail.com";
+const ENDPOINT = "https://formsubmit.co/ajax/mumu@yauum.com";
 
 const GARMENTS = ["Hoodies", "T-Shirts", "Jackets", "Pants", "Sportswear", "Streetwear", "Other"];
 const PRESELECT: Record<string, string> = {
@@ -172,7 +172,7 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = "Thanks — your inquiry is on its way. We reply within one business day."; }
         if (window.gtag) window.gtag("event", "inquiry_form_submit", { product: form.dataset.product || "General", moq: payload.moq_tier || "" });
       } catch {
-        if (status) { status.hidden = false; status.classList.add("is-err"); status.textContent = "Something went wrong — please email virgil.yauvy@gmail.com instead."; }
+        if (status) { status.hidden = false; status.classList.add("is-err"); status.textContent = "Something went wrong — please email mumu@yauum.com instead."; }
       } finally {
         submit?.removeAttribute("disabled");
       }
