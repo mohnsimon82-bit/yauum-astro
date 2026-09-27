@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquiryForm from "./InquiryForm.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/index.css";
 ---
@@ -340,20 +341,7 @@ import "../styles/pages/index.css";
         <h2>Send Enough Detail to Get a Useful Manufacturing Review.</h2>
       </div>
       <div class="inq-right" data-reveal>
-        <div class="inq-ledger" aria-label="Recommended inquiry details">
-          <span>Product category</span>
-          <span>Estimated quantity</span>
-          <span>Tech pack or references</span>
-          <span>Fabric target</span>
-          <span>Size range and fit</span>
-          <span>Branding files</span>
-          <span>Packaging needs</span>
-          <span>Destination and timing</span>
-        </div>
-        <div class="inq-actions">
-          <a class="button button--dark" href="/contact-us/">Send project details</a>
-          <a class="link" href="/production/">Review production first</a>
-        </div>
+        <InquiryForm product="Custom clothing" />
       </div>
     </div>
   </div>

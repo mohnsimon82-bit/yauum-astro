@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquiryForm from "./InquiryForm.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/jackets-manufacturer.css";
 ---
@@ -407,9 +408,8 @@ import "../styles/pages/jackets-manufacturer.css";
         <p>If some information is missing, the missing items can be recorded as open points in the specification.</p>
       </article>
       <article class="jk-quote-col" data-reveal>
-        <h3>Prepare the Brief for Submission</h3>
-        <p>Prepare the completed checklist, reference files, measurements, branding details, packing requirements, destination, and timing so the brief can be submitted through the confirmed contact method. Submission channels are confirmed per project. Until then, this page does not state a specific form, upload function, email address, messaging number, response time, or quotation timeline. A complete brief keeps the first review focused on the product instead of on missing information.</p>
-      </article>
+            <InquiryForm product="Jackets" />
+          </article>
     </div>
   </div>
 </section>

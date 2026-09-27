@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquiryForm from "./InquiryForm.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/sportswear-manufacturer.css";
 ---
@@ -610,9 +611,8 @@ import "../styles/pages/sportswear-manufacturer.css";
       </div>
     </div>
     <div class="sw-final" data-reveal>
-      <p>Ready to review the product decisions behind your first sample?</p>
-      <a class="button" href="/contact-us/">Start your sportswear project</a>
-    </div>
+        <InquiryForm product="Sportswear" />
+      </div>
   </div>
 </section>
 </EditorialLayout>

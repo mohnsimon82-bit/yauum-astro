@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquiryForm from "./InquiryForm.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/t-shirt-manufacturer.css";
 ---
@@ -401,10 +402,7 @@ import "../styles/pages/t-shirt-manufacturer.css";
         <h2>Start Your Custom T-Shirt Project</h2>
         <p>Send your tech pack, reference photos, or sample garment with quantity, size range, fabric direction, decoration, packing, destination, and timing.</p>
       </div>
-      <div class="pd-cta-actions" data-reveal>
-        <a class="button" href="/contact-us/">Send your T-shirt brief</a>
-        <a class="link link--onDark" href="#tshirt-styles">Review styles</a>
-      </div>
+      <InquiryForm product="T-Shirts" />
     </div>
   </div>
 </section>

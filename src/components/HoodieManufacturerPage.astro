@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquiryForm from "./InquiryForm.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/hoodie-manufacturer.css";
 ---
@@ -554,19 +555,8 @@ import "../styles/pages/hoodie-manufacturer.css";
         <a class="button button--dark" href="/contact-us/">Discuss your hoodie project</a>
       </div>
       <div class="pd-inq-right">
-        <article class="pd-inq-item" data-reveal>
-          <span class="num">01</span>
-          <div><h3>Show Us the Product</h3><p>Send style references, the fit, size range, measurements, colors, and expected quantity.</p></div>
-        </article>
-        <article class="pd-inq-item" data-reveal>
-          <span class="num">02</span>
-          <div><h3>Explain the Fabric and Branding</h3><p>Add your fabric or GSM preference, artwork, decoration, labels, trims, and packaging.</p></div>
-        </article>
-        <article class="pd-inq-item" data-reveal>
-          <span class="num">03</span>
-          <div><h3>Add the Order Details</h3><p>Tell us the destination, target date, sample needs, trade terms, and any document requirements.</p></div>
-        </article>
-      </div>
+          <InquiryForm product="Hoodies" />
+        </div>
     </div>
   </div>
 </section>

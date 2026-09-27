@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquiryForm from "./InquiryForm.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/pants-manufacturer.css";
 ---
@@ -465,6 +466,17 @@ import "../styles/pages/pants-manufacturer.css";
         <p>Send a tech pack or reference, size range, fabric and wash direction, artwork, quantity by color and size, target timing, and destination market.</p>
       </details>
     </div>
+  </div>
+</section>
+<section class="section band-alt" id="pants-inquiry" data-od-id="pants-inquiry">
+  <div class="shell">
+    <div class="pd-head">
+      <div class="pd-title" data-reveal>
+        <p class="label">Start an inquiry</p>
+        <h2>Ready to Discuss Your Pants Program?</h2>
+      </div>
+    </div>
+    <InquiryForm product="Pants" />
   </div>
 </section>
 </EditorialLayout>

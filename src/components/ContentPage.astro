@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import InquiryForm from "./InquiryForm.astro";
 import { getSeo } from "../lib/seo";
 import type { WebsitePage } from "../lib/content";
 
@@ -318,7 +319,7 @@ const configuration = [
       )}
 
       <section class="section section-accent inquiry-section">
-        <div class="shell inquiry-inner"><div><p class="kicker">09 / Start an inquiry</p><h2 class="section-title">Send the Product Details That Shape a Useful Review.</h2><div class="inquiry-checklist"><span>{productName} type</span><span>Estimated quantity</span><span>Tech pack or reference</span><span>Fit and size range</span><span>Fabric direction</span><span>Artwork and labels</span><span>Packing needs</span><span>Destination and timing</span></div></div><div class="inquiry-actions"><a class="button" href="/contact-us/">Send project details</a><a class="button button-outline" href="/">Back to homepage</a></div></div>
+        <div class="shell inquiry-inner"><div><p class="kicker">09 / Start an inquiry</p><h2 class="section-title">Send the Product Details That Shape a Useful Review.</h2><InquiryForm product={productName} /></div><div class="inquiry-actions"><a class="button" href="/contact-us/">Send project details</a><a class="button button-outline" href="/">Back to homepage</a></div></div>
       </section>
     </>
   ) : blueprint ? (
@@ -376,6 +377,7 @@ const configuration = [
         </section>
       )}
       <section class="section standard-note-section"><div class="shell standard-note"><div><p class="kicker">{showFactoryMedia ? (page.slug === "production" ? "04" : "03") : "02"} / Important note</p><h2 class="section-title">{blueprint.noteTitle}</h2></div><p>{blueprint.note}</p></div></section>
+      <section class="section section-accent inquiry-section"><div class="shell inquiry-inner"><div><p class="kicker">{showFactoryMedia ? (page.slug === "production" ? "05" : "04") : "03"} / Start an inquiry</p><h2 class="section-title">Send the Product Details That Shape a Useful Review.</h2></div><InquiryForm product={page.label} /></div></section>
     </>
   ) : (
     <>

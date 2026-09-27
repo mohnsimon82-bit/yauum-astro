@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquiryForm from "./InquiryForm.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/streetwear-manufacturer.css";
 ---
@@ -243,16 +244,7 @@ import "../styles/pages/streetwear-manufacturer.css";
         <h2 id="streetwear-inquiry-title">Send the Product Details That Shape a Useful Review.</h2>
       </div>
     </div>
-    <div class="st-checklist" data-reveal>
-      <span>Streetwear type</span>
-      <span>Estimated quantity</span>
-      <span>Tech pack or reference</span>
-      <span>Fit and size range</span>
-      <span>Fabric direction</span>
-      <span>Artwork and labels</span>
-      <span>Packing needs</span>
-      <span>Destination and timing</span>
-    </div>
+    <InquiryForm product="Streetwear" />
     <div class="sw-hero-actions" data-reveal>
       <a class="button" href="/contact-us/">Send project details</a>
       <a class="button button--dark" href="/">Back to homepage</a>

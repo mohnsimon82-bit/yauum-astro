@@ -1,0 +1,181 @@
+---
+// InquiryForm.astro — the single site-wide inquiry form.
+// MOQ tiers assume 1 design / 1 color / 5 sizes (site quoting basis).
+// Endpoint: formsubmit.co bound to the footer email; first real submission
+// triggers a one-time activation email. Switch to Formspree by replacing ENDPOINT.
+interface Props {
+  product?: string;
+}
+const { product = "General inquiry" } = Astro.props;
+const ENDPOINT = "https://formsubmit.co/ajax/virgil.yauvy@gmail.com";
+
+const GARMENTS = ["Hoodies", "T-Shirts", "Jackets", "Pants", "Sportswear", "Streetwear", "Other"];
+const PRESELECT: Record<string, string> = {
+  "Custom clothing": "Hoodies",
+  "About Us": "Other",
+  "Our Services": "Other",
+  Production: "Other",
+  Solutions: "Other",
+  Blog: "Other",
+  "Contact Us": "Other",
+};
+const garment = PRESELECT[product] ?? (GARMENTS.includes(product) ? product : "Other");
+const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ pcs"];
+---
+
+<form class="inq-form" method="POST" action={ENDPOINT} data-product={product}>
+  <input type="hidden" name="product" value={product} />
+  <input type="hidden" name="_subject" value={`Yauum inquiry — ${product}`} />
+  <input type="text" name="_honey" class="inq-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="inq-field">
+    <label for="inq-garment">Garment type</label>
+    <select id="inq-garment" name="garment_type">
+      {GARMENTS.map((g) => <option value={g} selected={g === garment}>{g}</option>)}
+    </select>
+  </div>
+
+  <fieldset class="inq-field inq-tiers">
+    <legend>Quantity <span>· 1 design · 1 color · 5 sizes</span></legend>
+    <div class="inq-tier-grid">
+      {TIERS.map((tier, i) => (
+        <label class="inq-tier">
+          <input type="radio" name="moq_tier" value={tier} checked={i === 0} />
+          <span>{tier}</span>
+        </label>
+      ))}
+    </div>
+  </fieldset>
+
+  <div class="inq-row">
+    <div class="inq-field">
+      <label for="inq-name">Name</label>
+      <input id="inq-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
+    </div>
+    <div class="inq-field">
+      <label for="inq-email">Email</label>
+      <input id="inq-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" />
+    </div>
+  </div>
+
+  <div class="inq-field">
+    <label for="inq-msg">Project details <span>(optional)</span></label>
+    <textarea id="inq-msg" name="message" rows="3" placeholder="Style references or tech pack, fabric or GSM, branding and labels, target date…"></textarea>
+  </div>
+
+  <button class="inq-submit" type="submit">Send inquiry</button>
+  <p class="inq-status" role="status" hidden></p>
+</form>
+
+<style>
+  .inq-form {
+    display: grid;
+    gap: 14px;
+    padding: 24px;
+    background: var(--surface, #fff);
+    border: 1px solid var(--line, #d9ded8);
+    border-top: 2px solid var(--accent, #9bd63e);
+    font-family: var(--font-body, Inter, sans-serif);
+  }
+  .inq-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .inq-field { display: grid; gap: 6px; min-width: 0; }
+  .inq-field label,
+  .inq-tiers legend {
+    font-family: var(--font-mono, "IBM Plex Mono", monospace);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted, #626a63);
+    padding: 0;
+  }
+  .inq-tiers legend span,
+  .inq-field label span { text-transform: none; letter-spacing: 0; opacity: 0.85; }
+  .inq-form select,
+  .inq-form input,
+  .inq-form textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--line, #d9ded8);
+    background: var(--surface, #fff);
+    color: var(--fg, #171a17);
+    font: 400 15px/1.4 var(--font-body, Inter, sans-serif);
+    border-radius: 0;
+  }
+  .inq-form select {
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 49%, var(--fg, #171a17) 50%), linear-gradient(135deg, var(--fg, #171a17) 50%, transparent 51%);
+    background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+  }
+  .inq-form textarea { resize: vertical; min-height: 72px; }
+  .inq-form input:focus,
+  .inq-form select:focus,
+  .inq-form textarea:focus { outline: 2px solid var(--accent, #9bd63e); outline-offset: -1px; border-color: var(--accent, #9bd63e); }
+  .inq-tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .inq-tier { position: relative; display: block; cursor: pointer; }
+  .inq-tier input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .inq-tier span {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 42px; padding: 9px 10px;
+    border: 1px solid var(--line, #d9ded8);
+    background: var(--surface, #fff);
+    font: 500 14px var(--font-body, Inter, sans-serif);
+    color: var(--fg, #171a17);
+    text-align: center;
+    transition: border-color 0.12s ease-out, background-color 0.12s ease-out;
+  }
+  .inq-tier input:checked + span { border-color: var(--accent, #9bd63e); background: var(--bg, #f4f5f1); box-shadow: inset 0 0 0 1px var(--accent, #9bd63e); font-weight: 600; }
+  .inq-tier input:focus-visible + span { outline: 2px solid var(--accent, #9bd63e); outline-offset: 2px; }
+  .inq-tier:hover span { border-color: var(--accent, #9bd63e); }
+  .inq-submit {
+    justify-self: start;
+    padding: 13px 26px;
+    background: var(--accent, #9bd63e);
+    color: var(--accent-ink, #17210f);
+    border: 0;
+    font: 600 15px var(--font-body, Inter, sans-serif);
+    cursor: pointer;
+    border-radius: 0;
+  }
+  .inq-submit:hover { filter: brightness(1.05); }
+  .inq-submit[disabled] { opacity: 0.6; cursor: wait; }
+  .inq-status { margin: 0; font-size: 14px; color: var(--muted, #626a63); }
+  .inq-status.is-ok { color: var(--fg, #171a17); }
+  .inq-status.is-err { color: #8a2f2f; }
+  .inq-honey { display: none; }
+  @media (max-width: 640px) {
+    .inq-row { grid-template-columns: 1fr; }
+    .inq-submit { justify-self: stretch; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>(".inq-form").forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const status = form.querySelector<HTMLParagraphElement>(".inq-status");
+      const submit = form.querySelector<HTMLButtonElement>(".inq-submit");
+      submit?.setAttribute("disabled", "");
+      if (status) { status.hidden = true; status.className = "inq-status"; }
+      try {
+        const data = new FormData(form);
+        const payload: Record<string, string> = {};
+        data.forEach((value, key) => (payload[key] = String(value)));
+        const res = await fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = "Thanks — your inquiry is on its way. We reply within one business day."; }
+        if (window.gtag) window.gtag("event", "inquiry_form_submit", { product: form.dataset.product || "General", moq: payload.moq_tier || "" });
+      } catch {
+        if (status) { status.hidden = false; status.classList.add("is-err"); status.textContent = "Something went wrong — please email virgil.yauvy@gmail.com instead."; }
+      } finally {
+        submit?.removeAttribute("disabled");
+      }
+    });
+  });
+</script>
