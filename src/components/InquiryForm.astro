@@ -179,20 +179,24 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         payload["source_page"] = location.href;
         payload["submitted_at"] = new Date().toISOString();
 
-        // 主收件（mumu@yauum.com）+ 通知抄送（397740930@qq.com），互不阻塞
+        // 主收件（mumu@yauum.com）+ 通知抄送（397740930@qq.com）
+        // 任一端点投递成功即视为成功——避免主邮箱待激活时丢掉线索。
         const notifyEndpoint = form.dataset.notifyEndpoint || "";
         const mailTargets = [form.action, notifyEndpoint].filter(Boolean);
         const mailResults = await Promise.allSettled(
-          mailTargets.map((target) =>
-            fetch(target, {
+          mailTargets.map(async (target) => {
+            const res = await fetch(target, {
               method: "POST",
               headers: { "Content-Type": "application/json", Accept: "application/json" },
               body: JSON.stringify(payload),
-            }),
-          ),
+            });
+            const body = await res.json().catch(() => ({} as Record<string, unknown>));
+            // formsubmit 用 HTTP 200 + success:"false" 表示未激活/被拒，必须看内容
+            return res.ok && body.success !== "false" && body.success !== false;
+          }),
         );
-        const mainOk = mailResults[0].status === "fulfilled" && mailResults[0].value.ok;
-        if (!mainOk) throw new Error("main endpoint failed");
+        const anyDelivered = mailResults.some((r) => r.status === "fulfilled" && r.value === true);
+        if (!anyDelivered) throw new Error("all endpoints failed");
 
         // WhatsApp 推送（CallMeBot；未配置 apikey 时跳过）
         const waPhone = form.dataset.waPhone || "";
