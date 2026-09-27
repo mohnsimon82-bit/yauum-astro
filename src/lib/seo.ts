@@ -250,7 +250,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/our-services/",
     ogType: "website",
     // 印花/装饰是服务清单之一，图为本页主题相关的真实产线照
-    ogImage: abs("/uploads/factory/factory-printing.jpg"),
+    ogImage: abs("/uploads/factory/factory-printing.webp"),
     ogImageAlt: "Garment printing equipment and operators",
     ogImageWidth: 2400,
     ogImageHeight: 1600,
@@ -276,7 +276,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/production/",
     ogType: "website",
     // 本页"Supplied factory record"板块使用的真实图片
-    ogImage: abs("/uploads/factory/factory-pattern.jpg"),
+    ogImage: abs("/uploads/factory/factory-pattern.webp"),
     ogImageAlt: "Pattern preparation in the production environment",
     ogImageWidth: 2000,
     ogImageHeight: 1500,
@@ -300,7 +300,7 @@ export const SEO: Record<string, SeoData> = {
       "Manufacturing support shaped by how you buy: private label brands, wholesalers, e-commerce sellers, and sourcing teams get a fitting workflow.",
     path: "/solutions/",
     ogType: "website",
-    ogImage: abs("/uploads/factory/factory-packout.jpg"),
+    ogImage: abs("/uploads/factory/factory-packout.webp"),
     ogImageAlt: "Finished garments being folded and prepared for packing",
     ogImageWidth: 2400,
     ogImageHeight: 1798,
@@ -325,7 +325,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/about-us/",
     ogType: "website",
     // 本页"Supplied factory record"板块使用的真实图片
-    ogImage: abs("/uploads/factory/factory-showroom.jpg"),
+    ogImage: abs("/uploads/factory/factory-showroom.webp"),
     ogImageAlt: "Garment sample showroom with apparel on display",
     ogImageWidth: 2400,
     ogImageHeight: 1600,
@@ -383,7 +383,7 @@ export const SEO: Record<string, SeoData> = {
       "Practical B2B guidance for buyers developing custom apparel: product development, fabric and workmanship, decoration, private label, and packing.",
     path: "/blog/",
     ogType: "website", // 尚无文章详情页；有真实文章后改用 article
-    ogImage: abs("/uploads/factory/sample-showroom.jpg"),
+    ogImage: abs("/uploads/factory/sample-showroom.webp"),
     ogImageAlt: "Garment samples in the showroom",
     ogImageWidth: 1920,
     ogImageHeight: 1280,
