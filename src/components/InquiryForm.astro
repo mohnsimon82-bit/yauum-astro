@@ -9,8 +9,10 @@ interface Props {
 const { product = "General inquiry" } = Astro.props;
 const ENDPOINT = "https://formsubmit.co/ajax/mumu@yauum.com"; // 收件/回件用
 // 提交提醒（不回件）：QQ 邮箱通知 + WhatsApp 推送（CallMeBot，apikey 留空则静默跳过）
+// 配置经 data-* 渲染进表单，客户端脚本只读 DOM——避免前端常量与打包作用域的坑。
 const NOTIFY_EMAIL_ENDPOINT = "https://formsubmit.co/ajax/397740930@qq.com";
-const WHATSAPP_NOTIFY = { phone: "8615733728976", apikey: "" }; // CallMeBot 激活后填 apikey
+const WA_PHONE = "8615733728976";
+const WA_APIKEY = ""; // CallMeBot 激活后填入，即可开启 WhatsApp 推送
 
 const GARMENTS = ["Hoodies", "T-Shirts", "Jackets", "Pants", "Sportswear", "Streetwear", "Other"];
 const PRESELECT: Record<string, string> = {
@@ -26,7 +28,15 @@ const garment = PRESELECT[product] ?? (GARMENTS.includes(product) ? product : "O
 const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ pcs"];
 ---
 
-<form class="inq-form" method="POST" action={ENDPOINT} data-product={product}>
+<form
+  class="inq-form"
+  method="POST"
+  action={ENDPOINT}
+  data-product={product}
+  data-notify-endpoint={NOTIFY_EMAIL_ENDPOINT}
+  data-wa-phone={WA_PHONE}
+  data-wa-key={WA_APIKEY}
+>
   <input type="hidden" name="product" value={product} />
   <input type="hidden" name="_subject" value={`Yauum inquiry — ${product}`} />
   <input type="text" name="_honey" class="inq-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -170,7 +180,8 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         payload["submitted_at"] = new Date().toISOString();
 
         // 主收件（mumu@yauum.com）+ 通知抄送（397740930@qq.com），互不阻塞
-        const mailTargets = [form.action, NOTIFY_EMAIL_ENDPOINT];
+        const notifyEndpoint = form.dataset.notifyEndpoint || "";
+        const mailTargets = [form.action, notifyEndpoint].filter(Boolean);
         const mailResults = await Promise.allSettled(
           mailTargets.map((target) =>
             fetch(target, {
@@ -184,10 +195,11 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         if (!mainOk) throw new Error("main endpoint failed");
 
         // WhatsApp 推送（CallMeBot；未配置 apikey 时跳过）
-        const { phone, apikey } = WHATSAPP_NOTIFY;
-        if (apikey) {
+        const waPhone = form.dataset.waPhone || "";
+        const waKey = form.dataset.waKey || "";
+        if (waKey && waPhone) {
           const text = `Yauum inquiry: ${payload.garment_type || ""} | ${payload.moq_tier || ""} | ${payload.name || ""} | ${payload.email || ""}`;
-          fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&apikey=${apikey}&text=${encodeURIComponent(text)}`, { mode: "no-cors" }).catch(() => {});
+          fetch(`https://api.callmebot.com/whatsapp.php?phone=${waPhone}&apikey=${waKey}&text=${encodeURIComponent(text)}`, { mode: "no-cors" }).catch(() => {});
         }
         form.reset();
         if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = "Thanks — your inquiry is on its way. We reply within one business day."; }
