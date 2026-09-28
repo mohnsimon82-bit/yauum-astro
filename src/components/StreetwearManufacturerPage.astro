@@ -1,6 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquiryForm from "./InquiryForm.astro";
+import InquirySection from "./InquirySection.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/streetwear-manufacturer.css";
 ---
@@ -236,19 +236,14 @@ import "../styles/pages/streetwear-manufacturer.css";
 </section>
 
 <!-- ============ 09 START AN INQUIRY ============ -->
-<section class="section band-alt" aria-labelledby="streetwear-inquiry-title" data-od-id="sw-inquiry">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">09 / Start an inquiry</p>
-        <h2 id="streetwear-inquiry-title">Send the Product Details That Shape a Useful Review.</h2>
-      </div>
-    </div>
-    <InquiryForm product="Streetwear" />
-    <div class="sw-hero-actions" data-reveal>
-      <a class="button" href="/contact-us/">Send project details</a>
-      <a class="button button--dark" href="/">Back to homepage</a>
-    </div>
-  </div>
-</section>
+<InquirySection
+  product="Streetwear"
+  id="sw-inquiry"
+  odId="sw-inquiry"
+  band="band-alt"
+  kicker="09 / Start an inquiry"
+  title="Send the Product Details That Shape a Useful Review."
+  titleId="streetwear-inquiry-title"
+  ctaLabel="Send project details"
+/>
 </EditorialLayout>

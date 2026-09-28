@@ -1,6 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquiryForm from "./InquiryForm.astro";
+import InquirySection from "./InquirySection.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/hoodie-manufacturer.css";
 ---
@@ -545,19 +545,14 @@ import "../styles/pages/hoodie-manufacturer.css";
 </section>
 
 <!-- ============ 15 START YOUR INQUIRY ============ -->
-<section class="section band-alt" id="inquiry" data-od-id="start-inquiry">
-  <div class="shell">
-    <div class="pd-inq">
-      <div class="pd-inq-left" data-reveal>
-        <p class="label">13 / Start your inquiry</p>
-        <h2>Ready to Discuss Your Hoodie?</h2>
-        <p class="lead">Send the product, quantity, branding, destination, and open questions together. You do not need every answer before you contact us.</p>
-        <a class="button button--dark" href="/contact-us/">Discuss your hoodie project</a>
-      </div>
-      <div class="pd-inq-right">
-          <InquiryForm product="Hoodies" />
-        </div>
-    </div>
-  </div>
-</section>
+<InquirySection
+  product="Hoodies"
+  id="inquiry"
+  odId="start-inquiry"
+  band="band-alt"
+  kicker="13 / Start your inquiry"
+  title="Ready to Discuss Your Hoodie?"
+  lead="Send the product, quantity, branding, destination, and open questions together. You do not need every answer before you contact us."
+  ctaLabel="Discuss your hoodie project"
+/>
 </EditorialLayout>

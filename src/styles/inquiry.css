@@ -1,0 +1,41 @@
+/* ============================================================
+   YAUUM — Shared inquiry section layout
+   Single source of truth for the "Start your inquiry" block.
+   Mirrors the approved hoodie-manufacturer section 13
+   (left copy column 1–5, form column 6–12).
+   Imported by components/InquirySection.astro so the geometry
+   ships with the component on every page that renders it.
+   ============================================================ */
+
+.pd-inq {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 24px;
+  align-items: start;
+}
+.pd-inq-left { grid-column: 1 / 6; }
+.pd-inq-left h2 { margin-top: 22px; }
+/* Descendant (not direct-child) selectors: pages may supply their own
+   left-column content through the component’s `left` slot. */
+.pd-inq-left .lead { margin-top: 22px; }
+.pd-inq-left .button { margin-top: 30px; }
+.pd-inq-left h3 { margin-top: 30px; font-size: 20px; }
+.pd-inq-left > p:not(.label):not(.lead) { margin-top: 14px; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 60ch; }
+.band-dark .pd-inq-left > p:not(.label):not(.lead) { color: var(--dark-muted); }
+
+/* The form column. The top rule matches the site’s editorial hairline and
+   flips to the dark-band foreground so it stays visible on .band-dark. */
+.pd-inq-right {
+  grid-column: 6 / 13;
+  border-top: 2px solid var(--fg);
+}
+.band-dark .pd-inq-right { border-top-color: var(--dark-fg); }
+
+/* Jackets keeps its quote checklist in the left column; the list styling
+   stays in jackets-manufacturer.css. */
+
+@media (max-width: 1080px) {
+  .pd-inq-left,
+  .pd-inq-right { grid-column: 1 / -1; }
+  .pd-inq-right { margin-top: 40px; }
+}

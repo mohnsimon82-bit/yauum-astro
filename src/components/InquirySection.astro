@@ -1,0 +1,73 @@
+---
+// InquirySection.astro — the single implementation of the site-wide
+// "Start your inquiry" block (page-side heading + InquiryForm).
+//
+// Every page renders this component so the form always lands in the same
+// grid column with the same width, styling, and submit behaviour. The
+// layout lives in ../styles/inquiry.css, which this component imports, so
+// no page needs to carry its own inquiry-grid CSS.
+//
+// Previously each page invented its own wrapper (.pd-cta-grid, .jk-quote,
+// .sw-final, or the form dropped straight into .shell), which produced
+// form widths between 153px and 1137px. Do not reintroduce per-page wrappers.
+import InquiryForm from "./InquiryForm.astro";
+import "../styles/inquiry.css";
+
+interface Props {
+  /** Passed through to InquiryForm; drives the preselected garment type. */
+  product: string;
+  /** Small mono kicker, e.g. "13 / Start your inquiry". */
+  kicker?: string;
+  /** Left-column headline. Omit when supplying the `left` slot. */
+  title?: string;
+  /** Optional supporting paragraph in the left column. */
+  lead?: string;
+  /** Optional secondary link in the left column. */
+  ctaLabel?: string;
+  ctaHref?: string;
+  /** Section id, kept per page so existing anchors keep working. */
+  id?: string;
+  /** data-od-id hook used by the design tooling. */
+  odId?: string;
+  /** Section band class. Defaults to band-alt, matching hoodie section 13. */
+  band?: string;
+  /** Use on band-dark sections so the kicker picks up the accent colour. */
+  onDark?: boolean;
+  /** id applied to the <h2>, for aria-labelledby on the section. */
+  titleId?: string;
+}
+
+const {
+  product,
+  kicker,
+  title,
+  lead,
+  ctaLabel,
+  ctaHref = "/contact-us/",
+  id = "inquiry",
+  odId = "start-inquiry",
+  band = "band-alt",
+  onDark = false,
+  titleId,
+} = Astro.props;
+
+const hasLeftSlot = Astro.slots.has("left");
+---
+
+<section class={`section ${band}`} id={id} data-od-id={odId} aria-labelledby={titleId}>
+  <div class="shell">
+    <div class="pd-inq">
+      <div class="pd-inq-left" data-reveal>
+        <slot name="left">
+          {kicker && <p class={`label${onDark ? " label--onDark" : ""}`}>{kicker}</p>}
+          {title && <h2 id={titleId}>{title}</h2>}
+          {lead && <p class="lead">{lead}</p>}
+          {ctaLabel && <a class="button button--dark" href={ctaHref}>{ctaLabel}</a>}
+        </slot>
+      </div>
+      <div class="pd-inq-right">
+        <InquiryForm product={product} />
+      </div>
+    </div>
+  </div>
+</section>

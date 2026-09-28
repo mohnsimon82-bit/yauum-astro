@@ -1,6 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquiryForm from "./InquiryForm.astro";
+import InquirySection from "./InquirySection.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/index.css";
 ---
@@ -333,17 +333,13 @@ import "../styles/pages/index.css";
 </section>
 
 <!-- ============ 10 INQUIRY ============ -->
-<section class="section band-alt" data-od-id="inquiry-conversion">
-  <div class="shell">
-    <div class="inq-grid">
-      <div class="inq-left" data-reveal>
-        <p class="label">Start the conversation</p>
-        <h2>Send Enough Detail to Get a Useful Manufacturing Review.</h2>
-      </div>
-      <div class="inq-right" data-reveal>
-        <InquiryForm product="Custom clothing" />
-      </div>
-    </div>
-  </div>
-</section>
+<InquirySection
+  product="Custom clothing"
+  id="inquiry"
+  odId="inquiry-conversion"
+  band="band-alt"
+  kicker="Start the conversation"
+  title="Send Enough Detail to Get a Useful Manufacturing Review."
+  ctaLabel="Send project details"
+/>
 </EditorialLayout>

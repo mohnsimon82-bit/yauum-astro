@@ -1,6 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquiryForm from "./InquiryForm.astro";
+import InquirySection from "./InquirySection.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/sportswear-manufacturer.css";
 ---
@@ -610,9 +610,17 @@ import "../styles/pages/sportswear-manufacturer.css";
         <div class="sw-ph-copy"><strong>Sportswear project brief</strong><small>Needed: a verified sample with a tech pack, swatches, artwork, labels, and packing reference.</small></div>
       </div>
     </div>
-    <div class="sw-final" data-reveal>
-        <InquiryForm product="Sportswear" />
-      </div>
   </div>
 </section>
+
+<!-- ============ 13 START YOUR INQUIRY ============ -->
+<InquirySection
+  product="Sportswear"
+  id="sportswear-inquiry"
+  odId="sw-inquiry"
+  band="band-alt"
+  kicker="13 / Start your inquiry"
+  title="Ready to Discuss Your Sportswear Program?"
+  ctaLabel="Send project details"
+/>
 </EditorialLayout>

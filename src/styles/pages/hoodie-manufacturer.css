@@ -238,13 +238,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .pd-faq summary:focus-visible{outline:2px solid var(--fg);outline-offset:-2px}
 .pd-faq details > p{padding:0 18px 22px 52px;font-size:16px;line-height:1.66;color:var(--muted);max-width:62ch}
 
-/* 13 — START YOUR INQUIRY (5 / 7) */
-.pd-inq{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:start}
-.pd-inq-left{grid-column:1 / 6}
-.pd-inq-left h2{margin-top:22px}
-.pd-inq-left .lead{margin-top:22px}
-.pd-inq-left .button{margin-top:30px}
-.pd-inq-right{grid-column:6 / 13;border-top:2px solid var(--fg)}
+/* 13 — START YOUR INQUIRY (5 / 7)
+   The layout for .pd-inq / .pd-inq-left / .pd-inq-right now lives in
+   src/styles/inquiry.css and ships with components/InquirySection.astro,
+   so every page shares one implementation. Do not redeclare it here. */
 .pd-inq-item{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border)}
 .pd-inq-item .num{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--accent-ink);padding-top:3px}
 .pd-inq-item h3{font-size:20px}
@@ -289,9 +286,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   .pd-qc-list{margin-top:40px}
 
   .pd-pack-main{grid-column:1 / -1}
-
-  .pd-inq-left,.pd-inq-right{grid-column:1 / -1}
-  .pd-inq-right{margin-top:40px}
 
   .pd-flow{grid-template-columns:repeat(2,1fr);border-top:0}
   .pd-flow-step{border-top:1px solid var(--border);padding:26px 26px 30px 0}

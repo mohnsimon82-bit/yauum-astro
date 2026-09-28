@@ -1,6 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquiryForm from "./InquiryForm.astro";
+import InquirySection from "./InquirySection.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/pants-manufacturer.css";
 ---
@@ -468,15 +468,13 @@ import "../styles/pages/pants-manufacturer.css";
     </div>
   </div>
 </section>
-<section class="section band-alt" id="pants-inquiry" data-od-id="pants-inquiry">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">Start an inquiry</p>
-        <h2>Ready to Discuss Your Pants Program?</h2>
-      </div>
-    </div>
-    <InquiryForm product="Pants" />
-  </div>
-</section>
+<InquirySection
+  product="Pants"
+  id="pants-inquiry"
+  odId="pants-inquiry"
+  band="band-alt"
+  kicker="Start an inquiry"
+  title="Ready to Discuss Your Pants Program?"
+  ctaLabel="Send project details"
+/>
 </EditorialLayout>

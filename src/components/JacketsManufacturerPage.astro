@@ -1,6 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquiryForm from "./InquiryForm.astro";
+import InquirySection from "./InquirySection.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/jackets-manufacturer.css";
 ---
@@ -379,38 +379,31 @@ import "../styles/pages/jackets-manufacturer.css";
 </section>
 
 <!-- ============ 12 START A QUOTE ============ -->
-<section class="section band-dark" id="jk-quote" aria-labelledby="jk-quote-title" data-od-id="jk-quote">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">10 / START A QUOTE</p>
-        <h2 id="jk-quote-title">What to Send for a Jacket Quote</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">A useful quote needs the same inputs as a specification: what the jacket is, what it is made of, how it is branded and packed, and where and when it has to arrive. The checklist below can be sent in one message.</p>
-      </div>
-    </div>
-    <div class="jk-quote">
-      <article class="jk-quote-col" data-reveal>
-        <h3>The Quote Checklist</h3>
-        <ul class="jk-check">
-          <li>Jacket type, target season, and use case</li>
-          <li>Estimated quantity, with color and size breakdown</li>
-          <li>Tech pack, sketch, reference photos, or an existing sample</li>
-          <li>Size chart and key measurements</li>
-          <li>Shell, lining, and insulation direction</li>
-          <li>Closure, pocket, and hardware requirements</li>
-          <li>Artwork, labels, and trims</li>
-          <li>Packaging requirements</li>
-          <li>Destination market and target delivery timing</li>
-          <li>Required testing or compliance documents</li>
-        </ul>
-        <p>If some information is missing, the missing items can be recorded as open points in the specification.</p>
-      </article>
-      <article class="jk-quote-col" data-reveal>
-            <InquiryForm product="Jackets" />
-          </article>
-    </div>
-  </div>
-</section>
+<InquirySection
+  product="Jackets"
+  id="jk-quote"
+  odId="jk-quote"
+  band="band-dark"
+  onDark
+  titleId="jk-quote-title"
+>
+  <p slot="left" class="label label--onDark">10 / START A QUOTE</p>
+  <h2 slot="left" id="jk-quote-title">What to Send for a Jacket Quote</h2>
+  <p slot="left" class="lead">A useful quote needs the same inputs as a specification: what the jacket is, what it is made of, how it is branded and packed, and where and when it has to arrive. The checklist below can be sent in one message.</p>
+  <h3 slot="left">The Quote Checklist</h3>
+  <ul slot="left" class="jk-check">
+    <li>Jacket type, target season, and use case</li>
+    <li>Estimated quantity, with color and size breakdown</li>
+    <li>Tech pack, sketch, reference photos, or an existing sample</li>
+    <li>Size chart and key measurements</li>
+    <li>Shell, lining, and insulation direction</li>
+    <li>Closure, pocket, and hardware requirements</li>
+    <li>Artwork, labels, and trims</li>
+    <li>Packaging requirements</li>
+    <li>Destination market and target delivery timing</li>
+    <li>Required testing or compliance documents</li>
+  </ul>
+  <p slot="left">If some information is missing, the missing items can be recorded as open points in the specification.</p>
+  <a slot="left" class="button button--dark" href="/contact-us/">Send project details</a>
+</InquirySection>
 </EditorialLayout>

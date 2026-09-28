@@ -1,6 +1,6 @@
 ---
 import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquiryForm from "./InquiryForm.astro";
+import InquirySection from "./InquirySection.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/t-shirt-manufacturer.css";
 ---
@@ -394,16 +394,15 @@ import "../styles/pages/t-shirt-manufacturer.css";
 </section>
 
 <!-- ============ 10 START A PROJECT ============ -->
-<section class="section band-dark" id="start-project" data-od-id="start-project">
-  <div class="shell">
-    <div class="pd-cta-grid">
-      <div class="pd-cta-copy" data-reveal>
-        <p class="label label--onDark">08 / START A PROJECT</p>
-        <h2>Start Your Custom T-Shirt Project</h2>
-        <p>Send your tech pack, reference photos, or sample garment with quantity, size range, fabric direction, decoration, packing, destination, and timing.</p>
-      </div>
-      <InquiryForm product="T-Shirts" />
-    </div>
-  </div>
-</section>
+<InquirySection
+  product="T-Shirts"
+  id="start-project"
+  odId="start-project"
+  band="band-dark"
+  onDark
+  kicker="08 / START A PROJECT"
+  title="Start Your Custom T-Shirt Project"
+  lead="Send your tech pack, reference photos, or sample garment with quantity, size range, fabric direction, decoration, packing, destination, and timing."
+  ctaLabel="Send project details"
+/>
 </EditorialLayout>
