@@ -52,9 +52,14 @@ const {
 } = Astro.props;
 
 const hasLeftSlot = Astro.slots.has("left");
+// The page-level .band-alt/.band-dark classes only exist in the editorial page
+// CSS; the content pages run on the legacy global.css/redesign.css layer where
+// they are undefined. Emit our own band class too so the section always has a
+// background. Both set the same colour, so the editorial pages are unchanged.
+const tone = band === "band-dark" ? "dark" : "alt";
 ---
 
-<section class={`section ${band}`} id={id} data-od-id={odId} aria-labelledby={titleId}>
+<section class={`section ${band} pd-inq-band-${tone}`} id={id} data-od-id={odId} aria-labelledby={titleId}>
   <div class="shell">
     <div class="pd-inq">
       <div class="pd-inq-left" data-reveal>

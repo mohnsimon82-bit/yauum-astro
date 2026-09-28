@@ -1,38 +1,123 @@
 /* ============================================================
-   YAUUM — Shared inquiry section layout
+   YAUUM — Shared inquiry section
    Single source of truth for the "Start your inquiry" block.
-   Mirrors the approved hoodie-manufacturer section 13
-   (left copy column 1–5, form column 6–12).
-   Imported by components/InquirySection.astro so the geometry
-   ships with the component on every page that renders it.
+   Mirrors the approved hoodie-manufacturer section 13:
+   left copy column 1-5, form column 6-12.
+
+   Imported by components/InquirySection.astro, so the geometry ships with
+   the component on every page that renders it. No page needs its own
+   inquiry-grid CSS — do not reintroduce per-page wrappers.
+
+   The block is deliberately SELF-SUFFICIENT. Two design generations are
+   live at once: the editorial page CSS (src/styles/pages/*.css) and the
+   legacy global.css/redesign.css layer that the content pages still use.
+   They disagree on --accent, --accent-ink, --fg and --muted, and the legacy
+   layer has no --bg-alt / --dark-fg at all. So the tokens the form and the
+   left column read are pinned below and every var() carries a fallback.
    ============================================================ */
 
 .pd-inq {
+  /* Block-level tokens for the left column. The form re-pins its own on
+     .inq-form below, so a dark band can lighten this copy without touching
+     the white form card. */
+  --fg: #141614;
+  --muted: #606760;
+
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 0 24px;
   align-items: start;
 }
-.pd-inq-left { grid-column: 1 / 6; }
-.pd-inq-left h2 { margin-top: 22px; }
-/* Descendant (not direct-child) selectors: pages may supply their own
-   left-column content through the component’s `left` slot. */
-.pd-inq-left .lead { margin-top: 22px; }
-.pd-inq-left .button { margin-top: 30px; }
-.pd-inq-left h3 { margin-top: 30px; font-size: 20px; }
-.pd-inq-left > p:not(.label):not(.lead) { margin-top: 14px; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 60ch; }
-.band-dark .pd-inq-left > p:not(.label):not(.lead) { color: var(--dark-muted); }
 
-/* The form column. The top rule matches the site’s editorial hairline and
-   flips to the dark-band foreground so it stays visible on .band-dark. */
+/* ---- band: defined here so the section has a background on pages whose
+   page CSS predates .band-alt/.band-dark ---- */
+.pd-inq-band-alt { background: var(--bg-alt, #E9EBE6); }
+.pd-inq-band-dark {
+  background: var(--dark, #131613);
+  color: var(--dark-fg, #F3F4EF);
+  /* pin the accent too: the legacy layer's --accent is #9bd63e */
+  --accent: #A6D63A;
+}
+/* must re-pin on the element that declares the block tokens, or inheritance
+   from the section would be overridden for the whole subtree */
+.pd-inq-band-dark .pd-inq {
+  --fg: #F3F4EF;
+  --muted: #9AA39A;
+}
+
+/* ---- left column ---- */
+.pd-inq-left { grid-column: 1 / 6; }
+
+.pd-inq-left .label {
+  font-family: var(--font-mono, "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted, #606760);
+}
+.pd-inq-left h2 {
+  margin-top: 22px;
+  font-family: var(--font-display, Archivo, "Helvetica Neue", Helvetica, Arial, sans-serif);
+  font-size: clamp(31px, 3.9vw, 54px);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -0.032em;
+  color: var(--fg, #141614);
+}
+/* Descendant (not direct-child) selectors: pages may supply their own
+   left-column content through the component's `left` slot. */
+.pd-inq-left .lead {
+  margin-top: 22px;
+  font-family: var(--font-body, Inter, "Helvetica Neue", Helvetica, Arial, sans-serif);
+  font-size: 18px;
+  line-height: 1.66;
+  color: var(--muted, #606760);
+}
+.pd-inq-left .button {
+  margin-top: 30px;
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 26px;
+  border-radius: 0;
+  background: #131613;
+  border: 1px solid #131613;
+  color: #F3F4EF;
+  font-family: var(--font-body, Inter, "Helvetica Neue", Helvetica, Arial, sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.pd-inq-left h3 { margin-top: 30px; font-size: 20px; }
+.pd-inq-left > p:not(.label):not(.lead) { margin-top: 14px; font-size: 15px; line-height: 1.6; color: var(--muted, #606760); max-width: 60ch; }
+
+.pd-inq-band-dark .pd-inq-left h2 { color: var(--dark-fg, #F3F4EF); }
+.pd-inq-band-dark .pd-inq-left .label { color: var(--accent, #A6D63A); }
+.pd-inq-band-dark .pd-inq-left .lead { color: var(--dark-muted, #9AA39A); }
+.pd-inq-band-dark .pd-inq-left > p:not(.label):not(.lead) { color: var(--dark-muted, #9AA39A); }
+
+/* ---- form column ---- */
 .pd-inq-right {
   grid-column: 6 / 13;
-  border-top: 2px solid var(--fg);
+  border-top: 2px solid var(--fg, #141614);
 }
-.band-dark .pd-inq-right { border-top-color: var(--dark-fg); }
+.pd-inq-band-dark .pd-inq-right { border-top-color: var(--dark-fg, #F3F4EF); }
 
-/* Jackets keeps its quote checklist in the left column; the list styling
-   stays in jackets-manufacturer.css. */
+/* The form's own visual contract. InquiryForm.astro reads these names, and
+   pinning them here keeps the form identical whichever layer supplies
+   :root — otherwise the content pages render the old green (#9bd63e) and
+   the old ink (#17210f) while the product pages render #A6D63A / #4E6E10. */
+.pd-inq .inq-form {
+  --surface: #FFFFFF;
+  --line: #D9DED8;
+  --accent: #A6D63A;
+  --accent-ink: #4E6E10;
+  --fg: #141614;
+  --bg: #F4F4F0;
+  --muted: #606760;
+  --font-body: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
 
 @media (max-width: 1080px) {
   .pd-inq-left,
