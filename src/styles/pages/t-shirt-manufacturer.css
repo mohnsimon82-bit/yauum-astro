@@ -99,6 +99,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .pd-hero-actions .link:hover{border-color:var(--accent)}
 .pd-hero-actions .link:focus-visible{outline-color:var(--accent)}
 .pd-hero-media{grid-column:2;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;margin:0}
+.pd-hero-cap{margin-top:14px;font-family:var(--mono);font-size:11px;line-height:1.6;letter-spacing:.06em;text-transform:uppercase;color:var(--dark-muted)}
 .hero-rail{
   margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-border);
   display:flex;flex-wrap:wrap;gap:14px 56px;
