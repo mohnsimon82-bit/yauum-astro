@@ -20,6 +20,33 @@ import { fileURLToPath } from "node:url";
  *  2. 只映射页面文件本身不够（改组件也会改动页面输出），必须递归遍历其 import 依赖。
  */
 
+/**
+ * Cloudflare Pages 的构建是浅克隆（--depth 1），git 历史里只有 1 个提交。
+ * 这种情况下 `git log -1 -- <file>` 对任何文件都返回那个唯一提交的时间，
+ * 会让 13 条 URL 的 lastmod 全部变成构建时间 —— 正是 Google 会忽略的「不可信 lastmod」。
+ * 仓库是公开的，构建阶段补齐历史即可拿到真实的逐文件提交时间。
+ * 补齐失败也不影响构建，下面会自动退回到文件时间。
+ */
+function ensureFullGitHistory() {
+  try {
+    const shallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"], {
+      cwd: projectRoot,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim() === "true";
+    if (!shallow) return;
+    execFileSync("git", ["fetch", "--unshallow", "--quiet"], {
+      cwd: projectRoot,
+      stdio: ["ignore", "ignore", "ignore"],
+      timeout: 180_000,
+    });
+  } catch {
+    /* 忽略：拿不到历史时 sourceDate 会退回到文件 mtime */
+  }
+}
+
+ensureFullGitHistory();
+
 const gitDateCache = new Map();
 const gitStateCache = new Map();
 const fileSetCache = new Map();
