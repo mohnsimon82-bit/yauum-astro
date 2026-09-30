@@ -1,2 +1,8 @@
 # 常见工具默认探测 /sitemap.xml；统一 301 到 Astro 生成的索引文件，避免误判重复
 /sitemap.xml /sitemap-index.xml 301
+
+# www 变体统一 301 到规范域名。
+# 背景：Google 曾把首页的「规范网址」识别为 http://www.yauum.com/（预览阶段遗留的判断）。
+# 显式声明 301 后，Google 无论从哪个变体进来都能立刻看到唯一的规范版本，避免再选错。
+https://www.yauum.com/* https://yauum.com/:splat 301
+http://www.yauum.com/* https://yauum.com/:splat 301
