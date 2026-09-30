@@ -273,14 +273,10 @@ button { font: inherit; }
   .process-item { grid-template-columns: 40px 1fr; gap: 12px; }
   .process-item h3, .quality-item h3, .packing-step h3, .capability h3 { font-size: 24px; }
   .proof-item { grid-template-columns: 80px 1fr; gap: 12px; }
-  .mobile-inquiry { right: 20px; bottom: 14px; left: 20px; display: inline-flex; }
-  body:has(.hoodie-page) .mobile-inquiry { display: none; }
-  .contact-dock { right: 16px; bottom: 76px; left: auto; grid-template-columns: repeat(2, 48px); gap: 8px; }
+  .contact-dock { right: 16px; bottom: 16px; left: auto; grid-template-columns: repeat(2, 48px); gap: 8px; }
   .contact-dock-link { width: 48px; height: 48px; }
   .contact-dock-icon { width: 22px; height: 22px; }
-  body:has(.hoodie-page) .contact-dock { bottom: 16px; }
   .back-to-top { right: 16px; bottom: 136px; }
-  body:has(.hoodie-page) .back-to-top { bottom: 76px; }
   .hoodie-page .hoodie-hero-grid { padding-block: 8px 130px; }
   .hoodie-page .hero-actions { gap: 4px !important; }
 }

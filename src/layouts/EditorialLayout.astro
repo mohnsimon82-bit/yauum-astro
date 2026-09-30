@@ -15,14 +15,12 @@ interface Props {
   seo: SeoData;
   variant?: "home" | "product";
   navCurrent?: string[];
-  showMobileInquiry?: boolean;
 }
 
 const {
   seo,
   variant = "product",
   navCurrent = [],
-  showMobileInquiry = false,
 } = Astro.props;
 
 const canonical = canonicalUrl(seo);
@@ -50,7 +48,6 @@ const mainId = variant === "home" ? "main" : "main-content";
     <SiteChromeTop
       mainId={mainId}
       navCurrent={navCurrent}
-      showMobileInquiry={showMobileInquiry}
     />
 
 <main id={mainId}>

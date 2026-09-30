@@ -143,7 +143,6 @@ export const beijingTime = () =>
 /** 点击位置标签，与现有 GA 事件口径一致。 */
 export function getClickLocation(link: Element): string {
   if (link.closest(".mobile-menu")) return "mobile_menu";
-  if (link.matches(".mobile-inquiry")) return "mobile_sticky";
   if (link.closest(".contact-dock, .site-dock, .dock")) return "floating_dock";
   if (link.closest(".site-header, .site-top, header")) return "header";
   if (link.closest(".home-hero, .product-hero, .standard-hero, .hero, .pd-hero")) return "hero";

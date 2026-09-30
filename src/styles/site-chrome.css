@@ -236,14 +236,6 @@
 .ed.back-top:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px }
 .ed.back-top svg { width: 20px; height: 20px }
 
-/* ---------- 移动端吸底询盘条 ---------- */
-
-.ed.mobile-inquiry { display: none }
-@media (max-width: 1080px) {
-  .ed.mobile-inquiry { z-index: 90; position: fixed; bottom: 14px; left: 20px; right: 20px; display: inline-flex; min-height: 58px; justify-content: space-between; align-items: center; padding: 13px 18px; background: var(--accent); color: var(--accent-fg); font-size: 14px; font-weight: 700; border: 1px solid #769f0d; text-transform: none; letter-spacing: normal }
-  .ed.mobile-inquiry:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px }
-}
-
 /* ---------- 响应式 ---------- */
 
 @media (max-width: 1180px) { .ed .nav a, .ed .nav-prod-btn { padding: 0 10px; font-size: 13px } }

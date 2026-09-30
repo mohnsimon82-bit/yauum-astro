@@ -1,18 +1,16 @@
 ---
-// 站点公共页头：skip-link / header / 移动菜单 / 移动吸底询盘条 / 浮动联系栏 / 回顶按钮
+// 站点公共页头：skip-link / header / 移动菜单 / 浮动联系栏 / 回顶按钮
 // 由 OpenDesign 导出逐字提取，以最晚导出的设计稿（streetwear 2026-09-25）为准，
 // Production 下拉带 + 切换按钮。新设计页面直接使用；旧设计页面额外挂 ed 作用域类，
 // 配合 src/styles/site-chrome.css 压过 global.css 中的旧页头样式。
 interface Props {
   mainId?: string;
   navCurrent?: string[];
-  showMobileInquiry?: boolean;
 }
 
 const {
   mainId = "main-content",
   navCurrent = [],
-  showMobileInquiry = false,
 } = Astro.props;
 const isCurrent = (href: string) => navCurrent.includes(href);
 // 全站统一页头：所有页面都挂 ed 作用域类，样式只来自 site-chrome.css
@@ -87,10 +85,6 @@ const c = (base: string) => `${base} ed`;
             </div>
           </div>
         </div>
-
-    {showMobileInquiry && (
-          <a class={c("mobile-inquiry")} href="/contact-us/">Send an inquiry <span aria-hidden="true">↗</span></a>
-        )}
 
     <div class={c("contact-dock")} aria-label="Direct contact options">
           <a class="dock-btn" href="https://wa.me/8615733728976?text=Hello%20Yauum%2C%20I%27d%20like%20to%20discuss%20a%20clothing%20manufacturing%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat with Yauum on WhatsApp" title="WhatsApp">

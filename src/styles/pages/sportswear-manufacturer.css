@@ -79,7 +79,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .link:focus-visible{outline:2px solid var(--fg);outline-offset:3px}.brand{display:inline-flex;align-items:center;flex-shrink:0}
 .brand img{height:26px;width:auto}
 .brand-chip{display:inline-flex;align-items:center;background:var(--white);padding:7px 11px}.mm-cta .button{width:100%;justify-content:center;padding:17px 24px}
-.mobile-inquiry{display:none}/* ============================================================
+/* ============================================================
    PRODUCT PAGE — module system
    ============================================================ */
 
@@ -244,8 +244,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media (max-width:1180px){
   :root{--gutter:32px;--sect:72px}}
 
-@media (max-width:1080px){  .mobile-inquiry{z-index:90;position:fixed;bottom:14px;left:20px;right:20px;display:inline-flex;min-height:58px;justify-content:space-between;align-items:center;padding:13px 18px;background:var(--accent);color:var(--accent-fg);font-size:14px;font-weight:700;border:1px solid #769f0d}
-  .mobile-inquiry:focus-visible{outline:2px solid var(--fg);outline-offset:2px}  .pd-hero{min-height:0;padding:44px 0 52px;align-items:stretch}
+@media (max-width:1080px){  
+    .pd-hero{min-height:0;padding:44px 0 52px;align-items:stretch}
   .pd-hero-grid{gap:0}
   .pd-hero-copy,.pd-hero-media{grid-column:1 / -1}
   .pd-hero-media{margin-top:40px}
