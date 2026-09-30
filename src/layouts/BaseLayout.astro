@@ -6,6 +6,7 @@ import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
 import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
 import chromeScript from "../scripts/editorial/site.js?raw";
 import { canonicalUrl, type SeoData } from "../lib/seo";
+import "../styles/fonts.css";
 import "../styles/global.css";
 import "../styles/redesign.css";
 // 公共页头/页脚的 Editorial 样式。带 .ed 作用域，特异性高于 global.css 中的旧页头规则，
@@ -47,10 +48,6 @@ const navCurrent = productSlugs.includes(path) ? ["/production/", path] : [path]
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" /></noscript>
     <title>{seo.title}</title>
     {jsonLd?.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
     <Analytics />
