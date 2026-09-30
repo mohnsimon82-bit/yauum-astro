@@ -16,14 +16,15 @@
 # CSP：策略内容与此前 Report-Only 完全一致（预览环境实测零违规后切换为强制）。
 # 允许 GA(gtag)、Clarity、Google Fonts 与 Astro 内联脚本；未引入通配 * 与
 # unsafe-eval。
-# 2026-09-27：询盘表单走 formsubmit.co（AJAX 提交 + 原生回退）、WhatsApp 提醒走
-# api.callmebot.com，二者必须同时出现在 connect-src（fetch）与 form-action
-# （无 JS 时的原生提交）里，否则浏览器会直接拦截。
+# 2026-09-30：询盘表单改为 POST 同源接口 /api/inquiry（Pages Function 服务端调
+# Resend 发信），因此 form-action 只需 'self'，connect-src 也无需再放行
+# formsubmit.co。WhatsApp 提交提醒仍走 api.callmebot.com，访客定位仍走 ipwho.is，
+# 二者保留在 connect-src。
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://formsubmit.co https://api.callmebot.com https://ipwho.is; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; frame-ancestors 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://api.callmebot.com https://ipwho.is; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 
 # 构建产物（文件名含内容 hash，不可变）：缓存一年
 /_astro/*

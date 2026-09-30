@@ -1,19 +1,15 @@
 ---
 // InquiryForm.astro — the single site-wide inquiry form.
 // MOQ tiers assume 1 design / 1 color / 5 sizes (site quoting basis).
-// Endpoint: formsubmit.co bound to the footer email; first real submission
-// triggers a one-time activation email. Switch to Formspree by replacing ENDPOINT.
+// Endpoint: same-origin Pages Function (functions/api/inquiry.ts), which sends
+// the notification through Resend. Recipients and the API key live server-side.
 interface Props {
   product?: string;
 }
 const { product = "General inquiry" } = Astro.props;
-const ENDPOINT = "https://formsubmit.co/ajax/mumu@yauum.com"; // 收件/回件用
-// 提交提醒（不回件）：QQ 邮箱通知 + WhatsApp 推送（CallMeBot，apikey 留空则静默跳过）
+const ENDPOINT = "/api/inquiry"; // 服务端转发：收件 + 提醒 + 回复地址都在函数里配置
+// WhatsApp 提交提醒（CallMeBot，apikey 留空则静默跳过）
 // 配置经 data-* 渲染进表单，客户端脚本只读 DOM——避免前端常量与打包作用域的坑。
-const NOTIFY_EMAIL_ENDPOINTS = [
-  "https://formsubmit.co/ajax/397740930@qq.com",
-  "https://formsubmit.co/ajax/aisen@qyoure.com",
-];
 const WA_PHONE = "8615733728976";
 const WA_APIKEY = ""; // CallMeBot 激活后填入，即可开启 WhatsApp 推送
 
@@ -36,7 +32,6 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
   method="POST"
   action={ENDPOINT}
   data-product={product}
-  data-notify-endpoint={NOTIFY_EMAIL_ENDPOINTS.join(",")}
   data-wa-phone={WA_PHONE}
   data-wa-key={WA_APIKEY}
 >
@@ -188,7 +183,6 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         const where = geo.country ? (geo.city ? `${geo.country}（${geo.city}）` : geo.country) : "未知地区";
 
         payload["_subject"] = `🌳 Yauum网站来 ${where} 的询盘了！`;
-        payload["_template"] = "table";
         payload["_replyto"] = payload["email"] || "";
         payload["event_type"] = "inquiry_form";
         payload["country"] = geo.country;
@@ -201,8 +195,8 @@ const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ 
         payload["garment_page"] = form.dataset.product || "";
         payload["submitted_at"] = beijingTime();
 
-        // 主收件 + 全部提醒邮箱；任一处投递成功即视为成功
-        if (!(await deliver(payload))) throw new Error("all endpoints failed");
+        // 投递到同源接口：主收件 + 提醒邮箱的分发在服务端完成
+        if (!(await deliver(payload))) throw new Error("delivery failed");
         form.reset();
         if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = "Thanks — your inquiry is on its way. We reply within one business day."; }
         if (window.gtag) window.gtag("event", "inquiry_form_submit", { product: form.dataset.product || "General", moq: payload.moq_tier || "" });

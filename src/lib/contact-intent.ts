@@ -1,12 +1,13 @@
 // Browser-side helpers shared by the inquiry form and the contact-click
-// tracker: first-touch attribution, visitor geo, and formsubmit delivery.
+// tracker: first-touch attribution, visitor geo, and inquiry delivery.
 // Both consumers run in client <script> blocks, so this stays DOM-only.
 
-export const MAIN_ENDPOINT = "https://formsubmit.co/ajax/mumu@yauum.com"; // 正式收件
-export const NOTIFY_ENDPOINTS = [
-  "https://formsubmit.co/ajax/397740930@qq.com",
-  "https://formsubmit.co/ajax/aisen@qyoure.com",
-]; // 仅提醒，不回件
+// Delivery goes to our own same-origin Pages Function (functions/api/inquiry.ts)
+// which calls Resend server-side. The recipients and the API key live there, so
+// neither is shipped in the client bundle any more. Replaced the previous direct
+// fan-out to formsubmit.co after that endpoint began returning HTTP 500 for
+// every submission.
+export const INQUIRY_ENDPOINT = "/api/inquiry";
 
 const ENTRY_KEY = "yauum_entry";
 
@@ -151,20 +152,17 @@ export function getClickLocation(link: Element): string {
   return "content";
 }
 
-/** 投递到主收件 + 全部提醒邮箱；任一处成功即算成功。 */
+/** 投递到同源接口；主收件与提醒邮箱的fan-out在服务端完成。 */
 export async function deliver(payload: Record<string, string>): Promise<boolean> {
-  const targets = [MAIN_ENDPOINT, ...NOTIFY_ENDPOINTS];
-  const results = await Promise.allSettled(
-    targets.map(async (target) => {
-      const res = await fetch(target, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const body = await res.json().catch(() => ({} as Record<string, unknown>));
-      // formsubmit 用 HTTP 200 + success:"false" 表示地址待激活，必须看内容
-      return res.ok && body.success !== "false" && body.success !== false;
-    }),
-  );
-  return results.some((r) => r.status === "fulfilled" && r.value === true);
+  try {
+    const res = await fetch(INQUIRY_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const body = await res.json().catch(() => ({} as Record<string, unknown>));
+    return res.ok && body.success !== "false" && body.success !== false;
+  } catch {
+    return false;
+  }
 }
