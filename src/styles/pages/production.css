@@ -1,0 +1,101 @@
+/* ============================================================
+   /production/ 页面专属样式
+   ------------------------------------------------------------
+   本文件只服务 src/pages/production.astro，不引用其他页面的样式文件。
+   设计令牌（--fg、--muted、--border、--accent、--accent-ink、--dark、--dark-muted…）
+   全部来自 global.css，这里不新增、不覆盖任何令牌。
+
+   章节布局复用 global.css 的共享类：
+     standard-hero / section-head / blueprint-grid / product-grid /
+     product-card / factory-proof-grid
+
+   本文件只补四处本页必需的规则：
+     1) FAQ（.pd-faq）—— 该组件没有共享定义；各产品页 CSS 里各有一份副本，
+        这里原样复制一份完整规则（基准：sportswear / streetwear 的规则集）。
+        标记里用的是 <span class="num">，因此同时保留实际生效的
+        `.pd-faq summary .num` 选择器（该选择器在 hoodie/pants/t-shirt 里存在）。
+     2) Hero 两栏布局（.pd-hero）—— 正文在左、图片占位符在右。钩子类只加在
+        本页 <section> 上，用后代选择器改 .standard-hero-inner 的布局，
+        global.css 里那条共享规则对其他内容页依然原样生效。
+     3) Hero 图片占位符（.pd-ph*）—— 由产品页的 .sw-ph 模式移植并重命名，
+        仅用于 Hero（本站该页 Hero 目前没有配图）。本页 Hero 由 global.css
+        末段定为白底（.standard-hero{background:#fff}），所以走浅色令牌那一套，
+        不套产品页 .sw-ph--hero 的暗色变体（--dark-fg/--dark-border/--dark-hover
+        只在各产品页自己的令牌块里定义，本页没有）。
+     4) 02 区子部分标题（.pd-subhead）—— 工厂照片降级为 02 区的子部分，
+        用 h4 而非 h2；h4 在全局只有字体族、没有字号，这里补一条本页所需的字号。
+   ============================================================ */
+
+/* ---------- FAQ：默认（浅色）---------- */
+.pd-faq { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 56px; row-gap: 0; border-top: 2px solid var(--fg); }
+.pd-faq details { border-bottom: 1px solid var(--border); }
+.pd-faq summary { display: grid; grid-template-columns: auto 1fr 22px; align-items: center; gap: 14px; padding: 20px 0; cursor: pointer; list-style: none; }
+.pd-faq summary::-webkit-details-marker { display: none; }
+.pd-faq summary h3 { font-size: 18px; }
+.pd-faq summary::after { content: "+"; font-family: var(--mono); font-size: 20px; line-height: 1; color: var(--accent-ink); justify-self: end; }
+.pd-faq details[open] summary::after { content: "\2212"; }
+.pd-faq summary:focus-visible { outline: 2px solid var(--fg); outline-offset: -2px; }
+.pd-faq details > p { padding: 0 18px 22px 0; font-size: 16px; line-height: 1.66; color: var(--muted); max-width: 62ch; }
+.pd-faq-num,
+.pd-faq summary .num { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: var(--accent-ink); }
+
+/* ---------- FAQ：暗色区块下（与产品页保持一致）---------- */
+.band-dark .pd-faq { border-top-color: var(--dark-border); }
+.band-dark .pd-faq details { border-bottom-color: var(--dark-border); }
+.band-dark .pd-faq summary h3 { color: var(--dark-fg); }
+.band-dark .pd-faq details > p { color: var(--dark-muted); }
+
+/* ---------- Hero 两栏布局：正文在左，图片占位符在右 ---------- */
+/* 2 等宽列 + 56px 列间距，与产品页 .pd-hero-grid 的做法一致。
+   占位符在标记里排在正文之后，这里用 grid-column/grid-row 把它显式放到右列，
+   并跨越正文占据的 4 行，从而与正文等高。 */
+.pd-hero .standard-hero-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; align-items: start; }
+.pd-hero .standard-hero-inner > .kicker,
+.pd-hero .standard-hero-inner > h1,
+.pd-hero .standard-hero-inner > p:not(.kicker),
+.pd-hero .standard-hero-inner > .button { grid-column: 1; }
+/* 按钮块级化后会被栅格拉伸成整列宽，这里恢复它的紧凑宽度 */
+.pd-hero .standard-hero-inner > .button { justify-self: start; }
+.pd-hero .standard-hero-inner > .pd-ph--hero { grid-column: 2; grid-row: 1 / span 4; align-self: stretch; }
+
+/* ---------- Hero 图片占位符（移植自产品页的 .sw-ph 模式）---------- */
+/* 只保留本页真正会命中的规则：占位符仅出现在白底 Hero 里，因此不需要
+   产品页那套 .band-dark / .band-alt 变体（它们依赖的 --dark-fg、--dark-border、
+   --dark-hover、--bg-alt、--white 只在各产品页自己的令牌块里定义）。 */
+.pd-ph { display: flex; flex-direction: column; border: 1px dashed var(--border); }
+.pd-ph-media { display: grid; place-items: center; min-height: 190px; padding: 26px; border-bottom: 1px dashed var(--border); text-align: center; }
+.pd-ph-tag { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); }
+.pd-ph-copy { display: grid; gap: 8px; padding: 20px 22px 22px; }
+.pd-ph-copy strong { font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.25; letter-spacing: -.012em; }
+.pd-ph-copy small { font-size: 13px; line-height: 1.6; color: var(--muted); }
+
+/* 放大尺寸，并让占位框撑满所在的右列（高度超出时由 .pd-ph-media 吸收） */
+.pd-ph--hero .pd-ph-media { flex: 1; min-height: 420px; }
+.pd-ph--hero .pd-ph-copy strong { font-size: 22px; }
+
+/* ---------- 02 区子部分：From the Production Floor ---------- */
+/* 颜色用 inherit + 透明度，跟随所在 section（当前为暗色的 02 区）自动适配。
+   这里不画分隔线：本页没有可用的深色分隔线令牌（--dark-border 只在各产品页
+   自己的令牌块里定义），沿用产品页写法会得到 `border-top: 1px solid <空>`，
+   整条声明静默失效。子块与上方网格之间靠间距区分。 */
+.pd-subhead { margin-top: 76px; padding-top: 30px; }
+.pd-subhead h4 { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.15; color: inherit; letter-spacing: -.02em; }
+.pd-subhead p { margin: 12px 0 0; max-width: 78ch; font-size: 15px; line-height: 1.65; color: inherit; opacity: .78; }
+
+/* ---------- 响应式（断点与产品页 FAQ 一致）---------- */
+@media (max-width: 1080px) {
+  .pd-faq { grid-template-columns: 1fr; column-gap: 0; }
+  /* 单列：占位符落到正文下方，恢复为 720px 宽的竖向占位框 */
+  .pd-hero .standard-hero-inner { grid-template-columns: minmax(0, 1fr); }
+  .pd-hero .standard-hero-inner > .pd-ph--hero { grid-column: 1; grid-row: auto; align-self: start; max-width: 720px; margin-top: 46px; }
+  .pd-ph--hero .pd-ph-media { min-height: 340px; }
+}
+
+@media (max-width: 720px) {
+  .pd-faq summary { padding: 18px 0; }
+  .pd-faq summary h3 { font-size: 17px; }
+  .pd-faq details > p { padding-left: 0; }
+  .pd-ph--hero .pd-ph-media { min-height: 300px; }
+  .pd-subhead { margin-top: 54px; }
+  .pd-subhead h4 { font-size: 22px; }
+}

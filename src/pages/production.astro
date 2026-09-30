@@ -1,0 +1,192 @@
+---
+/**
+ * /production/ 专属页面（最终版内容）。
+ *
+ * 背景：该页面原先由 src/components/ContentPage.astro（动态路由 [...slug].astro）渲染，
+ * 而 ContentPage 同时服务 about-us / blog / contact-us / our-services / solutions。
+ * 为了让本次改版不影响其他页面，production 独立成页面文件，
+ * 并在 [...slug].astro 的过滤条件中排除 production（写法参照既有 productSlugs）。
+ *
+ * 布局类名全部复用 global.css 的共享类（standard-hero / section-head / blueprint-grid /
+ * product-grid / product-card / factory-proof-grid）；仅 Hero 两栏栅格（.pd-hero）、
+ * FAQ、Hero 图片占位符、02 区子部分标题在 production.css 中补充。
+ * 设计令牌未做任何改动。
+ *
+ * 锚点保持不变：id="product-categories"、id="factory-record"、id="inquiry"。
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import InquirySection from "../components/InquirySection.astro";
+import { getSeo } from "../lib/seo";
+import { getWebsitePage } from "../lib/content";
+import type { WebsitePage } from "../lib/content";
+import "../styles/pages/production.css";
+
+const PRODUCT_SLUGS = [
+  "hoodie-manufacturer",
+  "t-shirt-manufacturer",
+  "jackets-manufacturer",
+  "pants-manufacturer",
+  "sportswear-manufacturer",
+  "streetwear-manufacturer",
+];
+const products: WebsitePage[] = await Promise.all(PRODUCT_SLUGS.map((slug) => getWebsitePage(slug)));
+
+const productImageBySlug: Record<string, string> = {
+  "hoodie-manufacturer": "/uploads/products/hoodie-manufacturer.jpg",
+  "t-shirt-manufacturer": "/uploads/products/t-shirt-manufacturer.jpg",
+  "jackets-manufacturer": "/uploads/products/jackets-manufacturer.jpg",
+  "pants-manufacturer": "/uploads/products/pants-manufacturer.jpg",
+  "sportswear-manufacturer": "/uploads/products/sportswear-manufacturer.jpg",
+  "streetwear-manufacturer": "/uploads/products/streetwear-manufacturer.jpg",
+};
+
+/** 02 区品类卡片说明（沿用现有网站文案） */
+const categoryCopyBySlug: Record<string, string> = {
+  "hoodie-manufacturer": "Hoodie programs developed through fit, fabric, construction, decoration, labels, sample approval, and pack-out planning.",
+  "t-shirt-manufacturer": "T-shirts defined through silhouette, fabric weight, measurements, artwork, labels, and sample approval before bulk references are set.",
+  "jackets-manufacturer": "Jackets coordinated through shell, lining, insulation, closures, trims, branding, sampling, and packing requirements.",
+  "pants-manufacturer": "Pants planned around fit blocks, fabric, pockets, waist construction, hardware, finishing, branding, and approved measurements.",
+  "sportswear-manufacturer": "Sportswear reviewed through performance fabric direction, stretch, construction, artwork, labels, fit, and sample approval.",
+  "streetwear-manufacturer": "Streetwear built through silhouette, material, decoration, private labels, sampling, and pack-out rules.",
+};
+
+/** 01 区：五个确认阶段 */
+const processSteps: Array<[string, string, string]> = [
+  ["01", "Product Brief Review", "Garment type, quantity, reference photos or a tech pack, target sizes, fabric direction, color, and label files — enough to give both sides a shared starting point."],
+  ["02", "Specification and Tech Pack", "Fabric weight, trims, stitching, printing, embroidery, labels, and packaging get confirmed together, turning the brief into a spec the factory floor can build from."],
+  ["03", "Sample Development and Review", "A sample is made and checked against that spec — fit, measurements, construction, and look. Lead time, cost, and revision rounds are confirmed per project. Only an approved sample becomes the bulk reference."],
+  ["04", "Bulk Production", "Cutting, sewing, finishing, and decoration follow the approved sample. Progress photos can be requested during this stage."],
+  ["05", "Final Check and Packing", "Finished garments are checked against the approved sample, then labeled, folded, bagged, and packed. Inspection and packing records are available on request."],
+];
+
+/** 02 区子部分：工厂照片（图片路径、顺序、标题均沿用现有网站） */
+const factoryMedia = [
+  { src: "/uploads/factory/factory-sewing-line-wide.webp", width: 2400, height: 1600, alt: "Wide view of a garment sewing line with operators and workstations", label: "Sewing line" },
+  { src: "/uploads/factory/factory-pattern.webp", width: 2000, height: 1500, alt: "Pattern preparation and garment construction work in the supplied production environment", label: "Pattern preparation" },
+  { src: "/uploads/factory/factory-cutting.webp", width: 2400, height: 1600, alt: "Fabric cutting table and cutting equipment in the supplied production environment", label: "Fabric cutting" },
+  { src: "/uploads/factory/factory-printing.webp", width: 2400, height: 1600, alt: "Garment printing equipment and operators in the supplied production environment", label: "Printing and decoration" },
+  { src: "/uploads/factory/factory-showroom.webp", width: 2400, height: 1600, alt: "Garment sample showroom with apparel on display", label: "Sample showroom" },
+  { src: "/uploads/factory/factory-packout.webp", width: 2400, height: 1798, alt: "Finished garments being folded and prepared for packing", label: "Pack-out preparation" },
+];
+
+/** 04 区：常见问题 */
+const faqs: Array<[string, string, string]> = [
+  ["01", "What Is the Minimum Order Quantity?", "300 pieces per style, with colors and sizes inside that style free to mix to reach the total."],
+  ["02", "Can I Combine Several Styles or Categories in One Inquiry?", "Yes — send the full collection together and list quantities for each style. Each style still needs to reach its own 300-piece minimum; quantities don't combine across different styles or categories."],
+  ["03", "Can You Work From My Own Fabric or Reference Sample?", "Yes — reference photos, a tech pack, or a physical sample are all normal starting points, and fabric targets get confirmed alongside them at the specification stage."],
+  ["04", "Can I Review a Sample Before Bulk Production?", "Yes. A sample gets made and reviewed against the confirmed specification — fit, measurements, construction, fabric, and brand details — before it's approved as the reference for bulk."],
+  ["05", "Can I Request Photos During Production and Inspection?", "Yes. Photos, measurement records, and packing information can be requested at the sampling, production, inspection, and packing stages."],
+];
+---
+
+<BaseLayout seo={getSeo("/production/")}>
+  {/* Hero —— 该页 Hero 目前没有配图，按要求放置一个图片占位符；桌面端正文在左、占位符在右
+      （.pd-hero 两栏栅格，窄屏自动堆叠成正文在上、占位符在下）。Hero 以外不新增任何图片或占位符。 */}
+  <section class="standard-hero pd-hero">
+    <div class="industrial-grid" aria-hidden="true"></div>
+    <div class="shell standard-hero-inner">
+      <p class="kicker kicker-accent">Production workflow</p>
+      <h1>Custom Clothing Manufacturing From Brief to Bulk Order</h1>
+      <p>Hoodies, T-shirts, jackets, pants, sportswear, and streetwear move through the same reviewed production path — confirmed brief, approved sample, and evidence you can request at every stage.</p>
+      <a class="button button-accent" href="/contact-us/">Send a project brief</a>
+
+      <div class="pd-ph pd-ph--hero" aria-label="Hero image showing finished garments from the reviewed production path" data-evidence-status="needs_company_confirmation">
+        <div class="pd-ph-media"><span class="pd-ph-tag">01 / Required</span></div>
+        <div class="pd-ph-copy">
+          <strong>Hero Product Image</strong>
+          <small>Recommended 1600 × 1200</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* 01 / Production process */}
+  <section class="section section-surface">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker">01 / Production process</p><h2 class="section-title">Custom Clothing Production Process</h2></div>
+        <p>A custom order moves through five confirmed stages, from brief to packed garment — each stage locks in what the next one builds on.</p>
+      </div>
+      <div class="blueprint-grid">
+        {processSteps.map(([number, title, description]) => (
+          <article><span>{number}</span><h3>{title}</h3><p>{description}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* 02 / Apparel categories（含子部分：工厂照片） */}
+  <section class="section section-dark" id="product-categories">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker kicker-accent">02 / Product categories</p><h2 class="section-title">Apparel Categories We Manufacture</h2></div>
+        <p>Six core categories move through this process, each with its own page for fit, fabric, and construction detail.</p>
+      </div>
+      <div class="product-grid">
+        {products.map((product, index) => (
+          <a class="product-card" href={product.route}>
+            <div class="product-card-media">
+              <img src={productImageBySlug[product.slug]} width="844" height="1448" alt={`${product.label} product reference`} loading="lazy" decoding="async" />
+              <span class="product-card-index">{String(index + 1).padStart(2, "0")}</span>
+            </div>
+            <div class="product-card-copy">
+              <h3>{product.label.replace(" Manufacturer", "")}</h3>
+              <p>{categoryCopyBySlug[product.slug] ?? product.description}</p>
+              <span class="card-link">View manufacturing page →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="pd-subhead">
+        <h4 id="factory-record">From the Production Floor</h4>
+        <p>Photos from the supplied production environment — shown as evidence of the work itself, not a claim about ownership, scale, or certification. Work is checked against the sample both sides have already approved.</p>
+      </div>
+      <div class="factory-proof-grid">
+        {factoryMedia.map((item, index) => (
+          <figure class:list={[index === 0 && "factory-proof-feature"]}>
+            <img src={item.src} width={item.width} height={item.height} alt={item.alt} loading="lazy" decoding="async" />
+            <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{item.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* 03 / Important note */}
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker">03 / Important note</p><h2 class="section-title">Important Note</h2></div>
+        <p>Timelines for sampling and bulk production are confirmed for each project rather than quoted as a fixed number upfront, since they depend on the garment, complexity, quantity, decoration, and destination. The minimum order is 300 pieces per style, and colors and sizes within that style can be mixed freely to reach the total.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* 04 / FAQ */}
+  <section class="section section-surface">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker">04 / FAQ</p><h2 class="section-title">FAQ</h2></div>
+      </div>
+      <div class="pd-faq">
+        {faqs.map(([number, question, answer], index) => (
+          <details open={index === 0}>
+            <summary><span class="num">{number}</span><h3>{question}</h3></summary>
+            <p>{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <InquirySection
+    product="Production"
+    id="inquiry"
+    odId="inquiry-conversion"
+    band="band-alt"
+    kicker="05 / Start an inquiry"
+    title="Send the Product Details That Shape a Useful Review."
+    ctaLabel="Send project details"
+  />
+</BaseLayout>

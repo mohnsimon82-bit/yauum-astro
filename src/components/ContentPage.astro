@@ -61,22 +61,6 @@ const blueprints: Record<string, Blueprint> = {
     noteTitle: "The Final Scope Depends on the Confirmed Product.",
     note: "MOQ, price, lead time, material availability, inspection method, and delivery plan are reviewed after the product requirements are clear.",
   },
-  production: {
-    kicker: "Production workflow",
-    headline: "Turn an Idea into an Order Both Sides Can Follow.",
-    intro: "A sample-first workflow gives buyers and production teams a shared physical reference before bulk work begins.",
-    sectionTitle: "Five Stages from Requirement Review to Shipment Preparation.",
-    sectionIntro: "The objective is clarity: define the garment, approve the reference, follow it in production, and check the handoff details.",
-    items: [
-      ["01", "Review the Product Brief", "Clarify the garment, quantity, target market, reference files, fit, materials, branding, packing, and destination."],
-      ["02", "Define the Specification", "Align measurements, fabric direction, construction, trims, artwork, labels, and packaging."],
-      ["03", "Develop and Review the Sample", "Measure, wear, photograph, comment on, revise, and approve the physical garment."],
-      ["04", "Produce Against the Reference", "Use the approved sample and recorded order details for cutting, sewing, decoration, and finishing."],
-      ["05", "Check, Pack, and Prepare", "Review product details, labels, folding, bags, packing count, carton information, and shipment inputs."],
-    ],
-    noteTitle: "Timelines Are Established After the Order Is Defined.",
-    note: "Materials, complexity, quantity, sample revisions, decoration, packing, destination, and season can all change the production plan.",
-  },
   solutions: {
     kicker: "Buyer solutions",
     headline: "A Production Path Shaped Around How Your Business Buys.",
@@ -182,7 +166,8 @@ const factoryMedia = [
   { src: "/uploads/factory/factory-showroom.webp", width: 2400, height: 1600, alt: "Garment sample showroom with apparel on display", label: "Sample showroom" },
   { src: "/uploads/factory/factory-packout.webp", width: 2400, height: 1798, alt: "Finished garments being folded and prepared for packing", label: "Pack-out preparation" },
 ];
-const showFactoryMedia = page.slug === "production" || page.slug === "about-us";
+// production 已独立为 src/pages/production.astro，因此这里只剩 about-us 使用工厂图片区
+const showFactoryMedia = page.slug === "about-us";
 
 const configuration = [
   ["01 / FIT", "Silhouette and sizing", "Define the intended shape, proportions, measurement system, size range, and grading notes."],
@@ -339,36 +324,11 @@ const configuration = [
           <div class="blueprint-grid">{blueprint.items.map(([number, title, description], index) => <article><span>{number}</span><h3>{title}</h3><p>{description}</p>{blueprint.points?.[index] && <ul class="blueprint-points">{blueprint.points[index].map((point) => <li>{point}</li>)}</ul>}</article>)}</div>
         </div>
       </section>
-      {page.slug === "production" && products.length > 0 && (
-        <section class="section section-dark" id="product-categories">
-          <div class="shell">
-            <div class="section-head">
-              <div><p class="kicker kicker-accent">02 / Product categories</p><h2 class="section-title">Choose the Garment That Should Move Through This Production Path.</h2></div>
-              <p>Review the six core categories, then open the product page for its fit, fabric, construction, branding, sampling, quality, and packing requirements.</p>
-            </div>
-            <div class="product-grid">
-              {products.map((product, index) => (
-                <a class="product-card" href={product.route}>
-                  <div class="product-card-media">
-                    <img src={productImageBySlug[product.slug]} width="844" height="1448" alt={`${product.label} product reference`} loading="lazy" decoding="async" />
-                    <span class="product-card-index">{String(index + 1).padStart(2, "0")}</span>
-                  </div>
-                  <div class="product-card-copy">
-                    <h3>{product.label.replace(" Manufacturer", "")}</h3>
-                    <p>{productIntroBySlug[product.slug] ?? product.description}</p>
-                    <span class="card-link">View manufacturing page →</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
       {showFactoryMedia && (
         <section class="section factory-proof-section" id="factory-record">
           <div class="shell">
             <div class="section-head">
-              <div><p class="kicker">{page.slug === "production" ? "03" : "02"} / Supplied factory record</p><h2 class="section-title">Production Environments Buyers Can Inspect Visually.</h2></div>
+              <div><p class="kicker">02 / Supplied factory record</p><h2 class="section-title">Production Environments Buyers Can Inspect Visually.</h2></div>
               <p>The image set covers pattern preparation, cutting, sewing, finishing, storage, and sample presentation. It is used as visual evidence without adding unsupported capacity or certification claims.</p>
             </div>
             <div class="factory-proof-grid">
@@ -382,13 +342,13 @@ const configuration = [
           </div>
         </section>
       )}
-      <section class="section standard-note-section"><div class="shell standard-note"><div><p class="kicker">{showFactoryMedia ? (page.slug === "production" ? "04" : "03") : "02"} / Important note</p><h2 class="section-title">{blueprint.noteTitle}</h2></div><p>{blueprint.note}</p></div></section>
+      <section class="section standard-note-section"><div class="shell standard-note"><div><p class="kicker">{showFactoryMedia ? "03" : "02"} / Important note</p><h2 class="section-title">{blueprint.noteTitle}</h2></div><p>{blueprint.note}</p></div></section>
       <InquirySection
         product={page.label}
         id="inquiry"
         odId="inquiry-conversion"
         band="band-alt"
-        kicker={`${showFactoryMedia ? (page.slug === "production" ? "05" : "04") : "03"} / Start an inquiry`}
+        kicker={`${showFactoryMedia ? "04" : "03"} / Start an inquiry`}
         title="Send the Product Details That Shape a Useful Review."
         ctaLabel="Send project details"
       />
