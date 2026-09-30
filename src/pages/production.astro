@@ -9,7 +9,7 @@
  *
  * 布局类名全部复用 global.css 的共享类（standard-hero / section-head / blueprint-grid /
  * product-grid / product-card / factory-proof-grid）；仅 Hero 两栏栅格（.pd-hero）、
- * FAQ、Hero 图片占位符、02 区子部分标题在 production.css 中补充。
+ * FAQ、Hero 图片（.pd-hero-media）、02 区子部分标题在 production.css 中补充。
  * 设计令牌未做任何改动。
  *
  * 锚点保持不变：id="product-categories"、id="factory-record"、id="inquiry"。
@@ -80,8 +80,7 @@ const faqs: Array<[string, string, string]> = [
 ---
 
 <BaseLayout seo={getSeo("/production/")}>
-  {/* Hero —— 该页 Hero 目前没有配图，按要求放置一个图片占位符；桌面端正文在左、占位符在右
-      （.pd-hero 两栏栅格，窄屏自动堆叠成正文在上、占位符在下）。Hero 以外不新增任何图片或占位符。 */}
+  {/* Hero —— 正文在左、品类拼图在右（.pd-hero 两栏栅格，窄屏自动堆叠）。 */}
   <section class="standard-hero pd-hero">
     <div class="industrial-grid" aria-hidden="true"></div>
     <div class="shell standard-hero-inner">
@@ -90,13 +89,10 @@ const faqs: Array<[string, string, string]> = [
       <p>Hoodies, T-shirts, jackets, pants, sportswear, and streetwear move through the same reviewed production path — confirmed brief, approved sample, and evidence you can request at every stage.</p>
       <a class="button button-accent" href="/contact-us/">Send a project brief</a>
 
-      <div class="pd-ph pd-ph--hero" aria-label="Hero image showing finished garments from the reviewed production path" data-evidence-status="needs_company_confirmation">
-        <div class="pd-ph-media"><span class="pd-ph-tag">01 / Required</span></div>
-        <div class="pd-ph-copy">
-          <strong>Hero Product Image</strong>
-          <small>Recommended 1600 × 1200</small>
-        </div>
-      </div>
+      <figure class="pd-hero-media">
+        <img src="/uploads/production/hero-custom-clothing-category-range.webp" width="1536" height="1024" alt="Hoodie, T-shirt, jacket, pants, tracksuit, and printed sweatshirt shown as finished-garment references" fetchpriority="high" decoding="async" />
+        <figcaption>Supplied finished-garment reference · materials and specifications require confirmation</figcaption>
+      </figure>
     </div>
   </section>
 

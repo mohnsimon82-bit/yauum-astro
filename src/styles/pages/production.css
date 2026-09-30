@@ -14,14 +14,12 @@
         这里原样复制一份完整规则（基准：sportswear / streetwear 的规则集）。
         标记里用的是 <span class="num">，因此同时保留实际生效的
         `.pd-faq summary .num` 选择器（该选择器在 hoodie/pants/t-shirt 里存在）。
-     2) Hero 两栏布局（.pd-hero）—— 正文在左、图片占位符在右。钩子类只加在
+     2) Hero 两栏布局（.pd-hero）—— 正文在左、品类拼图在右。钩子类只加在
         本页 <section> 上，用后代选择器改 .standard-hero-inner 的布局，
         global.css 里那条共享规则对其他内容页依然原样生效。
-     3) Hero 图片占位符（.pd-ph*）—— 由产品页的 .sw-ph 模式移植并重命名，
-        仅用于 Hero（本站该页 Hero 目前没有配图）。本页 Hero 由 global.css
-        末段定为白底（.standard-hero{background:#fff}），所以走浅色令牌那一套，
-        不套产品页 .sw-ph--hero 的暗色变体（--dark-fg/--dark-border/--dark-hover
-        只在各产品页自己的令牌块里定义，本页没有）。
+     3) Hero 图片（.pd-hero-media）—— 沿用产品页的类名与写法。本页 Hero 由
+        global.css 末段定为白底（.standard-hero{background:#fff}），所以图注
+        用 --muted；产品页那份用 --dark-muted 是因为它们的 Hero 为深色。
      4) 02 区子部分标题（.pd-subhead）—— 工厂照片降级为 02 区的子部分，
         用 h4 而非 h2；h4 在全局只有字体族、没有字号，这里补一条本页所需的字号。
    ============================================================ */
@@ -45,10 +43,10 @@
 .band-dark .pd-faq summary h3 { color: var(--dark-fg); }
 .band-dark .pd-faq details > p { color: var(--dark-muted); }
 
-/* ---------- Hero 两栏布局：正文在左，图片占位符在右 ---------- */
-/* 2 等宽列 + 56px 列间距，与产品页 .pd-hero-grid 的做法一致。
-   占位符在标记里排在正文之后，这里用 grid-column/grid-row 把它显式放到右列，
-   并跨越正文占据的 4 行，从而与正文等高。 */
+/* ---------- Hero 两栏布局：正文在左，品类拼图在右 ---------- */
+/* 2 等宽列 + 56px 列间距，与产品页 .pd-hero-grid 的参数一致。
+   图片在标记里排在正文之后，这里用 grid-column/grid-row 把它显式放到右列，
+   并跨越正文占据的 4 行，在右列内垂直居中。 */
 .pd-hero .standard-hero-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; align-items: start; }
 .pd-hero .standard-hero-inner > .kicker,
 .pd-hero .standard-hero-inner > h1,
@@ -56,22 +54,14 @@
 .pd-hero .standard-hero-inner > .button { grid-column: 1; }
 /* 按钮块级化后会被栅格拉伸成整列宽，这里恢复它的紧凑宽度 */
 .pd-hero .standard-hero-inner > .button { justify-self: start; }
-.pd-hero .standard-hero-inner > .pd-ph--hero { grid-column: 2; grid-row: 1 / span 4; align-self: stretch; }
+.pd-hero .standard-hero-inner > .pd-hero-media { grid-column: 2; grid-row: 1 / span 4; align-self: center; }
 
-/* ---------- Hero 图片占位符（移植自产品页的 .sw-ph 模式）---------- */
-/* 只保留本页真正会命中的规则：占位符仅出现在白底 Hero 里，因此不需要
-   产品页那套 .band-dark / .band-alt 变体（它们依赖的 --dark-fg、--dark-border、
-   --dark-hover、--bg-alt、--white 只在各产品页自己的令牌块里定义）。 */
-.pd-ph { display: flex; flex-direction: column; border: 1px dashed var(--border); }
-.pd-ph-media { display: grid; place-items: center; min-height: 190px; padding: 26px; border-bottom: 1px dashed var(--border); text-align: center; }
-.pd-ph-tag { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); }
-.pd-ph-copy { display: grid; gap: 8px; padding: 20px 22px 22px; }
-.pd-ph-copy strong { font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.25; letter-spacing: -.012em; }
-.pd-ph-copy small { font-size: 13px; line-height: 1.6; color: var(--muted); }
-
-/* 放大尺寸，并让占位框撑满所在的右列（高度超出时由 .pd-ph-media 吸收） */
-.pd-ph--hero .pd-ph-media { flex: 1; min-height: 420px; }
-.pd-ph--hero .pd-ph-copy strong { font-size: 22px; }
+/* ---------- Hero 图片（沿用产品页 .pd-hero-media 的写法）---------- */
+/* 本页 Hero 是白底，所以图注用 --muted；产品页那份用 --dark-muted 是因为它们的
+   Hero 为深色。图片按原始 3:2 完整显示，不裁切。 */
+.pd-hero-media { margin: 0; width: 100%; }
+.pd-hero-media img { display: block; width: 100%; height: auto; }
+.pd-hero-media figcaption { margin-top: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 
 /* ---------- 02 区子部分：From the Production Floor ---------- */
 /* 颜色用 inherit + 透明度，跟随所在 section（当前为暗色的 02 区）自动适配。
@@ -85,17 +75,15 @@
 /* ---------- 响应式（断点与产品页 FAQ 一致）---------- */
 @media (max-width: 1080px) {
   .pd-faq { grid-template-columns: 1fr; column-gap: 0; }
-  /* 单列：占位符落到正文下方，恢复为 720px 宽的竖向占位框 */
+  /* 单列：图片落到正文下方，宽度与正文列一致 */
   .pd-hero .standard-hero-inner { grid-template-columns: minmax(0, 1fr); }
-  .pd-hero .standard-hero-inner > .pd-ph--hero { grid-column: 1; grid-row: auto; align-self: start; max-width: 720px; margin-top: 46px; }
-  .pd-ph--hero .pd-ph-media { min-height: 340px; }
+  .pd-hero .standard-hero-inner > .pd-hero-media { grid-column: 1; grid-row: auto; align-self: start; max-width: 720px; margin-top: 46px; }
 }
 
 @media (max-width: 720px) {
   .pd-faq summary { padding: 18px 0; }
   .pd-faq summary h3 { font-size: 17px; }
   .pd-faq details > p { padding-left: 0; }
-  .pd-ph--hero .pd-ph-media { min-height: 300px; }
   .pd-subhead { margin-top: 54px; }
   .pd-subhead h4 { font-size: 22px; }
 }
