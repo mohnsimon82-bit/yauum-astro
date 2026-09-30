@@ -151,22 +151,14 @@ function collectSources(entry, depth = 0, seen = new Set()) {
 }
 
 /** 每个 URL 的入口文件；依赖遍历后取其中最新的提交时间作为 lastmod */
-const PRODUCT_SLUGS = [
-  "hoodie-manufacturer",
-  "t-shirt-manufacturer",
-  "jackets-manufacturer",
-  "pants-manufacturer",
-  "sportswear-manufacturer",
-  "streetwear-manufacturer",
-];
-
 function lastmodFor(url) {
   const path = new URL(url).pathname.replace(/^\/+|\/+$/g, "");
-  const entry = path === ""
-    ? "src/pages/index.astro"
-    : PRODUCT_SLUGS.includes(path)
-      ? `src/pages/${path}.astro`
-      : "src/pages/[...slug].astro";
+  // 首页、6 个产品页与 /production/ 都有自己的页面文件，各自独立算 lastmod；
+  // 其余内容页（about-us / blog / contact-us / our-services / solutions）由动态
+  // 路由 [...slug].astro 渲染，共用同一个入口，因此它们的 lastmod 同组。
+  // 用「文件是否存在」而不是写死 slug 列表，新增独立页时不用再改这里。
+  const own = path === "" ? "src/pages/index.astro" : `src/pages/${path}.astro`;
+  const entry = existsSync(join(projectRoot, own)) ? own : "src/pages/[...slug].astro";
 
   const key = entry;
   if (!fileSetCache.has(key)) fileSetCache.set(key, [...collectSources(entry)]);
