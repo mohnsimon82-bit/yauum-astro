@@ -48,6 +48,10 @@
 .sw-block h3 { margin: 0; font-size: 21px; max-width: 24ch; }
 .sw-block > p { margin: 12px 0 0; font-size: 16px; line-height: 1.62; color: var(--muted); max-width: 64ch; }
 /* 每个 H3 区块下面一个单图占位符（不是多图画廊） */
+/* 已配图的区块：图片占据原占位符位置，间距保持一致 */
+.sw-block > .sw-figure { display: grid; gap: 12px; margin: 28px 0 0; }
+.sw-block > .sw-figure img { display: block; width: 100%; height: auto; }
+.sw-block > .sw-figure--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .sw-block > .sw-ph { margin-top: 28px; }
 
 /* ---------- 图片占位符（复制自产品页 .sw-ph 模式）---------- */

@@ -29,6 +29,8 @@ type Block = {
   lines: string[];
   /** 占位符 aria-label：写清要补的是哪种照片 */
   aria: string;
+  /** 已配好的图片（2 张时并排）；缺省时按占位符卡片渲染 */
+  images?: { src: string; alt: string }[];
 };
 
 type Section = {
@@ -53,6 +55,7 @@ const sections: Section[] = [
           "A project starts with what you already have: a tech pack, reference photos, a physical sample, fabric targets, size range, label files, quantity, packaging needs, target market, and timing. None of it needs to be complete — it just needs to give both sides a shared starting point.",
         ],
         aria: "Placeholder for a photo showing reference materials and brief intake, such as a tech pack or reference sample review.",
+        images: [{ src: "/uploads/development/brief-and-reference-review.webp", alt: "Illustration of a tech pack, reference photos, fabric swatches, and a garment laid out for a brief review" }],
       },
       {
         title: "Specification Confirmation",
@@ -61,6 +64,7 @@ const sections: Section[] = [
           "Trims, stitching, printing, embroidery, labels, and packaging get checked and confirmed together, turning the brief into a specification the factory floor can build from.",
         ],
         aria: "Placeholder for a photo showing specification and trim confirmation in progress.",
+        images: [{ src: "/uploads/development/specification-confirmation.webp", alt: "Illustration of a specification sheet with fabric swatches, trims, labels, and packaging prepared for confirmation" }],
       },
       {
         title: "Sample Development and Fit Review",
@@ -69,6 +73,7 @@ const sections: Section[] = [
           "A sample is made and reviewed against your brief — fit, measurements, construction, and overall look checked against your reference or size range. Lead time, cost, and revision rounds are confirmed per project rather than quoted as a fixed number upfront.",
         ],
         aria: "Placeholder for a photo showing sample fit and measurement review.",
+        images: [{ src: "/uploads/development/sample-development-sewing-station.webp", alt: "Operator sewing a sample garment at an industrial sewing machine in the sample room" }],
       },
       {
         title: "Sample Approval",
@@ -77,6 +82,7 @@ const sections: Section[] = [
           "Comments get documented against the sample and revisions made before it's approved. Only an approved sample is used as the reference for bulk production.",
         ],
         aria: "Placeholder for a photo showing the approved sample used as the bulk reference.",
+        images: [{ src: "/uploads/development/sample-approval.webp", alt: "Illustration of an approved sample with its specification sheet, fabric swatch, and hang tag" }],
       },
     ],
   },
@@ -261,13 +267,28 @@ const withNumbers = sections.map((section) => ({
               <span class="sw-num">{section.num} / {block.index}</span>
               <h3>{block.title}</h3>
               {block.lines.map((line) => <p>{line}</p>)}
-              <div class="sw-ph" aria-label={block.aria} data-evidence-status="needs_company_confirmation">
-                <div class="sw-ph-media"><span class="sw-ph-tag">{block.index} / Required</span></div>
-                <div class="sw-ph-copy">
-                  <strong>{block.tag}</strong>
-                  <small>Recommended 1600 × 1200</small>
+              {block.images ? (
+                <div class:list={["sw-figure", block.images.length > 1 && "sw-figure--pair"]}>
+                  {block.images.map((item) => (
+                    <img
+                      src={item.src}
+                      width="1200"
+                      height="900"
+                      alt={item.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ))}
                 </div>
-              </div>
+              ) : (
+                <div class="sw-ph" aria-label={block.aria} data-evidence-status="needs_company_confirmation">
+                  <div class="sw-ph-media"><span class="sw-ph-tag">{block.index} / Required</span></div>
+                  <div class="sw-ph-copy">
+                    <strong>{block.tag}</strong>
+                    <small>Recommended 1600 × 1200</small>
+                  </div>
+                </div>
+              )}
             </article>
           ))}
         </div>
