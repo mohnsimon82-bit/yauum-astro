@@ -1,0 +1,73 @@
+/* ============================================================
+   /our-services/ 页面专属样式
+   ------------------------------------------------------------
+   本文件只服务 src/pages/our-services.astro，不引用其他页面的样式文件。
+   设计令牌（--fg、--muted、--border、--accent、--accent-ink、--font-mono…）
+   全部来自 global.css，这里不新增、不覆盖任何令牌。
+
+   章节外壳与 H2 头部复用 global.css 的共享类：
+     section / section-surface / shell / section-head / kicker /
+     section-title / standard-note-section / standard-note
+
+   本文件只补三处本页必需的东西：
+     1) Hero 两栏布局（.os-hero）—— 文案在左、Hero 图占位符在右（与 /production/ 的
+        做法一致：2 等宽列 + 56px 列间距，占位符跨越正文占据的 4 行）。钩子类只加在本页
+        <section> 上，global.css 里 .standard-hero-inner 那条共享规则对其他页面照旧生效。
+     2) H3 区块栅格（.sw-grid / .sw-grid--2 / .sw-block / .sw-num）——
+        沿用产品页（streetwear 等）同一套类名与视觉：2px 顶部细线 + 编号 +
+        H3 + 正文。产品页的那份在 src/styles/pages/<product>.css 里，本页不共用，
+        因此这里复制一份本页实际会命中的规则。
+     3) 图片占位符（.sw-ph / .sw-ph-media / .sw-ph-tag / .sw-ph-copy）——
+        同样按用户要求沿用产品页命名，不另起一套。本页区块都是浅色背景，
+        所以走浅色令牌那一套（--border / --accent-ink / --muted）；产品页的
+        .band-dark 变体依赖 --dark-fg / --dark-border 等只在产品页令牌块里
+        定义的变量，本页用不到，故不收进来。
+   ============================================================ */
+
+/* ---------- Hero 两栏布局：文案在左，Hero 图占位符在右 ---------- */
+/* 2 等宽列 + 56px 列间距（与 /production/ 一致）。占位符在标记里排在正文之后，
+   这里用 grid-column/grid-row 把它显式放到右列并跨越正文的 4 行，与正文等高。 */
+.os-hero .standard-hero-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; align-items: start; }
+.os-hero .standard-hero-inner > .kicker,
+.os-hero .standard-hero-inner > h1,
+.os-hero .standard-hero-inner > p:not(.kicker),
+.os-hero .standard-hero-inner > .button { grid-column: 1; }
+/* 按钮块级化后会被栅格拉伸成整列宽，这里恢复它的紧凑宽度 */
+.os-hero .standard-hero-inner > .button { justify-self: start; }
+.os-hero .standard-hero-inner > .sw-ph--hero { grid-column: 2; grid-row: 1 / span 4; align-self: stretch; }
+
+/* ---------- H3 区块栅格 ---------- */
+.sw-grid { display: grid; gap: 46px 48px; margin-top: 52px; }
+.sw-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sw-block { min-width: 0; padding-top: 22px; border-top: 2px solid var(--fg); }
+.sw-block .sw-num { display: block; margin-bottom: 16px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--accent-ink); }
+.sw-block h3 { margin: 0; font-size: 21px; max-width: 24ch; }
+.sw-block > p { margin: 12px 0 0; font-size: 16px; line-height: 1.62; color: var(--muted); max-width: 64ch; }
+/* 每个 H3 区块下面一个单图占位符（不是多图画廊） */
+.sw-block > .sw-ph { margin-top: 28px; }
+
+/* ---------- 图片占位符（复制自产品页 .sw-ph 模式）---------- */
+.sw-ph { display: flex; flex-direction: column; border: 1px dashed var(--border); }
+.sw-ph-media { display: grid; place-items: center; min-height: 190px; padding: 26px; border-bottom: 1px dashed var(--border); text-align: center; }
+.sw-ph-tag { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); }
+.sw-ph-copy { display: grid; gap: 8px; padding: 20px 22px 22px; }
+.sw-ph-copy strong { font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.25; letter-spacing: -.012em; }
+.sw-ph-copy small { font-size: 13px; line-height: 1.6; color: var(--muted); }
+
+/* Hero 里的那个占位符放大一档，并撑满所在的右列 */
+.sw-ph--hero .sw-ph-media { flex: 1; min-height: 420px; }
+.sw-ph--hero .sw-ph-copy strong { font-size: 22px; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1080px) {
+  .sw-grid--2 { grid-template-columns: minmax(0, 1fr); }
+  /* 单列：Hero 占位符落到正文下方 */
+  .os-hero .standard-hero-inner { grid-template-columns: minmax(0, 1fr); }
+  .os-hero .standard-hero-inner > .sw-ph--hero { grid-column: 1; grid-row: auto; align-self: start; max-width: 720px; margin-top: 46px; }
+  .sw-ph--hero .sw-ph-media { min-height: 340px; }
+}
+
+@media (max-width: 720px) {
+  .sw-grid { gap: 40px; margin-top: 40px; }
+  .sw-block h3 { font-size: 19px; }
+}
