@@ -223,8 +223,8 @@ const withNumbers = sections.map((section) => ({
 ---
 
 <BaseLayout seo={getSeo("/our-services/")}>
-  {/* Hero —— 结构保持现网（kicker + H1 + 正文 + CTA）；桌面端文案在左、Hero 图占位符在右，
-      窄屏堆叠到正文下方。Hero 图是本次唯一不在 01–15 编号序列里的占位符。 */}
+  {/* Hero —— 结构保持现网（kicker + H1 + 正文 + CTA）；桌面端文案在左、实拍图在右，
+      窄屏堆叠到正文下方。Hero 图取自印花与刺绣区域，是全页唯一不参与 01–15 编号序列的图片。 */}
   <section class="standard-hero os-hero">
     <div class="industrial-grid" aria-hidden="true"></div>
     <div class="shell standard-hero-inner">
@@ -233,13 +233,17 @@ const withNumbers = sections.map((section) => ({
       <p>From product brief to pack-out, Yauum organizes manufacturing around the decisions buyers need to make before bulk production.</p>
       <a class="button button-accent" href="/contact-us/">Send a project brief</a>
 
-      <div class="sw-ph sw-ph--hero" aria-label="Placeholder for a hero image showing finished apparel from the reviewed services workflow." data-evidence-status="needs_company_confirmation">
-        <div class="sw-ph-media"><span class="sw-ph-tag">Hero / Required</span></div>
-        <div class="sw-ph-copy">
-          <strong>Hero Apparel Image</strong>
-          <small>Recommended 1600 × 1200</small>
-        </div>
-      </div>
+      <figure class="os-hero-media">
+        <img
+          src="/uploads/factory/factory-printing-line.webp"
+          width="1600"
+          height="1067"
+          alt="Automatic screen printing line in a garment factory, with operators loading garment panels"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption>Supplied factory reference · automatic screen printing line</figcaption>
+      </figure>
     </div>
   </section>
 

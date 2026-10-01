@@ -10,8 +10,8 @@
      section-title / standard-note-section / standard-note
 
    本文件只补三处本页必需的东西：
-     1) Hero 两栏布局（.os-hero）—— 文案在左、Hero 图占位符在右（与 /production/ 的
-        做法一致：2 等宽列 + 56px 列间距，占位符跨越正文占据的 4 行）。钩子类只加在本页
+     1) Hero 两栏布局（.os-hero）—— 文案在左、Hero 实拍图在右（与 /production/ 的
+        做法一致：2 等宽列 + 56px 列间距，图片跨越正文占据的 4 行）。钩子类只加在本页
         <section> 上，global.css 里 .standard-hero-inner 那条共享规则对其他页面照旧生效。
      2) H3 区块栅格（.sw-grid / .sw-grid--2 / .sw-block / .sw-num）——
         沿用产品页（streetwear 等）同一套类名与视觉：2px 顶部细线 + 编号 +
@@ -24,9 +24,9 @@
         定义的变量，本页用不到，故不收进来。
    ============================================================ */
 
-/* ---------- Hero 两栏布局：文案在左，Hero 图占位符在右 ---------- */
-/* 2 等宽列 + 56px 列间距（与 /production/ 一致）。占位符在标记里排在正文之后，
-   这里用 grid-column/grid-row 把它显式放到右列并跨越正文的 4 行，与正文等高。 */
+/* ---------- Hero 两栏布局：文案在左，Hero 实拍图在右 ---------- */
+/* 2 等宽列 + 56px 列间距（与 /production/ 一致）。图片在标记里排在正文之后，
+   这里用 grid-column/grid-row 把它显式放到右列。 */
 .os-hero .standard-hero-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; align-items: start; }
 .os-hero .standard-hero-inner > .kicker,
 .os-hero .standard-hero-inner > h1,
@@ -34,7 +34,11 @@
 .os-hero .standard-hero-inner > .button { grid-column: 1; }
 /* 按钮块级化后会被栅格拉伸成整列宽，这里恢复它的紧凑宽度 */
 .os-hero .standard-hero-inner > .button { justify-self: start; }
-.os-hero .standard-hero-inner > .sw-ph--hero { grid-column: 2; grid-row: 1 / span 4; align-self: stretch; }
+.os-hero .standard-hero-inner > .os-hero-media { grid-column: 2; grid-row: 1 / span 4; align-self: start; }
+/* Hero 实拍图（原占位符位）：宽度撑满右列、按原始比例显示，下方一行来源说明 */
+.os-hero-media { margin: 0; }
+.os-hero-media img { display: block; width: 100%; height: auto; }
+.os-hero-media figcaption { margin-top: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 
 /* ---------- H3 区块栅格 ---------- */
 .sw-grid { display: grid; gap: 46px 48px; margin-top: 52px; }
@@ -54,17 +58,13 @@
 .sw-ph-copy strong { font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.25; letter-spacing: -.012em; }
 .sw-ph-copy small { font-size: 13px; line-height: 1.6; color: var(--muted); }
 
-/* Hero 里的那个占位符放大一档，并撑满所在的右列 */
-.sw-ph--hero .sw-ph-media { flex: 1; min-height: 420px; }
-.sw-ph--hero .sw-ph-copy strong { font-size: 22px; }
 
 /* ---------- 响应式 ---------- */
 @media (max-width: 1080px) {
   .sw-grid--2 { grid-template-columns: minmax(0, 1fr); }
   /* 单列：Hero 占位符落到正文下方 */
   .os-hero .standard-hero-inner { grid-template-columns: minmax(0, 1fr); }
-  .os-hero .standard-hero-inner > .sw-ph--hero { grid-column: 1; grid-row: auto; align-self: start; max-width: 720px; margin-top: 46px; }
-  .sw-ph--hero .sw-ph-media { min-height: 340px; }
+  .os-hero .standard-hero-inner > .os-hero-media { grid-column: 1; grid-row: auto; max-width: 720px; margin-top: 46px; }
 }
 
 @media (max-width: 720px) {
