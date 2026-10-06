@@ -509,6 +509,65 @@ export const SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二篇（2026-10-06）。slug 取自终稿 TDK（/fleece-hoodie-manufacturer-types-china/）。
+  // 审核报告 84 分：红线通过、FAQ 逐字一致；P0-A（年份矛盾）已按报告修正，P0-B（减词）未执行。
+  // Meta description 相对 TDK 删去 "Download our catalog."（站内无目录资源，对应 CTA 已替换）。
+  "/fleece-hoodie-manufacturer-types-china/": {
+    title: "10 Types of Fleece Hoodie Manufacturers in China | Buyer's Guide",
+    description:
+      "Compare 10 factory profiles for fleece hoodies in China. Learn how to evaluate suppliers, avoid sourcing mistakes & get a quote.",
+    path: "/fleece-hoodie-manufacturer-types-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/hoodie-manufacturer/hero-blank-pullover.webp"),
+    ogImageAlt: "Blank pullover hoodie as a private label style reference",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["10 Types of Fleece Hoodie Manufacturers in China", "/fleece-hoodie-manufacturer-types-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "10 Types of Fleece Hoodie Manufacturers in China: How to Pick the Right Factory Profile",
+        description:
+          "Compare 10 factory profiles for fleece hoodies in China. Learn how to evaluate suppliers, avoid sourcing mistakes & get a quote.",
+        path: "/fleece-hoodie-manufacturer-types-china/",
+        image: "/uploads/hoodie-manufacturer/hero-blank-pullover.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-06",
+        dateModified: "2026-10-06",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for custom fleece hoodies from China?",
+          "Most Chinese fleece hoodie manufacturers set MOQ between 300 and 500 pieces per colorway for custom orders, with lower minimums available from small-batch studios at a higher unit cost. MOQ is usually quoted per color, not per style, so a three-color hoodie may carry a three-color minimum. Always confirm whether the sampling fee is credited against the bulk order.",
+        ],
+        [
+          "How long does fleece hoodie manufacturing and shipping take?",
+          "Typical timelines run 7 to 15 days for sampling, 30 to 45 days for bulk production after sample approval, and 25 to 35 days for sea freight to major ports. Air freight cuts shipping to roughly 5 to 10 days at a much higher cost. Peak season and fabric availability stretch these windows, so get your dates written into the order confirmation.",
+        ],
+        [
+          "What GSM fleece is best for hoodies?",
+          "Most fleece hoodies fall between 280 and 400 GSM. Lightweight fleece around 280 to 320 GSM suits spring and layering pieces; 350 to 400 GSM delivers the heavyweight hand-feel associated with premium streetwear. Above 400 GSM, shrinkage control and sewing difficulty both increase, so confirm the factory has run production at that weight before.",
+        ],
+        [
+          "What certifications should a fleece hoodie manufacturer have?",
+          "The relevant certifications depend on your market. Common frameworks cover social compliance audits, quality management systems, and chemical safety standards for textile products. Rather than accepting a list of logos, request the specific report and confirm the certificate number with the issuing body. Match the certifications to the destination market where you actually sell.",
+        ],
+        [
+          "How much does it cost to manufacture a fleece hoodie in China?",
+          "FOB pricing spans a wide range driven by fabric weight, embellishment, and order quantity. A 280 GSM solid-color basic sits at the low end; a 400 GSM garment-dyed hoodie with four-color print, custom trims, and special packaging sits at the top, often at several times the price of the basic. Because fabric, print method, and volume all move the number, ask for a quotation against your actual tech pack.",
+        ],
+        [
+          "How do I verify a factory before placing an order?",
+          "Request the audit report and confirm its certificate number independently, ask for references or past production examples in your category, order a sample, and test communication responsiveness with a technical question before you commit. A factory that answers slowly or vaguely during the inquiry stage will behave the same way when a production problem appears.",
+        ],
+      ]),
+    ],
+  },
+
   // 404 随 404 状态返回，不参与 sitemap；无 OG/JSON-LD 必要
   "/404/": {
     title: "Page Not Found | Yauum",
