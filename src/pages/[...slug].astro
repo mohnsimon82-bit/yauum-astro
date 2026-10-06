@@ -5,7 +5,7 @@ import { getPageManifest, getWebsitePage } from "../lib/content";
 // 产品页已改为专属路由文件（src/pages/<product>.astro），各自只加载自己的设计 CSS。
 // 这里把它们的 slug 排除，避免与本文件生成重复的输出路径，也避免把 BaseLayout 的
 // global.css 带进新设计页面的样式图。
-// production、our-services 同样已独立为 src/pages/<slug>.astro（内容与结构调整只影响
+// production、our-services、blog 同样已独立为 src/pages/<slug>.astro（内容与结构调整只影响
 // 各自页面），因此一并排除，否则会生成重复的输出路径。
 // 注意：getStaticPaths 在独立作用域执行，不能引用 frontmatter 变量，因此此处重复声明。
 export async function getStaticPaths() {
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
     "sportswear-manufacturer",
     "streetwear-manufacturer",
   ];
-  const standaloneSlugs = ["production", "our-services"];
+  const standaloneSlugs = ["production", "our-services", "blog"];
   const pages = await getPageManifest();
   return pages
     .filter(page => page.slug !== "home" && !productSlugs.includes(page.slug) && !standaloneSlugs.includes(page.slug))

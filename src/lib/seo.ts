@@ -113,6 +113,48 @@ function pageJsonLd(
   };
 }
 
+/** 文章详情页：Article JSON-LD。作者为团队署名（Organization），不得伪装成个人身份。 */
+function articleJsonLd(opts: {
+  headline: string;
+  description: string;
+  path: string;
+  image: string;
+  author: string;
+  datePublished: string;
+  dateModified: string;
+}): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.headline,
+    description: opts.description,
+    image: [abs(opts.image)],
+    author: { "@type": "Organization", name: opts.author },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: abs("/"),
+      logo: { "@type": "ImageObject", url: SITE.logo },
+    },
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified,
+    mainEntityOfPage: { "@type": "WebPage", "@id": abs(opts.path) },
+  };
+}
+
+/** FAQPage JSON-LD。问答必须与页面可见 FAQ 逐字一致（内容生产系统的硬规则）。 */
+function faqJsonLd(items: Array<[string, string]>): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+}
+
 // ---------- 每页配置 ----------
 
 function productSeo(opts: {
@@ -382,7 +424,7 @@ export const SEO: Record<string, SeoData> = {
     description:
       "Practical B2B guidance for buyers developing custom apparel: product development, fabric and workmanship, decoration, private label, and packing.",
     path: "/blog/",
-    ogType: "website", // 尚无文章详情页；有真实文章后改用 article
+    ogType: "website", // 列表页保持 website；文章详情页（ogType: article）各自独立条目
     ogImage: abs("/uploads/factory/sample-showroom.webp"),
     ogImageAlt: "Garment samples in the showroom",
     ogImageWidth: 1920,
@@ -398,6 +440,72 @@ export const SEO: Record<string, SeoData> = {
         description:
           "Practical B2B guidance for buyers developing custom apparel: product development, fabric and workmanship, decoration, private label, and packing.",
       }),
+    ],
+  },
+
+  // 文章详情页（内容生产系统流水线产出，逐篇新增条目）。
+  // FAQ 问答与页面可见 FAQ 逐字一致，改正文 FAQ 时必须同步改这里。
+  "/where-are-t-shirts-manufactured/": {
+    title: "Where Are T-Shirts Manufactured? Global Guide | YAUUM",
+    description:
+      "Discover where T-shirts are manufactured worldwide, how origin affects quality & cost, and how to choose the right factory. Get a custom quote today.",
+    path: "/where-are-t-shirts-manufactured/",
+    ogType: "article",
+    ogImage: abs("/uploads/t-shirt-manufacturer/hero-tshirt-private-label.webp"),
+    ogImageAlt: "Finished private label T-shirt shown as a full-garment product reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Where Are T-Shirts Manufactured?", "/where-are-t-shirts-manufactured/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Where Are T-Shirts Manufactured? A Complete Guide to Global T-Shirt Production",
+        description:
+          "Discover where T-shirts are manufactured worldwide, how origin affects quality & cost, and how to choose the right factory.",
+        path: "/where-are-t-shirts-manufactured/",
+        image: "/uploads/t-shirt-manufacturer/hero-tshirt-private-label.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-06",
+        dateModified: "2026-10-06",
+      }),
+      faqJsonLd([
+        [
+          "Where are most T-shirts manufactured?",
+          "Most T-shirts are manufactured in Asia, led by China, Bangladesh, Vietnam, and India. China handles the widest range of builds, Bangladesh and Vietnam dominate high-volume cotton knits, and India is strong in organic and specialty cotton. Turkey and Portugal serve European demand, while the US and Mexico supply the Americas.",
+        ],
+        [
+          "Are T-shirts still made in China?",
+          "Yes. China remains the largest apparel exporter by value and the most vertically integrated T-shirt manufacturing country. It is particularly strong for complex decoration, specialty fabrics, and premium builds. For plain cotton basics at very high volume, other regions may offer lower unit costs.",
+        ],
+        [
+          "What country makes the best quality T-shirts?",
+          "Quality depends on the factory, not the country. China, Vietnam, and Portugal have mature export sectors with standardized QC, but strong and weak factories exist everywhere. The better question is whether a specific factory can meet your fabric, construction, and decoration spec consistently.",
+        ],
+        [
+          "Why are so many T-shirts made in Bangladesh?",
+          "Bangladesh built a large cotton knit industry around competitive labor and export scale. It is one of the world's largest apparel exporters, making it a natural fit for high-volume basic tees. The trade-off is lower flexibility for small runs and complex decoration.",
+        ],
+        [
+          "Can I get T-shirts made in the USA?",
+          "Yes, though US production typically suits smaller runs and premium or \"Made in USA\" positioning. Unit costs are higher than Asia, but lead times are shorter and domestic labeling can support higher retail pricing. Mexico and Central America offer a middle option for US-bound programs.",
+        ],
+        [
+          "How do I choose the right country to manufacture my T-shirts?",
+          "Start with your order profile. High-volume basics point to Bangladesh or Vietnam. Technical builds and complex decoration favor China. Fast replenishment for Europe favors Turkey or Portugal. Premium small batches suit Portugal or India. Then verify the specific factory, since capability varies more within a country than between countries.",
+        ],
+        [
+          "What's the difference between a T-shirt factory and a trading company?",
+          "A factory controls its own production lines, giving you direct visibility into QC and capacity. A trading company sources from multiple factories, which can broaden product range but adds a layer between you and production. Recurring private-label programs usually benefit from a direct factory relationship.",
+        ],
+        [
+          "How long does it take to manufacture custom T-shirts?",
+          "For standard cotton tees, production commonly runs 30–45 days after sample approval, plus 20–35 days for sea freight from Asia. Near-shore production in Turkey, Portugal, or Mexico can cut total lead time to 3–5 weeks. Timelines vary by fabric, decoration, season, and order size, so confirm current schedules with your supplier.",
+        ],
+      ]),
     ],
   },
 
