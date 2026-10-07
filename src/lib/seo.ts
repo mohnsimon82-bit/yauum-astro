@@ -568,6 +568,73 @@ export const SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第三篇（2026-10-07）。slug 取自终稿 TDK（/best-400-gsm-hoodie-manufacturers-china/）。
+  // 审核报告 92 分：红线通过、FAQ 逐字一致、达标可发布；导出文件名的"❌不完整"前缀系 FAQ 渲染格式
+  // 触发的误报（详见页面文件头注释）。站内没有 Supplier Scorecard 资源，相关承诺按发布规则替换。
+  "/best-400-gsm-hoodie-manufacturers-china/": {
+    title: "Best 400 GSM Hoodie Manufacturers in China: Buyer's Guide 2026",
+    description:
+      "Compare the best 400 GSM hoodie manufacturers in China. Learn how to verify fabric weight, vet suppliers & get a quote.",
+    path: "/best-400-gsm-hoodie-manufacturers-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/hoodie-manufacturer/style-heavyweight.webp"),
+    ogImageAlt: "Heavyweight hoodie on a model",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Best 400 GSM Hoodie Manufacturers in China", "/best-400-gsm-hoodie-manufacturers-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Best 400 GSM Hoodie Manufacturers in China: A Buyer's Guide to Vetting, Sampling & Sourcing",
+        description:
+          "Compare the best 400 GSM hoodie manufacturers in China. Learn how to verify fabric weight, vet suppliers & get a quote.",
+        path: "/best-400-gsm-hoodie-manufacturers-china/",
+        image: "/uploads/hoodie-manufacturer/style-heavyweight.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-07",
+        dateModified: "2026-10-07",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for custom 400 gsm hoodies from China?",
+          "For custom 400 gsm hoodies with your own labels and trims, MOQ commonly falls in the 300–500 pieces per color range. Custom-dyed fleece pushes MOQ higher than stock colors. Confirm how the minimum is counted per color before you lock your colorway range.",
+        ],
+        [
+          "How long does sampling take for a 400 gsm hoodie?",
+          "Sampling for a custom 400 gsm hoodie typically takes one to three weeks, depending on fabric availability and whether custom dyeing or decoration is involved. Stock fabric and simple decoration sit at the fast end; custom dye lots and complex embroidery sit at the slow end.",
+        ],
+        [
+          "How can I verify that a manufacturer's hoodie is truly 400 gsm?",
+          "Cut a precise 10 cm × 10 cm square from a flat area, weigh it on a scale accurate to 0.01 g, and multiply by 100. A 400 gsm swatch weighs about 4.0 g. Confirm with a third-party lab test report, and re-test after washing to check for shrinkage-related weight loss.",
+        ],
+        [
+          "What's the typical lead time for bulk 400 gsm hoodie orders?",
+          "Bulk production for 400 gsm hoodies typically runs 30–45 days after sample approval, plus 25–35 days for sea freight to most major markets. Add time for custom dyeing, complex decoration, or peak-season capacity constraints.",
+        ],
+        [
+          "Which certifications should a 400 gsm hoodie manufacturer have?",
+          "Look for current social compliance, quality management, and environmental certifications relevant to apparel manufacturing. Verify certificate numbers with the issuing body, and confirm the certificate scope covers the actual production site.",
+        ],
+        [
+          "Can I get a custom 400 gsm hoodie made with my own design and labels?",
+          "Yes. Custom 400 gsm hoodie manufacturing covers your own design, labels, hangtags, and packaging. Provide a tech pack or reference sample, and the factory produces a pre-production sample for your approval before bulk.",
+        ],
+        [
+          "What's the difference between 400 gsm cotton and 400 gsm cotton-poly blend hoodies?",
+          "Pure cotton 400 gsm fleece feels softer and breathes better but shrinks more and costs more. Cotton-poly blends hold shape and color better and resist shrinking, but pill differently and feel slightly less premium. Choose based on your target hand feel and care instructions.",
+        ],
+        [
+          "How do I compare quotes from multiple 400 gsm hoodie manufacturers?",
+          "Fix your spec sheet first — fabric composition, weight tolerance, trims, decoration, and packaging — then request quotes against that identical spec. Rank candidates on total landed cost and verified capability, and treat headline FOB price as the weakest signal in the set.",
+        ],
+      ]),
+    ],
+  },
+
   // 404 随 404 状态返回，不参与 sitemap；无 OG/JSON-LD 必要
   "/404/": {
     title: "Page Not Found | Yauum",
