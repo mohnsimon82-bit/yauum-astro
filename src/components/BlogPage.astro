@@ -10,19 +10,47 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import InquirySection from "../components/InquirySection.astro";
 import ViewCounter from "../components/ViewCounter.astro";
 import { SEO, getSeo, breadcrumb, type SeoData } from "../lib/seo";
-import { articlesOnPage, pageHref, totalPages, PAGE_SIZE } from "../lib/articles";
+import {
+  articles,
+  articlesInCategory,
+  articlesOnPage,
+  categories,
+  categoryHref,
+  pageHref,
+  totalPages,
+  PAGE_SIZE,
+} from "../lib/articles";
 import "../styles/pages/blog.css";
 
 interface Props {
-  /** 页码（1 起） */
-  page: number;
+  /** 页码（1 起；分类页无分页，固定第 1 页） */
+  page?: number;
+  /** 分类 slug（空 = 全部文章） */
+  category?: string;
 }
 
-const { page } = Astro.props;
-const pageArticles = articlesOnPage(page);
+const { page = 1, category = "" } = Astro.props;
+const activeCategory = category ? categories.find((c) => c.slug === category) : undefined;
 
-const seo: SeoData =
-  page === 1
+/** 当前列表的数据源：分类页取该分类，首页取全部 */
+const source = activeCategory ? articlesInCategory(activeCategory.slug) : articles;
+const pageArticles = activeCategory ? source : articlesOnPage(page);
+const pageCount = activeCategory ? 1 : totalPages;
+
+const seo: SeoData = activeCategory
+  ? {
+      ...SEO["/blog/"],
+      title: `${activeCategory.label} Articles | Yauum Blog`,
+      path: categoryHref(activeCategory.slug),
+      jsonLd: [
+        breadcrumb([
+          ["Home", "/"],
+          ["Blog", "/blog/"],
+          [activeCategory.label, categoryHref(activeCategory.slug)],
+        ]),
+      ],
+    }
+  : page === 1
     ? getSeo("/blog/")
     : {
         ...SEO["/blog/"],
@@ -52,8 +80,23 @@ const seo: SeoData =
   <section class="section section-surface">
     <div class="shell">
       <div class="section-head">
-        <div><p class="kicker">01 / Articles</p><h2 class="section-title">Published Guides.</h2></div>
-        <p>Each entry is a finished article published on this site. New guides are added here as they pass review.</p>
+        <div>
+          <p class="kicker">01 / Articles</p>
+          <nav class="blog-cats" aria-label="Article categories">
+            <a
+              class:list={["blog-cat", !activeCategory && "is-current"]}
+              href="/blog/"
+              aria-current={!activeCategory ? "page" : undefined}
+            >All <span>{articles.length}</span></a>
+            {categories.map((cat) => (
+              <a
+                class:list={["blog-cat", activeCategory?.slug === cat.slug && "is-current"]}
+                href={categoryHref(cat.slug)}
+                aria-current={activeCategory?.slug === cat.slug ? "page" : undefined}
+              >{cat.label} <span>{cat.count}</span></a>
+            ))}
+          </nav>
+        </div>
       </div>
       <div class="blog-list">
         {pageArticles.map((article, index) => (
@@ -72,7 +115,7 @@ const seo: SeoData =
               <strong>{article.title}</strong>
               <span class="blog-entry-desc">{article.description}</span>
               <span class="blog-entry-meta">
-                <span>{String((page - 1) * PAGE_SIZE + index + 1).padStart(2, "0")} / {article.tag}</span>
+                <span>{String((activeCategory ? 0 : (page - 1) * PAGE_SIZE) + index + 1).padStart(2, "0")} / {article.tag}</span>
                 <time datetime={article.date}>{article.dateLabel}</time>
                 <span class="blog-entry-views" data-views-for={article.route}></span>
               </span>
@@ -82,7 +125,7 @@ const seo: SeoData =
         ))}
       </div>
 
-      {totalPages > 1 && (
+      {!activeCategory && pageCount > 1 && (
         <nav class="blog-pager" aria-label="Blog pages">
           {page > 1 ? (
             <a class="blog-pager-step" href={pageHref(page - 1)}>← Newer</a>
@@ -90,7 +133,7 @@ const seo: SeoData =
             <span class="blog-pager-step is-disabled">← Newer</span>
           )}
           <span class="blog-pager-nums">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) =>
+            {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) =>
               n === page ? (
                 <span class="blog-pager-num is-current" aria-current="page">{n}</span>
               ) : (
@@ -98,7 +141,7 @@ const seo: SeoData =
               ),
             )}
           </span>
-          {page < totalPages ? (
+          {page < pageCount ? (
             <a class="blog-pager-step" href={pageHref(page + 1)}>Older →</a>
           ) : (
             <span class="blog-pager-step is-disabled">Older →</span>

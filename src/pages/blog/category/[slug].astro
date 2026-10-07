@@ -1,0 +1,20 @@
+---
+/**
+ * /blog/category/<slug>/ — 文章分类页。
+ *
+ * 分类 = 文章自带的 tag（见 src/lib/articles.ts 的 categories），
+ * 筛选栏里的分类链接指向这里；页面本体与 /blog/ 共用 BlogPage.astro。
+ * 分类文章超过一页（PAGE_SIZE）时再按 /blog/page/N/ 的写法加分页，
+ * 当前分类文章数都在一页内。
+ */
+import BlogPage from "../../../components/BlogPage.astro";
+import { categories } from "../../../lib/articles";
+
+export async function getStaticPaths() {
+  return categories.map((cat) => ({ params: { slug: cat.slug } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<BlogPage category={slug} />

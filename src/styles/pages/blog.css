@@ -16,6 +16,27 @@
    多带一层 .standard-hero 提高优先级，避免被后面的全局规则盖掉。 */
 .standard-hero .standard-hero-inner { padding-block: clamp(50px, 6vw, 82px); }
 
+/* ---------- 文章分类筛选栏（01 / Articles 的标题位） ---------- */
+.blog-cats { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 30px; margin-top: 20px; }
+.blog-cat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid transparent;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--muted);
+  transition: color .16s ease, border-color .16s ease;
+}
+.blog-cat span { font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: .08em; color: var(--muted); }
+.blog-cat:hover { color: var(--fg); }
+.blog-cat.is-current { color: var(--fg); border-bottom-color: var(--accent); }
+.blog-cat.is-current span { color: var(--accent-ink); }
+
 .blog-list { margin-top: 52px; border-top: 2px solid var(--fg); }
 
 .blog-entry {

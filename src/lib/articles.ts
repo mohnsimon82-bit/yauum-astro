@@ -65,3 +65,38 @@ export function articlesOnPage(page: number): Article[] {
 export function pageHref(page: number): string {
   return page === 1 ? "/blog/" : `/blog/page/${page}/`;
 }
+
+// ---------- 文章分类（=文章自带的 tag，筛选栏与分类页共用） ----------
+
+export type Category = { slug: string; label: string; count: number };
+
+/** "Buyer's guide" → "buyers-guide" */
+export function categorySlug(tag: string): string {
+  return tag
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** 全部分类（按文章里首次出现的顺序，带文章数） */
+export const categories: Category[] = (() => {
+  const map = new Map<string, Category>();
+  for (const article of articles) {
+    const slug = categorySlug(article.tag);
+    const found = map.get(slug);
+    if (found) found.count += 1;
+    else map.set(slug, { slug, label: article.tag, count: 1 });
+  }
+  return [...map.values()];
+})();
+
+/** 分类链接 */
+export function categoryHref(slug: string): string {
+  return `/blog/category/${slug}/`;
+}
+
+/** 某一分类下的文章（按发布时间倒序，继承 articles 顺序） */
+export function articlesInCategory(slug: string): Article[] {
+  return articles.filter((article) => categorySlug(article.tag) === slug);
+}
