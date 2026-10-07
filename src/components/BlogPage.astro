@@ -36,14 +36,6 @@ const seo: SeoData =
           ]),
         ],
       };
-
-/** 编辑分类（来自既有页面文案，未改写） */
-const categories: Array<[string, string, string]> = [
-  ["01", "Product Development", "How to prepare references, measurements, size ranges, tech packs, and sample comments."],
-  ["02", "Fabric and Workmanship", "How material weight, composition, handfeel, seams, trims, and construction influence a garment."],
-  ["03", "Decoration and Private Label", "How to discuss artwork files, print methods, embroidery, labels, tags, and packaging."],
-  ["04", "Quality and Packing", "How to define inspection points, approved references, unit packing, carton marks, and handoff evidence."],
-];
 ---
 
 <BaseLayout seo={seo}>
@@ -116,23 +108,9 @@ const categories: Array<[string, string, string]> = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="shell">
-      <div class="section-head">
-        <div><p class="kicker">02 / Editorial categories</p><h2 class="section-title">Editorial Categories Ready for Future Articles.</h2></div>
-        <p>No placeholder posts or invented case studies are published. Add verified articles to the content library when they are ready.</p>
-      </div>
-      <div class="blueprint-grid">
-        {categories.map(([number, title, description]) => (
-          <article><span>{number}</span><h3>{title}</h3><p>{description}</p></article>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="section standard-note-section">
     <div class="shell standard-note">
-      <div><p class="kicker">03 / Important note</p><h2 class="section-title">Publishing Rule</h2></div>
+      <div><p class="kicker">02 / Important note</p><h2 class="section-title">Publishing Rule</h2></div>
       <p>Use real experience, images, measurements, and documented examples. Avoid unsupported performance statistics, client names, or generic AI articles.</p>
     </div>
   </section>
@@ -142,7 +120,7 @@ const categories: Array<[string, string, string]> = [
     id="inquiry"
     odId="inquiry-conversion"
     band="band-alt"
-    kicker="04 / Start an inquiry"
+    kicker="03 / Start an inquiry"
     title="Send the Product Details That Shape a Useful Review."
     ctaLabel="Send project details"
   />
