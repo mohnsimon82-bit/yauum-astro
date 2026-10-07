@@ -635,6 +635,73 @@ export const SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第四篇（2026-10-07）。slug 取自终稿 TDK（/cotton-hoodie-manufacturer-types-china/）。
+  // 审核报告 84 分（未达标需人工复核，用户确认发布）。两类改写已获用户确认：年份 (2025)→(2026)；
+  // sourcing 代理式表述最小改写为厂商口径（详见页面文件头注释）。meta description 尾句同步改写。
+  "/cotton-hoodie-manufacturer-types-china/": {
+    title: "10 Cotton Hoodie Manufacturer Types in China: 2026 Guide",
+    description:
+      "Compare 10 types of cotton hoodie manufacturers in China by MOQ, certifications & lead time. Request a sample or a quote from YAUUM.",
+    path: "/cotton-hoodie-manufacturer-types-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/hoodie-manufacturer/fabric-cotton.webp"),
+    ogImageAlt: "Cotton fabric arranged as a visual material reference",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["10 Types of Cotton Hoodie Manufacturers in China", "/cotton-hoodie-manufacturer-types-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "10 Types of Cotton Hoodie Manufacturers in China: How to Vet Suppliers (2026)",
+        description:
+          "Compare 10 types of cotton hoodie manufacturers in China by MOQ, certifications & lead time. Request a sample or a quote from YAUUM.",
+        path: "/cotton-hoodie-manufacturer-types-china/",
+        image: "/uploads/hoodie-manufacturer/fabric-cotton.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-07",
+        dateModified: "2026-10-07",
+      }),
+      faqJsonLd([
+        [
+          "What is the typical MOQ for 100% cotton hoodies from Chinese manufacturers?",
+          "MOQ varies widely by factory type. Small-batch specialists accept 50–150 pcs per color, mid-tier factories typically require 300–500 pcs per color, and large-volume exporters may set MOQ at 1,000–3,000 pcs per style. Always confirm whether the MOQ applies per style, per color, or per design.",
+        ],
+        [
+          "How much does it cost to manufacture a custom cotton hoodie in China?",
+          "For a 100% cotton fleece hoodie in the 300–400 GSM range, FOB pricing commonly falls in the $8–18 per unit band for orders of 500–3,000 pcs, depending on fabric weight, decoration, and construction. These are typical industry ranges, so request a live quote for your specific spec.",
+        ],
+        [
+          "How long does production and shipping take for a hoodie order?",
+          "Production typically runs 25–50 days depending on factory and order complexity. Sea freight to the US or EU adds roughly 25–35 days. Plan for 2–3 months from PO to delivery, and add buffer during peak season.",
+        ],
+        [
+          "How can I verify if a Chinese hoodie factory is legitimate?",
+          "Ask for a live video walkthrough of the production floor, verify certification numbers on the issuing body's database, request references or past samples, and arrange a third-party inspection before bulk production. A supplier that resists any of these steps warrants caution.",
+        ],
+        [
+          "What GSM is best for a heavyweight cotton hoodie?",
+          "Heavyweight hoodies generally fall in the 380–500 GSM range. For everyday premium wear, 400 GSM is a common target. Confirm actual fabric weight by weighing a pre-production sample, since \"GSM\" is frequently overstated.",
+        ],
+        [
+          "Do Chinese hoodie manufacturers offer organic or GOTS-certified cotton?",
+          "Yes. A number of factories specialize in GOTS-certified organic cotton hoodies, typically with MOQ of 500–1,000 pcs per color. Always verify that the GOTS transaction certificate specifically covers your order, not just the facility.",
+        ],
+        [
+          "Can I get a sample before placing a bulk order?",
+          "Yes, and you should. Most factories provide pre-production samples in 5–20 days for a sample fee, often credited against the bulk order. Never proceed to bulk production without an approved physical sample.",
+        ],
+        [
+          "What's the difference between a trading company and a direct hoodie factory?",
+          "A direct factory owns production equipment and controls quality on its own floor. A trading company coordinates production, often across multiple factories. Trading companies can add value in coordination and QC, but they typically add margin and reduce your visibility into production. Ask direct questions about sewing lines and floor capacity to tell them apart.",
+        ],
+      ]),
+    ],
+  },
+
   // 404 随 404 状态返回，不参与 sitemap；无 OG/JSON-LD 必要
   "/404/": {
     title: "Page Not Found | Yauum",

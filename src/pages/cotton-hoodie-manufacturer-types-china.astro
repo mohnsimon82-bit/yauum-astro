@@ -1,0 +1,196 @@
+---
+/**
+ * /cotton-hoodie-manufacturer-types-china/ 文章页（内容生产系统第四篇 · 审核 84）。
+ *
+ * 来源：内容生产系统（Dify）输出 `top-10-100-cotton-hoodie-manufacturers-in-china-终稿.md`
+ * （2026-10-07 运行，run 89d1295f；slug 取 TDK 的 /cotton-hoodie-manufacturer-types-china/）。
+ * 上线前已按发布前检查清单替换全部占位符：
+ *   - #CANONICAL_URL# / #LOGO_URL# → 本页 SEO 条目（src/lib/seo.ts，logo 用 SITE.logo）
+ *   - #IMAGE#（5 槽）→ 全部 .sw-ph 占位符卡
+ *   - #INTERNAL_LINK# / #CTA_LINK# → 站内真实页面；"Sourcing Checklist PDF 下载"因站内无该资源
+ *     按发布规则替换为真实目标
+ *   - #OG_IMAGE# → hoodie-manufacturer 页 cotton fabric 实拍图
+ *
+ * 正文文字逐字取自终稿，两类改写（均已获用户确认，改动清单进汇报）：
+ *   1) 年份修正：(2025) → (2026)，与 2026-10-07 发布日一致（H1 与 seo.ts Title）；
+ *   2) 口径修正：把"YAUUM = sourcing 代理"的表述（works with vetted factories / runs factory
+ *      audits / verifies certifications / free supplier shortlist / past sourcing projects）
+ *      最小改写为厂商口径（manufactures / sampling / quality checks）——知识库将工厂所有权、
+ *      认证、审厂报告、客户案例列为"未确认-禁止对外陈述"。
+ * FAQ 的 8 组问答与 seo.ts 中 FAQPage JSON-LD 逐字一致。
+ */
+import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquirySection from "../components/InquirySection.astro";
+import { SEO } from "../lib/seo";
+import "../styles/pages/cotton-hoodie-manufacturer-types-china.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-lists", "Why these lists fail"],
+  ["02", "methodology", "Methodology"],
+  ["03", "comparison", "Quick comparison"],
+  ["04", "profiles", "Supplier profiles"],
+  ["05", "mistakes", "Common mistakes"],
+  ["06", "how-to", "From inquiry to delivery"],
+  ["07", "faq", "FAQ"],
+  ["08", "next-step", "Next step"],
+];
+---
+
+<EditorialLayout
+  seo={SEO["/cotton-hoodie-manufacturer-types-china/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">10 Types of Cotton Hoodie Manufacturers in China</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>10 Types of Cotton Hoodie Manufacturers in China: How to Vet Suppliers (2026)</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-07">October 7, 2026</time></span>
+      </p>
+      <p class="ar-lede">Sourcing a 100% cotton hoodie from China should be straightforward. It rarely is. Search "top 10 cotton hoodie manufacturers in China" and you land on a dozen near-identical listicles, each one a thinly veiled ad, none of them telling you how to separate a real factory from a trading company with a good website.</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Selection of 100% cotton hoodies in different colors from Chinese manufacturers">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>100% cotton hoodie lineup</strong><small>Needed: a verified photo of cotton hoodies in multiple colors from the production environment.</small></div>
+      </div>
+    </figure>
+        <p>This guide works differently. We give you the vetting framework first, then apply it to ten supplier profiles covering the sourcing scenarios buyers actually hit. You finish with a shortlist strategy, not a list of names to copy into an email blast.</p>
+        <p><strong>What this guide is:</strong> a decision-support tool for small and mid-size brands, DTC sellers, and wholesalers comparing Chinese hoodie suppliers on verifiable criteria.</p>
+        <p><strong>What it isn't:</strong> a price-shopping list. If the lowest quote is your only filter, you will get burned on fabric weight, and probably on delivery dates too.</p>
+        <h2 id="why-lists">Why "Top 10" Lists Fail Buyers, and How to Read This One</h2>
+        <p>Most manufacturer lists break down for three predictable reasons.</p>
+        <p>No methodology. A factory appears because it's a client, an affiliate, or a paid placement. No stated criteria, no weighting, no way to compare entry three against entry seven.</p>
+        <p>Confusing "big" with "right." A 5,000-worker plant pushing 200,000 units a month for mass-market retail is a poor fit for a DTC brand ordering 500 heavyweight hoodies in three colorways. Your order will sit behind every program order on the floor.</p>
+        <p>No verification path. Anyone can claim BSCI certification or "20 years of experience." These lists never explain how to check.</p>
+        <p>Every profile below uses the same evaluation dimensions, so side-by-side comparison actually works. One caveat up front: capabilities, MOQs, and lead times move with capacity and season. Treat every figure here as a starting range to confirm in your own inquiry.</p>
+        <h2 id="methodology">How We Evaluated Chinese Hoodie Factories (Our Methodology)</h2>
+        <p>Six dimensions decide whether a cotton hoodie order lands or falls apart.</p>
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Dimension</th><th>What We Look At</th><th>Why It Matters</th><th>How to Verify</th></tr></thead><tbody><tr><td>Fabric capability</td><td>GSM range, yarn count, fleece vs. french terry, shrinkage control</td><td>Determines hand-feel, weight accuracy, and whether "400 GSM" is real</td><td>Request lab dip + GSM test on pre-production sample</td></tr><tr><td>Certifications</td><td>OEKO-TEX, GOTS, BSCI, WRAP, ISO 9001</td><td>Compliance for EU/US retail; worker and chemical safety</td><td>Check certificate number on the issuing body's database</td></tr><tr><td>MOQ &amp; sampling</td><td>Minimum per color, sample cost, sample lead time</td><td>Controls your upfront cash and test-order risk</td><td>Confirm in writing; sample before bulk</td></tr><tr><td>Customization</td><td>Print, embroidery, wash, labels, packaging</td><td>Your brand differentiation lives here</td><td>Ask for past samples in your technique</td></tr><tr><td>Lead time &amp; capacity</td><td>Production days, shipping days, peak-season buffer</td><td>Late hoodies miss your launch window</td><td>Request a production calendar with your PO</td></tr><tr><td>Communication</td><td>Response time, English fluency, willingness to share factory video</td><td>Predicts how the whole order will go</td><td>Test during the inquiry stage</td></tr></tbody></table></div>
+        <h3>The Criteria That Actually Matter for 100% Cotton Hoodies</h3>
+        <p>Fabric capability sits at the top, and it isn't close. Two factories can both quote "100% cotton 380 GSM hoodie" and ship completely different garments. One runs combed ring-spun yarn with controlled shrinkage under 5%; the other runs open-end yarn and thins the fleece backing to hit your price.</p>
+        <p>Ask for the specifics: yarn count (20s–32s covers most hoodie fabrics), fabric structure (fleece, french terry, or loopback), and shrinkage results after three home washes. For a deeper reference on how these parameters interact, see our guide to <a href="/hoodie-manufacturer/#fabric-gsm">key fabric specs for cotton hoodies (GSM, yarn count)</a>.</p>
+        <h3>Red Flags: Spotting a Trading Company That Claims to Be a Factory</h3>
+        <p>Trading companies aren't the enemy. Good ones add real value in coordination and QC. The problem starts when one markets itself as a direct factory to justify a markup or bury a quality risk.</p>
+        <ul class="ar-list"><li><strong>Vague factory answers.</strong> Ask "How many sewing lines do you run, and where?" A factory gives you a number and a city. A trading company changes the subject.</li><li><strong>No video walkthrough.</strong> A real factory can shoot a phone video of its floor within a day.</li><li><strong>Suspiciously wide product range.</strong> One "factory" claiming hoodies, denim, leather jackets, and shoes is subcontracting at least three of those.</li><li><strong>Price below material cost.</strong> A quote 40% under everyone else means thinner cotton, inflated GSM, or a number that won't survive to final invoice.</li></ul>
+        <h3>How to Verify Certifications (OEKO-TEX, GOTS, BSCI) Yourself</h3>
+        <p>Never accept a certificate image as proof. Every legitimate certification carries a verifiable number.</p>
+        <ul class="ar-list"><li><strong>OEKO-TEX Standard 100:</strong> enter the certificate number in the OEKO-TEX online label check.</li><li><strong>GOTS:</strong> verify through the Global Organic Textile Standard public database.</li><li><strong>BSCI / amfori:</strong> check the amfori sustainability platform for the audit report and rating.</li><li><strong>WRAP:</strong> confirm via the WRAP certified facilities directory.</li><li><strong>ISO 9001:</strong> ask for the certification body, then verify with that body directly.</li></ul>
+        <p>If a supplier can't produce a verifiable number, the claim is unconfirmed. Treat it that way.</p>
+        <p>Two patterns show up repeatedly in pre-shipment inspection reports: finished-fabric weight landing roughly 8–15% below the approved spec, and dimensional change after wash exceeding the tolerance written into the PO. Both are catchable at sample stage, and both are expensive once goods are boxed.</p>
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Comparison table of top cotton hoodie manufacturers in China by MOQ and certification">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>Supplier comparison graphic</strong><small>Needed: a verified comparison graphic built from the supplier profile table in this guide.</small></div>
+      </div>
+    </figure>
+        <p>Need help vetting a factory before you commit? <a href="/contact-us/">Talk to our team</a>. We can tell you what a certificate is really worth.</p>
+        <h2 id="comparison">Quick Comparison: 10 Supplier Profiles at a Glance</h2>
+        <p>Scan this table by scenario, not by rank. "Best For" is the column that matters.</p>
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>#</th><th>Supplier Profile</th><th>Fabric Focus</th><th>Typical MOQ</th><th>Sampling</th><th>Certifications</th><th>Lead Time (prod. + sea)</th><th>Best For</th></tr></thead><tbody><tr><td>1</td><td>Heavyweight specialist</td><td>380–500 GSM fleece</td><td>300–500 pcs/color</td><td>7–14 days</td><td>OEKO-TEX, BSCI</td><td>35–50 + 25–35 days</td><td>Premium heavyweight brands</td></tr><tr><td>2</td><td>Low-MOQ custom house</td><td>280–380 GSM</td><td>50–150 pcs/color</td><td>5–10 days</td><td>OEKO-TEX</td><td>25–40 + 25–35 days</td><td>New brands, test orders</td></tr><tr><td>3</td><td>Organic cotton mill</td><td>300–420 GSM organic</td><td>500–1,000 pcs/color</td><td>10–15 days</td><td>GOTS, OEKO-TEX</td><td>40–55 + 25–35 days</td><td>Sustainable DTC labels</td></tr><tr><td>4</td><td>Large-volume exporter</td><td>280–450 GSM</td><td>1,000–3,000 pcs/style</td><td>10–15 days</td><td>BSCI, WRAP, ISO 9001</td><td>30–45 + 25–35 days</td><td>Wholesale, retail programs</td></tr><tr><td>5</td><td>Full-package OEM/ODM</td><td>280–450 GSM</td><td>300–800 pcs/style</td><td>10–20 days</td><td>OEKO-TEX, BSCI</td><td>35–50 + 25–35 days</td><td>Brands wanting turnkey</td></tr><tr><td>6</td><td>Print &amp; embroidery studio</td><td>280–400 GSM</td><td>100–300 pcs/design</td><td>5–12 days</td><td>OEKO-TEX</td><td>25–40 + 25–35 days</td><td>Graphic-heavy streetwear</td></tr><tr><td>7</td><td>Fast-sampling workshop</td><td>280–380 GSM</td><td>50–200 pcs/color</td><td>3–7 days</td><td>OEKO-TEX</td><td>20–35 + 25–35 days</td><td>Time-sensitive launches</td></tr><tr><td>8</td><td>Budget bulk producer</td><td>260–350 GSM</td><td>1,000–5,000 pcs/style</td><td>10–15 days</td><td>BSCI</td><td>30–45 + 25–35 days</td><td>Price-sensitive volume</td></tr><tr><td>9</td><td>Premium streetwear partner</td><td>400–500 GSM</td><td>200–500 pcs/color</td><td>10–18 days</td><td>OEKO-TEX, BSCI</td><td>35–50 + 25–35 days</td><td>Designer streetwear</td></tr><tr><td>10</td><td>Full-service sourcing &amp; QC</td><td>Varies by partner</td><td>200–1,000 pcs/style</td><td>7–15 days</td><td>Varies by partner</td><td>30–50 + 25–35 days</td><td>Buyers managing complexity</td></tr></tbody></table></div>
+        <p class="ar-note"><em>All figures reflect typical industry ranges for 100% cotton hoodies. Confirm current MOQ, pricing, and lead times directly with each supplier.</em></p>
+        <p><strong>Before you contact anyone, write down:</strong> target GSM, order quantity per color, decoration type, target landed cost, and launch date. Suppliers quote faster and more accurately when you lead with numbers.</p>
+        <h2 id="profiles">The 10 Chinese Hoodie Supplier Profiles (and Which Fits Your Order)</h2>
+        <p>We describe supplier archetypes rather than naming companies, because the useful question isn't "what's the name," it's "does this type of factory match my order." Identify your archetype, then run individual candidates through the methodology above.</p>
+        <h3>1. Heavyweight Specialist: Best for 400+ GSM Cotton Hoodies</h3>
+        <p>Built around 380–500 GSM fleece and french terry in combed ring-spun 20s–24s yarn, with pre-shrunk fabric and documented dimensional stability. Garment wash (vintage, acid, mineral) is the strongest customization; print and embroidery are available but secondary. <strong>Best for:</strong> premium brands where weight and hand-feel carry the product. Wrong fit for 50-piece runs or rock-bottom pricing.</p>
+        <h3>2. Low-MOQ Custom House: Best for Small-Batch Orders</h3>
+        <p>Mid-weight cotton fleece with full print, embroidery, custom labels, and custom packaging. Quality holds up well for the tier, though heavyweight options above 400 GSM are thin on the ground, and audit certifications beyond OEKO-TEX are uncommon at this scale. <strong>Best for:</strong> new DTC brands and Shopify sellers validating a design before committing cash to volume.</p>
+        <h3>3. Organic Cotton Mill: Best for GOTS-Certified Cotton</h3>
+        <p>GOTS-certified organic fleece with organic-certified trims and dyes. Fiber-to-garment traceability is the real differentiator, not the hand-feel. Confirm the GOTS transaction certificate covers your specific order rather than only the facility; that distinction trips up more buyers than any other certification issue. More detail in our notes on <a href="/our-services/">GOTS-certified organic cotton sourcing</a>. <strong>Best for:</strong> eco-positioned brands selling into markets where organic claims face regulatory scrutiny.</p>
+        <h3>4. Large-Volume Exporter: Best for Bulk Export Programs</h3>
+        <p>Broad GSM range with consistent output across runs of several thousand units, typically backed by BSCI, WRAP, and ISO 9001 (verify each one). Decoration and labeling stay standard; experimental finishes are rarely accommodated at this scale. <strong>Best for:</strong> wholesalers and brands with repeatable volume who weight reliability and unit cost above flexibility.</p>
+        <h3>5. Full-Package OEM/ODM: Best for Turnkey Development</h3>
+        <p>Cotton fleece and french terry across the common mid-weight bands, with in-house pattern-making, grading, trim development, branding, and packaging under one roof. <strong>Best for:</strong> brands that want one partner to carry a concept to finished goods without juggling three vendors and a freight forwarder.</p>
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Inside a Chinese hoodie factory: cotton fabric cutting and quality inspection">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>Cutting and inspection reference</strong><small>Needed: a verified cutting or quality inspection stage photo from the supplied production environment.</small></div>
+      </div>
+    </figure>
+        <p>Not sure which factory profile fits your spec? <a href="/contact-us/">Talk to our team</a>. Send your GSM, order size, and timeline.</p>
+        <h3>6. Print &amp; Embroidery Studio: Best for Graphic Customization</h3>
+        <p>Decoration runs in-house rather than subcontracted: screen print, DTG, DTF, puff, flat embroidery, and 3D embroidery. Base fabric is selected for decoration adhesion rather than loft, so expect mid-weight rather than heavyweight bodies. <strong>Best for:</strong> graphic-heavy streetwear and merch brands where the artwork is the product.</p>
+        <h3>7. Fast-Sampling Workshop: Best for Quick Prototypes</h3>
+        <p>A small, agile operation trading scale for speed, working from stock-supported fabric programs. Decoration stays basic, but sample revisions turn around in days and production slots open quickly. <strong>Best for:</strong> brands working against a fixed launch date who need iterations in days, not weeks.</p>
+        <h3>8. Budget Bulk Producer: Best for Cost-Driven Volume</h3>
+        <p>Cotton fleece at the lighter end of the range, with basic decoration and labeling. GSM accuracy is the weak point in this tier, so put every sample on a scale before approving anything. <strong>Best for:</strong> price-sensitive volume buyers with simple specs. Avoid if you are building premium positioning.</p>
+        <h3>9. Premium Streetwear Partner: Best for High-End Construction</h3>
+        <p>Heavyweight cotton paired with multi-panel construction, advanced wash treatments, custom zippers, and custom drawcord tips. <strong>Best for:</strong> designer and premium streetwear labels where stitch density and finishing decide whether the garment justifies a $120 retail price.</p>
+        <h3>10. Full-Service Sourcing &amp; QC: Best for Managing Complexity</h3>
+        <p>Coordinates across multiple partner factories and owns QC end to end. Capability varies by partner, so verify certifications per order rather than per relationship. The value sits in coordination and centralized inspection, not in a single production floor. <strong>Best for:</strong> buyers running multiple styles or categories who want one point of contact.</p>
+        <h2 id="mistakes">Common Mistakes When Sourcing Cotton Hoodies from China</h2>
+        <ol class="ar-list"><li><strong>Choosing on price alone, then inheriting a GSM problem.</strong> The cheapest quote usually hides thinner fabric or an inflated weight claim. A "400 GSM" hoodie that weighs out at 320 GSM is one of the oldest tricks in the trade. Weigh every pre-production sample on a digital scale and compare on total landed cost against verified specs. See how we handle this in <a href="/production/">our production checks and QC process</a>.</li><li><strong>Skipping the factory audit.</strong> A live video call or third-party inspection before bulk catches most problems while they're still cheap to fix. With a new supplier, this is not optional.</li><li><strong>Misreading MOQ terms.</strong> Clarify whether MOQ applies per style, per color, or per design. A "300 MOQ" becomes 900 units once you add three colorways.</li><li><strong>Ignoring payment risk.</strong> Standard terms protect both sides: typically a 30% deposit with the balance against inspection. Full prepayment to an unverified supplier is money you may not see again.</li><li><strong>Underestimating peak-season lead time.</strong> Chinese New Year and the Q3–Q4 crunch add one to two weeks. Build that buffer into your launch plan now, not in December.</li></ol>
+        <h2 id="how-to">Step-by-Step: From Inquiry to Delivery</h2>
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Step-by-step process of ordering custom cotton hoodies from China">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>Eight-step ordering flow</strong><small>Needed: a verified process diagram matching the eight steps in this section.</small></div>
+      </div>
+    </figure>
+        <p><strong>Step 1: Define your spec.</strong> GSM, fabric structure, fit, colorways, decoration, quantity, target cost, deadline. This document becomes your RFQ.</p>
+        <p><strong>Step 2: Send inquiries to 5–8 suppliers.</strong> Request MOQ, unit price range, sampling time, and lead time. Response speed and clarity tell you plenty before a single sample ships.</p>
+        <p><strong>Step 3: Prepare a tech pack.</strong> Measurements, construction details, decoration placement and sizing. New to this? Read <a href="/production/">how to prepare a hoodie tech pack</a>.</p>
+        <p><strong>Step 4: Order samples.</strong> Pay for pre-production samples and assess fabric weight, stitching, fit, and decoration quality.</p>
+        <p><strong>Step 5: Confirm and order.</strong> Sign off on the approved sample, issue a purchase order, check the proforma invoice terms line by line.</p>
+        <p><strong>Step 6: Production.</strong> Most runs take 25–50 days. Ask for weekly photo updates from cutting and sewing.</p>
+        <p><strong>Step 7: Quality control.</strong> Book a pre-shipment inspection covering measurements, GSM, color against the approved lab dip, stitching, and decoration.</p>
+        <p><strong>Step 8: Shipping.</strong> Sea freight adds 25–35 days; air freight cuts that to under a week at several times the cost. Lock Incoterms before booking.</p>
+        <p>Want the full process in one document? <a href="/contact-us/">See how sampling and production run</a>.</p>
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <details class="ar-faq-item" open><summary><h3>What is the typical MOQ for 100% cotton hoodies from Chinese manufacturers?</h3></summary><p>MOQ varies widely by factory type. Small-batch specialists accept 50–150 pcs per color, mid-tier factories typically require 300–500 pcs per color, and large-volume exporters may set MOQ at 1,000–3,000 pcs per style. Always confirm whether the MOQ applies per style, per color, or per design.</p></details>
+        <details class="ar-faq-item"><summary><h3>How much does it cost to manufacture a custom cotton hoodie in China?</h3></summary><p>For a 100% cotton fleece hoodie in the 300–400 GSM range, FOB pricing commonly falls in the $8–18 per unit band for orders of 500–3,000 pcs, depending on fabric weight, decoration, and construction. These are typical industry ranges, so request a live quote for your specific spec.</p></details>
+        <details class="ar-faq-item"><summary><h3>How long does production and shipping take for a hoodie order?</h3></summary><p>Production typically runs 25–50 days depending on factory and order complexity. Sea freight to the US or EU adds roughly 25–35 days. Plan for 2–3 months from PO to delivery, and add buffer during peak season.</p></details>
+        <details class="ar-faq-item"><summary><h3>How can I verify if a Chinese hoodie factory is legitimate?</h3></summary><p>Ask for a live video walkthrough of the production floor, verify certification numbers on the issuing body's database, request references or past samples, and arrange a third-party inspection before bulk production. A supplier that resists any of these steps warrants caution.</p></details>
+        <details class="ar-faq-item"><summary><h3>What GSM is best for a heavyweight cotton hoodie?</h3></summary><p>Heavyweight hoodies generally fall in the 380–500 GSM range. For everyday premium wear, 400 GSM is a common target. Confirm actual fabric weight by weighing a pre-production sample, since "GSM" is frequently overstated.</p></details>
+        <details class="ar-faq-item"><summary><h3>Do Chinese hoodie manufacturers offer organic or GOTS-certified cotton?</h3></summary><p>Yes. A number of factories specialize in GOTS-certified organic cotton hoodies, typically with MOQ of 500–1,000 pcs per color. Always verify that the GOTS transaction certificate specifically covers your order, not just the facility.</p></details>
+        <details class="ar-faq-item"><summary><h3>Can I get a sample before placing a bulk order?</h3></summary><p>Yes, and you should. Most factories provide pre-production samples in 5–20 days for a sample fee, often credited against the bulk order. Never proceed to bulk production without an approved physical sample.</p></details>
+        <details class="ar-faq-item"><summary><h3>What's the difference between a trading company and a direct hoodie factory?</h3></summary><p>A direct factory owns production equipment and controls quality on its own floor. A trading company coordinates production, often across multiple factories. Trading companies can add value in coordination and QC, but they typically add margin and reduce your visibility into production. Ask direct questions about sewing lines and floor capacity to tell them apart.</p></details>
+        <h2 id="next-step">Next Step: Get a Quote or a Free Sample</h2>
+        <p>You have the framework. Now apply it to your order.</p>
+        <p>YAUUM manufactures cotton hoodies from sampling and sample approval through bulk production and packing. The YAUUM Sourcing Team manages sampling and runs inline and final quality checks, so you aren't guessing at what's happening on the floor.</p>
+        <p><strong>What we can do for you:</strong></p>
+        <ul class="ar-list"><li>Match your GSM, quantity, and timeline to a production plan</li><li>Confirm fabric, construction, and measurement details in writing before you commit</li><li>Coordinate sampling, production, and quality checks</li></ul>
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Custom 100% cotton hoodie produced for an international streetwear brand">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>Finished cotton hoodie reference</strong><small>Needed: a verified finished-garment photo of a custom cotton hoodie from the production environment.</small></div>
+      </div>
+    </figure>
+        <p>Ready to move? <a href="/contact-us/">Request a Quote</a> or <a href="/contact-us/">Get a Free Sample</a>. You can also <a href="/hoodie-manufacturer/">see how our hoodie program runs</a> to see how we work.</p>
+        <p>YAUUM responds to sourcing inquiries within 24 hours on business days.</p>
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <InquirySection
+    product="Hoodies"
+    id="inquiry"
+    odId="inquiry-conversion"
+    band="band-alt"
+    kicker="Start an inquiry"
+    title="Send the Cotton Hoodie Details That Shape a Useful Review."
+    lead="GSM, quantity per color, decoration, and launch date: the brief this guide teaches you to write before you contact suppliers."
+    ctaLabel="Send project details"
+  />
+</EditorialLayout>
