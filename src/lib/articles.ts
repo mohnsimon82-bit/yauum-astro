@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/oversized-hoodie-manufacturer-types-china/",
+    title: "10 Types of Oversized Hoodie Manufacturers in China: How to Choose the Right Factory Profile",
+    description: "Ten oversized hoodie manufacturer archetypes, the seven-point vetting criteria behind them, and the spec details to lock before contacting a factory.",
+    date: "2026-10-07",
+    dateLabel: "October 7, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/cotton-hoodie-manufacturer-types-china/",
     title: "10 Types of Cotton Hoodie Manufacturers in China: How to Vet Suppliers (2026)",
     description: "Ten supplier archetypes for 100% cotton hoodies in China, a six-dimension vetting methodology, and the mistakes that decide whether an order runs.",

@@ -702,6 +702,73 @@ export const SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第五篇（2026-10-07）。slug 取自终稿 TDK（/oversized-hoodie-manufacturer-types-china/）。
+  // 审核报告 83 分（未达标需人工复核，用户确认发布）。Title 年份按报告要求 (2025)→(2026)；
+  // 两处 Lead Magnet 下载（vetting checklist / comparison sheet）站内不存在，按发布规则替换。
+  "/oversized-hoodie-manufacturer-types-china/": {
+    title: "10 Types of Oversized Hoodie Manufacturers in China (2026 Guide)",
+    description:
+      "Compare 10 oversized hoodie manufacturer profiles in China. Vetting criteria, MOQ, GSM specs, sampling tips & how to request a custom quote.",
+    path: "/oversized-hoodie-manufacturer-types-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/hoodie-manufacturer/style-oversized.webp"),
+    ogImageAlt: "Oversized drop-shoulder hoodie on a model",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["10 Types of Oversized Hoodie Manufacturers in China", "/oversized-hoodie-manufacturer-types-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "10 Types of Oversized Hoodie Manufacturers in China: How to Choose the Right Factory Profile",
+        description:
+          "Compare 10 oversized hoodie manufacturer profiles in China. Vetting criteria, MOQ, GSM specs, sampling tips & how to request a custom quote.",
+        path: "/oversized-hoodie-manufacturer-types-china/",
+        image: "/uploads/hoodie-manufacturer/style-oversized.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-07",
+        dateModified: "2026-10-07",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for custom oversized hoodies from China?",
+          "MOQ depends on the factory tier and your customization level. Flexible workshops and ODM studios commonly accept 100–300 pcs per style per color, while large exporters often require 500 pcs or more per color. Adding custom fabric, garment dye, or complex decoration usually raises the minimum. Confirm MOQ per style and per color, not as a single order figure.",
+        ],
+        [
+          "How much does it cost to manufacture an oversized hoodie in China?",
+          "FOB pricing for a custom oversized hoodie commonly falls in the $8–22 per piece range, driven by fabric GSM, decoration complexity, order quantity, and finishing. A basic 380 GSM fleece pullover with one-color print sits at the lower end; garment-dyed or heavily embroidered pieces sit higher. Use these ranges for planning rather than as a quote.",
+        ],
+        [
+          "Can Chinese factories produce true oversized / drop-shoulder fits?",
+          "Yes, but capability varies sharply. Factories with existing oversized pattern blocks produce accurate drop-shoulder geometry on the first or second sample. Factories that grade a regular-fit block outward often deliver a garment that is wider but not correctly proportioned. Always request a physical fit sample and measure the drop-shoulder distance against your spec.",
+        ],
+        [
+          "How long does sampling and production take?",
+          "Sampling commonly runs 7–15 working days per stage, covering lab dip, fit sample, and pre-production sample. Bulk production typically takes 25–45 days after sample approval, with peak season adding time. Ocean freight adds roughly 25–35 days depending on destination.",
+        ],
+        [
+          "What certifications should I look for in a hoodie manufacturer?",
+          "The relevant set depends on your market and sales channel. Social compliance certifications are frequently required by large retailers, and quality management certifications support consistency claims. For washed or printed goods, request colorfastness and decoration-durability test reports. Always verify the certificate scope and expiry date rather than accepting a logo on a website.",
+        ],
+        [
+          "Can I get custom labels, tags, and packaging (private label)?",
+          "Yes. Private label is standard across most factories in this tier. Typical scope includes woven or printed main labels, care labels, hang tags, and polybag or box packaging. Confirm artwork formats, minimum quantities for custom tags, and whether labeling is done in-house or outsourced, since outsourcing adds lead time.",
+        ],
+        [
+          "How do I verify a factory is legitimate before ordering?",
+          "Ask for a live video walkthrough of the production floor, request the pattern block for your style, and start with a paid sample before any bulk deposit. Cross-check the business license against the company name on the invoice. A factory that resists a physical sample or a live walkthrough is a risk regardless of how competitive the quote looks.",
+        ],
+        [
+          "What payment terms are typical for hoodie manufacturing orders?",
+          "Common structures include a deposit of around 30% with the balance before shipment, or against a copy of the bill of lading for established relationships. Some factories offer letter of credit terms for larger orders. Terms are negotiable and typically improve as order history builds. Confirm currency, bank details, and any inspection-linked payment conditions in writing.",
+        ],
+      ]),
+    ],
+  },
+
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
   "/thank-you/": {
