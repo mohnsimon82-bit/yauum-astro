@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-embroidered-hoodie-manufacturers-china/",
+    title: "Top 10 Embroidered Hoodie Manufacturers in China: A Buyer's Guide to Choosing the Right Factory",
+    description: "Ten embroidered hoodie manufacturers in China, the five-point selection criteria, and how to evaluate embroidery quality, MOQ, and lead time.",
+    date: "2026-10-07",
+    dateLabel: "October 7, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/oversized-hoodie-manufacturer-types-china/",
     title: "10 Types of Oversized Hoodie Manufacturers in China: How to Choose the Right Factory Profile",
     description: "Ten oversized hoodie manufacturer archetypes, the seven-point vetting criteria behind them, and the spec details to lock before contacting a factory.",

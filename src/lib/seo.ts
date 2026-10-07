@@ -769,6 +769,74 @@ export const SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第六篇（2026-10-07）。slug 取自 TDK（/top-10-embroidered-hoodie-manufacturers-china/）。
+  // 审核报告 80 分（未达标需人工复核，用户确认发布）。H2/Title 年份按报告 P0-2 (2025)→(2026)；
+  // "Checklist 下载"与"portfolio 作品集"站内不存在，按发布规则替换。本篇实名列 9 家公开集团，
+  // 文中自带 editorial/indicative 免责句（报告 P1 建议的进一步限定未执行）。
+  "/top-10-embroidered-hoodie-manufacturers-china/": {
+    title: "Top 10 Embroidered Hoodie Manufacturers in China (2026 Guide)",
+    description:
+      "Compare the top 10 embroidered hoodie manufacturers in China. Learn how to evaluate embroidery quality, MOQ & lead time. Get a free quote from YAUUM.",
+    path: "/top-10-embroidered-hoodie-manufacturers-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/hoodie-manufacturer/decoration-embroidery.webp"),
+    ogImageAlt: "Embroidered lettering on a hoodie as a visual process reference",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 Embroidered Hoodie Manufacturers in China", "/top-10-embroidered-hoodie-manufacturers-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 Embroidered Hoodie Manufacturers in China: A Buyer's Guide to Choosing the Right Factory",
+        description:
+          "Compare the top 10 embroidered hoodie manufacturers in China. Learn how to evaluate embroidery quality, MOQ & lead time. Get a free quote from YAUUM.",
+        path: "/top-10-embroidered-hoodie-manufacturers-china/",
+        image: "/uploads/hoodie-manufacturer/decoration-embroidery.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-07",
+        dateModified: "2026-10-07",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for custom embroidered hoodies in China?",
+          "Most Chinese factories set MOQ at 300–500 pieces per color for custom embroidered hoodies, and flexible workshops will take 100–300 on simpler artwork. Minimums drop when you build on stock fabric and an existing block pattern. Confirm per-color and per-style minimums separately.",
+        ],
+        [
+          "How long does it take to get an embroidered hoodie sample?",
+          "Plan on 7–15 days once artwork and fabric are locked. 3D puff and chenille add two to four days, since the foam or yarn trial usually needs a second pass before it holds shape. Rush sampling exists at a premium, and it means your sample jumps the queue.",
+        ],
+        [
+          "How much does it cost to manufacture an embroidered hoodie in China?",
+          "A mid-weight fleece hoodie with one standard chest embroidery usually lands in the $8–18 FOB range at 500–1,000 units. Fabric weight drives most of that spread: a 280 GSM brushed fleece with a 6,000-stitch logo sits near the bottom, a 450 GSM heavyweight with multi-position 3D puff near the top. Trims and custom packaging push it further.",
+        ],
+        [
+          "Can I get custom embroidery with small batch orders?",
+          "Yes. Expect to pay more per piece rather than be turned away. Runs under 300 pieces are workable at factories built for short cycles, and the penalty shows up in unit price and digitizing amortization.",
+        ],
+        [
+          "What's the difference between OEM and ODM for embroidered hoodies?",
+          "OEM means the factory builds to your tech pack, so you control silhouette, fabric, and every embroidery placement. ODM means you select an existing style and apply your branding. OEM builds a brand; ODM tests a market.",
+        ],
+        [
+          "How do I check if a Chinese hoodie factory's certifications are real?",
+          "Ask for four things: audit body, certificate number, scope, and expiry date. Then check them with the issuing organization rather than with the supplier. A JPEG proves nothing, and genuine certificates often cover a different facility or exclude knitwear.",
+        ],
+        [
+          "What embroidery techniques are best for hoodies (3D puff, flat, patch)?",
+          "3D puff reads well on fleece and suits bold, simple lettering. Flat embroidery handles fine detail and text under 5 mm. Chenille and applique deliver the varsity look while covering large areas fast. Fabric weight sets the ceiling: 400 GSM fleece carries dense stitching that would pucker a 240 GSM terry.",
+        ],
+        [
+          "How do I avoid color mismatch between my sample and bulk order?",
+          "Lock a physical thread chart before production and keep a signed reference sample at both ends. Write the assessment lighting into the spec, D65 being the standard. Thread dye lots shift, so re-approve the chart at every reorder.",
+        ],
+      ]),
+    ],
+  },
+
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
   "/thank-you/": {
