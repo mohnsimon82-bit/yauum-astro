@@ -181,6 +181,9 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      // 显式排除 noindex 页面（404 由集成自动排除；/thank-you/ 是表单致谢页，
+      // 刻意不收录——SEO 条目里同样带 noindex）。
+      filter: (page) => !page.endsWith("/thank-you/"),
       serialize(item) {
         const lastmod = lastmodFor(item.url);
         return lastmod ? { ...item, lastmod } : item;

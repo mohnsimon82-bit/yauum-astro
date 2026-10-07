@@ -1,0 +1,57 @@
+/* ============================================================
+   /thank-you/ 页面专属样式
+   ------------------------------------------------------------
+   本文件只服务 src/pages/thank-you.astro（BaseLayout 页面）。
+   设计令牌（--fg / --muted / --border / --accent / --accent-ink / --font-*）
+   全部来自 global.css，这里不新增、不覆盖令牌。
+   章节外壳复用共享类：standard-hero / section / section-surface / shell /
+   section-head / kicker / button；本文件只补 Hero 按钮行（.ty-actions）
+   与"等待期阅读"三张链接卡（.ty-links）。
+   ============================================================ */
+
+/* ---------- Hero 上下留白减半（与 /blog/ 的处理一致；global.css 生效值 165px 的一半） ---------- */
+.standard-hero .standard-hero-inner { padding-block: clamp(50px, 6vw, 82px); }
+
+/* ---------- Hero 按钮行（WhatsApp / 邮箱 / 回首页） ---------- */
+.ty-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.ty-back {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color .16s ease, border-color .16s ease;
+}
+.ty-back:hover { color: var(--fg); border-bottom-color: var(--fg); }
+
+/* ---------- 等待期阅读：三张链接卡 ---------- */
+.ty-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 52px;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.ty-link {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 220px;
+  padding: 26px 24px 28px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background .16s ease;
+}
+.ty-link:hover { background: var(--bg); }
+.ty-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.ty-link span { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--accent-ink); }
+.ty-link strong { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.08; letter-spacing: -.02em; }
+.ty-link small { color: var(--muted); font-size: 14px; line-height: 1.6; }
+.ty-link em { margin-top: auto; font-style: normal; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+
+@media (max-width: 900px) {
+  .ty-links { grid-template-columns: minmax(0, 1fr); }
+  .ty-link { min-height: 0; }
+}

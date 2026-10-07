@@ -1,0 +1,61 @@
+---
+/**
+ * /thank-you/ — 询盘表单提交后的致谢页。
+ *
+ * 刻意 noindex：SEO 条目带 noindex（页面输出 <meta name="robots" content="noindex, nofollow">），
+ * astro.config.mjs 的 sitemap filter 同步排除，不进搜索结果与 sitemap。
+ *
+ * 目前询盘表单是 AJAX 就地提示成功、不跳转（见 InquiryForm.astro）；本页供
+ * 外部链接/广告落地或将来把表单改成跳转时使用。表单的 GA4 转化事件是
+ * inquiry_form_submit（与是否到达本页无关）。
+ *
+ * 文案里的"一个工作日内回复"与表单成功提示、接口降级页的口径一致。
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSeo } from "../lib/seo";
+import "../styles/pages/thank-you.css";
+
+const WA_URL =
+  "https://wa.me/8615733728976?text=Hello%20Yauum%2C%20I%27d%20like%20to%20discuss%20a%20clothing%20manufacturing%20project.";
+
+const nextLinks: Array<[string, string, string, string]> = [
+  ["01 / Guides", "Manufacturing guides", "Practical B2B reading on materials, decoration, quality, and sourcing decisions.", "/blog/"],
+  ["02 / Process", "How production runs", "The sample-first workflow: brief, specification, sample approval, bulk, check and pack.", "/production/"],
+  ["03 / Services", "What we handle", "Product development, fabrics, printing and decoration, private label, inspection, and packing.", "/our-services/"],
+];
+---
+
+<BaseLayout seo={getSeo("/thank-you/")}>
+  <section class="standard-hero">
+    <div class="industrial-grid" aria-hidden="true"></div>
+    <div class="shell standard-hero-inner">
+      <p class="kicker kicker-accent">Inquiry received</p>
+      <h1>Thank You — Your Inquiry Is on Its Way.</h1>
+      <p>We have received your message and reply within one business day. If anything is urgent, reach us directly:</p>
+      <div class="ty-actions">
+        <a class="button button-accent" href={WA_URL} target="_blank" rel="noopener noreferrer">WhatsApp / +86 157 3372 8976</a>
+        <a class="button button-dark" href="mailto:mumu@yauum.com?subject=Yauum%20manufacturing%20inquiry">mumu@yauum.com</a>
+        <a class="ty-back" href="/">Back to homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-surface">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker">While you wait</p><h2 class="section-title">Keep the Project Moving.</h2></div>
+        <p>Useful reading for the stage after an inquiry.</p>
+      </div>
+      <div class="ty-links">
+        {nextLinks.map(([index, title, description, href]) => (
+          <a class="ty-link" href={href}>
+            <span>{index}</span>
+            <strong>{title}</strong>
+            <small>{description}</small>
+            <em>Open →</em>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -702,6 +702,21 @@ export const SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
+  // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
+  "/thank-you/": {
+    title: "Thank You | Yauum",
+    description:
+      "Your inquiry has been received. The Yauum team replies within one business day — WhatsApp and email are open if it is urgent.",
+    path: "/thank-you/",
+    ogType: "website",
+    noindex: true,
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide.webp"),
+    ogImageAlt: "Garment sewing line with operators and workstations",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+  },
+
   // 404 随 404 状态返回，不参与 sitemap；无 OG/JSON-LD 必要
   "/404/": {
     title: "Page Not Found | Yauum",
