@@ -1,0 +1,21 @@
+---
+/**
+ * /blog/page/N/ — 博客分页（第 2 页起）。
+ *
+ * 每页篇数由图 src/lib/articles.ts 的 PAGE_SIZE 决定；文章不足一页时这里
+ * 不生成任何路由（/blog/page/2/ 自然 404，分页器也不显示）。
+ * 页面本体与 /blog/ 共用 src/components/BlogPage.astro。
+ */
+import BlogPage from "../../../components/BlogPage.astro";
+import { totalPages } from "../../../lib/articles";
+
+export async function getStaticPaths() {
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
+    params: { page: String(i + 2) },
+  }));
+}
+
+const { page } = Astro.params;
+---
+
+<BlogPage page={Number(page)} />

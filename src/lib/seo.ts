@@ -47,7 +47,7 @@ export const provider = (): Record<string, unknown> => ({
   url: abs("/"),
 });
 
-function breadcrumb(items: Array<[name: string, path: string]>): Record<string, unknown> {
+export function breadcrumb(items: Array<[name: string, path: string]>): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

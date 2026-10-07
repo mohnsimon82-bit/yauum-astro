@@ -1,0 +1,151 @@
+---
+/**
+ * Blog 页面组件：/blog/（第 1 页）与 /blog/page/N/（后续页）共用。
+ *
+ * 文章数据在 src/lib/articles.ts（新文章加一条即可；每页篇数 = PAGE_SIZE）。
+ * 第 1 页的 SEO 用 seo.ts 的 /blog/ 条目；第 N 页复用其 OG 图等字段，
+ * 仅覆盖 title / path / breadcrumb（自指 canonical）。
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import InquirySection from "../components/InquirySection.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO, getSeo, breadcrumb, type SeoData } from "../lib/seo";
+import { articlesOnPage, pageHref, totalPages, PAGE_SIZE } from "../lib/articles";
+import "../styles/pages/blog.css";
+
+interface Props {
+  /** 页码（1 起） */
+  page: number;
+}
+
+const { page } = Astro.props;
+const pageArticles = articlesOnPage(page);
+
+const seo: SeoData =
+  page === 1
+    ? getSeo("/blog/")
+    : {
+        ...SEO["/blog/"],
+        title: `Blog – Page ${page} | Yauum`,
+        path: `/blog/page/${page}/`,
+        jsonLd: [
+          breadcrumb([
+            ["Home", "/"],
+            ["Blog", "/blog/"],
+            [`Page ${page}`, `/blog/page/${page}/`],
+          ]),
+        ],
+      };
+
+/** 编辑分类（来自既有页面文案，未改写） */
+const categories: Array<[string, string, string]> = [
+  ["01", "Product Development", "How to prepare references, measurements, size ranges, tech packs, and sample comments."],
+  ["02", "Fabric and Workmanship", "How material weight, composition, handfeel, seams, trims, and construction influence a garment."],
+  ["03", "Decoration and Private Label", "How to discuss artwork files, print methods, embroidery, labels, tags, and packaging."],
+  ["04", "Quality and Packing", "How to define inspection points, approved references, unit packing, carton marks, and handoff evidence."],
+];
+---
+
+<BaseLayout seo={seo}>
+  <section class="standard-hero">
+    <div class="industrial-grid" aria-hidden="true"></div>
+    <div class="shell standard-hero-inner">
+      <p class="kicker kicker-accent">Manufacturing insights</p>
+      <h1>Blog</h1>
+      <p>Practical guidance for buyers developing custom apparel: product development, fabric and workmanship, decoration, private label, quality and packing.</p>
+      <a class="button button-accent" href="/contact-us/">Send a project brief</a>
+    </div>
+  </section>
+
+  <section class="section section-surface">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker">01 / Articles</p><h2 class="section-title">Published Guides.</h2></div>
+        <p>Each entry is a finished article published on this site. New guides are added here as they pass review.</p>
+      </div>
+      <div class="blog-list">
+        {pageArticles.map((article, index) => (
+          <a class="blog-entry" href={article.route}>
+            <span class="blog-entry-media">
+              <img
+                src={SEO[article.route].ogImage}
+                alt={SEO[article.route].ogImageAlt}
+                width={SEO[article.route].ogImageWidth}
+                height={SEO[article.route].ogImageHeight}
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <span class="blog-entry-copy">
+              <strong>{article.title}</strong>
+              <span class="blog-entry-desc">{article.description}</span>
+              <span class="blog-entry-meta">
+                <span>{String((page - 1) * PAGE_SIZE + index + 1).padStart(2, "0")} / {article.tag}</span>
+                <time datetime={article.date}>{article.dateLabel}</time>
+                <span class="blog-entry-views" data-views-for={article.route}></span>
+              </span>
+            </span>
+            <span class="blog-entry-go" aria-hidden="true">Read the guide →</span>
+          </a>
+        ))}
+      </div>
+
+      {totalPages > 1 && (
+        <nav class="blog-pager" aria-label="Blog pages">
+          {page > 1 ? (
+            <a class="blog-pager-step" href={pageHref(page - 1)}>← Newer</a>
+          ) : (
+            <span class="blog-pager-step is-disabled">← Newer</span>
+          )}
+          <span class="blog-pager-nums">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) =>
+              n === page ? (
+                <span class="blog-pager-num is-current" aria-current="page">{n}</span>
+              ) : (
+                <a class="blog-pager-num" href={pageHref(n)}>{n}</a>
+              ),
+            )}
+          </span>
+          {page < totalPages ? (
+            <a class="blog-pager-step" href={pageHref(page + 1)}>Older →</a>
+          ) : (
+            <span class="blog-pager-step is-disabled">Older →</span>
+          )}
+        </nav>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="kicker">02 / Editorial categories</p><h2 class="section-title">Editorial Categories Ready for Future Articles.</h2></div>
+        <p>No placeholder posts or invented case studies are published. Add verified articles to the content library when they are ready.</p>
+      </div>
+      <div class="blueprint-grid">
+        {categories.map(([number, title, description]) => (
+          <article><span>{number}</span><h3>{title}</h3><p>{description}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section standard-note-section">
+    <div class="shell standard-note">
+      <div><p class="kicker">03 / Important note</p><h2 class="section-title">Publishing Rule</h2></div>
+      <p>Use real experience, images, measurements, and documented examples. Avoid unsupported performance statistics, client names, or generic AI articles.</p>
+    </div>
+  </section>
+
+  <InquirySection
+    product="Blog"
+    id="inquiry"
+    odId="inquiry-conversion"
+    band="band-alt"
+    kicker="04 / Start an inquiry"
+    title="Send the Product Details That Shape a Useful Review."
+    ctaLabel="Send project details"
+  />
+
+  <ViewCounter />
+</BaseLayout>
