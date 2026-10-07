@@ -1,12 +1,20 @@
 /* ============================================================
    /blog/ 页面专属样式
    ------------------------------------------------------------
-   本文件只服务 src/pages/blog.astro。设计令牌（--fg / --muted / --border /
-   --accent-ink / --font-*）全部来自 global.css，这里不新增、不覆盖令牌。
-   章节外壳与 H2 头部复用 global.css 共享类（standard-hero / section /
-   section-surface / shell / section-head / blueprint-grid / standard-note*）。
-   本文件只补 01 / Articles 区的文章列表（.blog-*）。
+   本文件只服务 src/components/BlogPage.astro（/blog/ 与 /blog/page/N/）。
+   设计令牌（--fg / --muted / --border / --accent-ink / --font-*）全部来自
+   global.css，这里不新增、不覆盖令牌。章节外壳与 H2 头部复用 global.css
+   共享类（standard-hero / section / section-surface / shell / section-head）。
+   本文件补三处：
+     1) Hero 上下留白减半（只作用于本页；global.css 的 clamp(88px,10vw,144px) → 一半）
+     2) 01 / Articles 区的文章列表 + 特色图（.blog-*）
+     3) 分页器（.blog-pager*）
    ============================================================ */
+
+/* ---------- Hero 上下留白减半（仅本页） ----------
+   global.css 后段生效值为 clamp(100px, 12vw, 165px)，这里取精确一半；
+   多带一层 .standard-hero 提高优先级，避免被后面的全局规则盖掉。 */
+.standard-hero .standard-hero-inner { padding-block: clamp(50px, 6vw, 82px); }
 
 .blog-list { margin-top: 52px; border-top: 2px solid var(--fg); }
 
