@@ -1,0 +1,63 @@
+---
+// 文章阅读量（共享组件，blog 列表与文章页都用）。
+//
+// 用法：在任一元素上加 data-views-for="/article-path/" → 脚本从
+// /api/views 批量取数并填入 "1,234 views"；再加 data-views-hit 的元素
+// 所在页面会在加载时记一次浏览（sessionStorage 保证同一会话同一篇只计一次）。
+//
+// 数字来自 Cloudflare KV（Pages Function /api/views）。接口未配置或请求失败时
+// 元素保持空 → [data-views-for]:empty 规则把它隐藏，页面不受影响。
+---
+<script is:inline>
+  (() => {
+    const els = Array.from(document.querySelectorAll("[data-views-for]"));
+    if (!els.length) return;
+    const fmt = (n) => n.toLocaleString("en-US") + (n === 1 ? " view" : " views");
+    const fill = (map) => {
+      els.forEach((el) => {
+        const n = map[el.getAttribute("data-views-for")];
+        if (typeof n === "number") el.textContent = fmt(n);
+      });
+    };
+    const paths = [...new Set(els.map((el) => el.getAttribute("data-views-for")))];
+    const hitEl = document.querySelector("[data-views-hit]");
+    let hitPath = "";
+    if (hitEl) {
+      const p = hitEl.getAttribute("data-views-for");
+      const key = "yv:" + p;
+      try {
+        if (!sessionStorage.getItem(key)) {
+          sessionStorage.setItem(key, "1");
+          hitPath = p;
+        }
+      } catch {
+        hitPath = p;
+      }
+    }
+    (async () => {
+      let hitCount = null;
+      if (hitPath) {
+        try {
+          const res = await fetch(`/api/views?hit=1&path=${encodeURIComponent(hitPath)}`, { cache: "no-store" });
+          const data = await res.json();
+          if (data && typeof data.count === "number") hitCount = data.count;
+        } catch {
+          /* 计数失败不影响阅读 */
+        }
+      }
+      try {
+        const res = await fetch(`/api/views?paths=${encodeURIComponent(paths.join(","))}`, { cache: "no-store" });
+        const data = await res.json();
+        if (data && data.counts) fill(data.counts);
+      } catch {
+        /* 读取失败时保持隐藏 */
+      }
+      if (hitCount !== null) fill({ [hitPath]: hitCount });
+    })();
+  })();
+</script>
+
+<style is:global>
+  /* 接口未配置 / 请求失败时不显示空占位 */
+  [data-views-for]:empty { display: none; }
+</style>

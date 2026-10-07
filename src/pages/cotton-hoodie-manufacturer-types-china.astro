@@ -21,6 +21,7 @@
  */
 import EditorialLayout from "../layouts/EditorialLayout.astro";
 import InquirySection from "../components/InquirySection.astro";
+import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/cotton-hoodie-manufacturer-types-china.css";
 
@@ -52,6 +53,7 @@ const toc: Array<[string, string, string]> = [
       <p class="ar-meta">
         <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
         <span>Published <time datetime="2026-10-07">October 7, 2026</time></span>
+      <span class="ar-views" data-views-for="/cotton-hoodie-manufacturer-types-china/" data-views-hit></span>
       </p>
       <p class="ar-lede">Sourcing a 100% cotton hoodie from China should be straightforward. It rarely is. Search "top 10 cotton hoodie manufacturers in China" and you land on a dozen near-identical listicles, each one a thinly veiled ad, none of them telling you how to separate a real factory from a trading company with a good website.</p>
     </div>
@@ -193,4 +195,6 @@ const toc: Array<[string, string, string]> = [
     lead="GSM, quantity per color, decoration, and launch date: the brief this guide teaches you to write before you contact suppliers."
     ctaLabel="Send project details"
   />
+
+  <ViewCounter />
 </EditorialLayout>

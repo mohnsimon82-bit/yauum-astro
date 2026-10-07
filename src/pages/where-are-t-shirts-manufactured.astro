@@ -15,6 +15,7 @@
  */
 import EditorialLayout from "../layouts/EditorialLayout.astro";
 import InquirySection from "../components/InquirySection.astro";
+import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/where-are-t-shirts-manufactured.css";
 
@@ -47,6 +48,7 @@ const toc: Array<[string, string, string]> = [
       <p class="ar-meta">
         <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
         <span>Published <time datetime="2026-10-06">October 6, 2026</time></span>
+      <span class="ar-views" data-views-for="/where-are-t-shirts-manufactured/" data-views-hit></span>
       </p>
       <p class="ar-lede">Ask "where are T-shirts manufactured?" and you are usually asking something narrower: which country should make <em>mine</em>? No single nation owns T-shirt production. The global map is a patchwork of industrial clusters, each built around a different mix of labor cost, cotton access, technical capability, and distance to the end market.</p>
     </div>
@@ -269,4 +271,6 @@ const toc: Array<[string, string, string]> = [
     lead="Category, quantity, fabric direction, decoration, and destination: the same brief this guide describes."
     ctaLabel="Send project details"
   />
+
+  <ViewCounter />
 </EditorialLayout>

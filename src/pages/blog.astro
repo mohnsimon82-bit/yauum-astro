@@ -16,7 +16,8 @@
  */
 import BaseLayout from "../layouts/BaseLayout.astro";
 import InquirySection from "../components/InquirySection.astro";
-import { getSeo } from "../lib/seo";
+import ViewCounter from "../components/ViewCounter.astro";
+import { getSeo, SEO } from "../lib/seo";
 import "../styles/pages/blog.css";
 
 type Article = {
@@ -96,13 +97,24 @@ const categories: Array<[string, string, string]> = [
       <div class="blog-list">
         {articles.map((article, index) => (
           <a class="blog-entry" href={article.route}>
-            <span class="blog-entry-meta">
-              <span>{String(index + 1).padStart(2, "0")} / {article.tag}</span>
-              <time datetime={article.date}>{article.dateLabel}</time>
+            <span class="blog-entry-media">
+              <img
+                src={SEO[article.route].ogImage}
+                alt={SEO[article.route].ogImageAlt}
+                width={SEO[article.route].ogImageWidth}
+                height={SEO[article.route].ogImageHeight}
+                loading="lazy"
+                decoding="async"
+              />
             </span>
             <span class="blog-entry-copy">
               <strong>{article.title}</strong>
-              <span>{article.description}</span>
+              <span class="blog-entry-desc">{article.description}</span>
+              <span class="blog-entry-meta">
+                <span>{String(index + 1).padStart(2, "0")} / {article.tag}</span>
+                <time datetime={article.date}>{article.dateLabel}</time>
+                <span class="blog-entry-views" data-views-for={article.route}></span>
+              </span>
             </span>
             <span class="blog-entry-go" aria-hidden="true">Read the guide →</span>
           </a>
@@ -141,4 +153,6 @@ const categories: Array<[string, string, string]> = [
     title="Send the Product Details That Shape a Useful Review."
     ctaLabel="Send project details"
   />
+
+  <ViewCounter />
 </BaseLayout>

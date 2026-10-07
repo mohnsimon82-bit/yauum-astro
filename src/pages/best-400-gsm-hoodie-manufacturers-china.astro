@@ -20,6 +20,7 @@
  */
 import EditorialLayout from "../layouts/EditorialLayout.astro";
 import InquirySection from "../components/InquirySection.astro";
+import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/best-400-gsm-hoodie-manufacturers-china.css";
 
@@ -51,6 +52,7 @@ const toc: Array<[string, string, string]> = [
       <p class="ar-meta">
         <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
         <span>Published <time datetime="2026-10-07">October 7, 2026</time></span>
+      <span class="ar-views" data-views-for="/best-400-gsm-hoodie-manufacturers-china/" data-views-hit></span>
       </p>
       <p class="ar-lede">Search "best 400 GSM hoodie manufacturers in China" and you get a wall of factory lists. Almost none of them explain how to distinguish a mill that genuinely knits 400 gsm fleece from a supplier that ships 320 gsm and calls it "heavyweight." That gap is what this guide closes.</p>
     </div>
@@ -249,4 +251,6 @@ const toc: Array<[string, string, string]> = [
     lead="Weight tolerance, fabric composition, colorways, trims, and quantity: the spec this guide teaches you to lock down."
     ctaLabel="Send project details"
   />
+
+  <ViewCounter />
 </EditorialLayout>

@@ -1,5 +1,8 @@
 {
   "name": "yauum-preview",
   "compatibility_date": "2026-07-23",
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist",
+  "kv_namespaces": [
+    { "binding": "VIEWS", "id": "1952c7ec6a7b4cae9cc4be673988c7d7" }
+  ]
 }

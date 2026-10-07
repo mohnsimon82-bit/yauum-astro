@@ -12,25 +12,26 @@
 
 .blog-entry {
   display: grid;
-  grid-template-columns: 230px minmax(0, 1fr) auto;
-  gap: 10px 32px;
+  grid-template-columns: 208px minmax(0, 1fr) auto;
+  gap: 12px 32px;
   padding: 30px 0;
   border-bottom: 1px solid var(--border);
   align-items: start;
 }
 .blog-entry:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 
-.blog-entry-meta {
-  display: grid;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--muted);
+/* 特色图（每篇用各自 SEO 条目里的 og 图） */
+.blog-entry-media { display: block; overflow: hidden; background: var(--border); }
+.blog-entry-media img {
+  width: 100%;
+  height: auto; /* 覆盖 img 的 height 属性提示，交给 aspect-ratio */
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.2, .7, .2, 1);
 }
+.blog-entry:hover .blog-entry-media img { transform: scale(1.035); }
 
-.blog-entry-copy { display: grid; gap: 10px; }
+.blog-entry-copy { display: grid; gap: 10px; align-content: start; }
 .blog-entry-copy strong {
   font-family: var(--font-display);
   font-weight: 600;
@@ -39,7 +40,19 @@
   letter-spacing: -.02em;
 }
 .blog-entry:hover .blog-entry-copy strong { text-decoration: underline; text-underline-offset: 4px; }
-.blog-entry-copy > span { max-width: 68ch; color: var(--muted); font-size: 16px; }
+.blog-entry-desc { max-width: 68ch; color: var(--muted); font-size: 16px; }
+
+.blog-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  padding-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 .blog-entry-go {
   padding-top: 6px;
@@ -53,5 +66,6 @@
 
 @media (max-width: 900px) {
   .blog-entry { grid-template-columns: minmax(0, 1fr); }
+  .blog-entry-media { max-width: 460px; }
   .blog-entry-go { padding-top: 0; }
 }

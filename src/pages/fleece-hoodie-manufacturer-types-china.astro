@@ -19,6 +19,7 @@
  */
 import EditorialLayout from "../layouts/EditorialLayout.astro";
 import InquirySection from "../components/InquirySection.astro";
+import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
 import "../styles/pages/fleece-hoodie-manufacturer-types-china.css";
 
@@ -50,6 +51,7 @@ const toc: Array<[string, string, string]> = [
       <p class="ar-meta">
         <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
         <span>Published <time datetime="2026-10-06">October 6, 2026</time></span>
+      <span class="ar-views" data-views-for="/fleece-hoodie-manufacturer-types-china/" data-views-hit></span>
       </p>
       <p class="ar-lede">Fleece hoodies are one of the most forgiving garments to sell and one of the easiest to get wrong at the factory. The fabric hides minor fit problems, the silhouette moves across three seasons, and the margin looks healthy on a spreadsheet. Then a 350 GSM order lands at 290 GSM, or the anti-pilling finish breaks down after three home washes. This guide covers ten manufacturer profiles worth shortlisting, plus the framework for judging whether any of them fits your program.</p>
     </div>
@@ -257,4 +259,6 @@ const toc: Array<[string, string, string]> = [
     lead="Style, fabric structure and GSM, colorways, embellishment, and quantity: the same brief this guide describes."
     ctaLabel="Send project details"
   />
+
+  <ViewCounter />
 </EditorialLayout>
