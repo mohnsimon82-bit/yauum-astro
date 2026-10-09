@@ -11,6 +11,8 @@
 export const SITE = {
   origin: "https://yauum.com",
   name: "Yauum",
+  /** 搜索结果里显示的站点名称（Google「站点名称」取自首页 WebSite 结构化数据与 og:site_name） */
+  siteName: "Yauum Garment",
   legalName: "Dongguan Yauum Apparel Co., Ltd.",
   email: "mumu@yauum.com",
   telephone: "+8615733728976",
@@ -76,7 +78,8 @@ export function homeJsonLd(): Record<string, unknown>[] {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: SITE.name,
+      name: SITE.siteName,
+      alternateName: SITE.name,
       url: abs("/"),
     },
   ];
