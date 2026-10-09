@@ -837,6 +837,74 @@ export const SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第七篇（2026-10-09）。slug 取 TDK（/top-8-zip-up-hoodie-manufacturers-china/，Top 10 收敛为 Top 8）。
+  // 审核报告 84 分（未达标需人工复核，用户确认发布）。P0-B 域名已逐条打开核验替换：
+  // shenzhou.com→shenzhouintl.com、heilan.com→hla.com.cn；其余 6 个域名打开确认为对应集团官网。
+  // 两处 checklist 下载 CTA 按发布规则替换；标题年份流水线已自行同步为 2026。
+  "/top-8-zip-up-hoodie-manufacturers-china/": {
+    title: "Top 8 Zip Up Hoodie Manufacturers in China | 2026 Guide",
+    description:
+      "Compare the top 8 zip up hoodie manufacturers in China. Learn how to vet factories, avoid sourcing mistakes, and request a quote today.",
+    path: "/top-8-zip-up-hoodie-manufacturers-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/hoodie-manufacturer/style-full-zip.webp"),
+    ogImageAlt: "Full zip-up hoodie on a model",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 8 Zip Up Hoodie Manufacturers in China", "/top-8-zip-up-hoodie-manufacturers-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 8 Zip Up Hoodie Manufacturers in China: A 2026 Buyer's Guide to Choosing the Right Factory",
+        description:
+          "Compare the top 8 zip up hoodie manufacturers in China. Learn how to vet factories, avoid sourcing mistakes, and request a quote today.",
+        path: "/top-8-zip-up-hoodie-manufacturers-china/",
+        image: "/uploads/hoodie-manufacturer/style-full-zip.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-09",
+        dateModified: "2026-10-09",
+      }),
+      faqJsonLd([
+        [
+          "What is the best zip up hoodie manufacturer in China for small orders?",
+          "There is no single best factory. Small-order programs are generally better served by mid-size and specialist manufacturers than by large integrated groups, which price and schedule around long runs. Look for factories quoting MOQ per color in the low hundreds that treat zip up hoodies as a core construction rather than a side line.",
+        ],
+        [
+          "What is the typical MOQ for custom zip up hoodies in China?",
+          "MOQ commonly ranges from about 300 to 500 pieces per color for custom zip up hoodies, though some factories accept 100 to 200 pieces on simpler constructions using stock fabric. Large integrated manufacturers often require 1,000 pieces or more per style. Always confirm whether the MOQ applies per style, per color, or per fabric, because that distinction decides whether a multi-color drop is even possible.",
+        ],
+        [
+          "How much does it cost to manufacture a zip up hoodie in China?",
+          "FOB pricing for custom zip up hoodies typically falls between roughly $8 and $18 per piece, driven mainly by fabric weight, zipper type, decoration method, and order volume. Heavyweight brushed fleece with a branded metal zipper and multi-position embroidery sits at the top of that band; lightweight terry with a single-color print sits near the bottom. Use the range to place your target tier, then request a quote against your own spec.",
+        ],
+        [
+          "How long does production and shipping take for zip up hoodies?",
+          "Plan on about 7 to 15 days for sampling, 30 to 45 days for bulk production after sample approval, and 25 to 40 days of sea freight to North America or Europe. Air freight takes roughly 5 to 10 days. Add buffer around Chinese New Year, and add two to three weeks whenever a zipper tape or fabric color requires its own dye lot and lab dip approval.",
+        ],
+        [
+          "Do Chinese hoodie manufacturers support OEM and ODM?",
+          "Yes. Most manufacturers offer OEM, where you supply the design and tech pack, and many also offer ODM, where they adapt existing patterns and styles to your branding. ODM shortens development and lowers cost but reduces exclusivity, since the base pattern may run for other clients. Settle which model applies before you assume design ownership.",
+        ],
+        [
+          "What certifications should I look for in a hoodie factory?",
+          "BSCI, WRAP, and ISO 9001 cover social compliance and quality systems, while OEKO-TEX addresses chemical safety in the fabric. The logo matters less than three checks: whether the certificate is current, whether it covers the specific production site making your goods, and whether it names your actual supplier. Verify with the issuing body instead of trusting a forwarded PDF.",
+        ],
+        [
+          "Can I get samples before placing a bulk order?",
+          "Yes, and you should. Most factories provide samples, either free against a bulk commitment or charged as a sample fee that is often credited back on the order. Wash the sample before you approve it, because shrinkage and placket distortion surface after the first wash, not before it.",
+        ],
+        [
+          "How do I verify a hoodie manufacturer is legitimate?",
+          "Cross-check the company registration, request a live video or in-person walkthrough of the production floor, verify audit certificates with the issuing body, ask for references from brands of comparable size, and start with a trial order. A supplier that resists any of these steps is a risk signal regardless of the price on the table.",
+        ],
+      ]),
+    ],
+  },
+
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
   "/thank-you/": {
