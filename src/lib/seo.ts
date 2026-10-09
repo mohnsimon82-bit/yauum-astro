@@ -216,7 +216,7 @@ function articleJsonLd(opts: {
     headline: opts.headline,
     description: opts.description,
     image: [abs(opts.image)],
-    author: { "@type": "Organization", name: opts.author },
+    author: { "@type": "Organization", name: opts.author, url: abs("/about-us/") },
     publisher: { "@id": ORGANIZATION_ID },
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
@@ -569,8 +569,8 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/where-are-t-shirts-manufactured/",
         image: "/uploads/t-shirt-manufacturer/hero-tshirt-private-label.webp",
         author: "YAUUM Sourcing Team",
-        datePublished: "2026-10-06",
-        dateModified: "2026-10-06",
+        datePublished: "2026-10-06T00:00:00+08:00",
+        dateModified: "2026-10-06T00:00:00+08:00",
       }),
       faqJsonLd([
         [
@@ -636,8 +636,8 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/fleece-hoodie-manufacturer-types-china/",
         image: "/uploads/hoodie-manufacturer/hero-blank-pullover.webp",
         author: "YAUUM Sourcing Team",
-        datePublished: "2026-10-06",
-        dateModified: "2026-10-06",
+        datePublished: "2026-10-06T00:00:00+08:00",
+        dateModified: "2026-10-06T00:00:00+08:00",
       }),
       faqJsonLd([
         [
@@ -695,8 +695,8 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/best-400-gsm-hoodie-manufacturers-china/",
         image: "/uploads/hoodie-manufacturer/style-heavyweight.webp",
         author: "YAUUM Sourcing Team",
-        datePublished: "2026-10-07",
-        dateModified: "2026-10-07",
+        datePublished: "2026-10-07T00:00:00+08:00",
+        dateModified: "2026-10-07T00:00:00+08:00",
       }),
       faqJsonLd([
         [
@@ -762,8 +762,8 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/cotton-hoodie-manufacturer-types-china/",
         image: "/uploads/hoodie-manufacturer/fabric-cotton.webp",
         author: "YAUUM Sourcing Team",
-        datePublished: "2026-10-07",
-        dateModified: "2026-10-07",
+        datePublished: "2026-10-07T00:00:00+08:00",
+        dateModified: "2026-10-07T00:00:00+08:00",
       }),
       faqJsonLd([
         [
@@ -829,8 +829,8 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/oversized-hoodie-manufacturer-types-china/",
         image: "/uploads/hoodie-manufacturer/style-oversized.webp",
         author: "YAUUM Sourcing Team",
-        datePublished: "2026-10-07",
-        dateModified: "2026-10-07",
+        datePublished: "2026-10-07T00:00:00+08:00",
+        dateModified: "2026-10-07T00:00:00+08:00",
       }),
       faqJsonLd([
         [
@@ -897,8 +897,8 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/top-10-embroidered-hoodie-manufacturers-china/",
         image: "/uploads/hoodie-manufacturer/decoration-embroidery.webp",
         author: "YAUUM Sourcing Team",
-        datePublished: "2026-10-07",
-        dateModified: "2026-10-07",
+        datePublished: "2026-10-07T00:00:00+08:00",
+        dateModified: "2026-10-07T00:00:00+08:00",
       }),
       faqJsonLd([
         [
@@ -965,8 +965,8 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/top-8-zip-up-hoodie-manufacturers-china/",
         image: "/uploads/hoodie-manufacturer/style-full-zip.webp",
         author: "YAUUM Sourcing Team",
-        datePublished: "2026-10-09",
-        dateModified: "2026-10-09",
+        datePublished: "2026-10-09T00:00:00+08:00",
+        dateModified: "2026-10-09T00:00:00+08:00",
       }),
       faqJsonLd([
         [
@@ -1033,8 +1033,8 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/top-puff-print-hoodie-manufacturers-china/",
         image: "/uploads/hoodie-manufacturer/style-puff-print.webp",
         author: "YAUUM Sourcing Team",
-        datePublished: "2026-10-09",
-        dateModified: "2026-10-09",
+        datePublished: "2026-10-09T00:00:00+08:00",
+        dateModified: "2026-10-09T00:00:00+08:00",
       }),
       faqJsonLd([
         [
