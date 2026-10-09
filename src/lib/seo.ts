@@ -3,6 +3,11 @@
 // 都从这里取值，两个 layout（EditorialLayout / BaseLayout）只负责渲染，
 // 页面组件不允许再各自手写 meta，避免重复或不一致。
 //
+// 标题格式（2026-10-09 起为正式约定，scripts/check-titles.mjs 在 postbuild 门禁校验）：
+//   %title% | Yauum —— 分隔符只有一个竖线、且只出现在品牌前，结尾固定 " | Yauum"；
+//   需要修饰词时用冒号分隔（如 "Custom Hoodie Manufacturer: Private Label | Yauum"）。
+//   新增页面、上传文章（含流水线 TDK 自带 Guide/年份后缀的标题）都必须按此格式收尾。
+//
 // 事实边界：以下字段只用已经公开确认的信息——
 //   - 公司法律名：页脚 "Dongguan Yauum Apparel Co., Ltd."
 //   - 邮箱 mumu@yauum.com、电话/WhatsApp +8615733728976：全站联系方式

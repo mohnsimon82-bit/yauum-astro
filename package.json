@@ -8,6 +8,7 @@
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "prebuild": "npm run sync && node scripts/ensure-full-git-history.mjs",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "postbuild": "node scripts/check-titles.mjs",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "deploy": "npm run build && wrangler deploy",
     "check": "ASTRO_TELEMETRY_DISABLED=1 astro check"
