@@ -95,6 +95,7 @@ function serviceJsonLd(opts: {
   serviceType: string;
   path: string;
   description: string;
+  image: string;
 }): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -104,6 +105,7 @@ function serviceJsonLd(opts: {
     provider: provider(),
     url: abs(opts.path),
     description: opts.description,
+    image: abs(opts.image),
   };
 }
 
@@ -195,6 +197,7 @@ function productSeo(opts: {
         serviceType: opts.serviceType,
         path: opts.path,
         description: opts.description,
+        image: opts.ogImage,
       }),
     ],
   };
@@ -248,10 +251,10 @@ export const SEO: Record<string, SeoData> = {
     title: "Custom Jacket Manufacturer: Private Label | Yauum",
     description:
       "Custom jacket development for private label brands: shell, lining, insulation, decoration, sampling, quality checks, and packing requirements.",
-    ogImage: "/uploads/products/jackets-manufacturer.webp",
-    ogImageAlt: "Jacket product reference",
-    ogImageWidth: 844,
-    ogImageHeight: 1448,
+    ogImage: "/uploads/jackets-manufacturer/hero-jackets-private-label.webp",
+    ogImageAlt: "Private label jacket produced as a finished-garment reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
   }),
 
   "/pants-manufacturer/": productSeo({
@@ -261,10 +264,10 @@ export const SEO: Record<string, SeoData> = {
     title: "Custom Pants Manufacturer: Private Label | Yauum",
     description:
       "Custom pants development for private label brands: fit blocks, waist construction, pockets, hardware, branding, sample approval, and checks.",
-    ogImage: "/uploads/products/pants-manufacturer.webp",
-    ogImageAlt: "Pants product reference",
-    ogImageWidth: 844,
-    ogImageHeight: 1448,
+    ogImage: "/uploads/pants-manufacturer/hero-pants-private-label.webp",
+    ogImageAlt: "Private label pants produced as a finished-garment reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
   }),
 
   "/sportswear-manufacturer/": productSeo({
@@ -274,10 +277,10 @@ export const SEO: Record<string, SeoData> = {
     title: "Custom Sportswear Manufacturer: Private Label | Yauum",
     description:
       "Custom sportswear development for private label brands: performance fabrics, fit, construction, branding, sampling, quality checks, and packing.",
-    ogImage: "/uploads/products/sportswear-manufacturer.webp",
-    ogImageAlt: "Sportswear product reference",
-    ogImageWidth: 844,
-    ogImageHeight: 1448,
+    ogImage: "/uploads/sportswear-manufacturer/hero-sportswear-private-label.webp",
+    ogImageAlt: "Private label sportswear range produced as a finished-garment reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
   }),
 
   "/streetwear-manufacturer/": productSeo({
@@ -287,10 +290,10 @@ export const SEO: Record<string, SeoData> = {
     title: "Custom Streetwear Manufacturer: Private Label | Yauum",
     description:
       "Build coordinated streetwear programs for private label brands: silhouette, materials, washes and decoration, labels, sampling, and pack-out rules.",
-    ogImage: "/uploads/products/streetwear-manufacturer.webp",
-    ogImageAlt: "Streetwear product reference",
-    ogImageWidth: 844,
-    ogImageHeight: 1448,
+    ogImage: "/uploads/streetwear-manufacturer/hero-streetwear-private-label.webp",
+    ogImageAlt: "Private label streetwear range produced as a finished-garment reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
   }),
 
   "/our-services/": {
