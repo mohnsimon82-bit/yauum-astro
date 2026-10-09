@@ -134,6 +134,8 @@ function serviceJsonLd(opts: {
   path: string;
   description: string;
   image: string;
+  /** 该服务产出的产品实体 @id（产品页指向同页 Product 节点） */
+  produces?: string;
 }): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -151,6 +153,31 @@ function serviceJsonLd(opts: {
       audienceType: "B2B apparel brands, private label brands and sourcing teams",
     },
     areaServed: AREA_SERVED,
+    ...(opts.produces ? { produces: { "@id": opts.produces } } : {}),
+    isPartOf: { "@id": WEBSITE_ID },
+  };
+}
+
+/** 产品页：Product JSON-LD（产品实体，说明"这是什么产品、由谁制造"）。
+ * 不上 offers / review：价格、MOQ、评价均未公开确认，不编造；因此不会有富媒体摘要，
+ * 作用是实体标注，并与同页 Service 通过 produces 互链。 */
+function productJsonLd(opts: {
+  name: string;
+  category: string;
+  path: string;
+  description: string;
+  image: string;
+}): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${abs(opts.path)}#product`,
+    name: `Custom and Private Label ${opts.name}`,
+    description: opts.description,
+    image: [abs(opts.image)],
+    category: opts.category,
+    url: abs(opts.path),
+    manufacturer: { "@id": ORGANIZATION_ID },
     isPartOf: { "@id": WEBSITE_ID },
   };
 }
@@ -217,6 +244,7 @@ function faqJsonLd(items: Array<[string, string]>): Record<string, unknown> {
 function productSeo(opts: {
   path: string;
   name: string; // "Hoodie"
+  category: string; // "Hoodies"（Product.category）
   serviceType: string; // "Hoodie manufacturing and product development"
   title: string;
   description: string;
@@ -245,6 +273,14 @@ function productSeo(opts: {
         path: opts.path,
         description: opts.description,
         image: opts.ogImage,
+        produces: `${abs(opts.path)}#product`,
+      }),
+      productJsonLd({
+        name: opts.name,
+        category: opts.category,
+        path: opts.path,
+        description: opts.description,
+        image: opts.ogImage,
       }),
     ],
   };
@@ -268,6 +304,7 @@ const RAW_SEO: Record<string, SeoData> = {
   "/hoodie-manufacturer/": productSeo({
     path: "/hoodie-manufacturer/",
     name: "Hoodie",
+    category: "Hoodies",
     serviceType: "Hoodie manufacturing and product development",
     title: "Custom Hoodie Manufacturer: Private Label | Yauum",
     description:
@@ -281,6 +318,7 @@ const RAW_SEO: Record<string, SeoData> = {
   "/t-shirt-manufacturer/": productSeo({
     path: "/t-shirt-manufacturer/",
     name: "T-Shirt",
+    category: "T-shirts",
     serviceType: "T-shirt manufacturing and product development",
     title: "Custom T-Shirt Manufacturer: Private Label | Yauum",
     description:
@@ -294,6 +332,7 @@ const RAW_SEO: Record<string, SeoData> = {
   "/jackets-manufacturer/": productSeo({
     path: "/jackets-manufacturer/",
     name: "Jacket",
+    category: "Jackets",
     serviceType: "Jacket manufacturing and product development",
     title: "Custom Jacket Manufacturer: Private Label | Yauum",
     description:
@@ -307,6 +346,7 @@ const RAW_SEO: Record<string, SeoData> = {
   "/pants-manufacturer/": productSeo({
     path: "/pants-manufacturer/",
     name: "Pants",
+    category: "Pants",
     serviceType: "Pants manufacturing and product development",
     title: "Custom Pants Manufacturer: Private Label | Yauum",
     description:
@@ -320,6 +360,7 @@ const RAW_SEO: Record<string, SeoData> = {
   "/sportswear-manufacturer/": productSeo({
     path: "/sportswear-manufacturer/",
     name: "Sportswear",
+    category: "Sportswear",
     serviceType: "Sportswear manufacturing and product development",
     title: "Custom Sportswear Manufacturer: Private Label | Yauum",
     description:
@@ -333,6 +374,7 @@ const RAW_SEO: Record<string, SeoData> = {
   "/streetwear-manufacturer/": productSeo({
     path: "/streetwear-manufacturer/",
     name: "Streetwear",
+    category: "Streetwear",
     serviceType: "Streetwear manufacturing and product development",
     title: "Custom Streetwear Manufacturer: Private Label | Yauum",
     description:
