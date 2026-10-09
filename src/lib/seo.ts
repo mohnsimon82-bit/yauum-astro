@@ -48,16 +48,46 @@ const abs = (p: string) => `${SITE.origin}${p}`;
 
 // ---------- JSON-LD 构造器 ----------
 
+// 全站共享的实体 @id：所有页面引用同一组 id，Google 以知识图谱方式
+// 把全站合并为同一个组织/网站实体（Organization 完整节点由首页声明，
+// 其余页面自动携带同 @id 的节点副本，数据保持一致）。
+export const ORGANIZATION_ID = abs("/#organization");
+export const WEBSITE_ID = abs("/#website");
+
+/** 组织实体。字段只用已确认信息（法定名/邮箱/电话均已公开于页脚与联系页）。 */
+export function organizationNode(): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORGANIZATION_ID,
+    name: SITE.name,
+    legalName: SITE.legalName,
+    url: abs("/"),
+    logo: { "@type": "ImageObject", url: SITE.logo },
+    email: SITE.email,
+    telephone: SITE.telephone,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: SITE.email,
+        telephone: SITE.telephone,
+      },
+    ],
+    description:
+      "B2B menswear and streetwear manufacturer for private label brands: hoodies, T-shirts, jackets, pants, sportswear, and streetwear.",
+  };
+}
+
 export const provider = (): Record<string, unknown> => ({
-  "@type": "Organization",
-  name: SITE.name,
-  url: abs("/"),
+  "@id": ORGANIZATION_ID,
 });
 
 export function breadcrumb(items: Array<[name: string, path: string]>): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": abs(items[items.length - 1][1]) + "#breadcrumb",
     itemListElement: items.map(([name, path], i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -70,22 +100,16 @@ export function breadcrumb(items: Array<[name: string, path: string]>): Record<s
 /** 首页：Organization + WebSite，字段只用已确认信息 */
 export function homeJsonLd(): Record<string, unknown>[] {
   return [
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: SITE.name,
-      legalName: SITE.legalName,
-      url: abs("/"),
-      logo: SITE.logo,
-      email: SITE.email,
-      telephone: SITE.telephone,
-    },
+    organizationNode(),
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": WEBSITE_ID,
       name: SITE.siteName,
       alternateName: SITE.name,
       url: abs("/"),
+      inLanguage: "en",
+      publisher: { "@id": ORGANIZATION_ID },
     },
   ];
 }
@@ -100,12 +124,19 @@ function serviceJsonLd(opts: {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": abs(opts.path) + "#service",
     name: opts.name,
     serviceType: opts.serviceType,
     provider: provider(),
     url: abs(opts.path),
     description: opts.description,
     image: abs(opts.image),
+    inLanguage: "en",
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "B2B apparel brands, private label brands and sourcing teams",
+    },
+    isPartOf: { "@id": WEBSITE_ID },
   };
 }
 
@@ -116,9 +147,12 @@ function pageJsonLd(
   return {
     "@context": "https://schema.org",
     "@type": type,
+    "@id": abs(opts.path) + "#webpage",
     name: opts.name,
     url: abs(opts.path),
     description: opts.description,
+    inLanguage: "en",
+    isPartOf: { "@id": WEBSITE_ID },
     ...opts.extra,
   };
 }
@@ -136,18 +170,16 @@ function articleJsonLd(opts: {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": abs(opts.path) + "#article",
     headline: opts.headline,
     description: opts.description,
     image: [abs(opts.image)],
     author: { "@type": "Organization", name: opts.author },
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: abs("/"),
-      logo: { "@type": "ImageObject", url: SITE.logo },
-    },
+    publisher: { "@id": ORGANIZATION_ID },
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
+    inLanguage: "en",
+    isPartOf: { "@id": WEBSITE_ID },
     mainEntityOfPage: { "@type": "WebPage", "@id": abs(opts.path) },
   };
 }
@@ -203,7 +235,7 @@ function productSeo(opts: {
   };
 }
 
-export const SEO: Record<string, SeoData> = {
+const RAW_SEO: Record<string, SeoData> = {
   "/": {
     title: "Custom Clothing Manufacturers: Private Label | Yauum",
     description:
@@ -1004,6 +1036,18 @@ export const SEO: Record<string, SeoData> = {
     ogImageHeight: 1600,
   },
 };
+
+// 缺少 Organization 节点的页面自动补一个（同 @id），保证每页都能本地解析
+// publisher/provider 的引用；首页已有完整节点时不重复添加。
+const withOrg = (seo: SeoData): SeoData => {
+  if (!seo.jsonLd?.length) return seo;
+  if (seo.jsonLd.some((n) => n["@type"] === "Organization")) return seo;
+  return { ...seo, jsonLd: [organizationNode(), ...seo.jsonLd] };
+};
+
+export const SEO: Record<string, SeoData> = Object.fromEntries(
+  Object.entries(RAW_SEO).map(([key, value]) => [key, withOrg(value)]),
+);
 
 export function getSeo(path: string): SeoData {
   const data = SEO[path];
