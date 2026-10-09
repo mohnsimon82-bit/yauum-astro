@@ -158,9 +158,13 @@ function serviceJsonLd(opts: {
   };
 }
 
-/** 产品页：Product JSON-LD（产品实体，说明"这是什么产品、由谁制造"）。
- * 不上 offers / review：价格、MOQ、评价均未公开确认，不编造；因此不会有富媒体摘要，
- * 作用是实体标注，并与同页 Service 通过 produces 互链。 */
+/** 产品页：ProductModel JSON-LD（产品实体，说明"这是什么产品、由谁制造"）。
+ * 用 Product 的子类型 ProductModel（产品规格/型号页）而不是 Product：本页是 B2B 定制
+ * 生产力页，没有公开价格与评价，普通 Product 会被 Google 判定为"产品摘要缺 offers/
+ * review"的无效项（红色报错）；ProductModel 同属产品家族、实体理解一致，且不触发该
+ * 报错（2026-10-09 富媒体测试实测：Product+无价 Offers 反而多触发 Merchant listings
+ * 无效项；ProductModel 无任何报错）。将来若公开价格区间或收集评价，改回 Product 并补
+ * offers / aggregateRating 即可获得购物摘要资格。与同页 Service 通过 produces 互链。 */
 function productJsonLd(opts: {
   name: string;
   category: string;
@@ -170,7 +174,7 @@ function productJsonLd(opts: {
 }): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "ProductModel",
     "@id": `${abs(opts.path)}#product`,
     name: `Custom and Private Label ${opts.name}`,
     description: opts.description,
