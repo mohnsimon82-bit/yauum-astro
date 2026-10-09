@@ -87,6 +87,7 @@ export function organizationNode(): Record<string, unknown> {
       streetAddress: "Room 808, Zhongsheng Business Building, Nancheng Subdistrict",
       addressLocality: "Dongguan",
       addressRegion: "Guangdong",
+      postalCode: "523000",
       addressCountry: "CN",
     },
   };
