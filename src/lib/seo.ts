@@ -197,7 +197,7 @@ function productSeo(opts: {
 
 export const SEO: Record<string, SeoData> = {
   "/": {
-    title: "Custom Clothing Manufacturers | Private Label | Yauum",
+    title: "Custom Clothing Manufacturers: Private Label | Yauum",
     description:
       "Custom menswear and streetwear manufacturing for private label brands: hoodies, T-shirts, jackets, pants, and sportswear, from sample approval to packing.",
     path: "/",
@@ -214,7 +214,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/hoodie-manufacturer/",
     name: "Hoodie",
     serviceType: "Hoodie manufacturing and product development",
-    title: "Custom Hoodie Manufacturer | Private Label | Yauum",
+    title: "Custom Hoodie Manufacturer: Private Label | Yauum",
     description:
       "Custom hoodie manufacturer for private label brands. Explore styles, fabrics, GSM, printing, embroidery, labels, sampling and quality control.",
     ogImage: "/uploads/hoodie-manufacturer/hero-blank-pullover.webp",
@@ -227,7 +227,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/t-shirt-manufacturer/",
     name: "T-Shirt",
     serviceType: "T-shirt manufacturing and product development",
-    title: "Custom T-Shirt Manufacturer | Private Label | Yauum",
+    title: "Custom T-Shirt Manufacturer: Private Label | Yauum",
     description:
       "Custom T-shirt manufacturing for private label brands: styles, fabric weights, printing and embroidery, labels, sample approval, and packing.",
     ogImage: "/uploads/t-shirt-manufacturer/showroom-tshirt-samples.webp",
@@ -240,7 +240,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/jackets-manufacturer/",
     name: "Jacket",
     serviceType: "Jacket manufacturing and product development",
-    title: "Custom Jacket Manufacturer | Private Label | Yauum",
+    title: "Custom Jacket Manufacturer: Private Label | Yauum",
     description:
       "Custom jacket development for private label brands: shell, lining, insulation, decoration, sampling, quality checks, and packing requirements.",
     ogImage: "/uploads/products/jackets-manufacturer.webp",
@@ -253,7 +253,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/pants-manufacturer/",
     name: "Pants",
     serviceType: "Pants manufacturing and product development",
-    title: "Custom Pants Manufacturer | Private Label | Yauum",
+    title: "Custom Pants Manufacturer: Private Label | Yauum",
     description:
       "Custom pants development for private label brands: fit blocks, waist construction, pockets, hardware, branding, sample approval, and checks.",
     ogImage: "/uploads/products/pants-manufacturer.webp",
@@ -266,7 +266,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/sportswear-manufacturer/",
     name: "Sportswear",
     serviceType: "Sportswear manufacturing and product development",
-    title: "Custom Sportswear Manufacturer | Private Label | Yauum",
+    title: "Custom Sportswear Manufacturer: Private Label | Yauum",
     description:
       "Custom sportswear development for private label brands: performance fabrics, fit, construction, branding, sampling, quality checks, and packing.",
     ogImage: "/uploads/products/sportswear-manufacturer.webp",
@@ -279,7 +279,7 @@ export const SEO: Record<string, SeoData> = {
     path: "/streetwear-manufacturer/",
     name: "Streetwear",
     serviceType: "Streetwear manufacturing and product development",
-    title: "Custom Streetwear Manufacturer | Private Label | Yauum",
+    title: "Custom Streetwear Manufacturer: Private Label | Yauum",
     description:
       "Build coordinated streetwear programs for private label brands: silhouette, materials, washes and decoration, labels, sampling, and pack-out rules.",
     ogImage: "/uploads/products/streetwear-manufacturer.webp",
