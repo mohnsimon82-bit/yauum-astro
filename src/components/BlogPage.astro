@@ -40,7 +40,7 @@ const pageCount = activeCategory ? 1 : totalPages;
 const seo: SeoData = activeCategory
   ? {
       ...SEO["/blog/"],
-      title: `${activeCategory.label} Articles | Yauum Blog`,
+      title: `${activeCategory.label} Articles | Yauum`,
       path: categoryHref(activeCategory.slug),
       jsonLd: [
         breadcrumb([

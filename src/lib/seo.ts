@@ -364,7 +364,7 @@ export const SEO: Record<string, SeoData> = {
   },
 
   "/about-us/": {
-    title: "About Yauum | Custom Clothing Manufacturer",
+    title: "About Us: Custom Clothing Manufacturer | Yauum",
     description:
       "Yauum is a B2B menswear and streetwear manufacturing partner. See what the site states responsibly and which company facts await verification.",
     path: "/about-us/",
@@ -389,7 +389,7 @@ export const SEO: Record<string, SeoData> = {
   },
 
   "/contact-us/": {
-    title: "Contact Yauum | Custom Clothing Manufacturing",
+    title: "Contact Us: Custom Clothing Manufacturing | Yauum",
     description:
       "Send a product brief with fabric, fit, branding, packing, and destination details through the inquiry page, WhatsApp, or email for a useful review.",
     path: "/contact-us/",
@@ -423,7 +423,7 @@ export const SEO: Record<string, SeoData> = {
   },
 
   "/blog/": {
-    title: "Apparel Manufacturing Insights | Yauum Blog",
+    title: "Apparel Manufacturing Insights | Yauum",
     description:
       "Practical B2B guidance for buyers developing custom apparel: product development, fabric and workmanship, decoration, private label, and packing.",
     path: "/blog/",
@@ -449,7 +449,7 @@ export const SEO: Record<string, SeoData> = {
   // 文章详情页（内容生产系统流水线产出，逐篇新增条目）。
   // FAQ 问答与页面可见 FAQ 逐字一致，改正文 FAQ 时必须同步改这里。
   "/where-are-t-shirts-manufactured/": {
-    title: "Where Are T-Shirts Manufactured? Global Guide | YAUUM",
+    title: "Where Are T-Shirts Manufactured? Global Guide | Yauum",
     description:
       "Discover where T-shirts are manufactured worldwide, how origin affects quality & cost, and how to choose the right factory. Get a custom quote today.",
     path: "/where-are-t-shirts-manufactured/",
@@ -516,7 +516,7 @@ export const SEO: Record<string, SeoData> = {
   // 审核报告 84 分：红线通过、FAQ 逐字一致；P0-A（年份矛盾）已按报告修正，P0-B（减词）未执行。
   // Meta description 相对 TDK 删去 "Download our catalog."（站内无目录资源，对应 CTA 已替换）。
   "/fleece-hoodie-manufacturer-types-china/": {
-    title: "10 Types of Fleece Hoodie Manufacturers in China | Buyer's Guide",
+    title: "10 Types of Fleece Hoodie Manufacturers in China | Yauum",
     description:
       "Compare 10 factory profiles for fleece hoodies in China. Learn how to evaluate suppliers, avoid sourcing mistakes & get a quote.",
     path: "/fleece-hoodie-manufacturer-types-china/",
@@ -575,7 +575,7 @@ export const SEO: Record<string, SeoData> = {
   // 审核报告 92 分：红线通过、FAQ 逐字一致、达标可发布；导出文件名的"❌不完整"前缀系 FAQ 渲染格式
   // 触发的误报（详见页面文件头注释）。站内没有 Supplier Scorecard 资源，相关承诺按发布规则替换。
   "/best-400-gsm-hoodie-manufacturers-china/": {
-    title: "Best 400 GSM Hoodie Manufacturers in China: Buyer's Guide 2026",
+    title: "Best 400 GSM Hoodie Manufacturers in China | Yauum",
     description:
       "Compare the best 400 GSM hoodie manufacturers in China. Learn how to verify fabric weight, vet suppliers & get a quote.",
     path: "/best-400-gsm-hoodie-manufacturers-china/",
@@ -642,7 +642,7 @@ export const SEO: Record<string, SeoData> = {
   // 审核报告 84 分（未达标需人工复核，用户确认发布）。两类改写已获用户确认：年份 (2025)→(2026)；
   // sourcing 代理式表述最小改写为厂商口径（详见页面文件头注释）。meta description 尾句同步改写。
   "/cotton-hoodie-manufacturer-types-china/": {
-    title: "10 Cotton Hoodie Manufacturer Types in China: 2026 Guide",
+    title: "10 Cotton Hoodie Manufacturer Types in China | Yauum",
     description:
       "Compare 10 types of cotton hoodie manufacturers in China by MOQ, certifications & lead time. Request a sample or a quote from YAUUM.",
     path: "/cotton-hoodie-manufacturer-types-china/",
@@ -709,7 +709,7 @@ export const SEO: Record<string, SeoData> = {
   // 审核报告 83 分（未达标需人工复核，用户确认发布）。Title 年份按报告要求 (2025)→(2026)；
   // 两处 Lead Magnet 下载（vetting checklist / comparison sheet）站内不存在，按发布规则替换。
   "/oversized-hoodie-manufacturer-types-china/": {
-    title: "10 Types of Oversized Hoodie Manufacturers in China (2026 Guide)",
+    title: "10 Types of Oversized Hoodie Manufacturers in China | Yauum",
     description:
       "Compare 10 oversized hoodie manufacturer profiles in China. Vetting criteria, MOQ, GSM specs, sampling tips & how to request a custom quote.",
     path: "/oversized-hoodie-manufacturer-types-china/",
@@ -777,7 +777,7 @@ export const SEO: Record<string, SeoData> = {
   // "Checklist 下载"与"portfolio 作品集"站内不存在，按发布规则替换。本篇实名列 9 家公开集团，
   // 文中自带 editorial/indicative 免责句（报告 P1 建议的进一步限定未执行）。
   "/top-10-embroidered-hoodie-manufacturers-china/": {
-    title: "Top 10 Embroidered Hoodie Manufacturers in China (2026 Guide)",
+    title: "Top 10 Embroidered Hoodie Manufacturers in China | Yauum",
     description:
       "Compare the top 10 embroidered hoodie manufacturers in China. Learn how to evaluate embroidery quality, MOQ & lead time. Get a free quote from YAUUM.",
     path: "/top-10-embroidered-hoodie-manufacturers-china/",
@@ -845,7 +845,7 @@ export const SEO: Record<string, SeoData> = {
   // shenzhou.com→shenzhouintl.com、heilan.com→hla.com.cn；其余 6 个域名打开确认为对应集团官网。
   // 两处 checklist 下载 CTA 按发布规则替换；标题年份流水线已自行同步为 2026。
   "/top-8-zip-up-hoodie-manufacturers-china/": {
-    title: "Top 8 Zip Up Hoodie Manufacturers in China | 2026 Guide",
+    title: "Top 8 Zip Up Hoodie Manufacturers in China | Yauum",
     description:
       "Compare the top 8 zip up hoodie manufacturers in China. Learn how to vet factories, avoid sourcing mistakes, and request a quote today.",
     path: "/top-8-zip-up-hoodie-manufacturers-china/",
@@ -913,7 +913,7 @@ export const SEO: Record<string, SeoData> = {
   // 引言 2026 or 2027）；7 处失效站内链接（实测全 404）换成真实页面。FAQ A3 的链接句按发布规则改写，
   // 下方 text 与页面可见 FAQ 文本一致（链接仅存在于页面标记层）。
   "/top-puff-print-hoodie-manufacturers-china/": {
-    title: "Top 10 Puff Print Hoodie Supplier Types in China (2026 Guide)",
+    title: "Top 10 Puff Print Hoodie Supplier Types in China | Yauum",
     description:
       "Compare 10 puff print hoodie supplier types in China by region and capability. Vet suppliers, check MOQs, and request a free sample from YAUUM.",
     path: "/top-puff-print-hoodie-manufacturers-china/",
