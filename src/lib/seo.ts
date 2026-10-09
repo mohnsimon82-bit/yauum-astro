@@ -905,6 +905,66 @@ export const SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第八篇（2026-10-09）。slug 取 TDK（/top-puff-print-hoodie-manufacturers-china/）。
+  // 审核报告 79 分（未达标需人工复核，用户确认发布）。P0-2 年份已改（Title 2026 Guide / H2 2026 List /
+  // 引言 2026 or 2027）；7 处失效站内链接（实测全 404）换成真实页面。FAQ A3 的链接句按发布规则改写，
+  // 下方 text 与页面可见 FAQ 文本一致（链接仅存在于页面标记层）。
+  "/top-puff-print-hoodie-manufacturers-china/": {
+    title: "Top 10 Puff Print Hoodie Supplier Types in China (2026 Guide)",
+    description:
+      "Compare 10 puff print hoodie supplier types in China by region and capability. Vet suppliers, check MOQs, and request a free sample from YAUUM.",
+    path: "/top-puff-print-hoodie-manufacturers-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/hoodie-manufacturer/style-puff-print.webp"),
+    ogImageAlt: "Puff-print hoodie on a model",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 Puff Print Hoodie Supplier Types in China", "/top-puff-print-hoodie-manufacturers-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 Puff Print Hoodie Supplier Types in China: How to Shortlist by Region & Capability",
+        description:
+          "Compare 10 puff print hoodie supplier types in China by region and capability. Vet suppliers, check MOQs, and request a free sample from YAUUM.",
+        path: "/top-puff-print-hoodie-manufacturers-china/",
+        image: "/uploads/hoodie-manufacturer/style-puff-print.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-09",
+        dateModified: "2026-10-09",
+      }),
+      faqJsonLd([
+        [
+          "What is the minimum order quantity (MOQ) for custom puff print hoodies in China?",
+          "MOQ for custom puff print hoodies commonly falls between 100 and 300 pieces per color per design, though some factories accept 50–100 piece trial runs at a higher unit cost. Heavyweight or multi-color designs may push the minimum toward 300–500 pieces. Always confirm MOQ per color, not per style, because puff print requires a separate screen for each colorway.",
+        ],
+        [
+          "How long does it take to produce a puff print hoodie sample?",
+          "Standard sampling runs about 7–15 days once fabric is in stock, depending on artwork complexity and the number of puff colors. Samples requiring custom fabric development or a new dye lot can take 15–25 days. Ask whether the sample room is in-house; outsourced puff screens add roughly a week to the cycle.",
+        ],
+        [
+          "How much does a custom puff print hoodie cost?",
+          "Pricing depends on fabric weight and composition, puff complexity, order quantity, and decoration count. As a planning range, custom puff print hoodies typically land around $12–28 per piece FOB for mid-weight fleece at 500–1,000 piece volumes, with heavyweight or multi-decoration styles running higher. These are industry-typical ranges for budgeting; request a live quote against your spec. For a detailed cost breakdown, talk to our team.",
+        ],
+        [
+          "What fabrics work best for puff print hoodies?",
+          "Cotton-rich French terry and brushed fleece in the 280–450gsm range give the most predictable results, because a stable, tightly knit surface holds the foam deposit evenly. Loopback and cotton/poly blends work when the paste is matched to the fiber. Avoid very loose knits and high-poly surfaces unless the factory has tested puff adhesion on that exact quality.",
+        ],
+        [
+          "How durable is puff print after washing?",
+          "Properly cured puff print holds its raised height through repeated home laundering at 30–40°C when the foam paste and base fabric are correctly matched. Failures usually come from under-curing or a paste-fabric mismatch rather than from washing itself. Ask for the factory's wash test protocol and the number of cycles run before bulk approval.",
+        ],
+        [
+          "What certifications should I look for in a puff print hoodie factory?",
+          "Look for social compliance and quality management documentation relevant to your market, such as BSCI or WRAP for social audits and ISO 9001 for quality systems, plus fiber or chemical certifications if you make sustainability claims. Certification scope varies, so request current certificates and verify the listed products and validity dates rather than relying on a logo on a website.",
+        ],
+      ]),
+    ],
+  },
+
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
   "/thank-you/": {

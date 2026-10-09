@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-puff-print-hoodie-manufacturers-china/",
+    title: "Top 10 Puff Print Hoodie Supplier Types in China: How to Shortlist by Region & Capability",
+    description: "Ten puff print hoodie supplier types in China by region and capability, six evaluation criteria, and a five-step vetting sequence.",
+    date: "2026-10-09",
+    dateLabel: "October 9, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-8-zip-up-hoodie-manufacturers-china/",
     title: "Top 8 Zip Up Hoodie Manufacturers in China: A 2026 Buyer's Guide to Choosing the Right Factory",
     description: "Eight zip up hoodie manufacturers in China, the six evaluation dimensions, and the specs that decide whether bulk matches your approved sample.",
