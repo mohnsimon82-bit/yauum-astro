@@ -1,6 +1,7 @@
 ---
 // InquiryForm.astro — the single site-wide inquiry form.
 // MOQ tiers assume 1 design / 1 color / 5 sizes (site quoting basis).
+// Lowest tier covers the 100-piece minimum order (user-confirmed 2026-10-09).
 // Endpoint: same-origin Pages Function (functions/api/inquiry.ts), which sends
 // the notification through Resend. Recipients and the API key live server-side.
 interface Props {
@@ -24,7 +25,7 @@ const PRESELECT: Record<string, string> = {
   "Contact Us": "Other",
 };
 const garment = PRESELECT[product] ?? (GARMENTS.includes(product) ? product : "Other");
-const TIERS = ["300–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ pcs"];
+const TIERS = ["100–500 pcs", "500–1,000 pcs", "1,000–2,000 pcs", "2,000+ pcs"];
 ---
 
 <form

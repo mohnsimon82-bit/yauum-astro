@@ -164,7 +164,10 @@ function serviceJsonLd(opts: {
  * Invalid price format；带数字的 AggregateOffer 判定为 1 valid item，且不连带触发
  * Merchant listings 无效项。硬规则：offers 的价格必须与页面正文可见文案一致——各产品页
  * 报价/MOQ 区块已写入同一区间句（"typically quoted at US$10–15 per piece"），
- * 改价时两处必须同步改。与同页 Service 通过 produces 互链。 */
+ * 改价时两处必须同步改。起订量：用户 2026-10-09 确认最低 100 件/款，offers.
+ * eligibleQuantity.minValue = 100（实测不影响有效判定），页面正文同步写
+ * "Standard orders start at 100 pieces."——改 MOQ 时同样两处同步。
+ * 与同页 Service 通过 produces 互链。 */
 function productJsonLd(opts: {
   name: string;
   category: string;
@@ -188,6 +191,11 @@ function productJsonLd(opts: {
       lowPrice: 10,
       highPrice: 15,
       url: abs(opts.path),
+      eligibleQuantity: {
+        "@type": "QuantitativeValue",
+        minValue: 100,
+        unitText: "pieces",
+      },
     },
     isPartOf: { "@id": WEBSITE_ID },
   };
