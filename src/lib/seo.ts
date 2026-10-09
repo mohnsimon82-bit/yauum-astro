@@ -10,8 +10,10 @@
 //
 // 事实边界：以下字段只用已经公开确认的信息——
 //   - 公司法律名：页脚 "Dongguan Yauum Apparel Co., Ltd."
+//   - 公司地址：东莞市南城街道中盛商务大厦808室（用户 2026-10-09 确认；页脚与结构化数据同步展示）
+//   - 出口市场：美国、欧洲、澳大利亚、中东（用户 2026-10-09 确认；页脚与结构化数据同步展示）
 //   - 邮箱 mumu@yauum.com、电话/WhatsApp +8615733728976：全站联系方式
-//   - 不写地址、认证、产能、MOQ 数值、交期、客户案例、社交账号（未确认）。
+//   - 不写认证、产能、MOQ 数值、交期、客户案例、社媒账号（未确认/未搭建）。
 
 export const SITE = {
   origin: "https://yauum.com",
@@ -52,6 +54,9 @@ const abs = (p: string) => `${SITE.origin}${p}`;
 // 把全站合并为同一个组织/网站实体（Organization 完整节点由首页声明，
 // 其余页面自动携带同 @id 的节点副本，数据保持一致）。
 export const ORGANIZATION_ID = abs("/#organization");
+
+/** 已确认的出口市场（与页脚文案同步） */
+const AREA_SERVED = ["United States", "Europe", "Australia", "Middle East"];
 export const WEBSITE_ID = abs("/#website");
 
 /** 组织实体。字段只用已确认信息（法定名/邮箱/电话均已公开于页脚与联系页）。 */
@@ -76,6 +81,14 @@ export function organizationNode(): Record<string, unknown> {
     ],
     description:
       "B2B menswear and streetwear manufacturer for private label brands: hoodies, T-shirts, jackets, pants, sportswear, and streetwear.",
+    areaServed: AREA_SERVED,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Room 808, Zhongsheng Business Building, Nancheng Subdistrict",
+      addressLocality: "Dongguan",
+      addressRegion: "Guangdong",
+      addressCountry: "CN",
+    },
   };
 }
 
@@ -136,6 +149,7 @@ function serviceJsonLd(opts: {
       "@type": "BusinessAudience",
       audienceType: "B2B apparel brands, private label brands and sourcing teams",
     },
+    areaServed: AREA_SERVED,
     isPartOf: { "@id": WEBSITE_ID },
   };
 }
