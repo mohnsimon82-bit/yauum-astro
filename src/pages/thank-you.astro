@@ -1,17 +1,16 @@
 ---
 /**
- * /thank-you/ — 询盘表单提交后的致谢页。
+ * /thank-you/ — 询盘表单提交后的致谢页（V2 家族版式，2026-10-11 起）。
  *
  * 刻意 noindex：SEO 条目带 noindex（页面输出 <meta name="robots" content="noindex, nofollow">），
  * astro.config.mjs 的 sitemap filter 同步排除，不进搜索结果与 sitemap。
  *
- * 目前询盘表单是 AJAX 就地提示成功、不跳转（见 InquiryForm.astro）；本页供
+ * 目前询盘表单是 AJAX 就地提示成功、不跳转（见 InquirySubmitScript.astro）；本页供
  * 外部链接/广告落地或将来把表单改成跳转时使用。表单的 GA4 转化事件是
  * inquiry_form_submit（与是否到达本页无关）。
- *
- * 文案里的"一个工作日内回复"与表单成功提示、接口降级页的口径一致。
+ * 文案与旧版（BaseLayout 版）逐字一致；版式换成 V2 家族体系。
  */
-import BaseLayout from "../layouts/BaseLayout.astro";
+import V2Layout from "../layouts/V2Layout.astro";
 import { getSeo } from "../lib/seo";
 import "../styles/pages/thank-you.css";
 
@@ -25,37 +24,39 @@ const nextLinks: Array<[string, string, string, string]> = [
 ];
 ---
 
-<BaseLayout seo={getSeo("/thank-you/")}>
-  <section class="standard-hero">
-    <div class="industrial-grid" aria-hidden="true"></div>
-    <div class="shell standard-hero-inner">
-      <p class="kicker kicker-accent">Inquiry received</p>
+<V2Layout seo={getSeo("/thank-you/")} navCurrent={[]}>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Inquiry received</span>
       <h1>Thank You — Your Inquiry Is on Its Way.</h1>
-      <p>We have received your message and reply within one business day. If anything is urgent, reach us directly:</p>
+      <p class="lead">We have received your message and reply within one business day. If anything is urgent, reach us directly:</p>
       <div class="ty-actions">
-        <a class="button button-accent" href={WA_URL} target="_blank" rel="noopener noreferrer">WhatsApp / +86 157 3372 8976</a>
-        <a class="button button-dark" href="mailto:mumu@yauum.com?subject=Yauum%20manufacturing%20inquiry">mumu@yauum.com</a>
-        <a class="ty-back" href="/">Back to homepage</a>
+        <a class="btn btn-primary" href={WA_URL} target="_blank" rel="noopener noreferrer">WhatsApp / +86 157 3372 8976</a>
+        <a class="btn btn-primary" href="mailto:mumu@yauum.com?subject=Yauum%20manufacturing%20inquiry">mumu@yauum.com</a>
+        <a class="textlink" href="/" style="color:var(--yv-paper)">Back to homepage</a>
       </div>
     </div>
   </section>
 
-  <section class="section section-surface">
-    <div class="shell">
-      <div class="section-head">
-        <div><p class="kicker">While you wait</p><h2 class="section-title">Keep the Project Moving.</h2></div>
-        <p>Useful reading for the stage after an inquiry.</p>
+  <section class="section">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow">While you wait</p>
+          <h2 class="section-h2">Keep the Project Moving.</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Useful reading for the stage after an inquiry.</p></div>
       </div>
-      <div class="ty-links">
+      <div class="m-cols m-cols--3">
         {nextLinks.map(([index, title, description, href]) => (
-          <a class="ty-link" href={href}>
-            <span>{index}</span>
-            <strong>{title}</strong>
-            <small>{description}</small>
-            <em>Open →</em>
-          </a>
+          <div class="m-col">
+            <span class="num">{index}</span>
+            <h3 class="section-h3">{title}</h3>
+            <p>{description}</p>
+            <a class="textlink" href={href}>Open →</a>
+          </div>
         ))}
       </div>
     </div>
   </section>
-</BaseLayout>
+</V2Layout>

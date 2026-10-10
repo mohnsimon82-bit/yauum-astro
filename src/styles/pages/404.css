@@ -169,7 +169,7 @@ body .hero h1{font-size:clamp(44px,6vw,84px)}
 .blog-pager-num:hover{border-color:var(--yv-accent);color:var(--yv-accent)}
 .blog-pager-num.is-current{background:var(--yv-accent);border-color:var(--yv-accent);color:var(--yv-accent-ink)}
 /* ============================================================
-   /thank-you/ 页面样式
+   404 页面样式
    ------------------------------------------------------------
    本文件 = 家族底座（blog.css 全量：V2 令牌 / reset / 全局页头页脚样式（紫罗兰映射）
    / .section / .hero / .inquiry-section / 表单模块）+ 本页附录。
@@ -177,22 +177,9 @@ body .hero h1{font-size:clamp(44px,6vw,84px)}
    ============================================================ */
 
 
-/* ═══ 附录：/thank-you/ 专用（2026-10-11） ═══ */
+/* ═══ 附录：404 专用（2026-10-11） ═══ */
 .shell{width:min(var(--container),calc(100% - (var(--gutter) * 2)));margin-inline:auto}
-.sec-head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(20px,2.4vw,40px);row-gap:20px;align-items:end;margin-bottom:clamp(36px,4vw,56px)}
-.sec-head__main{grid-column:1 / span 7;display:flex;flex-direction:column;gap:14px}
-.section-h2{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,3.2vw,40px);line-height:1.05;letter-spacing:.01em;text-transform:uppercase;margin:0}
-.section-lead{font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--yv-muted);max-width:62ch;margin:0}
-.num{font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--yv-accent)}
-.m-cols{display:grid;gap:clamp(28px,3vw,48px)}
-.m-cols--3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.m-col{display:flex;flex-direction:column;gap:12px}
-.m-col .num{display:block}
-.m-col .section-h3{font-family:var(--font-mono);font-weight:600;font-size:20px;line-height:1.3;margin:0}
-.m-col p{font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--yv-muted);margin:0}
-.textlink{font-family:var(--font-body);font-weight:500;font-size:14px;color:var(--yv-ink);text-decoration:underline;text-underline-offset:3px}
-.textlink:hover{color:var(--yv-accent)}
-.section-eyebrow{font-family:var(--font-body);font-weight:500;font-size:13px;color:var(--yv-accent);margin:0}
-.ty-actions{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:6px}
-@media (max-width:900px){.m-cols--3{grid-template-columns:1fr}.sec-head__main{grid-column:1 / -1}}
-@media (max-width:640px){.hero h1{font-size:clamp(30px,8.5vw,38px)}}
+.not-found{max-width:640px;margin:0 auto;padding:clamp(96px,12vw,160px) var(--gutter);text-align:center}
+.not-found .eyebrow{font-family:var(--font-mono);font-weight:600;font-size:13px;letter-spacing:.1em;color:var(--yv-accent);text-transform:uppercase}
+.not-found h1{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.1;letter-spacing:.01em;margin:18px 0 0}
+.not-found p{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--yv-muted);margin:16px 0 28px}

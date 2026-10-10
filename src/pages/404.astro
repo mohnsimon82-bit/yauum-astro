@@ -1,13 +1,17 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+/**
+ * 404 页面（V2 家族版式，2026-10-11 起）。文案与旧版一致。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
 import { getSeo } from "../lib/seo";
+import "../styles/pages/404.css";
 ---
 
-<BaseLayout seo={getSeo("/404/")}>
-  <section class="not-found shell">
-    <p class="eyebrow eyebrow-dark"><span></span> 404</p>
+<V2Layout seo={getSeo("/404/")} navCurrent={[]}>
+  <section class="not-found">
+    <p class="eyebrow">404</p>
     <h1>This Page Is Not on the Production Line.</h1>
     <p>Return to the homepage or send us your product requirements.</p>
-    <a class="button button-dark" href="/">Back to homepage</a>
+    <a class="btn btn-primary" href="/">Back to homepage</a>
   </section>
-</BaseLayout>
+</V2Layout>

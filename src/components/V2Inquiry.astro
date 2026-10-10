@@ -1,0 +1,60 @@
+---
+/**
+ * V2 家族版式的询盘区组件（2026-10-11 全站 V2 收尾时引入）。
+ *
+ * 供文章页（10 篇）与 /contact-us/ 共用：深色/暖色带上的两栏询盘区
+ * （左：kicker + 标题 + 说明 + 项目详情按钮；右：真实询盘表单）。
+ * 文案全部来自调用方（逐字保留各处原有文案），表单接线与全站一致：
+ * POST /api/inquiry + InquirySubmitScript（由 V2Layout 注入）。
+ * 样式来自各页 CSS 底座里的 .inquiry-section / .form-grid / .form-side / .inquiry-form 组。
+ */
+interface Props {
+  /** data-product 归属（与旧 InquiryForm/InquirySection 的 product 一致） */
+  product: string;
+  kicker?: string;
+  title: string;
+  lead?: string;
+  ctaLabel?: string;
+}
+
+const { product, kicker = "Start an inquiry", title, lead, ctaLabel = "Send project details" } = Astro.props;
+---
+
+<section class="section inquiry-section" id="inquiry" data-od-id="inquiry-conversion">
+  <div class="container form-grid">
+    <div class="form-side">
+      <span class="eyebrow">{kicker}</span>
+      <h2 class="h2-text">{title}</h2>
+      {lead && <p class="inquiry-lead">{lead}</p>}
+      <div class="cta-row"><a class="btn btn-primary" href="/contact-us/">{ctaLabel} <span class="arrow" aria-hidden="true">→</span></a></div>
+    </div>
+    <form class="inquiry-form" method="POST" action="/api/inquiry" data-product={product} data-wa-phone="8615733728976" data-wa-key=""><input type="hidden" name="product" value={product} /><input type="hidden" name="_subject" value={`Yauum inquiry — ${product}`} /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+      <div class="field">
+        <label for="garment">Garment type</label>
+        <select class="select" id="garment" name="garment_type">
+          <option>Hoodies</option>
+          <option>T-Shirts</option>
+          <option>Jackets</option>
+          <option>Pants</option>
+          <option>Sportswear</option>
+          <option>Streetwear</option>
+          <option selected>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <span class="opt-legend">Quantity <span class="hint">· 1 design · 1 color · 5 sizes</span></span>
+        <div class="opt-row">
+          <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked />100–500 pcs</label>
+          <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" />500–1,000 pcs</label>
+          <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" />1,000–2,000 pcs</label>
+          <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" />2,000+ pcs</label>
+        </div>
+      </div>
+      <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" type="text" required /></div>
+      <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required /></div>
+      <div class="field"><label for="details">Project details <span style="color:var(--yv-muted)">(optional)</span></label><textarea class="textarea" id="details" name="message" rows="4"></textarea></div>
+      <div class="submit-row"><button class="btn btn-primary" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button></div>
+      <span class="form-status meta" aria-live="polite"></span>
+    </form>
+  </div>
+</section>

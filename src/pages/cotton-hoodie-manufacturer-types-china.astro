@@ -19,11 +19,11 @@
  *      认证、审厂报告、客户案例列为"未确认-禁止对外陈述"。
  * FAQ 的 8 组问答与 seo.ts 中 FAQPage JSON-LD 逐字一致。
  */
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "../components/InquirySection.astro";
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
 import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
-import "../styles/pages/cotton-hoodie-manufacturer-types-china.css";
+import "../styles/article-v2.css";
 
 const toc: Array<[string, string, string]> = [
   ["01", "why-lists", "Why these lists fail"],
@@ -37,7 +37,7 @@ const toc: Array<[string, string, string]> = [
 ];
 ---
 
-<EditorialLayout
+<V2Layout
   seo={SEO["/cotton-hoodie-manufacturer-types-china/"]}
   navCurrent={["/blog/"]}
 >
@@ -185,11 +185,8 @@ const toc: Array<[string, string, string]> = [
     </div>
   </section>
 
-  <InquirySection
+  <V2Inquiry
     product="Hoodies"
-    id="inquiry"
-    odId="inquiry-conversion"
-    band="band-alt"
     kicker="Start an inquiry"
     title="Send the Cotton Hoodie Details That Shape a Useful Review."
     lead="GSM, quantity per color, decoration, and launch date: the brief this guide teaches you to write before you contact suppliers."
@@ -197,4 +194,4 @@ const toc: Array<[string, string, string]> = [
   />
 
   <ViewCounter />
-</EditorialLayout>
+</V2Layout>

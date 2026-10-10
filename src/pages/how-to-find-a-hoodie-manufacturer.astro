@@ -19,11 +19,11 @@
  * 审核报告 87 分"未达标需人工复核后发布"——用户确认发布；P0-B（词数复核）与其余 P1 未执行。
  * FAQ 的 8 组问答与 seo.ts 中 FAQPage JSON-LD 逐字一致。
  */
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "../components/InquirySection.astro";
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
 import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
-import "../styles/pages/how-to-find-a-hoodie-manufacturer.css";
+import "../styles/article-v2.css";
 
 const toc: Array<[string, string, string]> = [
   ["01", "why", "Why it matters"],
@@ -38,7 +38,7 @@ const toc: Array<[string, string, string]> = [
 ];
 ---
 
-<EditorialLayout
+<V2Layout
   seo={SEO["/how-to-find-a-hoodie-manufacturer/"]}
   navCurrent={["/blog/"]}
 >
@@ -188,11 +188,8 @@ whether you can share a short factory video.
     </div>
   </section>
 
-  <InquirySection
+  <V2Inquiry
     product="Hoodies"
-    id="inquiry"
-    odId="inquiry-conversion"
-    band="band-alt"
     kicker="Start an inquiry"
     title="Send the Hoodie Spec That Makes Quotes Comparable."
     lead="Fabric weight, construction, decoration, quantity, and destination: the brief this guide teaches you to prepare."
@@ -200,4 +197,4 @@ whether you can share a short factory video.
   />
 
   <ViewCounter />
-</EditorialLayout>
+</V2Layout>

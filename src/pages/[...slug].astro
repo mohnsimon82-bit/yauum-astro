@@ -7,7 +7,8 @@ import { getPageManifest, getWebsitePage } from "../lib/content";
 // global.css 带进新设计页面的样式图。
 // production、our-services、blog 同样已独立为 src/pages/<slug>.astro（内容与结构调整只影响
 // 各自页面），因此一并排除，否则会生成重复的输出路径。
-// 2026-10-11 起 solutions、about-us 也随 V2 家族版式迁移独立成页面文件，一并排除。
+// 2026-10-11 起 solutions、about-us 也随 V2 家族版式迁移独立成页面文件，一并排除；
+// 同批 contact-us 也从动态路由独立出来（V2 版式），加入排除。
 // 注意：getStaticPaths 在独立作用域执行，不能引用 frontmatter 变量，因此此处重复声明。
 export async function getStaticPaths() {
   const productSlugs = [
@@ -18,7 +19,7 @@ export async function getStaticPaths() {
     "sportswear-manufacturer",
     "streetwear-manufacturer",
   ];
-  const standaloneSlugs = ["production", "our-services", "blog", "solutions", "about-us"];
+  const standaloneSlugs = ["production", "our-services", "blog", "solutions", "about-us", "contact-us"];
   const pages = await getPageManifest();
   return pages
     .filter(page => page.slug !== "home" && !productSlugs.includes(page.slug) && !standaloneSlugs.includes(page.slug))

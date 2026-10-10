@@ -16,11 +16,11 @@
  * 审核报告 84 分"未达标需人工复核后发布"——用户确认发布；P0（词数再删 300–500）与 P1/P2 未执行（同前几篇惯例）。
  * FAQ 的 6 组问答与 seo.ts 中 FAQPage JSON-LD 逐字一致。
  */
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "../components/InquirySection.astro";
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
 import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
-import "../styles/pages/how-to-find-alibaba-hoodie-manufacturers.css";
+import "../styles/article-v2.css";
 
 const toc: Array<[string, string, string]> = [
   ["01", "why", "Why it's hard"],
@@ -35,7 +35,7 @@ const toc: Array<[string, string, string]> = [
 ];
 ---
 
-<EditorialLayout
+<V2Layout
   seo={SEO["/how-to-find-alibaba-hoodie-manufacturers/"]}
   navCurrent={["/blog/"]}
 >
@@ -182,11 +182,8 @@ const toc: Array<[string, string, string]> = [
     </div>
   </section>
 
-  <InquirySection
+  <V2Inquiry
     product="Hoodies"
-    id="inquiry"
-    odId="inquiry-conversion"
-    band="band-alt"
     kicker="Start an inquiry"
     title="Send the Hoodie Spec You're Pulling Together."
     lead="Fabric, weight, fit, decoration, and quantity: the brief this guide teaches you to lock before you contact suppliers."
@@ -194,4 +191,4 @@ const toc: Array<[string, string, string]> = [
   />
 
   <ViewCounter />
-</EditorialLayout>
+</V2Layout>

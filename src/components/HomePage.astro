@@ -1,345 +1,537 @@
 ---
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "./InquirySection.astro";
-import { SEO } from "../lib/seo";
+/** 
+ * index（V2 家族版式，2026-10-11 起）。
+ *
+ * 由终审定稿的预览成品移植：hero-v1-真实内容.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/index.css。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { getSeo } from "../lib/seo";
 import "../styles/pages/index.css";
 ---
 
-<EditorialLayout
-  seo={SEO["/"]}
-  variant="home"
-  navCurrent={["/"]}
->
-<!-- ============ 2 HERO ============ -->
-<section class="hero" data-od-id="homepage-hero">
-  <div class="shell">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="label">B2B / Private label / OEM-ODM</p>
-        <h1>Custom Clothing Manufacturing, Made Clear Before Bulk.</h1>
-        <p class="lead hero-lead">Yauum helps overseas apparel brands, wholesalers, sourcing teams, and procurement buyers develop menswear and streetwear through a sample-first workflow: from product brief and material review to private label finishing, inspection, and shipment preparation.</p>
-        <div class="hero-actions">
-          <a class="button" href="/contact-us/">Send your product brief</a>
-          <a class="link" href="/production/">Review the production path</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src="/uploads/factory/factory-sewing-line-wide.webp" alt="Garment sewing line with operators and workstations" width="2400" height="1600" fetchpriority="high" decoding="async" />
-      </div>
-      <div class="hero-rail" aria-label="Manufacturing workflow summary">
-        <span class="rail-item"><span class="rail-num">01</span><span class="rail-label">Product scope</span></span>
-        <span class="rail-item"><span class="rail-num">02</span><span class="rail-label">Sample before bulk</span></span>
-        <span class="rail-item"><span class="rail-num">03</span><span class="rail-label">Inspection and pack-out</span></span>
-      </div>
-    </div>
-  </div>
+<V2Layout seo={getSeo("/")} navCurrent={["/"]}>
+<!-- ─── 01 / Hero ─────────────────────────────────────────────────── -->
+<section class="hero" data-od-id="hero">
+<div class="container">
+<div class="hero-inner">
+<div class="hero-text">
+<span class="eyebrow">B2B / Private label / OEM-ODM</span>
+<h1>Custom Clothing Manufacturing, <span class="hl">Made Clear</span> Before Bulk.</h1>
+<p class="lead">Yauum helps overseas apparel brands, wholesalers, sourcing teams, and procurement buyers develop menswear and streetwear through a sample-first workflow: from product brief and material review to private label finishing, inspection, and shipment preparation.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="#inquiry">Send your product brief</a>
+<a class="btn btn-ghost btn-arrow" href="#production-process">Review the production path</a>
+</div>
+</div>
+<div class="hero-media" data-od-id="hero-image">
+<img alt="Garment sewing line with operators and workstations" class="media-img" decoding="async" fetchpriority="high" src="/uploads/factory/factory-sewing-line-wide.webp"/>
+</div>
+</div>
+<div class="hero-meta" data-od-id="hero-summary">
+<div class="item"><span class="k">01 Product scope</span></div>
+<div class="item"><span class="k">02 Sample before bulk</span></div>
+<div class="item"><span class="k">03 Inspection and pack-out</span></div>
+</div>
+</div>
 </section>
-
-<!-- ============ 3 MANUFACTURER VALUE ============ -->
-<section class="section band-alt" data-od-id="buyer-value-proposition">
-  <div class="shell">
-    <div class="value-grid">
-      <div class="value-title" data-reveal>
-        <p class="label">Manufacturer value</p>
-        <h2>A Supplier Should Make Every Product Decision Easier to Verify.</h2>
-      </div>
-      <div class="value-body" data-reveal>
-        <p class="lead">Yauum supports B2B menswear and streetwear development, sampling, private label execution, quality checks, packing, and shipment preparation.</p>
-        <a class="link" href="/our-services/">See manufacturing services</a>
-      </div>
-    </div>
-    <div class="buyer-grid" aria-label="Buyer types">
-      <article class="buyer-cell">
-        <span class="label">BUYER / 01</span>
-        <h3>Apparel Brands</h3>
-        <p>Develop one focused product group, approve the sample, and define brand finishing before bulk.</p>
-      </article>
-      <article class="buyer-cell">
-        <span class="label">BUYER / 02</span>
-        <h3>Wholesalers</h3>
-        <p>Use approved measurements, packing rules, and order references to support repeat production.</p>
-      </article>
-      <article class="buyer-cell">
-        <span class="label">BUYER / 03</span>
-        <h3>Sourcing Teams</h3>
-        <p>Review materials, construction, artwork, labels, inspection points, and shipment preparation in one workflow.</p>
-      </article>
-      <article class="buyer-cell">
-        <span class="label">BUYER / 04</span>
-        <h3>Procurement</h3>
-        <p>Send clear specifications and assess the manufacturing path before committing an order.</p>
-      </article>
-    </div>
-  </div>
+<!-- ─── 02 / Manufacturer value ───────────────────────────────────── -->
+<section class="section" data-od-id="manufacturer-value" id="manufacturer-value">
+<div class="container">
+<div class="section-head">
+<div class="head-text">
+<span class="eyebrow">Manufacturer value</span>
+<h2>A Supplier Should Make Every Product Decision <span class="hl">Easier to Verify</span>.</h2>
+<p class="lead">Yauum supports B2B menswear and streetwear development, sampling, private label execution, quality checks, packing, and shipment preparation.</p>
+</div>
+<div class="head-side">
+<a class="btn btn-ghost btn-arrow" href="#capabilities-services">See manufacturing services</a>
+</div>
+</div>
+<div class="buyer-cards" data-od-id="buyer-cards">
+<article class="buyer-card">
+<svg aria-hidden="true" class="buyer-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<circle cx="12" cy="3.5" r="1.5"></circle>
+<path d="M12 5 V8 L3 19 H21 L12 8"></path>
+</svg>
+<span class="eyebrow">BUYER / 01</span><h3>Apparel Brands</h3>
+<p>Develop one focused product group, approve the sample, and define brand finishing before bulk.</p>
+</article>
+<article class="buyer-card">
+<svg aria-hidden="true" class="buyer-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M3 7 L12 3 L21 7 L21 18 L12 22 L3 18 Z"></path>
+<path d="M3 7 L12 11 L21 7"></path>
+<path d="M12 11 V22"></path>
+</svg>
+<span class="eyebrow">BUYER / 02</span><h3>Wholesalers</h3>
+<p>Use approved measurements, packing rules, and order references to support repeat production.</p>
+</article>
+<article class="buyer-card">
+<svg aria-hidden="true" class="buyer-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<circle cx="10.5" cy="10.5" r="6"></circle>
+<path d="M15 15 L20.5 20.5"></path>
+</svg>
+<span class="eyebrow">BUYER / 03</span><h3>Sourcing Teams</h3>
+<p>Review materials, construction, artwork, labels, inspection points, and shipment preparation in one workflow.</p>
+</article>
+<article class="buyer-card">
+<svg aria-hidden="true" class="buyer-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M5 4 H17 a2 2 0 0 1 2 2 V20 a2 2 0 0 1 -2 2 H7 a2 2 0 0 1 -2 -2 V6 a2 2 0 0 1 2 -2"></path>
+<path d="M9 4 V3 a2 2 0 0 1 2 -2 H17 a1 1 0 0 1 1 1 V4"></path>
+<path d="M8.5 12 L11 14.5 L15.5 9"></path>
+<path d="M8.5 17 H15.5"></path>
+</svg>
+<span class="eyebrow">BUYER / 04</span><h3>Procurement</h3>
+<p>Send clear specifications and assess the manufacturing path before committing an order.</p>
+</article>
+</div>
+</div>
 </section>
-
-<!-- ============ 4 PRODUCT CATEGORIES ============ -->
-<section class="section" id="product-categories" data-od-id="product-categories">
-  <div class="shell">
-    <div class="cat-head">
-      <div class="cat-title" data-reveal>
-        <p class="label">Product categories</p>
-        <h2>Six Core Categories. One Controlled Development Path.</h2>
-      </div>
-      <div class="cat-note" data-reveal>
-        <p class="lead">Choose the product family first, then move through the same structured path for materials, workmanship, branding, checking, packing, and delivery inputs.</p>
-      </div>
-    </div>
-    <div class="cat-grid">
-      <a class="cat-card" href="/hoodie-manufacturer/" data-reveal>
-        <span class="cat-media"><img src="/uploads/products/hoodie-manufacturer.webp" alt="Hoodie Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" /></span>
-        <span class="cat-meta"><span class="cat-num">01</span><h3>Hoodie</h3></span>
-        <p>Pullover and related hoodie programs with fabric, fit, graphics, embroidery, labels, trims, and packaging coordination.</p>
-        <span class="link">Review scope</span>
-      </a>
-      <a class="cat-card" href="/t-shirt-manufacturer/" data-reveal>
-        <span class="cat-media"><img src="/uploads/products/t-shirt-manufacturer.webp" alt="T-Shirt Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" /></span>
-        <span class="cat-meta"><span class="cat-num">02</span><h3>T-Shirt</h3></span>
-        <p>Fabric and fit planning, print-method selection, neck and care labels, hangtags, folding, and packaging.</p>
-        <span class="link">Review scope</span>
-      </a>
-      <a class="cat-card" href="/jackets-manufacturer/" data-reveal>
-        <span class="cat-media"><img src="/uploads/products/jackets-manufacturer.webp" alt="Jackets Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" /></span>
-        <span class="cat-meta"><span class="cat-num">03</span><h3>Jackets</h3></span>
-        <p>Shell, lining, closures, hardware, pockets, branding, labels, and pack-out planned as one outerwear system.</p>
-        <span class="link">Review scope</span>
-      </a>
-      <a class="cat-card" href="/pants-manufacturer/" data-reveal>
-        <span class="cat-media"><img src="/uploads/products/pants-manufacturer.webp" alt="Pants Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" /></span>
-        <span class="cat-meta"><span class="cat-num">04</span><h3>Pants</h3></span>
-        <p>Cargo, jogger, casual, and related programs shaped by fit, pockets, reinforcement, trims, labels, and washing.</p>
-        <span class="link">Review scope</span>
-      </a>
-      <a class="cat-card" href="/sportswear-manufacturer/" data-reveal>
-        <span class="cat-media"><img src="/uploads/products/sportswear-manufacturer.webp" alt="Sportswear Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" /></span>
-        <span class="cat-meta"><span class="cat-num">05</span><h3>Sportswear</h3></span>
-        <p>Stretch-fabric and activewear programs with construction, reflective details, labels, and packaging review.</p>
-        <span class="link">Review scope</span>
-      </a>
-      <a class="cat-card" href="/streetwear-manufacturer/" data-reveal>
-        <span class="cat-media"><img src="/uploads/products/streetwear-manufacturer.webp" alt="Streetwear Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" /></span>
-        <span class="cat-meta"><span class="cat-num">06</span><h3>Streetwear</h3></span>
-        <p>Fit-led product development with graphics, embroidery, patches, washes, trims, private labels, and packaging.</p>
-        <span class="link">Review scope</span>
-      </a>
-    </div>
-  </div>
+<!-- ─── 03 / Product categories ────────────────────────────────────── -->
+<section class="section" data-od-id="categories" id="categories">
+<div class="container">
+<div class="section-head">
+<div class="head-text">
+<span class="eyebrow">Product categories</span>
+<h2>Six Core Categories. One <span class="hl">Controlled Development Path</span>.</h2>
+<p class="lead">Choose the product family first, then move through the same structured path for materials, workmanship, branding, checking, packing, and delivery inputs.</p>
+</div>
+</div>
+<div class="cat-grid" data-od-id="cat-grid-top">
+<article class="cat-card" data-od-id="cat-hoodie">
+<div class="cat-media">
+<img alt="Hoodie product reference" class="media-img" decoding="async" loading="lazy" src="/uploads/products/hoodie-manufacturer.webp"/>
+<a class="cat-overlay" href="#inquiry">
+<span>Review scope</span>
+</a>
+</div>
+<div class="cat-body">
+<span class="eyebrow">01</span><h3>Hoodie</h3>
+<p>Pullover and related hoodie programs with fabric, fit, graphics, embroidery, labels, trims, and packaging coordination.</p>
+</div>
+</article>
+<article class="cat-card" data-od-id="cat-tshirt">
+<div class="cat-media">
+<img alt="T-Shirt product reference" class="media-img" decoding="async" loading="lazy" src="/uploads/products/t-shirt-manufacturer.webp"/>
+<a class="cat-overlay" href="#inquiry">
+<span>Review scope</span>
+</a>
+</div>
+<div class="cat-body">
+<span class="eyebrow">02</span><h3>T-Shirt</h3>
+<p>Fabric and fit planning, print-method selection, neck and care labels, hangtags, folding, and packaging.</p>
+</div>
+</article>
+<article class="cat-card" data-od-id="cat-jackets">
+<div class="cat-media">
+<img alt="Jackets product reference" class="media-img" decoding="async" loading="lazy" src="/uploads/products/jackets-manufacturer.webp"/>
+<a class="cat-overlay" href="#inquiry">
+<span>Review scope</span>
+</a>
+</div>
+<div class="cat-body">
+<span class="eyebrow">03</span><h3>Jackets</h3>
+<p>Shell, lining, closures, hardware, pockets, branding, labels, and pack-out planned as one outerwear system.</p>
+</div>
+</article>
+<article class="cat-card" data-od-id="cat-pants">
+<div class="cat-media">
+<img alt="Pants product reference" class="media-img" decoding="async" loading="lazy" src="/uploads/products/pants-manufacturer.webp"/>
+<a class="cat-overlay" href="#inquiry">
+<span>Review scope</span>
+</a>
+</div>
+<div class="cat-body">
+<span class="eyebrow">04</span><h3>Pants</h3>
+<p>Cargo, jogger, casual, and related programs shaped by fit, pockets, reinforcement, trims, labels, and washing.</p>
+</div>
+</article>
+<article class="cat-card" data-od-id="cat-sportswear">
+<div class="cat-media">
+<img alt="Sportswear product reference" class="media-img" decoding="async" loading="lazy" src="/uploads/products/sportswear-manufacturer.webp"/>
+<a class="cat-overlay" href="#inquiry">
+<span>Review scope</span>
+</a>
+</div>
+<div class="cat-body">
+<span class="eyebrow">05</span><h3>Sportswear</h3>
+<p>Stretch-fabric and activewear programs with construction, reflective details, labels, and packaging review.</p>
+</div>
+</article>
+<article class="cat-card" data-od-id="cat-streetwear">
+<div class="cat-media">
+<img alt="Streetwear product reference" class="media-img" decoding="async" loading="lazy" src="/uploads/products/streetwear-manufacturer.webp"/>
+<a class="cat-overlay" href="#inquiry">
+<span>Review scope</span>
+</a>
+</div>
+<div class="cat-body">
+<span class="eyebrow">06</span><h3>Streetwear</h3>
+<p>Fit-led product development with graphics, embroidery, patches, washes, trims, private labels, and packaging.</p>
+</div>
+</article>
+</div>
+</div>
 </section>
+<!-- ─── 04 / Production process (DARK) ─────────────────────────────── -->
+<section class="section dark" data-od-id="production-process" id="production-process">
+<div class="container">
+<div class="section-head">
+<div class="head-text">
+<span class="eyebrow">From brief to bulk</span>
+<h2>Make the <span class="hl-dark">Order Clear</span> Before Production Starts.</h2>
+<p class="lead">Each stage turns buyer input into a reference for the next stage. The approved sample becomes the basis for bulk manufacturing.</p>
+</div>
+<div class="head-side">
 
-<!-- ============ 5 FROM BRIEF TO BULK ============ -->
-<section class="section band-dark" data-od-id="production-process">
-  <div class="shell">
-    <div class="proc-head">
-      <div class="p-title" data-reveal>
-        <p class="label label--onDark">From brief to bulk</p>
-        <h2>Make the Order Clear Before Production Starts.</h2>
-      </div>
-      <div class="p-note" data-reveal>
-        <p class="lead">Each stage turns buyer input into a reference for the next stage. The approved sample becomes the basis for bulk manufacturing.</p>
-      </div>
-    </div>
-    <ol class="proc">
-      <li class="proc-step" data-reveal>
-        <span class="proc-num">01</span>
-        <h3>Send the Product Details</h3>
-        <p>Share the category, quantity, target market, size range, price target, reference photos or tech pack, fabric idea, labels, packing needs, and delivery plan.</p>
-        <span class="proc-out">Output / Initial requirement set</span>
-      </li>
-      <li class="proc-step" data-reveal>
-        <span class="proc-num">02</span>
-        <h3>Confirm Materials and Workmanship</h3>
-        <p>Review fabric weight and composition, color, handfeel, buttons, zippers, drawcords, stitching, lining, artwork, decoration, labels, and packaging.</p>
-        <span class="proc-out">Output / Agreed product specification</span>
-      </li>
-      <li class="proc-step" data-reveal>
-        <span class="proc-num">03</span>
-        <h3>Make and Review the Sample</h3>
-        <p>Check fit, measurements, construction, fabric behavior, artwork placement, trims, brand details, and the overall product before bulk.</p>
-        <span class="proc-out">Output / Sample comments and revisions</span>
-      </li>
-      <li class="proc-step" data-reveal>
-        <span class="proc-num">04</span>
-        <h3>Approve or Revise</h3>
-        <p>Adjust the measurements, materials, labels, artwork placement, packing, or finishing until both sides have the production reference.</p>
-        <span class="proc-out">Output / Approved sample standard</span>
-      </li>
-      <li class="proc-step" data-reveal>
-        <span class="proc-num">05</span>
-        <h3>Produce, Check, and Pack</h3>
-        <p>Bulk work follows the approved sample through cutting, sewing, decoration, finishing, inspection, folding, packing, and shipment preparation.</p>
-        <span class="proc-out">Output / Shipment-ready order references</span>
-      </li>
-    </ol>
-  </div>
+</div>
+</div>
+<div class="steps-vertical" data-od-id="process-steps">
+<article class="step-row" data-od-id="step-01">
+<span class="step-num">01</span>
+<div>
+<h3>Send the Product Details</h3>
+<p class="step-body">Share the category, quantity, target market, size range, price target, reference photos or tech pack, fabric idea, labels, packing needs, and delivery plan.</p>
+</div>
+<div class="step-output">
+<span class="out-label">Output /</span>
+              Initial requirement set
+            </div>
+</article>
+<article class="step-row" data-od-id="step-02">
+<span class="step-num">02</span>
+<div>
+<h3>Confirm Materials and Workmanship</h3>
+<p class="step-body">Review fabric weight and composition, color, handfeel, buttons, zippers, drawcords, stitching, lining, artwork, decoration, labels, and packaging.</p>
+</div>
+<div class="step-output">
+<span class="out-label">Output /</span>
+              Agreed product specification
+            </div>
+</article>
+<article class="step-row" data-od-id="step-03">
+<span class="step-num">03</span>
+<div>
+<h3>Make and Review the Sample</h3>
+<p class="step-body">Check fit, measurements, construction, fabric behavior, artwork placement, trims, brand details, and the overall product before bulk.</p>
+</div>
+<div class="step-output">
+<span class="out-label">Output /</span>
+              Sample comments and revisions
+            </div>
+</article>
+<article class="step-row" data-od-id="step-04">
+<span class="step-num">04</span>
+<div>
+<h3>Approve or Revise</h3>
+<p class="step-body">Adjust the measurements, materials, labels, artwork placement, packing, or finishing until both sides have the production reference.</p>
+</div>
+<div class="step-output">
+<span class="out-label">Output /</span>
+              Approved sample standard
+            </div>
+</article>
+<article class="step-row" data-od-id="step-05">
+<span class="step-num">05</span>
+<div>
+<h3>Produce, Check, and Pack</h3>
+<p class="step-body">Bulk work follows the approved sample through cutting, sewing, decoration, finishing, inspection, folding, packing, and shipment preparation.</p>
+</div>
+<div class="step-output">
+<span class="out-label">Output /</span>
+              Shipment-ready order references
+            </div>
+</article>
+</div>
+</div>
 </section>
-
-<!-- ============ 6 PRODUCTION EVIDENCE ============ -->
-<section class="section" data-od-id="factory-capability">
-  <div class="shell">
-    <div class="evidence-grid">
-      <figure class="evidence-media" data-reveal>
-        <img src="/uploads/factory/factory-cutting.webp" alt="Fabric cutting table and cutting equipment in a garment production area" width="2400" height="1600" loading="lazy" decoding="async" />
-        <figcaption class="evidence-cap"><strong>Supplied factory reference /</strong> Visible cutting tables and production equipment. Capacity, location, ownership, and certifications remain to be confirmed.</figcaption>
-      </figure>
-      <div class="evidence-body" data-reveal>
-        <p class="label">Factory evidence</p>
-        <h2>Show the Production Work, Not Unsupported Factory Promises.</h2>
-        <p class="lead">This prototype makes room for real production-floor, sample-room, equipment, inspection, and packing evidence. Unknown company facts are intentionally not converted into claims.</p>
-        <div class="proof">
-          <div class="proof-row"><span class="status status--visible">VISIBLE</span><strong>Cutting tables and equipment in the supplied image</strong></div>
-          <div class="proof-row"><span class="status">SUPPORTED</span><strong>Sample review before bulk manufacturing</strong></div>
-          <div class="proof-row"><span class="status">SUPPORTED</span><strong>Production and packing reference updates</strong></div>
-          <div class="proof-row"><span class="status">PENDING</span><strong>Verified location, capacity, equipment, and compliance data</strong></div>
-        </div>
-        <a class="link" href="/production/">Review production information</a>
-      </div>
-    </div>
-  </div>
+<!-- ─── 05 / Factory evidence ──────────────────────────────────────── -->
+<section class="section" data-od-id="factory-evidence" id="factory-evidence">
+<div class="container">
+<div class="section-head">
+<div class="head-text">
+<span class="eyebrow">Factory evidence</span>
+<h2>Show the <span class="hl">Production Work</span>, Not Unsupported Factory Promises.</h2>
+<p class="lead">This prototype makes room for real production-floor, sample-room, equipment, inspection, and packing evidence. Unknown company facts are intentionally not converted into claims.</p>
+</div>
+<div class="head-side">
+<a class="btn btn-ghost btn-arrow" href="#inquiry">Review production information</a>
+</div>
+</div>
+<div class="evidence" data-od-id="evidence-block">
+<figure style="margin:0;">
+<div class="evidence-media">
+<img alt="Fabric cutting table and cutting equipment" class="media-img" decoding="async" loading="lazy" src="/uploads/factory/factory-cutting.webp"/>
+</div>
+<figcaption>Supplied factory reference / Visible cutting tables and production equipment. Capacity, location, ownership, and certifications remain to be confirmed.</figcaption>
+</figure>
+<div aria-label="Evidence status checklist" class="status-list" data-od-id="evidence-status">
+<div class="status-row">
+<span class="status-tag">VISIBLE</span>
+<span class="status-body">Cutting tables and equipment in the supplied image</span>
+</div>
+<div class="status-row">
+<span class="status-tag">SUPPORTED</span>
+<span class="status-body">Sample review before bulk manufacturing</span>
+</div>
+<div class="status-row">
+<span class="status-tag">SUPPORTED</span>
+<span class="status-body">Production and packing reference updates</span>
+</div>
+<div class="status-row pending">
+<span class="status-tag">PENDING</span>
+<span class="status-body">Verified location, capacity, equipment, and compliance data</span>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- ============ 7 MATERIAL TO PACK-OUT ============ -->
-<section class="section band-alt" data-od-id="manufacturing-capabilities">
-  <div class="shell">
-    <div class="cap-grid">
-      <div class="cap-intro" data-reveal>
-        <p class="label">Material to pack-out</p>
-        <h2>The Details That Shape the Final Garment.</h2>
-        <p class="lead">Decisions are reviewed as a connected product system. A fabric choice affects fit, decoration, workmanship, care information, and packing, not just handfeel.</p>
-      </div>
-      <div class="cap-ledger">
-        <article class="cap-item" data-reveal>
-          <span class="cap-flag">01 / FABRICS</span>
-          <h3>Material Direction</h3>
-          <p>Review product use, composition, weight, color, handfeel, stretch, drape, and special material requirements.</p>
-          <ul>
-            <li>Fleece and French terry</li>
-            <li>Jersey and cotton options</li>
-            <li>Woven shell and lining</li>
-            <li>Stretch and performance options</li>
-          </ul>
-        </article>
-        <article class="cap-item" data-reveal>
-          <span class="cap-flag">02 / WORKMANSHIP</span>
-          <h3>Construction</h3>
-          <p>Translate the silhouette into measurements, seams, pockets, closures, reinforcement, lining, and finishing instructions.</p>
-          <ul>
-            <li>Fit and size review</li>
-            <li>Stitching and seam details</li>
-            <li>Pockets and reinforcement</li>
-            <li>Buttons, zippers, and drawcords</li>
-          </ul>
-        </article>
-        <article class="cap-item" data-reveal>
-          <span class="cap-flag">03 / DECORATION</span>
-          <h3>Brand Application</h3>
-          <p>Match the decoration method and artwork placement to the garment, fabric, intended look, and order plan.</p>
-          <ul>
-            <li>Screen printing</li>
-            <li>Heat transfer</li>
-            <li>Embroidery</li>
-            <li>Patches and artwork placement</li>
-          </ul>
-        </article>
-        <article class="cap-item" data-reveal>
-          <span class="cap-flag">04 / PRIVATE LABEL</span>
-          <h3>Finishing System</h3>
-          <p>Coordinate the visible and hidden brand details before packing instructions are finalized.</p>
-          <ul>
-            <li>Woven, neck, size, and care labels</li>
-            <li>Hangtags, stickers, and barcodes</li>
-            <li>Polybags and folding rules</li>
-            <li>Carton labels and marks</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </div>
+<!-- ─── 06 / Manufacturing capabilities ────────────────────────────── -->
+<section class="section" data-od-id="manufacturing-capabilities" id="manufacturing-capabilities">
+<div class="container">
+<div class="section-head">
+<div class="head-text">
+<span class="eyebrow">Material to pack-out</span>
+<h2>The Details That Shape the <span class="hl">Final Garment</span>.</h2>
+<p class="lead">Decisions are reviewed as a connected product system. A fabric choice affects fit, decoration, workmanship, care information, and packing, not just handfeel.</p>
+</div>
+</div>
+<div class="modules" data-od-id="capability-modules" id="capabilities-services">
+<article class="module" data-od-id="module-material">
+<svg aria-hidden="true" class="module-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<ellipse cx="12" cy="6" rx="7" ry="2"></ellipse>
+<path d="M5 6 V18"></path>
+<path d="M19 6 V18"></path>
+<path d="M5 18 a7 2.5 0 0 0 14 0"></path>
+</svg>
+<span class="eyebrow">01 / FABRICS</span><h3>Material Direction</h3>
+<p>Review product use, composition, weight, color, handfeel, stretch, drape, and special material requirements.</p>
+<ul>
+<li>Fleece and French terry</li>
+<li>Jersey and cotton options</li>
+<li>Woven shell and lining</li>
+<li>Stretch and performance options</li>
+</ul>
+</article>
+<article class="module" data-od-id="module-construction">
+<svg aria-hidden="true" class="module-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M17 3 L21 7 L8 20 L4 20 L4 16 Z"></path>
+<path d="M15 5 L19 9"></path>
+<path d="M14 14 Q10 16 5 21"></path>
+</svg>
+<span class="eyebrow">02 / WORKMANSHIP</span><h3>Construction</h3>
+<p>Translate the silhouette into measurements, seams, pockets, closures, reinforcement, lining, and finishing instructions.</p>
+<ul>
+<li>Fit and size review</li>
+<li>Stitching and seam details</li>
+<li>Pockets and reinforcement</li>
+<li>Buttons, zippers, and drawcords</li>
+</ul>
+</article>
+<article class="module" data-od-id="module-brand">
+<svg aria-hidden="true" class="module-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M3 12 L12 3 H21 V12 L12 21 Z"></path>
+<circle cx="16" cy="8" r="1.2"></circle>
+</svg>
+<span class="eyebrow">03 / DECORATION</span><h3>Brand Application</h3>
+<p>Match the decoration method and artwork placement to the garment, fabric, intended look, and order plan.</p>
+<ul>
+<li>Screen printing</li>
+<li>Heat transfer</li>
+<li>Embroidery</li>
+<li>Patches and artwork placement</li>
+</ul>
+</article>
+<article class="module" data-od-id="module-finishing">
+<svg aria-hidden="true" class="module-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<rect height="14" rx="1" width="18" x="3" y="7"></rect>
+<path d="M3 12 H21"></path>
+<path d="M12 7 V17"></path>
+<path d="M9 7 L12 4 L15 7"></path>
+</svg>
+<span class="eyebrow">04 / PRIVATE LABEL</span><h3>Finishing System</h3>
+<p>Coordinate the visible and hidden brand details before packing instructions are finalized.</p>
+<ul>
+<li>Woven, neck, size, and care labels</li>
+<li>Hangtags, stickers, and barcodes</li>
+<li>Polybags and folding rules</li>
+<li>Carton labels and marks</li>
+</ul>
+</article>
+</div>
+</div>
 </section>
-
-<!-- ============ 8 QUALITY CONTROL ============ -->
-<section class="section band-dark" data-od-id="quality-control">
-  <div class="shell">
-    <div class="qc-grid">
-      <div class="qc-intro" data-reveal>
-        <p class="label label--onDark">Quality control</p>
-        <h2>Know What Should Be Checked Before the Order Ships.</h2>
-        <p class="lead">Quality control should be understandable to a buyer working remotely. The checkpoints below focus on fit, appearance, branding, packing, and consistency with the approved product reference.</p>
-      </div>
-      <div class="qc-ledger">
-        <article class="qc-item" data-reveal>
-          <span class="qc-num">01</span>
-          <div><h3>Incoming Material Reference</h3><p>Confirm fabric direction, color references, trims, and order details before cutting and assembly.</p></div>
-        </article>
-        <article class="qc-item" data-reveal>
-          <span class="qc-num">02</span>
-          <div><h3>In-Process Workmanship</h3><p>Review construction, measurements, stitching, placement, and visible issues while corrections can still be made.</p></div>
-        </article>
-        <article class="qc-item" data-reveal>
-          <span class="qc-num">03</span>
-          <div><h3>Finished Garment Check</h3><p>Compare fit, appearance, labeling, decoration, and key measurements with the approved sample and order notes.</p></div>
-        </article>
-        <article class="qc-item" data-reveal>
-          <span class="qc-num">04</span>
-          <div><h3>Pack-Out Verification</h3><p>Check label accuracy, folding, polybags, carton information, packing count, and requested reference photography.</p></div>
-        </article>
-        <article class="qc-item" data-reveal>
-          <span class="qc-num">05</span>
-          <div><h3>Shipment Preparation</h3><p>Align carton details and shipment document support with the buyer's delivery plan before goods leave production.</p></div>
-        </article>
-      </div>
-    </div>
-  </div>
+<!-- ─── 07 / Quality control (DARK) ────────────────────────────────── -->
+<section class="section dark" data-od-id="quality-control" id="quality-control">
+<div class="container">
+<div class="section-head">
+<div class="head-text">
+<span class="eyebrow">Quality control</span>
+<h2>Know What <span class="hl-dark">Should Be Checked</span> Before the Order Ships.</h2>
+<p class="lead">Quality control should be understandable to a buyer working remotely. The checkpoints below focus on fit, appearance, branding, packing, and consistency with the approved product reference.</p>
+</div>
+</div>
+<div class="steps-vertical" data-od-id="qc-points">
+<article class="step-row" data-od-id="qc-01">
+<span class="step-num">01</span>
+<div>
+<h3>Incoming Material Reference</h3>
+<p class="step-body">Confirm fabric direction, color references, trims, and order details before cutting and assembly.</p>
+</div>
+</article>
+<article class="step-row" data-od-id="qc-02">
+<span class="step-num">02</span>
+<div>
+<h3>In-Process Workmanship</h3>
+<p class="step-body">Review construction, measurements, stitching, placement, and visible issues while corrections can still be made.</p>
+</div>
+</article>
+<article class="step-row" data-od-id="qc-03">
+<span class="step-num">03</span>
+<div>
+<h3>Finished Garment Check</h3>
+<p class="step-body">Compare fit, appearance, labeling, decoration, and key measurements with the approved sample and order notes.</p>
+</div>
+</article>
+<article class="step-row" data-od-id="qc-04">
+<span class="step-num">04</span>
+<div>
+<h3>Pack-Out Verification</h3>
+<p class="step-body">Check label accuracy, folding, polybags, carton information, packing count, and requested reference photography.</p>
+</div>
+</article>
+<article class="step-row" data-od-id="qc-05">
+<span class="step-num">05</span>
+<div>
+<h3>Shipment Preparation</h3>
+<p class="step-body">Align carton details and shipment document support with the buyer's delivery plan before goods leave production.</p>
+</div>
+</article>
+</div>
+</div>
 </section>
-
-<!-- ============ 9 PACKAGING AND DELIVERY ============ -->
-<section class="section" data-od-id="packaging-delivery">
-  <div class="shell">
-    <div class="pack-grid">
-      <div class="pack-main" data-reveal>
-        <p class="label">Packaging and delivery</p>
-        <h2>Prepare the Order for the Buyer's Next Handoff.</h2>
-        <p class="lead">The delivery workflow begins before cartons are closed. Share the destination, target timing, warehouse or retail requirements, and the documents your receiving team expects.</p>
-        <div class="pack-steps">
-          <article class="pack-step">
-            <span class="label">01 / BRAND</span>
-            <h3>Labels and Tags</h3>
-            <p>Confirm label files, care information, size identification, hangtags, stickers, and barcodes.</p>
-          </article>
-          <article class="pack-step">
-            <span class="label">02 / UNIT</span>
-            <h3>Fold and Bag</h3>
-            <p>Define folding, polybag, insert, sticker, and presentation requirements for each unit.</p>
-          </article>
-          <article class="pack-step">
-            <span class="label">03 / CARTON</span>
-            <h3>Pack-Out</h3>
-            <p>Specify carton marks, product mix, size breakdown, packing count, and handling notes.</p>
-          </article>
-          <article class="pack-step">
-            <span class="label">04 / HANDOFF</span>
-            <h3>Shipment Support</h3>
-            <p>Review packing references, carton information, destination details, and requested document support.</p>
-          </article>
-        </div>
-      </div>
-      <aside class="pack-note" data-reveal>
-        <span class="label">Planning note</span>
-        <h3>No Fixed Delivery Promise Without an Order Review.</h3>
-        <p><strong>Final timing and shipping method depend on the confirmed product, materials, quantity, packaging, destination, and buyer requirements.</strong></p>
-        <p>Include the target market, destination, deadline, and packing or document needs in the initial inquiry so the delivery path can be assessed with the product plan.</p>
-      </aside>
-    </div>
-  </div>
+<!-- ─── 08 / Packaging and delivery ────────────────────────────────── -->
+<section class="section" data-od-id="packaging-delivery" id="packaging-delivery">
+<div class="container">
+<div class="section-head">
+<div class="head-text">
+<span class="eyebrow">Packaging and delivery</span>
+<h2>Prepare the Order for the Buyer's <span class="hl">Next Handoff</span>.</h2>
+<p class="lead">The delivery workflow begins before cartons are closed. Share the destination, target timing, warehouse or retail requirements, and the documents your receiving team expects.</p>
+</div>
+</div>
+<div class="pack-grid" data-od-id="pack-block">
+<div class="pack-steps">
+<article class="pack-step">
+<span class="eyebrow">01 / BRAND</span><h3>Labels and Tags</h3>
+<p>Confirm label files, care information, size identification, hangtags, stickers, and barcodes.</p>
+</article>
+<article class="pack-step">
+<span class="eyebrow">02 / UNIT</span><h3>Fold and Bag</h3>
+<p>Define folding, polybag, insert, sticker, and presentation requirements for each unit.</p>
+</article>
+<article class="pack-step">
+<span class="eyebrow">03 / CARTON</span><h3>Pack-Out</h3>
+<p>Specify carton marks, product mix, size breakdown, packing count, and handling notes.</p>
+</article>
+<article class="pack-step">
+<span class="eyebrow">04 / HANDOFF</span><h3>Shipment Support</h3>
+<p>Review packing references, carton information, destination details, and requested document support.</p>
+</article>
+</div>
+<aside class="side-prompt" data-od-id="delivery-prompt">
+<span class="eyebrow">Planning note</span><h3>No Fixed Delivery Promise Without an Order Review.</h3><p><strong>Final timing and shipping method depend on the confirmed product, materials, quantity, packaging, destination, and buyer requirements.</strong></p><p>Include the target market, destination, deadline, and packing or document needs in the initial inquiry so the delivery path can be assessed with the product plan.</p>
+</aside>
+</div>
+</div>
 </section>
+<!-- ─── 09 / Inquiry form ──────────────────────────────────────────── -->
+<section class="section" data-od-id="inquiry" id="inquiry">
+<div class="container">
+<div class="form-grid">
+<div class="form-side">
+<span class="form-eyebrow">Start the conversation</span>
+<h2>Send <span class="hl">Enough Detail</span> to Get a Useful Manufacturing Review.</h2>
+<a class="btn btn-primary" href="/contact-us/">Send project details</a></div>
+<form method="POST" action="/api/inquiry" data-product="Custom clothing" data-wa-phone="8615733728976" data-wa-key="" class="inquiry-form" data-od-id="inquiry-form"><input type="hidden" name="product" value="Custom clothing" /><input type="hidden" name="_subject" value="Yauum inquiry — Custom clothing" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+<div class="field">
+<label for="garment-type">Garment type</label>
+<select class="select" id="garment-type" name="garment_type" required="">
+<option value="Hoodies" selected>Hoodies</option>
+<option value="T-Shirts">T-Shirts</option>
+<option value="Jackets">Jackets</option>
+<option value="Pants">Pants</option>
+<option value="Sportswear">Sportswear</option>
+<option value="Streetwear">Streetwear</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="field">
+<label>Quantity<span class="meta"> · 1 design · 1 color · 5 sizes</span></label>
+<div aria-label="Quantity range" class="opt-row" role="radiogroup">
+<label><input name="moq_tier" type="radio" value="100–500 pcs" checked /><span>100–500 pcs</span></label>
+<label><input name="moq_tier" type="radio" value="500–1,000 pcs"/><span>500–1,000 pcs</span></label>
+<label><input name="moq_tier" type="radio" value="1,000–2,000 pcs"/><span>1,000–2,000 pcs</span></label>
+<label><input name="moq_tier" type="radio" value="2,000+ pcs"/><span>2,000+ pcs</span></label>
+</div>
+</div>
+<div class="field-row">
+<div class="field">
+<label for="name">Name</label>
+<input autocomplete="name" class="input" id="name" name="name" required="" type="text"/>
+</div>
+<div class="field">
+<label for="email">Email</label>
+<input autocomplete="email" class="input" id="email" name="email" required="" type="email"/>
+</div>
+</div>
+<div class="field">
+<label for="project-details">Project details <span style="color:var(--yv-muted)">(optional)</span></label>
+<textarea class="textarea" id="project-details" name="message" placeholder="Target market, fabric idea, artwork, labels, packing needs, delivery timeline…"></textarea>
+</div>
+<button class="btn btn-primary" type="submit">Send inquiry</button>
+<p aria-live="polite" class="form-status meta"></p>
+</form>
+</div>
+</div>
+</section>
+  <Fragment slot="scripts">
+    <script is:inline>(function () {
+      // reveal-on-scroll: one-shot fade + 10px lift per container, 60ms
+      // stagger across direct children. Honors prefers-reduced-motion.
+      var targets = document.querySelectorAll(
+        '.section-head, .buyer-cards, .cat-grid, .steps-vertical, ' +
+        '.modules, .evidence, .pack-grid, .form-grid'
+      );
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-<!-- ============ 10 INQUIRY ============ -->
-<InquirySection
-  product="Custom clothing"
-  id="inquiry"
-  odId="inquiry-conversion"
-  band="band-alt"
-  kicker="Start the conversation"
-  title="Send Enough Detail to Get a Useful Manufacturing Review."
-  ctaLabel="Send project details"
-/>
-</EditorialLayout>
+      if (reduce || !('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+
+      targets.forEach(function (container) {
+        if (container.classList.contains('section-head')) return;
+        Array.prototype.forEach.call(container.children, function (child, i) {
+          child.style.setProperty('--i', i);
+        });
+      });
+
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+      targets.forEach(function (el) { obs.observe(el); });
+    })();</script>
+  </Fragment>
+</V2Layout>
