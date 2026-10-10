@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/how-to-find-alibaba-hoodie-manufacturers/",
+    title: "How to Find Alibaba Hoodie Manufacturers: A Complete Screening Framework (From Search to Factory Audit)",
+    description: "Six screening steps for Alibaba hoodie suppliers: keyword strategy, filters, shortlisting, factory verification, sampling, and payment terms.",
+    date: "2026-10-10",
+    dateLabel: "October 10, 2026",
+    tag: "Sourcing guide",
+  },
+  {
     route: "/how-to-find-a-hoodie-manufacturer/",
     title: "How to Find a Hoodie Manufacturer: A Step-by-Step Guide for Brands (2026)",
     description: "Sourcing channels, a vetting checklist, sampling tests, pricing factors, and the red flags that separate real factories from trading companies.",

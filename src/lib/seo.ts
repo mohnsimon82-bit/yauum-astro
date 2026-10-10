@@ -1150,6 +1150,65 @@ const RAW_SEO: Record<string, SeoData> = {
       ]),
     ],
   },
+  // 文章详情页 · 第十篇（2026-10-10）。slug 取 TDK（/how-to-find-alibaba-hoodie-manufacturers/）。
+  // 审核报告 84 分（未达标需人工复核，用户确认发布）。P0 仅词数（约 3,100–3,300，未压缩照发，同前几篇）；
+  // 下载承诺改真实动作；5 条内链映射到真实页面（/about-us/、/hoodie-manufacturer/#fabric 与 #workflow 等）。
+  // 下方 FAQ text 与页面可见 FAQ 文本逐字一致。
+  "/how-to-find-alibaba-hoodie-manufacturers/": {
+    title: "How to Find Alibaba Hoodie Manufacturers: Screening Guide | Yauum",
+    description:
+      "Learn how to find and verify Alibaba hoodie manufacturers. Screening framework, red flags, and factory audit tips. Get a tiered quote from YAUUM.",
+    path: "/how-to-find-alibaba-hoodie-manufacturers/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-detail.webp"),
+    ogImageAlt: "Hoodie manufacturing production line in a factory with workers sewing custom hoodies",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["How to Find Alibaba Hoodie Manufacturers", "/how-to-find-alibaba-hoodie-manufacturers/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "How to Find Alibaba Hoodie Manufacturers: A Complete Screening Framework (From Search to Factory Audit)",
+        description:
+          "Learn how to find and verify Alibaba hoodie manufacturers. Screening framework, red flags, and factory audit tips. Get a tiered quote from YAUUM.",
+        path: "/how-to-find-alibaba-hoodie-manufacturers/",
+        image: "/uploads/factory/factory-sewing-line-detail.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-10T00:00:00+08:00",
+        dateModified: "2026-10-10T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "How do I know if an Alibaba hoodie manufacturer is legit?",
+          "Verify three things: the business registration matches the company name, certifications check out against the issuing body's registry, and the supplier agrees to a live video walkthrough of its production floor. A legitimate factory answers specific operational questions about machine counts, monthly capacity, and lead times without deflecting.",
+        ],
+        [
+          "What's the difference between a hoodie manufacturer and a trading company on Alibaba?",
+          "A manufacturer owns production equipment and controls its own cutting, sewing, and finishing. A trading company buys from factories and resells at a margin. Trading companies aren't inherently bad, but when one presents itself as a factory, your pricing and lead-time assumptions rest on a false premise.",
+        ],
+        [
+          "What is a reasonable MOQ for custom hoodies from Alibaba?",
+          "For custom hoodies with your own labels and specs, MOQ usually runs 300 to 500 pieces per colorway. Stock-fabric and semi-custom programs can go lower. If your target sits below the stated MOQ, ask about combining colorways on one fabric or switching to stock fabric to drop the threshold.",
+        ],
+        [
+          "How long does it take to get a hoodie sample from an Alibaba supplier?",
+          "Sampling time depends on fabric availability and decoration complexity. A straightforward fleece hoodie built from stock fabric usually takes a few weeks from tech pack to sample in hand. Custom-dyed fabric, puff print, or multi-color embroidery extends that. Confirm the timeline and the sample fee, including whether it credits against bulk, before you commit.",
+        ],
+        [
+          "Should I use Alibaba Trade Assurance when ordering hoodies?",
+          "Trade Assurance protects your payment if the supplier fails to meet agreed terms, so use it on first orders with a new supplier. It does not guarantee product quality. That job belongs to your spec sheet, your approved sample, and a pre-shipment inspection. Use both layers.",
+        ],
+        [
+          "How do I verify a hoodie factory's certifications (WRAP, BSCI, ISO)?",
+          "Request the certificate number and the issuing body, then verify it independently. WRAP and amfori (BSCI) both maintain registries, and ISO certificates can be confirmed with the accredited certification body that issued them. Check that the facility name matches the supplier's legal name and that the certificate has not expired.",
+        ],
+      ]),
+    ],
+  },
 
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
