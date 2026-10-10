@@ -1,456 +1,498 @@
 ---
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "./InquirySection.astro";
-import { SEO } from "../lib/seo";
+/** 
+ * pants-manufacturer（V2 家族版式，2026-10-11 起）。
+ *
+ * 由终审定稿的预览成品移植：pants-完整版.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/pants-manufacturer.css。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { getSeo } from "../lib/seo";
 import "../styles/pages/pants-manufacturer.css";
 ---
 
-<EditorialLayout
-  seo={SEO["/pants-manufacturer/"]}
-  navCurrent={["/production/", "/pants-manufacturer/"]}
->
-<!-- ============ 1 HERO ============ -->
-<section class="pd-hero" aria-labelledby="pp-title" data-od-id="pp-hero">
-  <div class="shell">
-    <div class="pd-hero-grid">
-      <div class="pd-hero-copy">
-        <p class="label">B2B / OEM-ODM / PRIVATE LABEL</p>
-        <h1 id="pp-title">Custom Pants Manufacturer for Private Label Brands</h1>
-        <p class="lead pd-hero-lead">Choose the fit, fabric, waist, pockets, and finish. Approve the sample against a written specification before bulk production.</p>
+<V2Layout seo={getSeo("/pants-manufacturer/")} navCurrent={["/production/", "/pants-manufacturer/"]}>
+<header class="hero">
+    <div class="container">
+      <div class="hero__main">
+        <p class="hero__eyebrow">B2B / OEM-ODM / PRIVATE LABEL</p>
+        <h1 class="section-h1 hero__h1">Custom Pants Manufacturer for Private Label Brands</h1>
+        <p class="hero__lead">Choose the fit, fabric, waist, pockets, and finish. Approve the sample against a written specification before bulk production.</p>
       </div>
-      <figure class="pd-hero-media">
-        <img src="/uploads/pants-manufacturer/hero-pants-private-label.webp" width="1536" height="1024" alt="Private label pants produced as a finished-garment reference" fetchpriority="high" decoding="async" />
-        <figcaption class="pd-hero-cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</figcaption>
-      </figure>
+      <div class="hero__media">
+        <figure>
+          <img src="/uploads/pants-manufacturer/hero-pants-private-label.webp" alt="Private label pants produced as a finished-garment reference" width="1536" height="1024" loading="eager" />
+        </figure><p class="hero__cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</p>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ============ 2 SECTION INDEX ============ -->
-<nav class="pd-index" aria-label="Pants page sections" data-od-id="page-section-index">
-  <div class="shell">
-    <a href="#pp-construction">Construction</a>
-    <a href="#pp-fit">Fit</a>
-    <a href="#pp-grading">Grading</a>
-    <a href="#pp-waistband">Waistband</a>
-    <a href="#pp-pockets">Pockets</a>
-    <a href="#pp-reinforcement">Reinforce</a>
-    <a href="#pp-fabric">Fabric</a>
-    <a href="#pp-wash">Wash</a>
-    <a href="#pp-branding">Branding</a>
-    <a href="#pp-sample">Sample</a>
-    <a href="#pp-qc">QC</a>
-    <a href="#pp-faq">FAQ</a>
-  </div>
-</nav>
+  <nav class="indexbar" aria-label="Section index">
+    <div class="container">
+      <div class="indexbar__list">
+        <a class="indexbar__item" href="#pp-construction">Construction</a>
+        <a class="indexbar__item" href="#pp-fit">Fit</a>
+        <a class="indexbar__item" href="#pp-grading">Grading</a>
+        <a class="indexbar__item" href="#pp-waistband">Waistband</a>
+        <a class="indexbar__item" href="#pp-pockets">Pockets</a>
+        <a class="indexbar__item" href="#pp-reinforcement">Reinforce</a>
+        <a class="indexbar__item" href="#pp-fabric">Fabric</a>
+        <a class="indexbar__item" href="#pp-wash">Wash</a>
+        <a class="indexbar__item" href="#pp-branding">Branding</a>
+        <a class="indexbar__item" href="#pp-sample">Sample</a>
+        <a class="indexbar__item" href="#pp-qc">QC</a>
+        <a class="indexbar__item" href="#pp-faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
 
-<!-- ============ 3 CONSTRUCTION ============ -->
-<section class="section" id="pp-construction" aria-labelledby="pp-construction-title" data-od-id="pp-construction">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">01 / CONSTRUCTION</p>
-        <h2 id="pp-construction-title">Choose the Right Pants Construction for Your Market</h2>
+  <section id="pp-construction" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">01</span> / CONSTRUCTION</p>
+          <h2 class="section-h2">Choose the Right Pants Construction for Your Market</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Start with the wearer, target price, and intended use. These styles are development directions, not a stocked catalog.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Start with the wearer, target price, and intended use. These styles are development directions, not a stocked catalog.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Start with the Wearer and the Use Case</h3>
+          <p>Tell us whether the pants are for daily wear, work, streetwear, or training. The use case narrows the fit, fabric, and pocket plan.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Compare Pants Families Before the Pattern</h3>
+          <p>Chinos favor a clean waist; cargo pants need a load-bearing pocket plan; joggers depend on waistband recovery; jeans add denim and wash decisions.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Judge Construction Complexity Early</h3>
+          <p>List the fly, pockets, reinforcement, and wash requirements. Each affects sampling, quantity feasibility, and the quote.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-construction-families.webp" alt="Four pants families side by side: chinos, cargo pants, joggers, and jeans" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-grid pp-grid--3">
-      <article class="pp-block" data-reveal>
-        <span class="pp-num" aria-hidden="true"></span>
-        <h3>Start with the Wearer and the Use Case</h3>
-        <p>Tell us whether the pants are for daily wear, work, streetwear, or training. The use case narrows the fit, fabric, and pocket plan.</p>
-      </article>
-      <article class="pp-block" data-reveal>
-        <span class="pp-num" aria-hidden="true"></span>
-        <h3>Compare Pants Families Before the Pattern</h3>
-        <p>Chinos favor a clean waist; cargo pants need a load-bearing pocket plan; joggers depend on waistband recovery; jeans add denim and wash decisions.</p>
-      </article>
-      <article class="pp-block" data-reveal>
-        <span class="pp-num" aria-hidden="true"></span>
-        <h3>Judge Construction Complexity Early</h3>
-        <p>List the fly, pockets, reinforcement, and wash requirements. Each affects sampling, quantity feasibility, and the quote.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-      <img src="/uploads/pants-manufacturer/pants-construction-families.webp" width="1448" height="1086" alt="Four pants families side by side: chinos, cargo pants, joggers, and jeans" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 4 FIT ============ -->
-<section class="section band-dark" id="pp-fit" aria-labelledby="pp-fit-title" data-od-id="pp-fit">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">02 / FIT</p>
-        <h2 id="pp-fit-title">Pants Fit Starts at the Waist, Rise, and Hip</h2>
+  <section id="pp-fit" class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">02</span> / FIT</p>
+          <h2 class="section-h2">Pants Fit Starts at the Waist, Rise, and Hip</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Provide a size chart or reference garment with waist position, hip, and rise measurements.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Provide a size chart or reference garment with waist position, hip, and rise measurements.</p>
-      </div>
-    </div>
-    <div class="pp-spec">
-      <article class="pp-spec-row" data-reveal>
-        <div>
-          <h3>Measure Waist and Hip as a Pair</h3>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Measure Waist and Hip as a Pair</h3>
           <p>Record where the waistband sits, then specify waistband width, waist, and hip for the same base size.</p>
         </div>
-      </article>
-      <article class="pp-spec-row" data-reveal>
-        <div>
-          <h3>Set Front and Back Rise on Purpose</h3>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Set Front and Back Rise on Purpose</h3>
           <p>Measure front and back rise separately. Check seat room and movement on the sample.</p>
         </div>
-      </article>
-      <article class="pp-spec-row" data-reveal>
-        <div>
-          <h3>Carry the Fit Through Thigh, Knee, and Leg Opening</h3>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Carry the Fit Through Thigh, Knee, and Leg Opening</h3>
           <p>Add thigh, knee, inseam, outseam, and leg opening to the chart so the intended silhouette can be checked across sizes.</p>
         </div>
-      </article>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-fit-waist-rise-hip.webp" alt="Flat-lay pants with the waist and hip measured against a tape" width="1448" height="1086" loading="lazy" /></figure>
+      </div>
     </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-fit-waist-rise-hip.webp" width="1448" height="1086" alt="Flat-lay pants with the waist and hip measured against a tape" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 5 GRADING ============ -->
-<section class="section" id="pp-grading" aria-labelledby="pp-grading-title" data-od-id="pp-grading">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">03 / GRADING</p>
-        <h2 id="pp-grading-title">How Pants Patterns Should Be Graded Across Sizes</h2>
+  <section id="pp-grading" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">03</span> / GRADING</p>
+          <h2 class="section-h2">How Pants Patterns Should Be Graded Across Sizes</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Agree the base size, size range, and grading rules before approving the full run.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Agree the base size, size range, and grading rules before approving the full run.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Start from One Documented Base Size</h3>
+          <p>Send your size chart and reference garment. The base-size measurements and pattern approach are reviewed before sampling.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Agree Grading Increments per Project</h3>
+          <p>Set increments and tolerances for waist, hip, rise, thigh, inseam, and opening individually. Review the resulting size chart against the approved fit.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-grading-size-set.webp" alt="Graded pants paper patterns laid out as a size set" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-grid pp-grid--2">
-      <article class="pp-block" data-reveal>
-        <span class="pp-num" aria-hidden="true"></span>
-        <h3>Start from One Documented Base Size</h3>
-        <p>Send your size chart and reference garment. The base-size measurements and pattern approach are reviewed before sampling.</p>
-      </article>
-      <article class="pp-block" data-reveal>
-        <span class="pp-num" aria-hidden="true"></span>
-        <h3>Agree Grading Increments per Project</h3>
-        <p>Set increments and tolerances for waist, hip, rise, thigh, inseam, and opening individually. Review the resulting size chart against the approved fit.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-grading-size-set.webp" width="1448" height="1086" alt="Graded pants paper patterns laid out as a size set" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 6 WAISTBAND AND FLY ============ -->
-<section class="section band-alt" id="pp-waistband" aria-labelledby="pp-waistband-title" data-od-id="pp-waistband">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">04 / WAISTBAND AND FLY</p>
-        <h2 id="pp-waistband-title">Design the Waistband, Fly, and Closure System</h2>
+  <section id="pp-waistband" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">04</span> / WAISTBAND AND FLY</p>
+          <h2 class="section-h2">Design the Waistband, Fly, and Closure System</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Select a waist and closure combination that fits the intended wearer and fabric.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Select a waist and closure combination that fits the intended wearer and fabric.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Choose the Waistband Structure First</h3>
+          <p>A fixed waist holds a structured line; elastic or drawcord allows more adjustment. Specify band width, stretch, and belt loops.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Match the Fly to the Fabric and Wearer</h3>
+          <p>Choose a button-and-zip fly, snap, or pull-on build. Check the closure on a sample in the selected fabric.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Finish with Loops, Adjusters, and Drawcords</h3>
+          <p>Mark belt-loop positions, side adjusters, drawcord exits, and hardware in the tech pack.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-waistband-fly-closure.webp" alt="Waistband, fly, and closure construction details on pants" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-stack">
-      <article class="pp-stack-row" data-reveal>
-        <h3>Choose the Waistband Structure First</h3>
-        <p>A fixed waist holds a structured line; elastic or drawcord allows more adjustment. Specify band width, stretch, and belt loops.</p>
-      </article>
-      <article class="pp-stack-row" data-reveal>
-        <h3>Match the Fly to the Fabric and Wearer</h3>
-        <p>Choose a button-and-zip fly, snap, or pull-on build. Check the closure on a sample in the selected fabric.</p>
-      </article>
-      <article class="pp-stack-row" data-reveal>
-        <h3>Finish with Loops, Adjusters, and Drawcords</h3>
-        <p>Mark belt-loop positions, side adjusters, drawcord exits, and hardware in the tech pack.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-waistband-fly-closure.webp" width="1448" height="1086" alt="Waistband, fly, and closure construction details on pants" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 7 POCKETS ============ -->
-<section class="section" id="pp-pockets" aria-labelledby="pp-pockets-title" data-od-id="pp-pockets">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">05 / POCKETS</p>
-        <h2 id="pp-pockets-title">Plan Pockets for Function, Position, and Load</h2>
+  <section id="pp-pockets" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">05</span> / POCKETS</p>
+          <h2 class="section-h2">Plan Pockets for Function, Position, and Load</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">State what each pocket carries, where it sits, and how it closes.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">State what each pocket carries, where it sits, and how it closes.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Place Pockets by Reach, Not by Habit</h3>
+          <p>Give pocket measurements from pattern reference points. Check reach and visual balance on the sample.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Match Pocket Construction to Load</h3>
+          <p>A welt pocket for light items and a loaded cargo pocket need different bags and reinforcement. State the intended load.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Specify Pocket Bags and Visible Edges</h3>
+          <p>Confirm pocket depth, bag fabric, edge finish, and closure. Check show-through on lighter fabrics.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-pocket-construction.webp" alt="Cargo and welt pocket construction details on pants" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-cards pp-cards--3">
-      <article class="pp-card" data-reveal>
-        <h3>Place Pockets by Reach, Not by Habit</h3>
-        <p>Give pocket measurements from pattern reference points. Check reach and visual balance on the sample.</p>
-      </article>
-      <article class="pp-card" data-reveal>
-        <h3>Match Pocket Construction to Load</h3>
-        <p>A welt pocket for light items and a loaded cargo pocket need different bags and reinforcement. State the intended load.</p>
-      </article>
-      <article class="pp-card" data-reveal>
-        <h3>Specify Pocket Bags and Visible Edges</h3>
-        <p>Confirm pocket depth, bag fabric, edge finish, and closure. Check show-through on lighter fabrics.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-pocket-construction.webp" width="1448" height="1086" alt="Cargo and welt pocket construction details on pants" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 8 REINFORCEMENT ============ -->
-<section class="section band-alt" id="pp-reinforcement" aria-labelledby="pp-reinforcement-title" data-od-id="pp-reinforcement">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">06 / REINFORCEMENT</p>
-        <h2 id="pp-reinforcement-title">Specify Reinforcement at Pants Stress Points</h2>
+  <section id="pp-reinforcement" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">06</span> / REINFORCEMENT</p>
+          <h2 class="section-h2">Specify Reinforcement at Pants Stress Points</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Mark only the stress points that need reinforcement for the intended use.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Mark only the stress points that need reinforcement for the intended use.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Review Crotch and Inseam Construction</h3>
+          <p>Identify crotch and inseam stress points. Review seam, stitch, or gusset options on the sample where needed.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Reinforce Knees, Pocket Corners, and Hems Where the Use Case Demands It</h3>
+          <p>Mark loaded pocket corners, belt loops, knees, and hems that need extra support. Record approved details in the specification.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-reinforcement-crotch-inseam.webp" alt="Crotch and inseam reinforcement details on pants" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-moq">
-      <article class="pp-moq-col" data-reveal>
-        <h3>Review Crotch and Inseam Construction</h3>
-        <p>Identify crotch and inseam stress points. Review seam, stitch, or gusset options on the sample where needed.</p>
-      </article>
-      <article class="pp-moq-col" data-reveal>
-        <h3>Reinforce Knees, Pocket Corners, and Hems Where the Use Case Demands It</h3>
-        <p>Mark loaded pocket corners, belt loops, knees, and hems that need extra support. Record approved details in the specification.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-reinforcement-crotch-inseam.webp" width="1448" height="1086" alt="Crotch and inseam reinforcement details on pants" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 9 FABRIC BEHAVIOR ============ -->
-<section class="section" id="pp-fabric" aria-labelledby="pp-fabric-title" data-od-id="pp-fabric">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">07 / FABRIC BEHAVIOR</p>
-        <h2 id="pp-fabric-title">Match Fabric Behavior to the Pants Pattern</h2>
+  <section id="pp-fabric" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">07</span> / FABRIC BEHAVIOR</p>
+          <h2 class="section-h2">Match Fabric Behavior to the Pants Pattern</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Select fabric by drape, stretch, and finished measurements, not weight alone.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Select fabric by drape, stretch, and finished measurements, not weight alone.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Plan for Shrinkage Before Cutting</h3>
+          <p>Provide fiber content, construction, and target wash. Agree finished dimensions and any shrinkage testing for the selected fabric.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Decide How Stretch Changes the Pattern</h3>
+          <p>State stretch direction and recovery requirements. Check fit and seams on a sample in the intended fabric.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Balance Weight and Drape with the Silhouette</h3>
+          <p>Set GSM or denim ounces with the target hand feel and drape. Compare actual swatches against the silhouette.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-fabric-swatch-drape.webp" alt="Pants fabric swatches folded and draped for a drape comparison" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-checkrows">
-      <article class="pp-checkrow" data-reveal>
-        <h3>Plan for Shrinkage Before Cutting</h3>
-        <p>Provide fiber content, construction, and target wash. Agree finished dimensions and any shrinkage testing for the selected fabric.</p>
-      </article>
-      <article class="pp-checkrow" data-reveal>
-        <h3>Decide How Stretch Changes the Pattern</h3>
-        <p>State stretch direction and recovery requirements. Check fit and seams on a sample in the intended fabric.</p>
-      </article>
-      <article class="pp-checkrow" data-reveal>
-        <h3>Balance Weight and Drape with the Silhouette</h3>
-        <p>Set GSM or denim ounces with the target hand feel and drape. Compare actual swatches against the silhouette.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-fabric-swatch-drape.webp" width="1448" height="1086" alt="Pants fabric swatches folded and draped for a drape comparison" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 10 WASH AND FINISHING ============ -->
-<section class="section band-dark" id="pp-wash" aria-labelledby="pp-wash-title" data-od-id="pp-wash">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">08 / WASH AND FINISHING</p>
-        <h2 id="pp-wash-title">Control Wash and Finishing Results</h2>
+  <section id="pp-wash" class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">08</span> / WASH AND FINISHING</p>
+          <h2 class="section-h2">Control Wash and Finishing Results</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Approve the finished garment's color, hand feel, and measurements after the proposed wash.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Approve the finished garment's color, hand feel, and measurements after the proposed wash.</p>
-      </div>
-    </div>
-    <div class="pp-spec">
-      <article class="pp-spec-row" data-reveal>
-        <div>
-          <h3>Write the Wash as a Specification</h3>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Write the Wash as a Specification</h3>
           <p>Send a reference for the intended wash or distressing. Process availability and limits need project confirmation.</p>
         </div>
-      </article>
-      <article class="pp-spec-row" data-reveal>
-        <div>
-          <h3>Verify Measurements After Wash</h3>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Verify Measurements After Wash</h3>
           <p>Set finished measurements and tolerances after wash. Agree whether bulk needs repeat post-wash checks.</p>
         </div>
-      </article>
-      <article class="pp-spec-row" data-reveal>
-        <div>
-          <h3>Keep Shade Consistent Across Batches</h3>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Keep Shade Consistent Across Batches</h3>
           <p>Approve a physical shade reference and agree how variation between lots will be judged.</p>
         </div>
-      </article>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-wash-before-after.webp" alt="The same pants style before and after wash, side by side" width="1448" height="1086" loading="lazy" /></figure>
+      </div>
     </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-wash-before-after.webp" width="1448" height="1086" alt="The same pants style before and after wash, side by side" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 11 BRANDING ============ -->
-<section class="section" id="pp-branding" aria-labelledby="pp-branding-title" data-od-id="pp-branding">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">09 / BRANDING</p>
-        <h2 id="pp-branding-title">Add Branding Without Disrupting Fit or Construction</h2>
+  <section id="pp-branding" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">09</span> / BRANDING</p>
+          <h2 class="section-h2">Add Branding Without Disrupting Fit or Construction</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Mark logos, patches, and labels on the pattern before sample approval.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Mark logos, patches, and labels on the pattern before sample approval.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Choose Placements That Survive Wear and Wash</h3>
+          <p>Give measurements for waistband, pocket, or hem placements. Check visibility when worn and after wash.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Match the Method to the Fabric</h3>
+          <p>Share artwork, label files, material, and quantity. Review decoration and attachment options against the selected fabric.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-branding-positions.webp" alt="Blank branding labels on the waistband, pocket, and hem of pants" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-stack">
-      <article class="pp-stack-row" data-reveal>
-        <h3>Choose Placements That Survive Wear and Wash</h3>
-        <p>Give measurements for waistband, pocket, or hem placements. Check visibility when worn and after wash.</p>
-      </article>
-      <article class="pp-stack-row" data-reveal>
-        <h3>Match the Method to the Fabric</h3>
-        <p>Share artwork, label files, material, and quantity. Review decoration and attachment options against the selected fabric.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-branding-positions.webp" width="1448" height="1086" alt="Blank branding labels on the waistband, pocket, and hem of pants" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 12 SAMPLE APPROVAL ============ -->
-<section class="section band-alt" id="pp-sample" aria-labelledby="pp-sample-title" data-od-id="pp-sample">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">10 / SAMPLE APPROVAL</p>
-        <h2 id="pp-sample-title">What an Approved Pants Sample Must Confirm</h2>
+  <section id="pp-sample" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">10</span> / SAMPLE APPROVAL</p>
+          <h2 class="section-h2">What an Approved Pants Sample Must Confirm</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Approve one sample and written specification as the bulk reference.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Approve one sample and written specification as the bulk reference.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Confirm Fit and Measurements on the Body</h3>
+          <p>Compare waist, rise, hip, leg line, and inseam with the chart. Record fit corrections before approval.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Confirm Fabric, Wash, and Color Against References</h3>
+          <p>Compare fabric, hand feel, color, and wash with the brief. Flag any substitute material that is not final.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Confirm Construction, Trims, and Labels</h3>
+          <p>Check the fly, pockets, reinforcement, trims, labels, and packing fold against the written specification.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-approved-sample.webp" alt="Approved pants sample photographed with its measurement record" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-cards pp-cards--3">
-      <article class="pp-card" data-reveal>
-        <h3>Confirm Fit and Measurements on the Body</h3>
-        <p>Compare waist, rise, hip, leg line, and inseam with the chart. Record fit corrections before approval.</p>
-      </article>
-      <article class="pp-card" data-reveal>
-        <h3>Confirm Fabric, Wash, and Color Against References</h3>
-        <p>Compare fabric, hand feel, color, and wash with the brief. Flag any substitute material that is not final.</p>
-      </article>
-      <article class="pp-card" data-reveal>
-        <h3>Confirm Construction, Trims, and Labels</h3>
-        <p>Check the fly, pockets, reinforcement, trims, labels, and packing fold against the written specification.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-approved-sample.webp" width="1448" height="1086" alt="Approved pants sample photographed with its measurement record" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 13 PRODUCTION CHECKS ============ -->
-<section class="section" id="pp-qc" aria-labelledby="pp-qc-title" data-od-id="pp-qc">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">11 / PRODUCTION CHECKS</p>
-        <h2 id="pp-qc-title">Pants-Specific Quality Control During Production</h2>
+  <section id="pp-qc" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">11</span> / PRODUCTION CHECKS</p>
+          <h2 class="section-h2">Pants-Specific Quality Control During Production</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Agree inspection points and tolerances for the order against the approved sample.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Agree inspection points and tolerances for the order against the approved sample.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Check Measurements and Waistband Symmetry in Production</h3>
+          <p>Define checks for waist, hip, rise, inseam, leg opening, and waistband symmetry in the inspection plan.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Work the Closures and Inspect Stress Points</h3>
+          <p>Test specified closures and compare crotch seams, pocket corners, and belt loops with the approved construction.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Verify Wash Shade, Labeling, and Packing</h3>
+          <p>Set checks for wash shade, label content, unit counts, packing, and carton marks against the approved order.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/pants-manufacturer/pants-production-qc-measurement.webp" alt="Pants being measured during production quality control" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="pp-grid pp-grid--3">
-      <article class="pp-block" data-reveal>
-        <span class="pp-num" aria-hidden="true"></span>
-        <h3>Check Measurements and Waistband Symmetry in Production</h3>
-        <p>Define checks for waist, hip, rise, inseam, leg opening, and waistband symmetry in the inspection plan.</p>
-      </article>
-      <article class="pp-block" data-reveal>
-        <span class="pp-num" aria-hidden="true"></span>
-        <h3>Work the Closures and Inspect Stress Points</h3>
-        <p>Test specified closures and compare crotch seams, pocket corners, and belt loops with the approved construction.</p>
-      </article>
-      <article class="pp-block" data-reveal>
-        <span class="pp-num" aria-hidden="true"></span>
-        <h3>Verify Wash Shade, Labeling, and Packing</h3>
-        <p>Set checks for wash shade, label content, unit counts, packing, and carton marks against the approved order.</p>
-      </article>
-    </div>
-    <div class="pp-slot" data-reveal>
-        <img src="/uploads/pants-manufacturer/pants-production-qc-measurement.webp" width="1448" height="1086" alt="Pants being measured during production quality control" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 14 BUYER QUESTIONS ============ -->
-<section class="section band-alt" id="pp-faq" aria-labelledby="pp-faq-title" data-od-id="pp-faq">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">12 / BUYER QUESTIONS</p>
-        <h2 id="pp-faq-title">Custom Pants Manufacturing Questions</h2>
+  <section id="pp-faq" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">12</span> / BUYER QUESTIONS</p>
+          <h2 class="section-h2">Custom Pants Manufacturing Questions</h2>
+        </div>
+        <div class="sec-head__note"><p class="section-lead">Confirm feasibility and commercial terms against your specific brief. As a planning reference, standard custom pants are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Confirm feasibility and commercial terms against your specific brief. As a planning reference, standard custom pants are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p>
+      <div class="faq">
+        <details>
+          <summary>
+            <span class="q">Can You Produce Pants from Our Own Size Chart?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Send your chart and a reference garment if available. Pattern feasibility, grading, tolerances, and any adjustments are reviewed before sampling.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">Which Pants Styles and Fabrics Can Be Quoted?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Share the intended style, use, reference photos, fabric composition, and target weight. Material and construction options are checked for each project, not offered as a fixed catalog.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">What Are the MOQ, Sample Time, and Bulk Lead Time?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Standard orders start at 100 pieces. Sample time and bulk lead time depend on the style, materials, wash, trims, and color and size breakdown. Send your target quantity and delivery window for project-specific confirmation.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">Can We Add a Leather Patch, Custom Hardware, and Branded Trims?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Propose each trim with artwork, material, dimensions, and quantity. Sourcing, attachment, suitability, and minimums need confirmation before sampling.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">What Is Checked on Pants Before Packing?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Agree checks for measurements, closures, pockets, specified reinforcement, wash shade, labels, and packing against the approved sample. Tolerances and inspection points are set per order.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">What Should the First Pants Inquiry Include?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Send a tech pack or reference, size range, fabric and wash direction, artwork, quantity by color and size, target timing, and destination market.</div>
+        </details>
       </div>
     </div>
-    <div class="pd-faq">
-      <details open>
-        <summary><h3>Can You Produce Pants from Our Own Size Chart?</h3></summary>
-        <p>Send your chart and a reference garment if available. Pattern feasibility, grading, tolerances, and any adjustments are reviewed before sampling.</p>
-      </details>
-      <details>
-        <summary><h3>Which Pants Styles and Fabrics Can Be Quoted?</h3></summary>
-        <p>Share the intended style, use, reference photos, fabric composition, and target weight. Material and construction options are checked for each project, not offered as a fixed catalog.</p>
-      </details>
-      <details>
-        <summary><h3>What Are the MOQ, Sample Time, and Bulk Lead Time?</h3></summary>
-        <p>Standard orders start at 100 pieces. Sample time and bulk lead time depend on the style, materials, wash, trims, and color and size breakdown. Send your target quantity and delivery window for project-specific confirmation.</p>
-      </details>
-      <details>
-        <summary><h3>Can We Add a Leather Patch, Custom Hardware, and Branded Trims?</h3></summary>
-        <p>Propose each trim with artwork, material, dimensions, and quantity. Sourcing, attachment, suitability, and minimums need confirmation before sampling.</p>
-      </details>
-      <details>
-        <summary><h3>What Is Checked on Pants Before Packing?</h3></summary>
-        <p>Agree checks for measurements, closures, pockets, specified reinforcement, wash shade, labels, and packing against the approved sample. Tolerances and inspection points are set per order.</p>
-      </details>
-      <details>
-        <summary><h3>What Should the First Pants Inquiry Include?</h3></summary>
-        <p>Send a tech pack or reference, size range, fabric and wash direction, artwork, quantity by color and size, target timing, and destination market.</p>
-      </details>
+  </section>
+
+  <section id="pants-inquiry" class="section section--warm">
+    <div class="container">
+      <div class="inquiry">
+        <div class="inquiry__main">
+          <p class="section-eyebrow">Start an inquiry</p>
+          <h2 class="section-h2">Ready to Discuss Your Pants Program?</h2>
+          <a class="btn btn-primary" href="/contact-us/">Send project details <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <form method="POST" action="/api/inquiry" data-product="Pants" data-wa-phone="8615733728976" data-wa-key="" class="inquiry__form inquiry-form"><input type="hidden" name="product" value="Pants" /><input type="hidden" name="_subject" value="Yauum inquiry — Pants" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <div class="field">
+            <label for="garment">Garment type</label>
+            <select class="select" id="garment" name="garment_type">
+              <option>Hoodies</option><option>T-Shirts</option><option>Jackets</option><option selected>Pants</option><option>Sportswear</option><option>Streetwear</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="opt-legend">Quantity <span class="hint">· 1 design · 1 color · 5 sizes</span></span>
+            <div class="opt-row">
+              <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked />100–500 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" />500–1,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" />1,000–2,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" />2,000+ pcs</label>
+            </div>
+          </div>
+          <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" type="text" required /></div>
+          <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required /></div>
+          <div class="field"><label for="details">Project details <span style="color:var(--yv-muted)">(optional)</span></label><textarea class="textarea" id="details" name="message" rows="4"></textarea></div>
+          <div class="submit-row"><button class="btn btn-primary" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button></div>
+          <span class="form-status meta" aria-live="polite"></span>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
-<InquirySection
-  product="Pants"
-  id="pants-inquiry"
-  odId="pants-inquiry"
-  band="band-alt"
-  kicker="Start an inquiry"
-  title="Ready to Discuss Your Pants Program?"
-  ctaLabel="Send project details"
-/>
-</EditorialLayout>
+  </section>
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){io.observe(el)});
+})();</script>
+  </Fragment>
+</V2Layout>

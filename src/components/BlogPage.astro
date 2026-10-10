@@ -1,13 +1,17 @@
 ---
 /**
- * Blog 页面组件：/blog/（第 1 页）与 /blog/page/N/（后续页）共用。
+ * Blog 页面组件（V2 家族版式，2026-10-11 起）。
  *
- * 文章数据在 src/lib/articles.ts（新文章加一条即可；每页篇数 = PAGE_SIZE）。
- * 第 1 页的 SEO 用 seo.ts 的 /blog/ 条目；第 N 页复用其 OG 图等字段，
- * 仅覆盖 title / path / breadcrumb（自指 canonical）。
+ * /blog/（第 1 页）、/blog/page/N/（分页）与 /blog/category/<slug>/（分类）共用。
+ * 版式移植自终审定稿的预览成品（07-开发分析与临时产物/首页v2-配图预览-2026-10-10/
+ * blog-完整版.html）：hero → "01 / Articles" + 分类筛选条 → 封面稿（本页第一篇）
+ * → 网格（第 2 篇起）→ 询盘。与旧版一致地保留全部动态能力：
+ *  - 文章数据：src/lib/articles.ts（每页篇数 = PAGE_SIZE，编号为全局序号 NN / tag）；
+ *  - 缩略图：自动取该文章在 seo.ts 的 og 图（沿用旧版做法）；
+ *  - 阅读量：data-views-for 槽 + <ViewCounter />（/api/views，KV）；
+ *  - 分页 /blog/page/N/、分类 /blog/category/<slug>/（分页样式见 blog.css 末尾）。
  */
-import BaseLayout from "../layouts/BaseLayout.astro";
-import InquirySection from "../components/InquirySection.astro";
+import V2Layout from "../layouts/V2Layout.astro";
 import ViewCounter from "../components/ViewCounter.astro";
 import { SEO, getSeo, breadcrumb, type SeoData } from "../lib/seo";
 import {
@@ -64,102 +68,137 @@ const seo: SeoData = activeCategory
           ]),
         ],
       };
+
+/** 封面稿 = 本页第一篇；其余进网格。编号 = 全站全局序号（与旧版一致） */
+const [cover, ...gridItems] = pageArticles;
+const startIndex = activeCategory ? 0 : (page - 1) * PAGE_SIZE;
+const num = (i: number) => String(startIndex + i).padStart(2, "0");
 ---
 
-<BaseLayout seo={seo}>
-  <section class="standard-hero">
-    <div class="industrial-grid" aria-hidden="true"></div>
-    <div class="shell standard-hero-inner">
-      <p class="kicker kicker-accent">Manufacturing insights</p>
+<V2Layout seo={seo} navCurrent={["/blog/"]}>
+  <section class="hero reveal">
+    <div class="container">
+      <span class="eyebrow">Manufacturing insights</span>
       <h1>Blog</h1>
-      <p>Practical guidance for buyers developing custom apparel: product development, fabric and workmanship, decoration, private label, quality and packing.</p>
-      <a class="button button-accent" href="/contact-us/">Send a project brief</a>
+      <p class="lead">Practical guidance for buyers developing custom apparel: product development, fabric and workmanship, decoration, private label, quality and packing.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="/contact-us/">Send a project brief <span class="arrow">→</span></a></div>
     </div>
   </section>
 
-  <section class="section section-surface">
-    <div class="shell">
-      <div class="section-head">
-        <div>
-          <p class="kicker">01 / Articles</p>
-          <nav class="blog-cats" aria-label="Article categories">
-            <a
-              class:list={["blog-cat", !activeCategory && "is-current"]}
-              href="/blog/"
-              aria-current={!activeCategory ? "page" : undefined}
-            >All <span>{articles.length}</span></a>
-            {categories.map((cat) => (
-              <a
-                class:list={["blog-cat", activeCategory?.slug === cat.slug && "is-current"]}
-                href={categoryHref(cat.slug)}
-                aria-current={activeCategory?.slug === cat.slug ? "page" : undefined}
-              >{cat.label} <span>{cat.count}</span></a>
-            ))}
-          </nav>
-        </div>
-      </div>
-      <div class="blog-list">
-        {pageArticles.map((article, index) => (
-          <a class="blog-entry" href={article.route}>
-            <span class="blog-entry-media">
-              <img
-                src={SEO[article.route].ogImage}
-                alt={SEO[article.route].ogImageAlt}
-                width={SEO[article.route].ogImageWidth}
-                height={SEO[article.route].ogImageHeight}
-                loading="lazy"
-                decoding="async"
-              />
-            </span>
-            <span class="blog-entry-copy">
-              <strong>{article.title}</strong>
-              <span class="blog-entry-desc">{article.description}</span>
-              <span class="blog-entry-meta">
-                <span>{String((activeCategory ? 0 : (page - 1) * PAGE_SIZE) + index + 1).padStart(2, "0")} / {article.tag}</span>
-                <time datetime={article.date}>{article.dateLabel}</time>
-                <span class="blog-entry-views" data-views-for={article.route}></span>
-              </span>
-            </span>
-            <span class="blog-entry-go" aria-hidden="true">Read the guide →</span>
-          </a>
+  <div class="filter-band" role="navigation" aria-label="Article categories">
+    <div class="container">
+      <p class="blog-kicker">01 / Articles</p><ul class="filter-list">
+        <li><a href="/blog/" aria-current={!activeCategory ? "page" : undefined}>All <span class="count">{articles.length}</span></a></li>
+        {categories.map((cat) => (
+          <li><a href={categoryHref(cat.slug)} aria-current={activeCategory?.slug === cat.slug ? "page" : undefined}>{cat.label} <span class="count">{cat.count}</span></a></li>
         ))}
-      </div>
+      </ul>
+    </div>
+  </div>
 
-      {!activeCategory && pageCount > 1 && (
-        <nav class="blog-pager" aria-label="Blog pages">
-          {page > 1 ? (
-            <a class="blog-pager-step" href={pageHref(page - 1)}>← Newer</a>
-          ) : (
-            <span class="blog-pager-step is-disabled">← Newer</span>
-          )}
-          <span class="blog-pager-nums">
-            {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) =>
-              n === page ? (
-                <span class="blog-pager-num is-current" aria-current="page">{n}</span>
-              ) : (
-                <a class="blog-pager-num" href={pageHref(n)}>{n}</a>
-              ),
-            )}
+  {cover && (
+    <section class="cover-section reveal" id="cover-post">
+      <div class="container">
+        <a class="cover-grid" href={cover.route}>
+          <span class="cover-media"><img src={SEO[cover.route].ogImage} alt={SEO[cover.route].ogImageAlt} width={SEO[cover.route].ogImageWidth} height={SEO[cover.route].ogImageHeight} loading="lazy" /></span>
+          <span class="cover-body">
+            <span class="cover-meta"><span class="cat num">{num(1)} / {cover.tag}</span><span class="dot">·</span><time class="date" datetime={cover.date}>{cover.dateLabel}</time></span>
+            <h2 class="cover-title">{cover.title}</h2>
+            <p class="cover-excerpt">{cover.description}</p>
+            <span class="cover-cta">Read the guide <span class="arrow">→</span></span>
           </span>
-          {page < pageCount ? (
-            <a class="blog-pager-step" href={pageHref(page + 1)}>Older →</a>
-          ) : (
-            <span class="blog-pager-step is-disabled">Older →</span>
-          )}
-        </nav>
+        </a>
+        <span class="blog-view-slot" data-views-for={cover.route}></span>
+      </div>
+    </section>
+  )}
+
+  {gridItems.length > 0 && (
+    <section class="grid-section reveal" id="article-grid" aria-label="Latest articles">
+      <div class="container">
+        <ul class="grid-list">
+          {gridItems.map((article, index) => (
+            <li class="grid-card">
+              <a href={article.route}>
+                <span class="media"><img src={SEO[article.route].ogImage} alt={SEO[article.route].ogImageAlt} width={SEO[article.route].ogImageWidth} height={SEO[article.route].ogImageHeight} loading="lazy" /></span>
+                <span class="card-meta"><span class="cat num">{num(index + 2)} / {article.tag}</span><span class="dot">·</span><time class="date" datetime={article.date}>{article.dateLabel}</time></span>
+                <h3 class="card-title">{article.title}</h3>
+                <p class="card-excerpt">{article.description}</p>
+                <span class="card-cta">Read the guide <span class="arrow">→</span></span>
+              </a>
+              <span class="blog-view-slot" data-views-for={article.route}></span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {!activeCategory && pageCount > 1 && (
+    <nav class="blog-pager" aria-label="Blog pages">
+      {page > 1 ? (
+        <a class="blog-pager-step" href={pageHref(page - 1)}>← Newer</a>
+      ) : (
+        <span class="blog-pager-step is-disabled">← Newer</span>
       )}
+      <span class="blog-pager-nums">
+        {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) =>
+          n === page ? (
+            <span class="blog-pager-num is-current" aria-current="page">{n}</span>
+          ) : (
+            <a class="blog-pager-num" href={pageHref(n)}>{n}</a>
+          ),
+        )}
+      </span>
+      {page < pageCount ? (
+        <a class="blog-pager-step" href={pageHref(page + 1)}>Older →</a>
+      ) : (
+        <span class="blog-pager-step is-disabled">Older →</span>
+      )}
+    </nav>
+  )}
+
+  <section class="inquiry-section reveal" id="start-an-inquiry">
+    <div class="container form-grid">
+      <div class="form-side">
+        <span class="eyebrow">02 / Start an inquiry</span>
+        <h2 class="h2-text">Send the Product Details That Shape a Useful Review.</h2>
+        <div class="cta-row"><a class="btn btn-primary" href="/contact-us/">Send project details <span class="arrow">→</span></a></div>
+      </div>
+      <form class="inquiry-form" method="POST" action="/api/inquiry" data-product="Blog" data-wa-phone="8615733728976" data-wa-key=""><input type="hidden" name="product" value="Blog" /><input type="hidden" name="_subject" value="Yauum inquiry — Blog" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+        <div class="field">
+          <label for="garment">Garment type</label>
+          <select class="select" id="garment" name="garment_type">
+            <option>Hoodies</option>
+            <option>T-Shirts</option>
+            <option>Jackets</option>
+            <option>Pants</option>
+            <option>Sportswear</option>
+            <option>Streetwear</option>
+            <option selected>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <span class="opt-legend">Quantity <span class="hint">· 1 design · 1 color · 5 sizes</span></span>
+          <div class="opt-row">
+            <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked />100–500 pcs</label>
+            <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" />500–1,000 pcs</label>
+            <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" />1,000–2,000 pcs</label>
+            <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" />2,000+ pcs</label>
+          </div>
+        </div>
+        <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" type="text" required /></div>
+        <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required /></div>
+        <div class="field"><label for="details">Project details <span style="color:var(--yv-muted)">(optional)</span></label><textarea class="textarea" id="details" name="message" rows="4"></textarea></div>
+        <div class="submit-row"><button class="btn btn-primary" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button></div>
+        <span class="form-status meta" aria-live="polite"></span>
+      </form>
     </div>
   </section>
-
-  <InquirySection
-    product="Blog"
-    id="inquiry"
-    odId="inquiry-conversion"
-    band="band-alt"
-    kicker="02 / Start an inquiry"
-    title="Send the Product Details That Shape a Useful Review."
-    ctaLabel="Send project details"
-  />
 
   <ViewCounter />
-</BaseLayout>
+
+  <Fragment slot="scripts">
+    <script is:inline>(function(){ var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; var targets = document.querySelectorAll('.reveal'); if(reduce || !('IntersectionObserver' in window)){ targets.forEach(function(el){el.classList.add('in')}); return; } var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{threshold:.12,rootMargin:'0px 0px -40px 0px'}); targets.forEach(function(el){io.observe(el)}); })();</script>
+  </Fragment>
+</V2Layout>

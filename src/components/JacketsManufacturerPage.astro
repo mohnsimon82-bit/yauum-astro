@@ -1,405 +1,404 @@
 ---
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "./InquirySection.astro";
-import { SEO } from "../lib/seo";
+/** 
+ * jackets-manufacturer（V2 家族版式，2026-10-11 起）。
+ *
+ * 由终审定稿的预览成品移植：jackets-完整版.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/jackets-manufacturer.css。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { getSeo } from "../lib/seo";
 import "../styles/pages/jackets-manufacturer.css";
 ---
 
-<EditorialLayout
-  seo={SEO["/jackets-manufacturer/"]}
-  navCurrent={["/production/", "/jackets-manufacturer/"]}
->
-<!-- ============ 1 HERO ============ -->
-<section class="pd-hero" aria-labelledby="jk-title" data-od-id="jk-hero">
-  <div class="shell">
-    <div class="pd-hero-grid">
-      <div class="pd-hero-copy">
-        <p class="label">B2B / OEM-ODM / PRIVATE LABEL</p>
-        <h1 id="jk-title">Custom Jacket Manufacturer for Private Label Brands</h1>
-        <p class="lead pd-hero-lead">Private label jacket programs depend on decisions a catalog cannot settle: season, use case, silhouette, shell, lining, insulation, closures, and brand finishing. This page explains how a jacket brief moves from product definition through material and construction review, sampling, revision, and approval, and how quality checks, packing rules, and testing requirements are set before bulk production. Quantities, pricing, sampling time, and delivery schedules are confirmed project by project, because jacket construction varies more widely than most garment categories.</p>
-      </div>
-      <figure class="pd-hero-media">
-        <img src="/uploads/jackets-manufacturer/hero-jackets-private-label.webp" width="1536" height="1024" alt="Private label jacket produced as a finished-garment reference" fetchpriority="high" decoding="async" />
-        <figcaption class="pd-hero-cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</figcaption>
-      </figure>
+<V2Layout seo={getSeo("/jackets-manufacturer/")} navCurrent={["/production/", "/jackets-manufacturer/"]}>
+<header class="hero">
+  <div class="container">
+    <div class="hero__main">
+      <p class="hero__eyebrow">B2B / OEM-ODM / PRIVATE LABEL</p>
+      <h1 class="section-h1 hero__h1">Custom Jacket Manufacturer for Private Label Brands</h1>
+      <p class="hero__lead">Private label jacket programs depend on decisions a catalog cannot settle: season, use case, silhouette, shell, lining, insulation, closures, and brand finishing. This page explains how a jacket brief moves from product definition through material and construction review, sampling, revision, and approval, and how quality checks, packing rules, and testing requirements are set before bulk production. Quantities, pricing, sampling time, and delivery schedules are confirmed project by project, because jacket construction varies more widely than most garment categories.</p>
+    </div>
+    <div class="hero__media">
+      <figure>
+        <img src="/uploads/jackets-manufacturer/hero-jackets-private-label.webp" alt="Private label jacket produced as a finished-garment reference" width="1536" height="1024" loading="eager" />
+      </figure><p class="hero__cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</p>
     </div>
   </div>
-</section>
+</header>
 
-<!-- ============ 2 SECTION INDEX ============ -->
-<nav class="pd-index" aria-label="Jacket page sections" data-od-id="page-section-index">
-  <div class="shell">
-    <a href="#jk-types">Types</a>
-    <a href="#jk-specification">Specification</a>
-    <a href="#jk-materials">Materials</a>
-    <a href="#jk-decoration">Decoration</a>
-    <a href="#jk-workflow">Workflow</a>
-    <a href="#jk-quality">Quality</a>
-    <a href="#jk-testing">Testing</a>
-    <a href="#jk-moq">MOQ</a>
-    <a href="#jk-evidence">Evidence</a>
-    <a href="#jk-quote">Quote</a>
+<nav class="indexbar" aria-label="Section index">
+  <div class="container">
+    <div class="indexbar__list">
+      <a class="indexbar__item" href="#jk-types">Types</a>
+      <a class="indexbar__item" href="#jk-specification">Specification</a>
+      <a class="indexbar__item" href="#jk-materials">Materials</a>
+      <a class="indexbar__item" href="#jk-decoration">Decoration</a>
+      <a class="indexbar__item" href="#jk-workflow">Workflow</a>
+      <a class="indexbar__item" href="#jk-quality">Quality</a>
+      <a class="indexbar__item" href="#jk-testing">Testing</a>
+      <a class="indexbar__item" href="#jk-moq">MOQ</a>
+      <a class="indexbar__item" href="#jk-evidence">Evidence</a>
+      <a class="indexbar__item" href="#jk-quote">Quote</a>
+    </div>
   </div>
 </nav>
 
-<!-- ============ 3 JACKET TYPES ============ -->
-<section class="section" id="jk-types" aria-labelledby="jk-types-title" data-od-id="jk-types">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">01 / JACKET TYPES</p>
-        <h2 id="jk-types-title">Custom Jacket Types for Your Product Program</h2>
+<section id="jk-types" class="section section--paper">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">01</span> / JACKET TYPES</p>
+        <h2 class="section-h2">Custom Jacket Types for Your Product Program</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Jacket types are development directions, not a fixed catalog. One project conversation can cover a bomber, a varsity or coach jacket, denim and work jacket references, windbreakers, puffer and quilted builds, and leather or PU directions. Each is judged against season, use case, and target fit before any pattern is cut.</p>
-      </div>
+      <p class="note sec-head__note">Jacket types are development directions, not a fixed catalog. One project conversation can cover a bomber, a varsity or coach jacket, denim and work jacket references, windbreakers, puffer and quilted builds, and leather or PU directions. Each is judged against season, use case, and target fit before any pattern is cut.</p>
     </div>
-    <div class="jk-grid jk-grid--3">
-      <article class="jk-block" data-reveal>
-        <span class="jk-num" aria-hidden="true"></span>
-        <h3>Start with Season and Use Case</h3>
+    <div class="m-cols m-cols--3">
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Start with Season and Use Case</h3>
         <p>A shell bought for spring layering, a quilted jacket for dry cold, and an insulated parka for real winter are three different products, even when the silhouettes look similar. Daily wear, outdoor use, workwear, and sport each push the specification in a different direction: fabric weight and surface, closure type, pocket set, and how firmly the garment must hold its shape. Season and use case come first because they narrow the type list before fabrics or measurements are discussed.</p>
-      </article>
-      <article class="jk-block" data-reveal>
-        <span class="jk-num" aria-hidden="true"></span>
-        <h3>Match the Silhouette to Your Market</h3>
+      </div>
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Match the Silhouette to Your Market</h3>
         <p>Fit direction, whether regular, relaxed, oversized, boxy, or cropped, changes how the same jacket type reads on the shelf and on the body. A boxy bomber and a regular-fit work jacket share a category but not a measurement set. Shoulder position, armhole depth, sleeve volume, and body length all move with the fit block. Buyers who state the target customer and market early give the sample room a cleaner starting pattern and fewer correction rounds later.</p>
-      </article>
-      <article class="jk-block" data-reveal>
-        <span class="jk-num" aria-hidden="true"></span>
-        <h3>Judge Complexity Before Sampling</h3>
+      </div>
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Judge Complexity Before Sampling</h3>
         <p>An unlined windbreaker, a lined coach jacket, and a quilted puffer with a two-way zip sit at very different complexity levels. Every added layer, hardware set, quilting pattern, or panel seam adds pattern work, sewing operations, and inspection points, which shapes sampling rounds and the cost structure of samples and bulk. Comparing candidate types by construction level early keeps the program realistic for its target price and timeline.</p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 4 SPECIFICATION ============ -->
-<section class="section" id="jk-specification" aria-labelledby="jk-spec-title" data-od-id="jk-specification">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">02 / SPECIFICATION</p>
-        <h2 id="jk-spec-title">Define Your Jacket Specification Before Sampling</h2>
+<section id="jk-specification" class="section section--paper">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">02</span> / SPECIFICATION</p>
+        <h2 class="section-h2">Define Your Jacket Specification Before Sampling</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">A written specification connects the jacket a buyer describes with the pattern the sample room cuts. Covering these fields before sampling can reduce avoidable revision work and gives material review a fixed target.</p>
-      </div>
+      <p class="note sec-head__note">A written specification connects the jacket a buyer describes with the pattern the sample room cuts. Covering these fields before sampling can reduce avoidable revision work and gives material review a fixed target.</p>
     </div>
-    <div class="jk-spec">
-      <article class="jk-spec-row" data-reveal>
-        <div>
-          <h3>Fix the Measurement Set Early</h3>
-          <p>Chest, shoulder width, body length, sleeve length, cuff opening, and hem width form the core measurement set. Collar height, hood depth, armhole, and sleeve volume follow for structured builds. If no size chart is available, the brief should include a reference garment or target measurements. Any grading approach is confirmed per project, and tolerances are recorded with the specification rather than assumed.</p>
-        </div>
-      </article>
-      <article class="jk-spec-row" data-reveal>
-        <div>
-          <h3>Specify Collar, Hood, Placket, and Pockets</h3>
-          <p>Collar construction, whether a stand, fold, or rib, together with a fixed or detachable hood and a defined hood depth, sets the neckline behavior. The placket can be a single zip, a snap or button front, a storm flap, or a two-way zip, and each choice changes the front pattern and the sewing sequence. Pocket type, position, size, and closure, including interior pockets, belong in the same document because they interact with seams, lining, and the direction of insulation quilting.</p>
-        </div>
-      </article>
-      <article class="jk-spec-row" data-reveal>
-        <div>
-          <h3>Finalize Trims and Order Breakdown</h3>
-          <p>Zippers and pullers, snaps, buttons, drawcords, stoppers, and buckles are specified by type, finish, and color, since hardware shapes both appearance and function. The order breakdown of styles, colorways, sizes, and total quantity completes the specification, because it drives fabric booking, marker planning, and sampling priority. With measurements, construction, trims, and quantities recorded in one document, the brief is ready for material review.</p>
-        </div>
-      </article>
+    <div class="m-list">
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Fix the Measurement Set Early</h3>
+        <p>Chest, shoulder width, body length, sleeve length, cuff opening, and hem width form the core measurement set. Collar height, hood depth, armhole, and sleeve volume follow for structured builds. If no size chart is available, the brief should include a reference garment or target measurements. Any grading approach is confirmed per project, and tolerances are recorded with the specification rather than assumed.</p>
+      </div>
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Specify Collar, Hood, Placket, and Pockets</h3>
+        <p>Collar construction, whether a stand, fold, or rib, together with a fixed or detachable hood and a defined hood depth, sets the neckline behavior. The placket can be a single zip, a snap or button front, a storm flap, or a two-way zip, and each choice changes the front pattern and the sewing sequence. Pocket type, position, size, and closure, including interior pockets, belong in the same document because they interact with seams, lining, and the direction of insulation quilting.</p>
+      </div>
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Finalize Trims and Order Breakdown</h3>
+        <p>Zippers and pullers, snaps, buttons, drawcords, stoppers, and buckles are specified by type, finish, and color, since hardware shapes both appearance and function. The order breakdown of styles, colorways, sizes, and total quantity completes the specification, because it drives fabric booking, marker planning, and sampling priority. With measurements, construction, trims, and quantities recorded in one document, the brief is ready for material review.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 5 SHELL, LINING, INSULATION ============ -->
-<section class="section band-dark" id="jk-materials" aria-labelledby="jk-materials-title" data-od-id="jk-materials">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">03 / SHELL, LINING, INSULATION</p>
-        <h2 id="jk-materials-title">Choose Shell, Lining, and Insulation as One System</h2>
+<section id="jk-materials" class="section section--dark">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">03</span> / SHELL, LINING, INSULATION</p>
+        <h2 class="section-h2">Choose Shell, Lining, and Insulation as One System</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Shell, lining, and insulation behave as one build. Handfeel, thickness, surface, drape, and season have to work together. The materials named here are candidate directions for project review, not a stocked fabric list.</p>
-      </div>
+      <p class="note sec-head__note">Shell, lining, and insulation behave as one build. Handfeel, thickness, surface, drape, and season have to work together. The materials named here are candidate directions for project review, not a stocked fabric list.</p>
     </div>
-    <div class="jk-stack">
-      <article class="jk-stack-row" data-reveal>
-        <h3>Shell Fabric and Surface Direction</h3>
+    <div class="m-list">
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Shell Fabric and Surface Direction</h3>
         <p>Nylon, polyester, cotton twill, canvas, denim, wool blends, softshell, and ripstop are common shell directions, with leather and PU as material programs of their own. Surface finish, whether matte, shiny, or crinkled, changes how color reads and how decorations hold. A finish described as water repellent remains a requirement to define and test. Without a test method and a report, it is not a verified property of the jacket.</p>
-      </article>
-      <article class="jk-stack-row" data-reveal>
-        <h3>Lining for Comfort and Structure</h3>
+      </div>
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Lining for Comfort and Structure</h3>
         <p>Lining options such as plain polyester, mesh, fleece, or quilted lining decide how the jacket layers over midlayers, how it moves on and off, and how much structure the body holds. Lining color shows at the cuffs, hem, and open front, so it belongs with the colorway decision. For some markets, antistatic or specific care requirements are written into the lining specification at the same time.</p>
-      </article>
-      <article class="jk-stack-row" data-reveal>
-        <h3>Insulation, Distribution, and Interactions</h3>
+      </div>
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Insulation, Distribution, and Interactions</h3>
         <p>Synthetic fills, recycled synthetic options, and down or feather blends are candidate insulation directions. Any down program, including fiber content, down ratio, fill power, and sourcing, needs supply documentation and test files before it can be quoted or described. Fill weight and quilting pattern shape the silhouette as much as the cut does, and shell, fill, lining, and hardware all interact, so the combination is reviewed as one system rather than layer by layer.</p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 6 DECORATION AND PRIVATE LABEL ============ -->
-<section class="section band-alt" id="jk-decoration" aria-labelledby="jk-decoration-title" data-od-id="jk-decoration">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">04 / DECORATION AND PRIVATE LABEL</p>
-        <h2 id="jk-decoration-title">Custom Decoration and Private Label Options</h2>
+<section id="jk-decoration" class="section section--cream">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">04</span> / DECORATION AND PRIVATE LABEL</p>
+        <h2 class="section-h2">Custom Decoration and Private Label Options</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Decoration and private label details are set with the order, because every method depends on the shell fabric, the artwork, the placement, and the quantity. What follows is a review framework, not a fixed capability menu.</p>
-      </div>
+      <p class="note sec-head__note">Decoration and private label details are set with the order, because every method depends on the shell fabric, the artwork, the placement, and the quantity. What follows is a review framework, not a fixed capability menu.</p>
     </div>
-    <div class="jk-cards jk-cards--3">
-      <article class="jk-card" data-reveal>
-        <h3>Match the Method to the Material</h3>
+    <div class="m-cols m-cols--3">
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Match the Method to the Material</h3>
         <p>Embroidery, 3D embroidery, chenille, and applique sit differently on cotton twill than on fine nylon or knit rib. Screen printing, heat transfer, and reflective print each have artwork and surface requirements that decide whether they suit the shell. Woven, silicone, and rubber patches offer another route where direct decoration will not hold. A realistic shortlist comes from matching artwork files against fabric swatches, then checking each method against the order quantity.</p>
-      </article>
-      <article class="jk-card" data-reveal>
-        <h3>Confirm Placement and Scale on the Sample</h3>
+      </div>
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Confirm Placement and Scale on the Sample</h3>
         <p>Decoration positions such as chest, back, sleeve, cuff, hem, or pocket mouth are measured against the real pattern panels, not estimated from artwork files. Large or detailed graphics usually go through a strike-off or technique sample before bulk, so color, edge quality, and handfeel can be approved on the actual fabric. Placement is settled at the sampling stage because panels, seams, quilting lines, and lining all limit what can be applied later.</p>
-      </article>
-      <article class="jk-card" data-reveal>
-        <h3>Labels, Tags, and Packing as One Set</h3>
+      </div>
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Labels, Tags, and Packing as One Set</h3>
         <p>Main, care, and size labels, hangtags, woven or silicone patches, polybags, stickers, and carton marks work as one brand set with the garment. Attachment points are chosen relative to lining, seams, and hardware so nothing conflicts at construction. Barcode or retail-ready requirements are collected while label artwork is prepared. Closing the full set together helps avoid re-opening the specification after sampling.</p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 7 WORKFLOW ============ -->
-<section class="section" id="jk-workflow" aria-labelledby="jk-workflow-title" data-od-id="jk-workflow">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">05 / WORKFLOW</p>
-        <h2 id="jk-workflow-title">A Controlled Jacket Development Workflow</h2>
+<section id="jk-workflow" class="section section--paper">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">05</span> / WORKFLOW</p>
+        <h2 class="section-h2">A Controlled Jacket Development Workflow</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Jacket development follows one controlled path: define, review, sample, comment, approve, then produce against the approved reference. Sample time, sample cost, revision counts, and bulk timing are agreed per project. No fixed day counts apply.</p>
-      </div>
+      <p class="note sec-head__note">Jacket development follows one controlled path: define, review, sample, comment, approve, then produce against the approved reference. Sample time, sample cost, revision counts, and bulk timing are agreed per project. No fixed day counts apply.</p>
     </div>
-    <div class="jk-flow">
-      <article class="jk-phase" data-reveal>
-        <h3>From Brief to Buildable Specification</h3>
-        <div>
-          <ol class="jk-steps" style="counter-reset:jkstep 0">
-            <li><strong>Product brief:</strong> the buyer submits category, quantity, references, size range, material direction, artwork, packing, destination, and timing.</li>
-            <li><strong>Material and construction review:</strong> both sides align shell, lining, fill, hardware, measurements, and brand details until the specification is buildable.</li>
-          </ol>
-          <p class="jk-note">Gaps are listed openly at this stage instead of being filled by assumption, and the output is a written specification that the sample can be measured against.</p>
-        </div>
-      </article>
-      <article class="jk-phase" data-reveal>
-        <h3>Sampling, Comments, and Approval</h3>
-        <div>
-          <ol class="jk-steps" style="counter-reset:jkstep 2">
-            <li><strong>Sample development:</strong> a physical sample is made to the written specification.</li>
-            <li><strong>Buyer comments and revision:</strong> fit, measurements, materials, workmanship, branding, and packing are examined, and requested changes are recorded as one set of comments per round.</li>
-            <li><strong>Sample and specification approval:</strong> only a sample and specification approved by both sides become the bulk reference, standing as the physical standard for shell, lining, fill, hardware, decoration, labels, and packing.</li>
-          </ol>
-        </div>
-      </article>
-      <article class="jk-phase" data-reveal>
-        <h3>Bulk Preparation Through Shipment</h3>
-        <div>
-          <ol class="jk-steps" style="counter-reset:jkstep 5">
-            <li><strong>Bulk production preparation:</strong> materials are reviewed and production is planned around the approved reference.</li>
-            <li><strong>Inspection:</strong> checks follow the approved sample and the inspection points agreed for the order.</li>
-            <li><strong>Packing and shipment preparation:</strong> folding, unit packing, carton marks, counts, and shipment documents are completed to the order instructions.</li>
-          </ol>
-          <p class="jk-note">Records or photographs may be requested when available for the confirmed order.</p>
-        </div>
-      </article>
+    <div class="m-phases">
+      <div class="m-phase">
+        <h3 class="section-h3">From Brief to Buildable Specification</h3>
+        <ol start="1">
+          <li><strong>Product brief:</strong> the buyer submits category, quantity, references, size range, material direction, artwork, packing, destination, and timing.</li>
+          <li><strong>Material and construction review:</strong> both sides align shell, lining, fill, hardware, measurements, and brand details until the specification is buildable.</li>
+        </ol>
+        <p class="m-phase-note">Gaps are listed openly at this stage instead of being filled by assumption, and the output is a written specification that the sample can be measured against.</p>
+      </div>
+      <div class="m-phase">
+        <h3 class="section-h3">Sampling, Comments, and Approval</h3>
+        <ol start="3">
+          <li><strong>Sample development:</strong> a physical sample is made to the written specification.</li>
+          <li><strong>Buyer comments and revision:</strong> fit, measurements, materials, workmanship, branding, and packing are examined, and requested changes are recorded as one set of comments per round.</li>
+          <li><strong>Sample and specification approval:</strong> only a sample and specification approved by both sides become the bulk reference, standing as the physical standard for shell, lining, fill, hardware, decoration, labels, and packing.</li>
+        </ol>
+      </div>
+      <div class="m-phase">
+        <h3 class="section-h3">Bulk Preparation Through Shipment</h3>
+        <ol start="6">
+          <li><strong>Bulk production preparation:</strong> materials are reviewed and production is planned around the approved reference.</li>
+          <li><strong>Inspection:</strong> checks follow the approved sample and the inspection points agreed for the order.</li>
+          <li><strong>Packing and shipment preparation:</strong> folding, unit packing, carton marks, counts, and shipment documents are completed to the order instructions.</li>
+        </ol>
+        <p class="m-phase-note">Records or photographs may be requested when available for the confirmed order.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 8 QUALITY CHECKS ============ -->
-<section class="section band-dark" id="jk-quality" aria-labelledby="jk-quality-title" data-od-id="jk-quality">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">06 / QUALITY CHECKS</p>
-        <h2 id="jk-quality-title">Jacket Quality Checks Before Packing</h2>
+<section id="jk-quality" class="section section--dark">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">06</span> / QUALITY CHECKS</p>
+        <h2 class="section-h2">Jacket Quality Checks Before Packing</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Inspection points are tied to the approved sample and the written order specification. Sampling ratios, acceptance levels, and measurement tolerances are agreed per order rather than quoted as fixed standards before the product exists.</p>
-      </div>
+      <p class="note sec-head__note">Inspection points are tied to the approved sample and the written order specification. Sampling ratios, acceptance levels, and measurement tolerances are agreed per order rather than quoted as fixed standards before the product exists.</p>
     </div>
-    <div class="jk-checkrows">
-      <article class="jk-checkrow" data-reveal>
-        <h3>Measurements, Symmetry, and Function</h3>
+    <div class="m-list">
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Measurements, Symmetry, and Function</h3>
         <p>Key dimensions such as chest, shoulder, body length, and sleeve are checked against the size chart, and left and right front edges, pockets, and panel joins are checked for symmetry. Zippers, snaps, buttons, and buckles are worked, not just looked at. Collar shape, hood set, cuff closure, and hem return are compared with the approved sample. Finding function issues before packing leaves more room for correction before handoff.</p>
-      </article>
-      <article class="jk-checkrow" data-reveal>
-        <h3>Build Integrity and Fill Consistency</h3>
+      </div>
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Build Integrity and Fill Consistency</h3>
         <p>Shell, lining, and fill are compared with the approved sample before and during production. Quilting lines are checked for direction and spacing, and fill for even distribution and for leakage at seams on insulated builds. Seams, seam taping where specified, and reinforcement at stress points such as pocket corners, zipper ends, and shoulder joins are examined, because these are where a jacket fails first in wear.</p>
-      </article>
-      <article class="jk-checkrow" data-reveal>
-        <h3>Appearance, Decoration, and Pack-Out</h3>
+      </div>
+      <div class="m-list__row">
+        <span class="num"></span>
+          <h3 class="section-h3 section-h3--lg">Appearance, Decoration, and Pack-Out</h3>
         <p>Print, embroidery, and patch positions are checked against the approved artwork placement, and color is compared across the batch. Washed denim styles are reviewed for effect and for shade consistency between batches. Before packing, labels, folding, unit packing, carton counts, and carton marks are verified against the order information so the shipment matches what was approved.</p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 9 TESTING BOUNDARIES ============ -->
-<section class="section band-alt" id="jk-testing" aria-labelledby="jk-testing-title" data-od-id="jk-testing">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">07 / TESTING BOUNDARIES</p>
-        <h2 id="jk-testing-title">Define Testing Requirements Before Making Performance Claims</h2>
+<section id="jk-testing" class="section section--cream">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">07</span> / TESTING BOUNDARIES</p>
+        <h2 class="section-h2">Define Testing Requirements Before Making Performance Claims</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">A performance claim needs three things behind it: a test method, a standard, and a report. Until all three exist, water resistance, breathability, wind resistance, and warmth are target requirements defined per project, not verified properties of the jacket.</p>
-      </div>
+      <p class="note sec-head__note">A performance claim needs three things behind it: a test method, a standard, and a report. Until all three exist, water resistance, breathability, wind resistance, and warmth are target requirements defined per project, not verified properties of the jacket.</p>
     </div>
-    <div class="jk-grid jk-grid--3">
-      <article class="jk-block" data-reveal>
-        <span class="jk-num" aria-hidden="true"></span>
-        <h3>Separate Direction from Verified Performance</h3>
+    <div class="m-cols m-cols--3">
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Separate Direction from Verified Performance</h3>
         <p>Early in a project it is normal to describe direction, for example a shell intended for wet weather or a build intended for cold mornings. Direction becomes a claim only when a test supports it. Writing the intended use down first, then choosing the test fields that would support it, keeps the product page and the care label accurate and gives the laboratory a clear scope instead of a vague brief.</p>
-      </article>
-      <article class="jk-block" data-reveal>
-        <span class="jk-num" aria-hidden="true"></span>
-        <h3>Common Test Fields for Jackets</h3>
+      </div>
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Common Test Fields for Jackets</h3>
         <p>Fields that support jacket claims include water resistance and waterproof rating, breathability or moisture vapor transmission, wind resistance, abrasion and tear resistance, colorfastness, and shrinkage. Hardware and build claims draw on zipper and snap strength, down leakage, and fill composition testing. Thermal performance and reflective material performance support warmth and visibility claims. Each field is named with a target and a method before testing is commissioned.</p>
-      </article>
-      <article class="jk-block" data-reveal>
-        <span class="jk-num" aria-hidden="true"></span>
-        <h3>Market Labeling Requirements</h3>
+      </div>
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Market Labeling Requirements</h3>
         <p>Labeling rules differ by market. Fiber content statements, care symbols, origin marking, and language requirements are set by the destination rather than by the factory. Destination-specific labeling and document requirements should be listed in the brief before production, so that testing, labels, and packaging are prepared against the same list. Buyers with retail or import compliance documents should attach them with the brief.</p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 10 MOQ AND TIMING FACTORS ============ -->
-<section class="section" id="jk-moq" aria-labelledby="jk-moq-title" data-od-id="jk-moq">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">08 / MOQ AND TIMING FACTORS</p>
-        <h2 id="jk-moq-title">What Affects Jacket MOQ, Sampling, and Lead Time?</h2>
+<section id="jk-moq" class="section section--paper">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">08</span> / MOQ AND TIMING FACTORS</p>
+        <h2 class="section-h2">What Affects Jacket MOQ, Sampling, and Lead Time?</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Minimums, sampling schedules, and lead times are answered per project. What can be described in advance is the set of factors that moves them: construction, materials, development scope, and the shape of the order.</p>
-      </div>
+      <p class="note sec-head__note">Minimums, sampling schedules, and lead times are answered per project. What can be described in advance is the set of factors that moves them: construction, materials, development scope, and the shape of the order.</p>
     </div>
-    <div class="jk-moq">
-      <article class="jk-moq-col" data-reveal>
-        <h3>Construction and Material Drivers</h3>
+    <div class="m-cols m-cols--2">
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Construction and Material Drivers</h3>
         <p>Lining and insulation add cutting and sewing operations to every unit. Custom shell fabrics, developed hardware such as zippers, pullers, or metal plates, and made-to-order trims and labels extend preparation on the material side. Wash finishes, embroidery, applique, and patch work each add process steps with their own scheduling. The more of these a jacket combines, the more its minimums and timelines reflect development work rather than sewing time alone.</p>
-      </article>
-      <article class="jk-moq-col" data-reveal>
-        <h3>Development Scope and Order Shape</h3>
+      </div>
+      <div class="m-col">
+        <h3 class="section-h3 section-h3--lg">Development Scope and Order Shape</h3>
         <p>Revision rounds, the number of styles, colorways, and sizes, packing and carton rules, season, and material availability all move the final numbers, as does the balance between total quantity and material minimums. Figures quoted by other suppliers describe their own programs and do not transfer to this one. Standard orders start at 100 pieces; sample time, sample cost, and bulk delivery can be reviewed and confirmed after the specification is understood. As a planning reference, standard custom jackets are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 11 DEVELOPMENT EVIDENCE ============ -->
-<section class="section band-alt" id="jk-evidence" aria-labelledby="jk-evidence-title" data-od-id="jk-evidence">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">09 / DEVELOPMENT EVIDENCE</p>
-        <h2 id="jk-evidence-title">Jacket Development Evidence</h2>
+<section id="jk-evidence" class="section section--cream">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-head__main">
+        <p class="section-eyebrow"><span class="num">09</span> / DEVELOPMENT EVIDENCE</p>
+        <h2 class="section-h2">Jacket Development Evidence</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Evidence for a jacket program is requested by stage: photographs, records, and documents connected to the garment actually being made. Where no verified material exists yet, the slots below mark what should be supplied before the page carries images.</p>
-      </div>
+      <p class="note sec-head__note">Evidence for a jacket program is requested by stage: photographs, records, and documents connected to the garment actually being made. Where no verified material exists yet, the slots below mark what should be supplied before the page carries images.</p>
     </div>
-    <div class="jk-evidence">
-      <article class="jk-evi-row" data-reveal>
+
+      <div class="m-split">
         <div>
-          <h3>Evidence from the Development Stage</h3>
+          <h3 class="section-h3 section-h3--lg">Evidence from the Development Stage</h3>
           <p>Development evidence includes sample photographs, fabric and trim detail photographs, measurement records for each sample round, and the written comments that connect one revision to the next. None of this is marketing material. It is the working record that lets a buyer see what changed and why. These items may be requested by project stage when available for the confirmed order.</p>
         </div>
-        <div class="jk-evi-slots">
-          <div class="jk-slot" role="img" aria-label="Image placeholder: Sample jacket photographs with measurement records from a confirmed development project. Status: needs_company_confirmation.">
-            <span class="jk-slot-tag">IMAGE PLACEHOLDER</span>
-            <p><strong>Subject:</strong> Sample jacket photographs with measurement records from a confirmed development project</p>
-            <p><strong>Purpose:</strong> Show real sample garments, fabric and trim details, and the measurement record that supported approval</p>
-            <p><strong>Required evidence:</strong> Source photographs from a confirmed YAUUM jacket project, with buyer-sensitive information removed</p>
-            <p><strong>Suggested alt:</strong> Sample jackets laid out with measurement records during development review</p>
-            <p class="jk-slot-status"><strong>Status:</strong> needs_company_confirmation</p>
-          </div>
+        <div class="m-ph" role="img" aria-label="Image placeholder: Sample jacket photographs with measurement records from a confirmed development project. Status: needs_company_confirmation." data-evidence-status="needs_company_confirmation">
+          <p class="ph-tag">IMAGE PLACEHOLDER</p>
+          <p class="ph-field"><strong>Subject:</strong> Sample jacket photographs with measurement records from a confirmed development project</p>
+          <p class="ph-field"><strong>Purpose:</strong> Show real sample garments, fabric and trim details, and the measurement record that supported approval</p>
+          <p class="ph-field"><strong>Required evidence:</strong> Source photographs from a confirmed YAUUM jacket project, with buyer-sensitive information removed</p>
+          <p class="ph-field"><strong>Suggested alt:</strong> Sample jackets laid out with measurement records during development review</p>
         </div>
-      </article>
-      <article class="jk-evi-row" data-reveal>
+      </div>
+    
+      <div class="m-split">
         <div>
-          <h3>Evidence from Materials and Construction Details</h3>
+          <h3 class="section-h3 section-h3--lg">Evidence from Materials and Construction Details</h3>
           <p>Material evidence covers the shell, lining, and insulation actually used, together with closures and hardware details, photographed against the approved specification. These details show whether the delivered garment matches the materials named in the brief, which matters more than a fabric name on a specification sheet. Such photographs come from confirmed orders rather than from sample library images or stock photos.</p>
         </div>
-        <div class="jk-evi-slots">
-          <div class="jk-slot" role="img" aria-label="Image placeholder: Shell, lining, insulation, closure, and hardware details from a confirmed jacket specification. Status: needs_company_confirmation.">
-            <span class="jk-slot-tag">IMAGE PLACEHOLDER</span>
-            <p><strong>Subject:</strong> Shell, lining, insulation, closure, and hardware details from a confirmed jacket specification</p>
-            <p><strong>Purpose:</strong> Show the material and trim combination actually used on a confirmed order</p>
-            <p><strong>Required evidence:</strong> Detail photographs from a confirmed YAUUM jacket project, matched to the approved specification</p>
-            <p><strong>Suggested alt:</strong> Close-up of jacket shell, lining, zipper, and hardware details</p>
-            <p class="jk-slot-status"><strong>Status:</strong> needs_company_confirmation</p>
-          </div>
+        <div class="m-ph" role="img" aria-label="Image placeholder: Shell, lining, insulation, closure, and hardware details from a confirmed jacket specification. Status: needs_company_confirmation." data-evidence-status="needs_company_confirmation">
+          <p class="ph-tag">IMAGE PLACEHOLDER</p>
+          <p class="ph-field"><strong>Subject:</strong> Shell, lining, insulation, closure, and hardware details from a confirmed jacket specification</p>
+          <p class="ph-field"><strong>Purpose:</strong> Show the material and trim combination actually used on a confirmed order</p>
+          <p class="ph-field"><strong>Required evidence:</strong> Detail photographs from a confirmed YAUUM jacket project, matched to the approved specification</p>
+          <p class="ph-field"><strong>Suggested alt:</strong> Close-up of jacket shell, lining, zipper, and hardware details</p>
         </div>
-      </article>
-      <article class="jk-evi-row" data-reveal>
+      </div>
+    
+      <div class="m-split">
         <div>
-          <h3>Evidence from Production, Inspection, and Handoff</h3>
+          <h3 class="section-h3 section-h3--lg">Evidence from Production, Inspection, and Handoff</h3>
           <p>Production evidence covers stage photographs, close-ups of key operations such as zipper setting or quilting, inspection photographs, and packing photographs showing folding, unit bags, cartons, and marks. Document evidence covers test files, supply documentation for specified materials, and label and packing confirmation records. Each type is requested and reviewed per order. What exists for one program does not stand in for another.</p>
         </div>
-        <div class="jk-evi-slots jk-evi-slots--2">
-          <div class="jk-slot" role="img" aria-label="Image placeholder: Inspection-stage photographs of finished jackets, including zipper, snap, and quilting checks. Status: needs_company_confirmation.">
-            <span class="jk-slot-tag">IMAGE PLACEHOLDER</span>
-            <p><strong>Subject:</strong> Inspection-stage photographs of finished jackets, including zipper, snap, and quilting checks</p>
-            <p><strong>Purpose:</strong> Show how finished jackets are checked against the approved sample before packing</p>
-            <p><strong>Required evidence:</strong> Photographs from YAUUM inspection records for a confirmed order</p>
-            <p><strong>Suggested alt:</strong> Finished jackets being measured and checked before packing</p>
-            <p class="jk-slot-status"><strong>Status:</strong> needs_company_confirmation</p>
-          </div>
-          <div class="jk-slot" role="img" aria-label="Image placeholder: Packing and carton photographs showing folding, unit bags, carton marks, and counts. Status: needs_company_confirmation.">
-            <span class="jk-slot-tag">IMAGE PLACEHOLDER</span>
-            <p><strong>Subject:</strong> Packing and carton photographs showing folding, unit bags, carton marks, and counts</p>
-            <p><strong>Purpose:</strong> Show the packing standard buyers can request evidence for at handoff</p>
-            <p><strong>Required evidence:</strong> Photographs from YAUUM packing records for a confirmed order</p>
-            <p><strong>Suggested alt:</strong> Folded jackets in polybags packed into marked cartons</p>
-            <p class="jk-slot-status"><strong>Status:</strong> needs_company_confirmation</p>
-          </div>
-        </div>
-      </article>
-    </div>
+        <div class="evidence-slots"><div class="m-ph" role="img" aria-label="Image placeholder: Inspection-stage photographs of finished jackets, including zipper, snap, and quilting checks. Status: needs_company_confirmation." data-evidence-status="needs_company_confirmation">
+          <p class="ph-tag">IMAGE PLACEHOLDER</p>
+          <p class="ph-field"><strong>Subject:</strong> Inspection-stage photographs of finished jackets, including zipper, snap, and quilting checks</p>
+          <p class="ph-field"><strong>Purpose:</strong> Show how finished jackets are checked against the approved sample before packing</p>
+          <p class="ph-field"><strong>Required evidence:</strong> Photographs from YAUUM inspection records for a confirmed order</p>
+          <p class="ph-field"><strong>Suggested alt:</strong> Finished jackets being measured and checked before packing</p>
+        </div><div class="m-ph" role="img" aria-label="Image placeholder: Packing and carton photographs showing folding, unit bags, carton marks, and counts. Status: needs_company_confirmation." data-evidence-status="needs_company_confirmation"><p class="ph-tag">IMAGE PLACEHOLDER</p><p class="ph-field"><strong>Subject:</strong> Packing and carton photographs showing folding, unit bags, carton marks, and counts</p><p class="ph-field"><strong>Purpose:</strong> Show the packing standard buyers can request evidence for at handoff</p><p class="ph-field"><strong>Required evidence:</strong> Photographs from YAUUM packing records for a confirmed order</p><p class="ph-field"><strong>Suggested alt:</strong> Folded jackets in polybags packed into marked cartons</p></div></div></div>
+    
   </div>
 </section>
 
-<!-- ============ 12 START A QUOTE ============ -->
-<InquirySection
-  product="Jackets"
-  id="jk-quote"
-  odId="jk-quote"
-  band="band-dark"
-  onDark
-  titleId="jk-quote-title"
->
-  <p slot="left" class="label label--onDark">10 / START A QUOTE</p>
-  <h2 slot="left" id="jk-quote-title">What to Send for a Jacket Quote</h2>
-  <p slot="left" class="lead">A useful quote needs the same inputs as a specification: what the jacket is, what it is made of, how it is branded and packed, and where and when it has to arrive. The checklist below can be sent in one message.</p>
-  <h3 slot="left">The Quote Checklist</h3>
-  <ul slot="left" class="jk-check">
-    <li>Jacket type, target season, and use case</li>
-    <li>Estimated quantity, with color and size breakdown</li>
-    <li>Tech pack, sketch, reference photos, or an existing sample</li>
-    <li>Size chart and key measurements</li>
-    <li>Shell, lining, and insulation direction</li>
-    <li>Closure, pocket, and hardware requirements</li>
-    <li>Artwork, labels, and trims</li>
-    <li>Packaging requirements</li>
-    <li>Destination market and target delivery timing</li>
-    <li>Required testing or compliance documents</li>
-  </ul>
-  <p slot="left">If some information is missing, the missing items can be recorded as open points in the specification.</p>
-  <a slot="left" class="button button--dark" href="/contact-us/">Send project details</a>
-</InquirySection>
-</EditorialLayout>
+<section id="jk-quote" class="section section--warm">
+  <div class="container">
+    <div class="inquiry">
+      <div class="inquiry__main">
+        <p class="section-eyebrow"><span class="num">10</span> / START A QUOTE</p>
+        <h2 class="section-h2">What to Send for a Jacket Quote</h2>
+        <p>A useful quote needs the same inputs as a specification: what the jacket is, what it is made of, how it is branded and packed, and where and when it has to arrive. The checklist below can be sent in one message.</p>
+        <h3>The Quote Checklist</h3>
+        <ol class="checklist">
+          <li>Jacket type, target season, and use case</li>
+          <li>Estimated quantity, with color and size breakdown</li>
+          <li>Tech pack, sketch, reference photos, or an existing sample</li>
+          <li>Size chart and key measurements</li>
+          <li>Shell, lining, and insulation direction</li>
+          <li>Closure, pocket, and hardware requirements</li>
+          <li>Artwork, labels, and trims</li>
+          <li>Packaging requirements</li>
+          <li>Destination market and target delivery timing</li>
+          <li>Required testing or compliance documents</li>
+        </ol>
+        <p>If some information is missing, the missing items can be recorded as open points in the specification.</p>
+        <a class="btn btn-primary" href="/contact-us/">Send project details <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <form method="POST" action="/api/inquiry" data-product="Jackets" data-wa-phone="8615733728976" data-wa-key="" class="inquiry__form inquiry-form"><input type="hidden" name="product" value="Jackets" /><input type="hidden" name="_subject" value="Yauum inquiry — Jackets" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+        <div class="field">
+          <label for="garment">Garment type</label>
+          <select class="select" id="garment" name="garment_type">
+            <option>Hoodies</option>
+            <option>T-Shirts</option>
+            <option selected>Jackets</option>
+            <option>Pants</option>
+            <option>Sportswear</option>
+            <option>Streetwear</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <span class="opt-legend">Quantity <span class="hint">· 1 design · 1 color · 5 sizes</span></span>
+          <div class="opt-row">
+            <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked />100–500 pcs</label>
+            <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" />500–1,000 pcs</label>
+            <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" />1,000–2,000 pcs</label>
+            <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" />2,000+ pcs</label>
+          </div>
+        </div>
+        <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" type="text" required /></div>
+        <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required /></div>
+        <div class="field"><label for="details">Project details <span style="color:var(--yv-muted)">(optional)</span></label><textarea class="textarea" id="details" name="message" rows="4"></textarea></div>
+        <div class="submit-row"><button class="btn btn-primary" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button></div>
+        <span class="form-status meta" aria-live="polite"></span>
+      </form>
+    </div>
+  </div>
+</section>
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){el.classList.add('is-in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){io.observe(el)});
+})();</script>
+  </Fragment>
+</V2Layout>

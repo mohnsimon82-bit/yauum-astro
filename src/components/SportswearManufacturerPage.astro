@@ -1,530 +1,545 @@
 ---
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "./InquirySection.astro";
-import { SEO } from "../lib/seo";
+/** 
+ * sportswear-manufacturer（V2 家族版式，2026-10-11 起）。
+ *
+ * 由终审定稿的预览成品移植：sportswear-完整版.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/sportswear-manufacturer.css。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { getSeo } from "../lib/seo";
 import "../styles/pages/sportswear-manufacturer.css";
 ---
 
-<EditorialLayout
-  seo={SEO["/sportswear-manufacturer/"]}
-  navCurrent={["/production/", "/sportswear-manufacturer/"]}
->
-<!-- ============ HERO ============ -->
-<section class="pd-hero" aria-labelledby="sw-title" data-od-id="sw-hero">
-  <div class="shell">
-    <div class="pd-hero-grid">
-      <div class="pd-hero-copy">
-        <p class="label">B2B / PRIVATE LABEL / SAMPLE-FIRST</p>
-        <h1 id="sw-title">Custom Sportswear Manufacturer for Private Label Brands</h1>
-        <p class="lead pd-hero-lead">Customize a sportswear range around the product, activity, fit, fabric, construction, branding, and order requirements your market needs. YAUUM uses a sample-first process so your team can review the garment, record changes, and approve a reference before bulk production.</p>
-        <p class="sw-hero-note">Start with a tech pack, reference garment, product photo, or early concept. Define the wearer, use, quantity, size split, artwork, packing, destination, and target timing to make the first review and quotation more useful.</p>
-        <div class="sw-hero-actions">
-          <a class="button" href="/contact-us/">Start your sportswear project</a>
-          <a class="link" href="#sportswear-products">Review product options</a>
-        </div>
-        <div class="sw-signals" aria-label="Sportswear development steps">
-          <span><strong>01</strong> Product and use</span>
-          <span><strong>02</strong> Sample and approval</span>
-          <span><strong>03</strong> Bulk and handoff</span>
+<V2Layout seo={getSeo("/sportswear-manufacturer/")} navCurrent={["/production/", "/sportswear-manufacturer/"]} bodyClass="sportswear-page">
+<header class="hero hero--dark">
+    <div class="container">
+      <div class="hero__main">
+        <p class="hero__eyebrow">B2B / PRIVATE LABEL / SAMPLE-FIRST</p>
+        <h1 class="section-h1 hero__h1">Custom Sportswear Manufacturer for Private Label Brands</h1>
+        <p class="hero__lead">Customize a sportswear range around the product, activity, fit, fabric, construction, branding, and order requirements your market needs. YAUUM uses a sample-first process so your team can review the garment, record changes, and approve a reference before bulk production.</p>
+        <p class="hero__lead">Start with a tech pack, reference garment, product photo, or early concept. Define the wearer, use, quantity, size split, artwork, packing, destination, and target timing to make the first review and quotation more useful.</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="/contact-us/">Start your sportswear project <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="hero-link" href="#sportswear-products">Review product options</a>
         </div>
       </div>
-      <figure class="pd-hero-media">
-        <img src="/uploads/sportswear-manufacturer/hero-sportswear-private-label.webp" width="1536" height="1024" alt="Private label sportswear range produced as a finished-garment reference" fetchpriority="high" decoding="async" />
-        <figcaption class="pd-hero-cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</figcaption>
-      </figure>
+      <div class="hero__media">
+        <figure><img src="/uploads/sportswear-manufacturer/hero-sportswear-private-label.webp" alt="Private label sportswear range produced as a finished-garment reference" width="1536" height="1024" loading="lazy" decoding="async"></figure><p class="hero__cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</p>
+      </div>
+      <div class="hero__rail"><div class="hero__rail-item"><span class="num">01</span><span>Product and use</span></div><div class="hero__rail-item"><span class="num">02</span><span>Sample and approval</span></div><div class="hero__rail-item"><span class="num">03</span><span>Bulk and handoff</span></div></div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ============ SECTION INDEX ============ -->
-<nav class="pd-index" aria-label="Sportswear page sections" data-od-id="page-section-index">
-  <div class="shell">
-    <a href="#sportswear-products"><span class="pd-num">01</span>Products</a>
-    <a href="#sportswear-styles"><span class="pd-num">02</span>Styles</a>
-    <a href="#sportswear-fabric"><span class="pd-num">03</span>Fabric</a>
-    <a href="#sportswear-fit"><span class="pd-num">04</span>Fit</a>
-    <a href="#sportswear-details"><span class="pd-num">05</span>Details</a>
-    <a href="#sportswear-branding"><span class="pd-num">06</span>Branding</a>
-    <a href="#sportswear-moq"><span class="pd-num">07</span>MOQ</a>
-    <a href="#sportswear-sample"><span class="pd-num">08</span>Sample</a>
-    <a href="#sportswear-production"><span class="pd-num">09</span>Production</a>
-    <a href="#sportswear-quality"><span class="pd-num">10</span>Quality</a>
-    <a href="#sportswear-faq"><span class="pd-num">11</span>FAQ</a>
-    <a href="#sportswear-brief"><span class="pd-num">12</span>Brief</a>
-  </div>
-</nav>
+  <nav class="indexbar" aria-label="Section index">
+    <div class="container">
+      <div class="indexbar__list">
+        <a class="indexbar__item" href="#sportswear-products"><span class="num">01</span><span class="t">Products</span></a>
+        <a class="indexbar__item" href="#sportswear-styles"><span class="num">02</span><span class="t">Styles</span></a>
+        <a class="indexbar__item" href="#sportswear-fabric"><span class="num">03</span><span class="t">Fabric</span></a>
+        <a class="indexbar__item" href="#sportswear-fit"><span class="num">04</span><span class="t">Fit</span></a>
+        <a class="indexbar__item" href="#sportswear-details"><span class="num">05</span><span class="t">Details</span></a>
+        <a class="indexbar__item" href="#sportswear-branding"><span class="num">06</span><span class="t">Branding</span></a>
+        <a class="indexbar__item" href="#sportswear-moq"><span class="num">07</span><span class="t">MOQ</span></a>
+        <a class="indexbar__item" href="#sportswear-sample"><span class="num">08</span><span class="t">Sample</span></a>
+        <a class="indexbar__item" href="#sportswear-production"><span class="num">09</span><span class="t">Production</span></a>
+        <a class="indexbar__item" href="#sportswear-quality"><span class="num">10</span><span class="t">Quality</span></a>
+        <a class="indexbar__item" href="#sportswear-faq"><span class="num">11</span><span class="t">FAQ</span></a>
+        <a class="indexbar__item" href="#sportswear-brief"><span class="num">12</span><span class="t">Brief</span></a>
+      </div>
+    </div>
+  </nav>
 
-<!-- ============ 01 PRODUCTS ============ -->
-<section class="section" id="sportswear-products" aria-labelledby="sportswear-products-title" data-od-id="sw-products">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">01 / Products</p>
-        <h2 id="sportswear-products-title">What Sportswear Products Do You Want to Customize?</h2>
+  <section id="sportswear-products" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">01</span> / Products</p>
+          <h2 class="section-h2">What Sportswear Products Do You Want to Customize?</h2>
+        </div>
+        <div class="sec-head__note"><p>Start with the garment you want to sell. Training tops, running shorts, joggers, track jackets, and team jerseys create different fit, fabric, artwork, and quantity decisions. Choose the product family before specifying details.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Start with the garment you want to sell. Training tops, running shorts, joggers, track jackets, and team jerseys create different fit, fabric, artwork, and quantity decisions. Choose the product family before specifying details.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Training Tops and Base Layers</h3>
+          <p>Possible directions include training T-shirts, tanks, compression tops, and base layers. State the activity, layering need, sleeve, neckline, body length, fit, and coverage so the sample has a clear purpose.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Sports Shorts, Joggers, and Track Pants</h3>
+          <p>For bottoms, specify the activity first. A running short may prioritize low bulk and secure storage; a jogger may need a defined leg shape. Include rise, inseam, waistband, liner, pockets, leg opening, and mobility.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Track Jackets and Coordinated Sets</h3>
+          <p>Plan a track jacket or tracksuit as one coordinated product. Align jacket length, pant shape, panels, colors, trims, branding, and sizes. If sold separately, make sure each garment also works alone.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3">Team Jerseys and Sport-Specific Directions</h3>
+          <p>Teamwear may need names, numbers, sponsor artwork, club colors, and consistent placement. Identify the sport, uniform pieces, roster variations, and reorder expectations for decoration and order review.</p>
+        </div>
       </div>
-    </div>
-    <div class="sw-grid sw-grid--2">
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">01</span>
-        <h3>Training Tops and Base Layers</h3>
-        <p>Possible directions include training T-shirts, tanks, compression tops, and base layers. State the activity, layering need, sleeve, neckline, body length, fit, and coverage so the sample has a clear purpose.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">02</span>
-        <h3>Sports Shorts, Joggers, and Track Pants</h3>
-        <p>For bottoms, specify the activity first. A running short may prioritize low bulk and secure storage; a jogger may need a defined leg shape. Include rise, inseam, waistband, liner, pockets, leg opening, and mobility.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">03</span>
-        <h3>Track Jackets and Coordinated Sets</h3>
-        <p>Plan a track jacket or tracksuit as one coordinated product. Align jacket length, pant shape, panels, colors, trims, branding, and sizes. If sold separately, make sure each garment also works alone.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">04</span>
-        <h3>Team Jerseys and Sport-Specific Directions</h3>
-        <p>Teamwear may need names, numbers, sponsor artwork, club colors, and consistent placement. Identify the sport, uniform pieces, roster variations, and reorder expectations for decoration and order review.</p>
-      </article>
-    </div>
-    <div class="sw-media sw-media--4" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-product-training-tops.webp" width="1536" height="1024" alt="Sportswear training tops and base layers shown front and back with construction details" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-product-shorts-joggers-pants.webp" width="1448" height="1086" alt="Sportswear shorts, joggers, and track pants shown front and back" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-product-track-jackets-sets.webp" width="1448" height="1086" alt="Track jackets and coordinated sportswear sets" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-product-team-jerseys.webp" width="1448" height="1086" alt="Team jerseys and sport-specific sportswear directions" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 02 STYLES ============ -->
-<section class="section band-dark" id="sportswear-styles" aria-labelledby="sportswear-styles-title" data-od-id="sw-styles">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">02 / Styles</p>
-        <h2 id="sportswear-styles-title">Explore Sportswear Styles for Your Collection</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Next, define the collection direction. A T-shirt or short changes when designed for gym training, running, team use, or active lifestyle retail. This choice guides silhouette, material, construction, color, and branding.</p>
+      <div class="m-media m-media--4">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-product-training-tops.webp" alt="Sportswear training tops and base layers shown front and back with construction details" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-product-shorts-joggers-pants.webp" alt="Sportswear shorts, joggers, and track pants shown front and back" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-product-track-jackets-sets.webp" alt="Track jackets and coordinated sportswear sets" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-product-team-jerseys.webp" alt="Team jerseys and sport-specific sportswear directions" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="sw-grid sw-grid--3">
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">01</span>
-        <h3>Gym and Training Styles</h3>
-        <p>For gym or general training, choose a supportive, lightweight, relaxed, or layered direction. Identify the main movements, wearer, coverage, storage needs, and whether tops and bottoms share one visual system.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">02</span>
-        <h3>Running and Outdoor Training Styles</h3>
-        <p>Running styles may prioritize low bulk, ventilation, secure pockets, movement, and visibility details. Define the training context, climate, layering plan, and selling season before selecting shape and features.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">03</span>
-        <h3>Teamwear, Club, and Active Lifestyle Styles</h3>
-        <p>Teamwear may need coordinated colors, names, numbers, and repeatable artwork. Active lifestyle ranges may prioritize easy silhouettes and matching sets. State whether the range is for competition, club use, warm-up, travel, or retail.</p>
-      </article>
-    </div>
-    <div class="sw-media" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-style-performance-training.webp" width="1448" height="1086" alt="Performance and training style sportswear set with detail views" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-style-athleisure-outdoor.webp" width="1448" height="1086" alt="Athleisure and outdoor training layers: windbreaker, sweatshirt, joggers, and sneakers" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-style-teamwear-club.webp" width="1448" height="1086" alt="Teamwear and club style sportswear set" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 03 FABRIC ============ -->
-<section class="section band-alt" id="sportswear-fabric" aria-labelledby="sportswear-fabric-title" data-od-id="sw-fabric">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">03 / Fabric</p>
-        <h2 id="sportswear-fabric-title">Choose Fabric for Movement, Comfort, and the Intended Use</h2>
+  </section>
+  <section id="sportswear-styles" class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">02</span> / Styles</p>
+          <h2 class="section-h2">Explore Sportswear Styles for Your Collection</h2>
+        </div>
+        <div class="sec-head__note"><p>Next, define the collection direction. A T-shirt or short changes when designed for gym training, running, team use, or active lifestyle retail. This choice guides silhouette, material, construction, color, and branding.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Choose fabric against the garment, activity, climate, hand feel, opacity, stretch, decoration, and intended shape. A compression top and a relaxed warm-up pant require different behavior; a generic performance label does not settle the decision.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Gym and Training Styles</h3>
+          <p>For gym or general training, choose a supportive, lightweight, relaxed, or layered direction. Identify the main movements, wearer, coverage, storage needs, and whether tops and bottoms share one visual system.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Running and Outdoor Training Styles</h3>
+          <p>Running styles may prioritize low bulk, ventilation, secure pockets, movement, and visibility details. Define the training context, climate, layering plan, and selling season before selecting shape and features.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Teamwear, Club, and Active Lifestyle Styles</h3>
+          <p>Teamwear may need coordinated colors, names, numbers, and repeatable artwork. Active lifestyle ranges may prioritize easy silhouettes and matching sets. State whether the range is for competition, club use, warm-up, travel, or retail.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--3">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-style-performance-training.webp" alt="Performance and training style sportswear set with detail views" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-style-athleisure-outdoor.webp" alt="Athleisure and outdoor training layers: windbreaker, sweatshirt, joggers, and sneakers" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-style-teamwear-club.webp" alt="Teamwear and club style sportswear set" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="sw-spec">
-      <article class="sw-spec-row" data-reveal>
-        <span class="sw-spec-num">01</span>
-        <div>
-          <h3>Knits for Tops, Jerseys, and Stretch Styles</h3>
+  </section>
+  <section id="sportswear-fabric" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">03</span> / Fabric</p>
+          <h2 class="section-h2">Choose Fabric for Movement, Comfort, and the Intended Use</h2>
+        </div>
+        <div class="sec-head__note"><p>Choose fabric against the garment, activity, climate, hand feel, opacity, stretch, decoration, and intended shape. A compression top and a relaxed warm-up pant require different behavior; a generic performance label does not settle the decision.</p></div>
+      </div>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Knits for Tops, Jerseys, and Stretch Styles</h3>
           <p>Candidate knits include polyester jersey, interlock, polyester-spandex blends, cotton blends, and mesh. Compare face and reverse, stretch, recovery, weight, drape, hand feel, and color. For close fits, also review opacity, support, and skin feel.</p>
         </div>
-      </article>
-      <article class="sw-spec-row" data-reveal>
-        <span class="sw-spec-num">02</span>
-        <div>
-          <h3>Wovens for Shorts, Pants, and Lightweight Layers</h3>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Wovens for Shorts, Pants, and Lightweight Layers</h3>
           <p>Possible woven directions include lightweight polyester, nylon, stretch woven, and ripstop. Select against the product and silhouette, then check noise, drape, stretch, skin contact, pocket load, and compatibility with waistbands, trims, panels, and decoration.</p>
         </div>
-      </article>
-      <article class="sw-spec-row" data-reveal>
-        <span class="sw-spec-num">03</span>
-        <div>
-          <h3>Define Performance Targets Before Using Performance Claims</h3>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Define Performance Targets Before Using Performance Claims</h3>
           <p>If moisture management, quick drying, breathability, UV protection, water resistance, or another function matters, define the target and test method. A fabric name does not prove performance; publish a claim only after the requirement and supporting result are confirmed.</p>
         </div>
-      </article>
-    </div>
-    <div class="sw-media" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-fabric-knits-jerseys.webp" width="1448" height="1086" alt="Knit and jersey fabric references for sportswear tops" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-fabric-performance-targets.webp" width="1448" height="1086" alt="Sportswear fabric references shown with performance targets defined" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-fabric-wovens-lightweight.webp" width="1448" height="1086" alt="Woven and lightweight layer fabric references for sportswear" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 04 FIT ============ -->
-<section class="section" id="sportswear-fit" aria-labelledby="sportswear-fit-title" data-od-id="sw-fit">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">04 / Fit</p>
-        <h2 id="sportswear-fit-title">Get the Athletic Fit Right Before Sampling</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Judge sportswear on the body and in motion. Choose the intended fit, sample size, and measurements that control movement and appearance. This is more useful than relying on labels such as slim, athletic, or relaxed.</p>
+      <div class="m-media m-media--3">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-fabric-knits-jerseys.webp" alt="Knit and jersey fabric references for sportswear tops" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-fabric-performance-targets.webp" alt="Sportswear fabric references shown with performance targets defined" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-fabric-wovens-lightweight.webp" alt="Woven and lightweight layer fabric references for sportswear" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="sw-stack">
-      <article class="sw-stack-row" data-reveal>
-        <div class="sw-stack-lead"><span class="sw-stack-num">01</span><h3>Match the Fit to the Customer and Activity</h3></div>
-        <p>Describe the wearer, activity, layering needs, and silhouette. Compression, slim, athletic, regular, or relaxed are starting points, not specifications. Reference measurements or a physical garment make chest, waist, seat, thigh, sleeve, and body proportions clearer.</p>
-      </article>
-      <article class="sw-stack-row" data-reveal>
-        <div class="sw-stack-lead"><span class="sw-stack-num">02</span><h3>Identify the Measurements That Control the Garment</h3></div>
-        <p>For tops, define chest, shoulder, armhole, sleeve, body length, and openings. For bottoms, define waist, hip, rise, thigh, inseam, outseam, and leg opening. Mark any point critical to coverage, movement, or styling.</p>
-      </article>
-      <article class="sw-stack-row" data-reveal>
-        <div class="sw-stack-lead"><span class="sw-stack-num">03</span><h3>Review the Full Size Range, Not Only One Sample</h3></div>
-        <p>A sample shows one size; the order must work across the range. Provide the size chart, grading rules, and fit model information where available. Confirm measurements, tolerances, and size relationships before bulk rather than assuming the sample scales automatically.</p>
-      </article>
-    </div>
-    <div class="sw-media" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-fit-full-size-range.webp" width="1448" height="1086" alt="Sportswear fit shown front, side, and back across the size range" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-fit-upper-body-movement.webp" width="1448" height="1086" alt="Upper-body movement review in a sportswear training top" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-fit-control-measurements.webp" width="1448" height="1086" alt="Sportswear garment shown with the measurements that control fit" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 05 DETAILS ============ -->
-<section class="section band-alt" id="sportswear-details" aria-labelledby="sportswear-details-title" data-od-id="sw-details">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">05 / Details</p>
-        <h2 id="sportswear-details-title">Build in the Details That Make the Garment Work</h2>
+  </section>
+  <section id="sportswear-fit" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">04</span> / Fit</p>
+          <h2 class="section-h2">Get the Athletic Fit Right Before Sampling</h2>
+        </div>
+        <div class="sec-head__note"><p>Judge sportswear on the body and in motion. Choose the intended fit, sample size, and measurements that control movement and appearance. This is more useful than relying on labels such as slim, athletic, or relaxed.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Construction should solve a wearer need. Mark where movement, ventilation, storage, adjustment, or reinforcement matters. Every added component affects sampling, cost, and production.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Match the Fit to the Customer and Activity</h3>
+          <p>Describe the wearer, activity, layering needs, and silhouette. Compression, slim, athletic, regular, or relaxed are starting points, not specifications. Reference measurements or a physical garment make chest, waist, seat, thigh, sleeve, and body proportions clearer.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Identify the Measurements That Control the Garment</h3>
+          <p>For tops, define chest, shoulder, armhole, sleeve, body length, and openings. For bottoms, define waist, hip, rise, thigh, inseam, outseam, and leg opening. Mark any point critical to coverage, movement, or styling.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Review the Full Size Range, Not Only One Sample</h3>
+          <p>A sample shows one size; the order must work across the range. Provide the size chart, grading rules, and fit model information where available. Confirm measurements, tolerances, and size relationships before bulk rather than assuming the sample scales automatically.</p>
+        </div>
       </div>
-    </div>
-    <div class="sw-grid sw-grid--2">
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">01</span>
-        <h3>Sleeves, Panels, Gussets, and Seams</h3>
-        <p>Possible directions include raglan or set-in sleeves, mesh zones, side panels, and gussets. Mark their shapes and positions. Define any required flat seams, bonded areas, reinforcement, or reduced-friction construction.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">02</span>
-        <h3>Waistbands, Drawcords, Liners, and Openings</h3>
-        <p>For bottoms, define waistband depth, elastic behavior, drawcord position, liner, rise, inseam, and leg opening. For tops, confirm neck, cuff, hem, and front opening. Show how each should fit during relevant movement or layering.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">03</span>
-        <h3>Pockets and Secure Storage</h3>
-        <p>State what each pocket must hold and where it should be reached. Side, back, hidden, and zippered pockets affect construction and comfort. Define opening size, bag depth, closure, placement, and reinforcement for the intended item.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">04</span>
-        <h3>Trims, Reflective Details, and Wearer Contact</h3>
-        <p>List each zipper, puller, elastic, cord, stopper, binding, tape, and reflective component. Confirm color, size, finish, placement, and skin contact. Treat reflective material as a specified component, not an automatic safety guarantee.</p>
-      </article>
-    </div>
-    <div class="sw-media" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-detail-seams-reinforcement.webp" width="1448" height="1086" alt="Sportswear seam and reinforcement details" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-detail-closures-adjustability.webp" width="1448" height="1086" alt="Sportswear waist and opening details with closures and adjustability" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-detail-cuffs-hems-pockets.webp" width="1448" height="1086" alt="Sportswear cuff, hem, and pocket finishing details" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 06 BRANDING ============ -->
-<section class="section band-dark" id="sportswear-branding" aria-labelledby="sportswear-branding-title" data-od-id="sw-branding">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">06 / Branding</p>
-        <h2 id="sportswear-branding-title">Make the Branding Work with the Fabric and the Order</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Artwork is part of the specification. Send its source file, colors, dimensions, position, coverage, and intended appearance. The suitable route depends on fabric, stretch, construction, quantity, and expected result.</p>
+      <div class="m-media m-media--3">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-fit-full-size-range.webp" alt="Sportswear fit shown front, side, and back across the size range" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-fit-upper-body-movement.webp" alt="Upper-body movement review in a sportswear training top" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-fit-control-measurements.webp" alt="Sportswear garment shown with the measurements that control fit" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="sw-grid sw-grid--2">
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">01</span>
-        <h3>Sublimation and All-Over Artwork</h3>
-        <p>Sublimation may suit some polyester-based styles with large graphics, numbers, or color transitions. Confirm panels, artwork scale, color references, seam alignment, and size variation. Check material suitability and finished color for the project.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">02</span>
-        <h3>Prints, Transfers, and Reflective Graphics</h3>
-        <p>Screen print, heat transfer, DTF, DTG, silicone, and reflective graphics are candidate methods. Review fabric surface, stretch, artwork detail, hand feel, coverage, placement, and quantity. Check the selected method during sampling.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">03</span>
-        <h3>Embroidery, Badges, and Placement</h3>
-        <p>Embroidery and badges add weight, stiffness, backing, and possible skin contact. Define size, materials, position, edge finish, and reverse-side expectation. Review distortion and comfort before approving lightweight or high-stretch placements.</p>
-      </article>
-      <article class="sw-block" data-reveal>
-        <span class="sw-num">04</span>
-        <h3>Labels, Hangtags, Barcodes, and Packing Identity</h3>
-        <p>Private label inputs can include main, size, care, or heat-transfer labels, hangtags, stickers, barcodes, bags, and carton marks. Provide final files, wording, dimensions, materials, attachment points, and market requirements for sample and packing review.</p>
-      </article>
-    </div>
-    <div class="sw-media sw-media--4" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-branding-placement.webp" width="1448" height="1086" alt="Blank branding label placements on a sportswear garment" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-branding-smooth-fabric.webp" width="1448" height="1086" alt="Printed graphic applied to smooth sportswear fabric" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-branding-textured-fabric.webp" width="1448" height="1086" alt="Embossed badge detail on textured sportswear fabric" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-branding-sample-set.webp" width="1448" height="1086" alt="Blank labels and a hangtag across a sportswear sample set" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 07 MOQ ============ -->
-<section class="section" id="sportswear-moq" aria-labelledby="sportswear-moq-title" data-od-id="sw-moq">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">07 / MOQ</p>
-        <h2 id="sportswear-moq-title">What Will Determine the MOQ and Quote for Your Sportswear?</h2>
+  </section>
+  <section id="sportswear-details" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">05</span> / Details</p>
+          <h2 class="section-h2">Build in the Details That Make the Garment Work</h2>
+        </div>
+        <div class="sec-head__note"><p>Construction should solve a wearer need. Mark where movement, ventilation, storage, adjustment, or reinforcement matters. Every added component affects sampling, cost, and production.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Standard orders start at 100 pieces. A useful final MOQ still needs a defined product — order structure, fabric, colors, sizes, decoration, trims, labels, packing, and development work affect how a project can be arranged. A complete brief makes the quotation more specific.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Sleeves, Panels, Gussets, and Seams</h3>
+          <p>Possible directions include raglan or set-in sleeves, mesh zones, side panels, and gussets. Mark their shapes and positions. Define any required flat seams, bonded areas, reinforcement, or reduced-friction construction.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Waistbands, Drawcords, Liners, and Openings</h3>
+          <p>For bottoms, define waistband depth, elastic behavior, drawcord position, liner, rise, inseam, and leg opening. For tops, confirm neck, cuff, hem, and front opening. Show how each should fit during relevant movement or layering.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Pockets and Secure Storage</h3>
+          <p>State what each pocket must hold and where it should be reached. Side, back, hidden, and zippered pockets affect construction and comfort. Define opening size, bag depth, closure, placement, and reinforcement for the intended item.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3">Trims, Reflective Details, and Wearer Contact</h3>
+          <p>List each zipper, puller, elastic, cord, stopper, binding, tape, and reflective component. Confirm color, size, finish, placement, and skin contact. Treat reflective material as a specified component, not an automatic safety guarantee.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--3">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-detail-seams-reinforcement.webp" alt="Sportswear seam and reinforcement details" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-detail-closures-adjustability.webp" alt="Sportswear waist and opening details with closures and adjustability" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-detail-cuffs-hems-pockets.webp" alt="Sportswear cuff, hem, and pocket finishing details" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="sw-cards sw-cards--3">
-      <article class="sw-card" data-reveal>
-        <span class="sw-card-num">01</span>
-        <h3>Style, Color, Size, and Quantity Breakdown</h3>
-        <p>State total quantity and the split by style, color, and size. A coordinated set differs from several unrelated pieces sharing a logo. Include expected repeat orders, replacements, or personalized team units when the order structure is reviewed.</p>
-      </article>
-      <article class="sw-card" data-reveal>
-        <span class="sw-card-num">02</span>
-        <h3>Fabric, Decoration, and Custom Component Factors</h3>
-        <p>Custom-dyed fabric, special trims, wide artwork, personalized names, multiple print versions, and branded packing can affect minimums and cost. Mark essential elements and acceptable alternatives so the quotation can separate the core product from optional details.</p>
-      </article>
-      <article class="sw-card" data-reveal>
-        <span class="sw-card-num">03</span>
-        <h3>What to Send for a More Useful Quote</h3>
-        <p>Send the product, tech pack or reference, fabric direction, colors, sizes, quantity split, artwork, labels, packing, destination, target timing, and open decisions. Confirm MOQ, price, sample terms, and production timing for that specification. As a planning reference, standard custom sportswear pieces are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p>
-      </article>
-    </div>
-    <div class="sw-media sw-media--1" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-moq-quote-factors.webp" width="1448" height="1086" alt="Matched sportswear sets laid out for a quote review" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 08 SAMPLE ============ -->
-<section class="section band-alt" id="sportswear-sample" aria-labelledby="sportswear-sample-title" data-od-id="sw-sample">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">08 / Sample</p>
-        <h2 id="sportswear-sample-title">Test the Sample in Motion Before Bulk Production</h2>
+  </section>
+  <section id="sportswear-branding" class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">06</span> / Branding</p>
+          <h2 class="section-h2">Make the Branding Work with the Fabric and the Order</h2>
+        </div>
+        <div class="sec-head__note"><p>Artwork is part of the specification. Send its source file, colors, dimensions, position, coverage, and intended appearance. The suitable route depends on fabric, stretch, construction, quantity, and expected result.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">The sample makes assumptions visible. Put it on the intended wearer, move in it, measure it, inspect the details, and compare it with the brief. Record specific changes instead of broad feedback.</p>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Sublimation and All-Over Artwork</h3>
+          <p>Sublimation may suit some polyester-based styles with large graphics, numbers, or color transitions. Confirm panels, artwork scale, color references, seam alignment, and size variation. Check material suitability and finished color for the project.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Prints, Transfers, and Reflective Graphics</h3>
+          <p>Screen print, heat transfer, DTF, DTG, silicone, and reflective graphics are candidate methods. Review fabric surface, stretch, artwork detail, hand feel, coverage, placement, and quantity. Check the selected method during sampling.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Embroidery, Badges, and Placement</h3>
+          <p>Embroidery and badges add weight, stiffness, backing, and possible skin contact. Define size, materials, position, edge finish, and reverse-side expectation. Review distortion and comfort before approving lightweight or high-stretch placements.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3">Labels, Hangtags, Barcodes, and Packing Identity</h3>
+          <p>Private label inputs can include main, size, care, or heat-transfer labels, hangtags, stickers, barcodes, bags, and carton marks. Provide final files, wording, dimensions, materials, attachment points, and market requirements for sample and packing review.</p>
+        </div>
       </div>
-    </div>
-    <div class="sw-checkrows">
-      <article class="sw-checkrow" data-reveal>
-        <div class="sw-check-lead"><span class="sw-check-num">01</span><h3>Review Fit During the Intended Movements</h3></div>
-        <p>Use movements relevant to the garment: lifting, bending, squatting, running, stretching, or layering. Check restriction, riding up, gaping, twisting, pressure, coverage, and pocket movement. Record the wearer, sample size, action, and issue.</p>
-      </article>
-      <article class="sw-checkrow" data-reveal>
-        <div class="sw-check-lead"><span class="sw-check-num">02</span><h3>Check Fabric, Construction, and Branding Together</h3></div>
-        <p>Review stretch, recovery, opacity, surface, seam comfort, panel position, waistband, closures, pockets, and decoration on one sample. Consider linked changes: moving a panel affects artwork placement, while changing fabric may alter fit and decoration behavior.</p>
-      </article>
-      <article class="sw-checkrow" data-reveal>
-        <div class="sw-check-lead"><span class="sw-check-num">03</span><h3>Turn Comments into an Approved Reference</h3></div>
-        <p>Mark revisions with a measurement, location, photo, or artwork reference. Keep the tech pack, comments, and physical sample aligned. The approved sample and specification become the bulk reference; unresolved points should remain visible.</p>
-      </article>
-    </div>
-    <div class="sw-media" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-sample-lower-body-movement.webp" width="1448" height="1086" alt="Lower-body movement review in sportswear joggers" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-sample-post-movement-check.webp" width="1448" height="1086" alt="Post-movement sample check of a sportswear top and leggings" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-sample-approved-handoff.webp" width="1448" height="1086" alt="Approved sportswear sample prepared for handoff" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 09 PRODUCTION ============ -->
-<section class="section" id="sportswear-production" aria-labelledby="sportswear-production-title" data-od-id="sw-production">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">09 / Production</p>
-        <h2 id="sportswear-production-title">From Approved Sample to Packed Sportswear: What Happens Next?</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Bulk work should follow the approved sample, specification, and order. The production flow keeps materials, measurements, workmanship, branding, quantities, and packing connected to the buyer-approved reference.</p>
+      <div class="m-media m-media--4">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-branding-placement.webp" alt="Blank branding label placements on a sportswear garment" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-branding-smooth-fabric.webp" alt="Printed graphic applied to smooth sportswear fabric" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-branding-textured-fabric.webp" alt="Embossed badge detail on textured sportswear fabric" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-branding-sample-set.webp" alt="Blank labels and a hangtag across a sportswear sample set" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="sw-stack">
-      <article class="sw-stack-row" data-reveal>
-        <div class="sw-stack-lead"><span class="sw-stack-num">01</span><h3>Confirm the Order Reference Before Production</h3></div>
-        <p>Align the approved sample, current specification, colors, materials, sizes, artwork, labels, packing, and quantities. Resolve version conflicts before work proceeds so the buyer and production team use the same product definition.</p>
-      </article>
-      <article class="sw-stack-row" data-reveal>
-        <div class="sw-stack-lead"><span class="sw-stack-num">02</span><h3>Prepare Materials, Cutting, Sewing, and Decoration</h3></div>
-        <p>Depending on the garment, stages can include material preparation, cutting, panel preparation, sewing, decoration, finishing, and pressing. Keep approved measurements, panel alignment, stretch areas, and artwork placement visible at the relevant stage.</p>
-      </article>
-      <article class="sw-stack-row" data-reveal>
-        <div class="sw-stack-lead"><span class="sw-stack-num">03</span><h3>Keep Useful Records at the Right Stage</h3></div>
-        <p>Buyers can request stage-specific photos, measurements, inspection information, packing details, or related documents. Agree what is needed and when. A short record tied to a decision is more useful than unlabelled photos received after completion.</p>
-      </article>
-      <article class="sw-stack-row" data-reveal>
-        <div class="sw-stack-lead"><span class="sw-stack-num">04</span><h3>Finish, Fold, Pack, and Prepare for Shipment</h3></div>
-        <p>Confirm finishing, folding, individual packing, barcode or sticker placement, carton quantity, assortment, and carton marks. Agree shipping documents, destination requirements, and handoff responsibilities. Packing is part of the product handoff.</p>
-      </article>
-    </div>
-    <div class="sw-media" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-production-bulk-checking.webp" width="1448" height="1086" alt="Bulk sportswear production laid out for checking" loading="lazy" decoding="async" />
-      <div class="sw-ph" role="img" aria-label="Pending image slot for verified sportswear sewing or decoration">
-        <div class="sw-ph-media"><span class="sw-ph-tag">IMAGE PLACEHOLDER</span></div>
-        <div class="sw-ph-copy"><strong>Sewing and decoration</strong><small>Needed: a verified sewing or decoration stage without presenting an unrelated image as a specific buyer order.</small></div>
+  </section>
+  <section id="sportswear-moq" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">07</span> / MOQ</p>
+          <h2 class="section-h2">What Will Determine the MOQ and Quote for Your Sportswear?</h2>
+        </div>
+        <div class="sec-head__note"><p>Standard orders start at 100 pieces. A useful final MOQ still needs a defined product — order structure, fabric, colors, sizes, decoration, trims, labels, packing, and development work affect how a project can be arranged. A complete brief makes the quotation more specific.</p></div>
       </div>
-      <img src="/uploads/sportswear-manufacturer/sw-production-packing-readiness.webp" width="1448" height="1086" alt="Sportswear packed and prepared for shipment" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 10 QUALITY ============ -->
-<section class="section band-dark" id="sportswear-quality" aria-labelledby="sportswear-quality-title" data-od-id="sw-quality">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">10 / Quality</p>
-        <h2 id="sportswear-quality-title">What Gets Checked Before Your Sportswear Ships?</h2>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Style, Color, Size, and Quantity Breakdown</h3>
+          <p>State total quantity and the split by style, color, and size. A coordinated set differs from several unrelated pieces sharing a logo. Include expected repeat orders, replacements, or personalized team units when the order structure is reviewed.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Fabric, Decoration, and Custom Component Factors</h3>
+          <p>Custom-dyed fabric, special trims, wide artwork, personalized names, multiple print versions, and branded packing can affect minimums and cost. Mark essential elements and acceptable alternatives so the quotation can separate the core product from optional details.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">What to Send for a More Useful Quote</h3>
+          <p>Send the product, tech pack or reference, fabric direction, colors, sizes, quantity split, artwork, labels, packing, destination, target timing, and open decisions. Confirm MOQ, price, sample terms, and production timing for that specification. As a planning reference, standard custom sportswear pieces are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p>
+        </div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Base checks on the approved sample and order specification. Define important measurements, appearance points, working details, quantities, and packing requirements. Agree any formal inspection method, tolerance, test, or report before production.</p>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-moq-quote-factors.webp" alt="Matched sportswear sets laid out for a quote review" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="sw-spec">
-      <article class="sw-spec-row" data-reveal>
-        <span class="sw-spec-num">01</span>
-        <div>
-          <h3>Measurements, Fit-Critical Points, and Workmanship</h3>
+  </section>
+  <section id="sportswear-sample" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">08</span> / Sample</p>
+          <h2 class="section-h2">Test the Sample in Motion Before Bulk Production</h2>
+        </div>
+        <div class="sec-head__note"><p>The sample makes assumptions visible. Put it on the intended wearer, move in it, measure it, inspect the details, and compare it with the brief. Record specific changes instead of broad feedback.</p></div>
+      </div>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Review Fit During the Intended Movements</h3>
+          <p>Use movements relevant to the garment: lifting, bending, squatting, running, stretching, or layering. Check restriction, riding up, gaping, twisting, pressure, coverage, and pocket movement. Record the wearer, sample size, action, and issue.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Check Fabric, Construction, and Branding Together</h3>
+          <p>Review stretch, recovery, opacity, surface, seam comfort, panel position, waistband, closures, pockets, and decoration on one sample. Consider linked changes: moving a panel affects artwork placement, while changing fabric may alter fit and decoration behavior.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Turn Comments into an Approved Reference</h3>
+          <p>Mark revisions with a measurement, location, photo, or artwork reference. Keep the tech pack, comments, and physical sample aligned. The approved sample and specification become the bulk reference; unresolved points should remain visible.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--3">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-sample-lower-body-movement.webp" alt="Lower-body movement review in sportswear joggers" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-sample-post-movement-check.webp" alt="Post-movement sample check of a sportswear top and leggings" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-sample-approved-handoff.webp" alt="Approved sportswear sample prepared for handoff" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </section>
+  <section id="sportswear-production" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">09</span> / Production</p>
+          <h2 class="section-h2">From Approved Sample to Packed Sportswear: What Happens Next?</h2>
+        </div>
+        <div class="sec-head__note"><p>Bulk work should follow the approved sample, specification, and order. The production flow keeps materials, measurements, workmanship, branding, quantities, and packing connected to the buyer-approved reference.</p></div>
+      </div>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Confirm the Order Reference Before Production</h3>
+          <p>Align the approved sample, current specification, colors, materials, sizes, artwork, labels, packing, and quantities. Resolve version conflicts before work proceeds so the buyer and production team use the same product definition.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Prepare Materials, Cutting, Sewing, and Decoration</h3>
+          <p>Depending on the garment, stages can include material preparation, cutting, panel preparation, sewing, decoration, finishing, and pressing. Keep approved measurements, panel alignment, stretch areas, and artwork placement visible at the relevant stage.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Keep Useful Records at the Right Stage</h3>
+          <p>Buyers can request stage-specific photos, measurements, inspection information, packing details, or related documents. Agree what is needed and when. A short record tied to a decision is more useful than unlabelled photos received after completion.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3">Finish, Fold, Pack, and Prepare for Shipment</h3>
+          <p>Confirm finishing, folding, individual packing, barcode or sticker placement, carton quantity, assortment, and carton marks. Agree shipping documents, destination requirements, and handoff responsibilities. Packing is part of the product handoff.</p>
+        </div>
+      </div>
+<div class="m-media m-media--3">
+        <div class="m-ph" role="img" aria-label="Pending image slot for verified sportswear sewing or decoration">
+          <span class="ph-tag">IMAGE PLACEHOLDER</span>
+          <strong>Sewing and decoration</strong>
+          <small>Needed: a verified sewing or decoration stage without presenting an unrelated image as a specific buyer order.</small>
+        </div>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-production-bulk-checking.webp" alt="Bulk sportswear production laid out for checking" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-production-packing-readiness.webp" alt="Sportswear packed and prepared for shipment" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </section>
+  <section id="sportswear-quality" class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">10</span> / Quality</p>
+          <h2 class="section-h2">What Gets Checked Before Your Sportswear Ships?</h2>
+        </div>
+        <div class="sec-head__note"><p>Base checks on the approved sample and order specification. Define important measurements, appearance points, working details, quantities, and packing requirements. Agree any formal inspection method, tolerance, test, or report before production.</p></div>
+      </div>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3">Measurements, Fit-Critical Points, and Workmanship</h3>
           <p>Check measurements that control fit and movement across relevant sizes. Review seams, loose or skipped stitches, puckering, stress points, panel alignment, and symmetry. Acceptance rules and tolerances must come from the approved order specification.</p>
         </div>
-      </article>
-      <article class="sw-spec-row" data-reveal>
-        <span class="sw-spec-num">02</span>
-        <div>
-          <h3>Stretch Areas, Openings, Pockets, and Trims</h3>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3">Stretch Areas, Openings, Pockets, and Trims</h3>
           <p>Review waistbands, cuffs, openings, zippers, drawcords, pockets, gussets, and other working parts. Check attachment, operation, position, and appearance. Any performance test remains separate and follows the method and target agreed for the project.</p>
         </div>
-      </article>
-      <article class="sw-spec-row" data-reveal>
-        <span class="sw-spec-num">03</span>
-        <div>
-          <h3>Color, Decoration, Labels, and Order Identity</h3>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3">Color, Decoration, Labels, and Order Identity</h3>
           <p>Compare colors, artwork, numbers, names, placements, labels, and trims with approved references. Match teamwear variations to the order list. Check care and size information, barcode or sticker data, and attachment position before packing.</p>
         </div>
-      </article>
-      <article class="sw-spec-row" data-reveal>
-        <span class="sw-spec-num">04</span>
-        <div>
-          <h3>Quantities, Assortments, Cartons, and Handoff Records</h3>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3">Quantities, Assortments, Cartons, and Handoff Records</h3>
           <p>Verify quantities, size and color assortments, individual packing, carton contents, and carton marks against the order. Provide agreed inspection or packing information at the correct stage so the buyer can connect packed goods with the approved product.</p>
         </div>
-      </article>
-    </div>
-    <div class="sw-media" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-quality-measurement-workmanship.webp" width="1448" height="1086" alt="Sportswear measurement and workmanship check" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-quality-finished-appearance.webp" width="1448" height="1086" alt="Finished sportswear garment appearance check" loading="lazy" decoding="async" />
-      <img src="/uploads/sportswear-manufacturer/sw-quality-packed-sportswear.webp" width="1448" height="1086" alt="Packed sportswear ready for handoff" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ 11 FAQ ============ -->
-<section class="section band-alt" id="sportswear-faq" aria-labelledby="sportswear-faq-title" data-od-id="sw-faq">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">11 / FAQ</p>
-        <h2 id="sportswear-faq-title">Questions Buyers Ask Before Ordering Custom Sportswear</h2>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Use these questions to clarify the product before sampling and to separate project requirements from unverified performance or commercial assumptions.</p>
+      <div class="m-media m-media--3">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-quality-measurement-workmanship.webp" alt="Sportswear measurement and workmanship check" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-quality-finished-appearance.webp" alt="Finished sportswear garment appearance check" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+        <figure><img src="/uploads/sportswear-manufacturer/sw-quality-packed-sportswear.webp" alt="Packed sportswear ready for handoff" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="pd-faq">
-      <details open>
-        <summary><span class="pd-faq-num">01</span><h3>Can We Start with a Photo or Reference Garment?</h3></summary>
-        <p>Yes. A photo, physical reference, or concept can start the review but does not replace the final specification. Add intended changes, measurements, fabric, artwork, quantity, labels, and packing. Sampling creates the reviewable product reference.</p>
-      </details>
-      <details>
-        <summary><span class="pd-faq-num">02</span><h3>Which Fabric Should We Choose for Our First Style?</h3></summary>
-        <p>Begin with the garment, activity, fit, climate, hand feel, stretch, opacity, and decoration. Then compare candidate fabrics by composition, structure, weight, color, and project-specific performance requirements.</p>
-      </details>
-      <details>
-        <summary><span class="pd-faq-num">03</span><h3>Can We Request Moisture-Wicking, Quick-Dry, UPF, or Water Resistance?</h3></summary>
-        <p>Include the target, intended claim, market, test method, and acceptance value. Testing and supporting documents must be confirmed for the selected material and order. Generic sportswear wording is not evidence.</p>
-      </details>
-      <details>
-        <summary><span class="pd-faq-num">04</span><h3>What Is the MOQ and How Long Will Sampling Take?</h3></summary>
-        <p>Standard orders start at 100 pieces. Sampling time and the confirmed minimum depend on the product and order — styles, quantity splits, fabric, custom components, decoration, personalization, packing, and revisions. Share the brief to confirm sample cost, revision terms, and timing.</p>
-      </details>
-      <details>
-        <summary><span class="pd-faq-num">05</span><h3>What Can We Review During Production and Packing?</h3></summary>
-        <p>Buyers can request stage-linked photos, measurements, inspection information, packing details, or related documents. Agree the record, timing, and purpose before production. Unstructured images do not prove every requirement.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 12 BRIEF ============ -->
-<section class="section band-dark" id="sportswear-brief" aria-labelledby="sportswear-brief-title" data-od-id="sw-brief">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">12 / Brief</p>
-        <h2 id="sportswear-brief-title">Send a Sportswear Brief That Can Move the Project Forward</h2>
+  </section>
+  <section id="sportswear-faq" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">11</span> / FAQ</p>
+          <h2 class="section-h2">Questions Buyers Ask Before Ordering Custom Sportswear</h2>
+        </div>
+        <div class="sec-head__note"><p>Use these questions to clarify the product before sampling and to separate project requirements from unverified performance or commercial assumptions.</p></div>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">A complete brief helps turn an early idea into a product review, sample plan, and project-specific quotation.</p>
+      <div class="faq">
+        <details>
+          <summary>
+            <span class="num">01</span>
+            <span class="q">Can We Start with a Photo or Reference Garment?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Yes. A photo, physical reference, or concept can start the review but does not replace the final specification. Add intended changes, measurements, fabric, artwork, quantity, labels, and packing. Sampling creates the reviewable product reference.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="num">02</span>
+            <span class="q">Which Fabric Should We Choose for Our First Style?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Begin with the garment, activity, fit, climate, hand feel, stretch, opacity, and decoration. Then compare candidate fabrics by composition, structure, weight, color, and project-specific performance requirements.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="num">03</span>
+            <span class="q">Can We Request Moisture-Wicking, Quick-Dry, UPF, or Water Resistance?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Include the target, intended claim, market, test method, and acceptance value. Testing and supporting documents must be confirmed for the selected material and order. Generic sportswear wording is not evidence.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="num">04</span>
+            <span class="q">What Is the MOQ and How Long Will Sampling Take?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Standard orders start at 100 pieces. Sampling time and the confirmed minimum depend on the product and order — styles, quantity splits, fabric, custom components, decoration, personalization, packing, and revisions. Share the brief to confirm sample cost, revision terms, and timing.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="num">05</span>
+            <span class="q">What Can We Review During Production and Packing?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Buyers can request stage-linked photos, measurements, inspection information, packing details, or related documents. Agree the record, timing, and purpose before production. Unstructured images do not prove every requirement.</div>
+        </details>
       </div>
     </div>
-    <div class="sw-brief">
-      <div class="sw-brief-copy" data-reveal>
-        <p>Include the product and activity; target customer and fit; tech pack or reference; material and performance requirements; colors and sizes; quantity breakdown; construction and trims; artwork; labels and packing; destination; and target timing.</p>
-        <p>Mark fixed decisions and open questions. Show any coordinated sets, personalized team units, or planned repeats. YAUUM can then identify missing inputs and confirm project-specific sampling, MOQ, quotation, production, checking, packing, and shipment-preparation details.</p>
+  </section>
+  <section id="sportswear-brief" class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">12</span> / Brief</p>
+          <h2 class="section-h2">Send a Sportswear Brief That Can Move the Project Forward</h2>
+        </div>
+        <div class="sec-head__note"><p>A complete brief helps turn an early idea into a product review, sample plan, and project-specific quotation.</p></div>
+      </div>
+      <div class="m-cols m-cols--2">
+        <div class="m-col"><p>Include the product and activity; target customer and fit; tech pack or reference; material and performance requirements; colors and sizes; quantity breakdown; construction and trims; artwork; labels and packing; destination; and target timing.</p></div>
+        <div class="m-col"><p>Mark fixed decisions and open questions. Show any coordinated sets, personalized team units, or planned repeats. YAUUM can then identify missing inputs and confirm project-specific sampling, MOQ, quotation, production, checking, packing, and shipment-preparation details.</p></div>
+      </div>
+      <div class="m-media m-media--1">
+        <figure><img src="/uploads/sportswear-manufacturer/sw-brief-project-forward.webp" alt="Sportswear project brief laid out for review" width="1448" height="1086" loading="lazy" decoding="async"></figure>
       </div>
     </div>
-    <div class="sw-media sw-media--1" data-reveal>
-      <img src="/uploads/sportswear-manufacturer/sw-brief-project-forward.webp" width="1448" height="1086" alt="Sportswear project brief laid out for review" loading="lazy" decoding="async" />
+  </section>
+  <section id="sportswear-inquiry" class="section section--warm">
+    <div class="container">
+      <div class="inquiry">
+        <div class="inquiry__main">
+          <p class="section-eyebrow"><span class="num">13</span> / Start your inquiry</p>
+          <h2 class="section-h2">Ready to Discuss Your Sportswear Program?</h2>
+          <a class="btn btn-primary" href="/contact-us/">Send project details <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <form method="POST" action="/api/inquiry" data-product="Sportswear" data-wa-phone="8615733728976" data-wa-key="" class="inquiry__form inquiry-form"><input type="hidden" name="product" value="Sportswear" /><input type="hidden" name="_subject" value="Yauum inquiry — Sportswear" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <div class="field">
+            <label for="garment">Garment type</label>
+            <select class="select" id="garment" name="garment_type">
+              <option>Hoodies</option>
+              <option>T-Shirts</option>
+              <option>Jackets</option>
+              <option>Pants</option>
+              <option selected>Sportswear</option>
+              <option>Streetwear</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="opt-legend">Quantity <span class="hint">· 1 design · 1 color · 5 sizes</span></span>
+            <div class="opt-row">
+              <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked />100–500 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" />500–1,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" />1,000–2,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" />2,000+ pcs</label>
+            </div>
+          </div>
+          <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" type="text" required /></div>
+          <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required /></div>
+          <div class="field"><label for="details">Project details <span style="color:var(--yv-muted)">(optional)</span></label><textarea class="textarea" id="details" name="message" rows="4"></textarea></div>
+          <div class="submit-row"><button class="btn btn-primary" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button></div>
+          <span class="form-status meta" aria-live="polite"></span>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- ============ 13 START YOUR INQUIRY ============ -->
-<InquirySection
-  product="Sportswear"
-  id="sportswear-inquiry"
-  odId="sw-inquiry"
-  band="band-alt"
-  kicker="13 / Start your inquiry"
-  title="Ready to Discuss Your Sportswear Program?"
-  ctaLabel="Send project details"
-/>
-</EditorialLayout>
+  </section>
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){io.observe(el)});
+})();</script>
+  </Fragment>
+</V2Layout>

@@ -89,8 +89,10 @@ const GLOBAL_CHROME = new Set([
   "src/components/chrome/SiteChromeFooter.astro",
   "src/components/InquiryForm.astro",
   "src/components/InquirySection.astro",
+  "src/components/InquirySubmitScript.astro",
   "src/components/SeoMeta.astro",
   "src/components/EmptyState.astro",
+  "src/layouts/V2Layout.astro",
   "src/lib/contact-intent.ts",
 ].map((file) => join(projectRoot, file)));
 

@@ -1,328 +1,372 @@
 ---
-/**
- * /our-services/ 专属页面。
+/** 
+ * our-services（V2 家族版式，2026-10-11 起）。
  *
- * 背景：该页面原先由 src/components/ContentPage.astro（动态路由 [...slug].astro）
- * 渲染，而 ContentPage 同时服务 about-us / blog / contact-us / solutions。
- * 为了让本次改版不影响其他页面，our-services 独立成页面文件，
- * 并在 [...slug].astro 的过滤条件中排除（写法与 production 相同）。
- *
- * 复用 global.css 的共享类（standard-hero / section / section-surface / shell /
- * section-head / kicker / standard-note-section）；H3 区块、Hero 两栏布局与图片占位符
- * 沿用产品页的 .sw-grid / .sw-block / .sw-ph 命名与规则，复制在 our-services.css 里。
- * 设计令牌未做任何改动。Hero 保持现网结构（kicker + H1 + 正文 + CTA），
- * 本次在文案右侧补一个 Hero 图占位符（.sw-ph--hero）。
- *
- * 锚点与传参：InquirySection 的 product="Our Services" 与 id="inquiry" 保持不变。
+ * 由终审定稿的预览成品移植：our-services-真实内容.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/our-services.css。
  */
-import BaseLayout from "../layouts/BaseLayout.astro";
-import InquirySection from "../components/InquirySection.astro";
+import V2Layout from "../layouts/V2Layout.astro";
 import { getSeo } from "../lib/seo";
 import "../styles/pages/our-services.css";
-
-type Block = {
-  /** H3 标题 */
-  title: string;
-  /** 占位符要补的图片主题（显示在占位符标题行） */
-  tag: string;
-  /** H3 正文，按行拆分（多数为一行；06 区是 Share / Next focus 两行） */
-  lines: string[];
-  /** 占位符 aria-label：写清要补的是哪种照片 */
-  aria: string;
-  /** 已配好的图片（2 张时并排）；缺省时按占位符卡片渲染 */
-  images?: { src: string; alt: string }[];
-};
-
-type Section = {
-  num: string;
-  kicker: string;
-  title: string;
-  intro: string;
-  blocks: Block[];
-};
-
-const sections: Section[] = [
-  {
-    num: "01",
-    kicker: "01 / Product development and sampling",
-    title: "Product Development and Sampling",
-    intro: "Every order starts here — turning a brief into a confirmed specification, then into an approved sample both sides can build bulk production from.",
-    blocks: [
-      {
-        title: "Brief and Reference Review",
-        tag: "Reference Materials and Brief Intake",
-        lines: [
-          "A project starts with what you already have: a tech pack, reference photos, a physical sample, fabric targets, size range, label files, quantity, packaging needs, target market, and timing. None of it needs to be complete — it just needs to give both sides a shared starting point.",
-        ],
-        aria: "Placeholder for a photo showing reference materials and brief intake, such as a tech pack or reference sample review.",
-        images: [{ src: "/uploads/development/brief-and-reference-review.webp", alt: "Illustration of a tech pack, reference photos, fabric swatches, and a garment laid out for a brief review" }],
-      },
-      {
-        title: "Specification Confirmation",
-        tag: "Specification and Trim Confirmation",
-        lines: [
-          "Trims, stitching, printing, embroidery, labels, and packaging get checked and confirmed together, turning the brief into a specification the factory floor can build from.",
-        ],
-        aria: "Placeholder for a photo showing specification and trim confirmation in progress.",
-        images: [{ src: "/uploads/development/specification-confirmation.webp", alt: "Illustration of a specification sheet with fabric swatches, trims, labels, and packaging prepared for confirmation" }],
-      },
-      {
-        title: "Sample Development and Fit Review",
-        tag: "Sample Fit and Measurement Review",
-        lines: [
-          "A sample is made and reviewed against your brief — fit, measurements, construction, and overall look checked against your reference or size range. Lead time, cost, and revision rounds are confirmed per project rather than quoted as a fixed number upfront.",
-        ],
-        aria: "Placeholder for a photo showing sample fit and measurement review.",
-        images: [{ src: "/uploads/development/sample-development-sewing-station.webp", alt: "Operator sewing a sample garment at an industrial sewing machine in the sample room" }],
-      },
-      {
-        title: "Sample Approval",
-        tag: "Approved Sample Reference",
-        lines: [
-          "Comments get documented against the sample and revisions made before it's approved. Only an approved sample is used as the reference for bulk production.",
-        ],
-        aria: "Placeholder for a photo showing the approved sample used as the bulk reference.",
-        images: [{ src: "/uploads/development/sample-approval.webp", alt: "Illustration of an approved sample with its specification sheet, fabric swatch, and hang tag" }],
-      },
-    ],
-  },
-  {
-    num: "02",
-    kicker: "02 / Fabrics and materials",
-    title: "Fabrics and Materials",
-    intro: "Fabric decisions get locked in alongside the specification, not left until production starts.",
-    blocks: [
-      {
-        title: "Fabric and Composition Confirmation",
-        tag: "Fabric and Composition Reference",
-        lines: [
-          "Fabric composition, weight, and construction are reviewed against your brief and confirmed before the specification is finalized, so the sample is built from the same target as the bulk order.",
-        ],
-        aria: "Placeholder for a photo showing fabric and composition reference materials.",
-        images: [{ src: "/uploads/services/fabric-and-composition-confirmation.webp", alt: "Stack of rib-knit fabric swatches in multiple colours on a work table" }],
-      },
-      {
-        title: "Color and Handfeel Matching",
-        tag: "Color and Handfeel Swatch Match",
-        lines: [
-          "Color and handfeel are matched against your reference or swatch at the specification stage. The approved reference becomes the standard that bulk fabric is checked against.",
-        ],
-        aria: "Placeholder for a photo showing color and handfeel swatch matching.",
-        images: [{ src: "/uploads/services/color-and-handfeel-matching.webp", alt: "Hands comparing two fleece fabric swatches side by side" }],
-      },
-    ],
-  },
-  {
-    num: "03",
-    kicker: "03 / Printing and decoration",
-    title: "Printing and Decoration",
-    intro: "Decoration gets planned around your artwork and the garment itself, confirmed before it reaches the sample stage.",
-    blocks: [
-      {
-        title: "Artwork and Placement Confirmation",
-        tag: "Artwork and Placement Check",
-        lines: [
-          "Artwork files, placement, and sizing are confirmed against the garment before any decoration method is applied.",
-        ],
-        aria: "Placeholder for a photo showing artwork and placement confirmation on the garment.",
-        images: [{ src: "/uploads/services/artwork-and-placement-confirmation.webp", alt: "Artwork placement template positioned on a black t-shirt" }],
-      },
-      {
-        title: "Decoration Technique Matching",
-        tag: "Decoration Technique Sample",
-        lines: [
-          "The decoration approach is matched to your artwork and the garment's fabric, then confirmed at the specification stage so the sample reflects what bulk production will produce.",
-        ],
-        aria: "Placeholder for a photo showing a decoration technique sample matched to the artwork.",
-        images: [{ src: "/uploads/services/decoration-technique-matching.webp", alt: "Heat press machine used for decoration testing in a workshop" }],
-      },
-    ],
-  },
-  {
-    num: "04",
-    kicker: "04 / Private label and packaging",
-    title: "Private Label and Packaging",
-    intro: "Brand details are specified down to the label, tag, and carton.",
-    blocks: [
-      {
-        title: "Labels and Trim Options",
-        tag: "Label and Trim Options",
-        lines: [
-          "Woven labels, neck labels, size labels, care labels, hang tags, stickers, and barcodes are specified according to each project's requirements.",
-        ],
-        aria: "Placeholder for a photo showing label and trim options such as woven labels, hang tags, and care labels.",
-        images: [{ src: "/uploads/services/labels-and-trim-options.webp", alt: "Woven labels, hang tags, and trim options laid out with a garment" }],
-      },
-      {
-        title: "Packaging and Carton Marking",
-        tag: "Packaging and Carton Marking",
-        lines: ["Packaging bags and carton marks are specified to match your brand and shipping requirements."],
-        aria: "Placeholder for a photo showing packaging bags and carton marking.",
-        images: [{ src: "/uploads/services/packaging-and-carton-marking.webp", alt: "Packed garments and cartons staged in a factory packing area" }],
-      },
-    ],
-  },
-  {
-    num: "05",
-    kicker: "05 / Quality inspection",
-    title: "Quality Inspection",
-    intro: "Quality gets checked against the approved sample, not a generic external standard.",
-    blocks: [
-      {
-        title: "Comparison Against the Approved Sample",
-        tag: "Sample Comparison Check",
-        lines: [
-          "Only a sample both sides have signed off on is used as the reference for checks during and after production, so there's something concrete to compare against rather than a general description.",
-        ],
-        aria: "Placeholder for a photo showing a finished garment compared against the approved sample.",
-        images: [{ src: "/uploads/services/comparison-against-the-approved-sample.webp", alt: "Folded garments compared side by side against an approved sample" }],
-      },
-      {
-        title: "Buyer-Requested Inspection Evidence",
-        tag: "Inspection and Measurement Record",
-        lines: [
-          "Photos, measurement records, and packing information can be requested at the sampling, production, inspection, and packing stages.",
-        ],
-        aria: "Placeholder for a photo showing inspection and measurement record documentation.",
-        images: [{ src: "/uploads/services/buyer-requested-inspection-evidence.webp", alt: "Garment measured with a tape measure during an inspection" }],
-      },
-    ],
-  },
-  {
-    num: "06",
-    kicker: "06 / What you can start with",
-    title: "What You Can Start With",
-    intro: "Wherever your project is right now, there's a next step.",
-    blocks: [
-      {
-        title: "I Have an Idea or Reference",
-        tag: "Reference Image or Sketch Intake",
-        lines: [
-          "Share: garment type, reference images, and the fit or details you want to change.",
-          "Next focus: defining the specification and sample brief.",
-        ],
-        aria: "Placeholder for a photo showing a reference image or sketch used to start a project.",
-        images: [{ src: "/uploads/services/i-have-an-idea-or-reference.webp", alt: "Hoodie technical sketch with a reference photo and fabric swatches" }],
-      },
-      {
-        title: "I Have a Tech Pack or Sample",
-        tag: "Tech Pack and Sample Review",
-        lines: [
-          "Share: measurements, fabric and trim specifications, artwork, and any questions or marked changes.",
-          "Next focus: reviewing fit and construction before confirming the specification.",
-        ],
-        aria: "Placeholder for a photo showing a tech pack or sample under review.",
-        images: [{ src: "/uploads/services/i-have-a-tech-pack-or-sample.webp", alt: "Tech pack drawings laid out with a sample t-shirt and fabric swatch" }],
-      },
-      {
-        title: "I Have an Approved Sample",
-        tag: "Approved Sample Ready for Bulk",
-        lines: [
-          "Share: quantities by style, color, and size, plus branding, packing, and delivery requirements.",
-          "Next focus: confirming order scope and moving into bulk production.",
-        ],
-        aria: "Placeholder for a photo showing an approved sample ready to move into bulk production.",
-        images: [{ src: "/uploads/services/i-have-an-approved-sample.webp", alt: "Approved sample hoodie with its hang tag" }],
-      },
-    ],
-  },
-];
-
-/** 占位符按全页顺序编号（01–15），编号只用于标识待补素材，不进入正文语义 */
-let placeholder = 0;
-const withNumbers = sections.map((section) => ({
-  ...section,
-  blocks: section.blocks.map((block) => ({
-    ...block,
-    index: String(++placeholder).padStart(2, "0"),
-  })),
-}));
 ---
 
-<BaseLayout seo={getSeo("/our-services/")}>
-  {/* Hero —— 结构保持现网（kicker + H1 + 正文 + CTA）；桌面端文案在左、实拍图在右，
-      窄屏堆叠到正文下方。Hero 图取自印花与刺绣区域，是全页唯一不参与 01–15 编号序列的图片。 */}
-  <section class="standard-hero os-hero">
-    <div class="industrial-grid" aria-hidden="true"></div>
-    <div class="shell standard-hero-inner">
-      <p class="kicker kicker-accent">B2B apparel services</p>
-      <h1>Custom Apparel Manufacturing Services for Your Brand</h1>
-      <p>From product brief to pack-out, Yauum organizes manufacturing around the decisions buyers need to make before bulk production.</p>
-      <a class="button button-accent" href="/contact-us/">Send a project brief</a>
-
-      <figure class="os-hero-media">
-        <img
-          src="/uploads/factory/factory-printing-line.webp"
-          width="1600"
-          height="1067"
-          alt="Automatic screen printing line in a garment factory, with operators loading garment panels"
-          fetchpriority="high"
-          decoding="async"
-        />
-        <figcaption>Supplied factory reference · automatic screen printing line</figcaption>
-      </figure>
+<V2Layout seo={getSeo("/our-services/")} navCurrent={["/our-services/"]}>
+<section class="hero" aria-label="Our services overview">
+  <div class="hero__media">
+    <img src="/uploads/factory/factory-printing-line.webp" alt="Automatic screen printing line in a garment factory, with operators loading garment panels">
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div class="hero__grid reveal">
+      <span class="eyebrow">B2B apparel services</span>
+      <h1 class="hero__title">Custom Apparel Manufacturing Services for Your Brand</h1>
+      <p class="hero__lead">From product brief to pack-out, Yauum organizes manufacturing around the decisions buyers need to make before bulk production.</p>
+      <div class="hero__cta-row">
+        <a href="/contact-us/" class="btn btn-primary">Send a project brief <span class="arrow">→</span></a>
+      </div>
     </div>
-  </section>
+    <div class="hero__caption reveal" data-stagger="2">Supplied factory reference · automatic screen printing line</div>
+  </div>
+</section>
 
-  {/* 01–06：每个 H2 一节，节内每个 H3 正文下面配一个单图占位符 */}
-  {withNumbers.map((section, sectionIndex) => (
-    <section class:list={["section", sectionIndex % 2 === 0 && "section-surface"]}>
-      <div class="shell">
-        <div class="section-head">
-          <div><p class="kicker">{section.kicker}</p><h2 class="section-title">{section.title}</h2></div>
-          <p>{section.intro}</p>
+<nav class="index-bar" aria-label="Service sections">
+  <div class="container index-bar__inner">
+    <span class="index-bar__label">Jump to</span>
+    <a class="index-bar__link" href="#group-01">01 / Product development and sampling</a>
+    <a class="index-bar__link" href="#group-02">02 / Fabrics and materials</a>
+    <a class="index-bar__link" href="#group-03">03 / Printing and decoration</a>
+    <a class="index-bar__link" href="#group-04">04 / Private label and packaging</a>
+    <a class="index-bar__link" href="#group-05">05 / Quality inspection</a>
+  </div>
+</nav>
+
+<section class="dossier" id="group-01" aria-label="Product Development and Sampling">
+  <div class="container">
+    <div class="dossier__grid">
+      <header class="dossier__head">
+        <div class="dossier__no reveal">01 / Product development and sampling</div>
+        <h2 class="dossier__title reveal" data-stagger="1">Product Development and Sampling</h2>
+        <p class="dossier__lead reveal" data-stagger="2">Every order starts here — turning a brief into a confirmed specification, then into an approved sample both sides can build bulk production from.</p>
+      </header>
+      <div class="dossier__body">
+        <article class="dossier-row reveal">
+          <div class="dossier-row__no">01 / 01</div>
+          <div class="dossier-row__body">
+            <h3>Brief and Reference Review</h3>
+            <p>A project starts with what you already have: a tech pack, reference photos, a physical sample, fabric targets, size range, label files, quantity, packaging needs, target market, and timing. None of it needs to be complete — it just needs to give both sides a shared starting point.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/development/brief-and-reference-review.webp" alt="Illustration of a tech pack, reference photos, fabric swatches, and a garment laid out for a brief review" loading="lazy" decoding="async">
+          </div>
+        </article><article class="dossier-row reveal">
+          <div class="dossier-row__no">01 / 02</div>
+          <div class="dossier-row__body">
+            <h3>Specification Confirmation</h3>
+            <p>Trims, stitching, printing, embroidery, labels, and packaging get checked and confirmed together, turning the brief into a specification the factory floor can build from.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/development/specification-confirmation.webp" alt="Illustration of a specification sheet with fabric swatches, trims, labels, and packaging prepared for confirmation" loading="lazy" decoding="async">
+          </div>
+        </article><article class="dossier-row reveal">
+          <div class="dossier-row__no">01 / 03</div>
+          <div class="dossier-row__body">
+            <h3>Sample Development and Fit Review</h3>
+            <p>A sample is made and reviewed against your brief — fit, measurements, construction, and overall look checked against your reference or size range. Lead time, cost, and revision rounds are confirmed per project rather than quoted as a fixed number upfront.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/development/sample-development-sewing-station.webp" alt="Operator sewing a sample garment at an industrial sewing machine in the sample room" loading="lazy" decoding="async">
+          </div>
+        </article><article class="dossier-row reveal">
+          <div class="dossier-row__no">01 / 04</div>
+          <div class="dossier-row__body">
+            <h3>Sample Approval</h3>
+            <p>Comments get documented against the sample and revisions made before it's approved. Only an approved sample is used as the reference for bulk production.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/development/sample-approval.webp" alt="Illustration of an approved sample with its specification sheet, fabric swatch, and hang tag" loading="lazy" decoding="async">
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dossier" id="group-02" aria-label="Fabrics and Materials">
+  <div class="container">
+    <div class="dossier__grid">
+      <header class="dossier__head">
+        <div class="dossier__no reveal">02 / Fabrics and materials</div>
+        <h2 class="dossier__title reveal" data-stagger="1">Fabrics and Materials</h2>
+        <p class="dossier__lead reveal" data-stagger="2">Fabric decisions get locked in alongside the specification, not left until production starts.</p>
+      </header>
+      <div class="dossier__body">
+        <article class="dossier-row reveal">
+          <div class="dossier-row__no">02 / 05</div>
+          <div class="dossier-row__body">
+            <h3>Fabric and Composition Confirmation</h3>
+            <p>Fabric composition, weight, and construction are reviewed against your brief and confirmed before the specification is finalized, so the sample is built from the same target as the bulk order.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/services/fabric-and-composition-confirmation.webp" alt="Stack of rib-knit fabric swatches in multiple colours on a work table" loading="lazy" decoding="async">
+          </div>
+        </article><article class="dossier-row reveal">
+          <div class="dossier-row__no">02 / 06</div>
+          <div class="dossier-row__body">
+            <h3>Color and Handfeel Matching</h3>
+            <p>Color and handfeel are matched against your reference or swatch at the specification stage. The approved reference becomes the standard that bulk fabric is checked against.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/services/color-and-handfeel-matching.webp" alt="Hands comparing two fleece fabric swatches side by side" loading="lazy" decoding="async">
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dossier" id="group-03" aria-label="Printing and Decoration">
+  <div class="container">
+    <div class="dossier__grid">
+      <header class="dossier__head">
+        <div class="dossier__no reveal">03 / Printing and decoration</div>
+        <h2 class="dossier__title reveal" data-stagger="1">Printing and Decoration</h2>
+        <p class="dossier__lead reveal" data-stagger="2">Decoration gets planned around your artwork and the garment itself, confirmed before it reaches the sample stage.</p>
+      </header>
+      <div class="dossier__body">
+        <article class="dossier-row reveal">
+          <div class="dossier-row__no">03 / 07</div>
+          <div class="dossier-row__body">
+            <h3>Artwork and Placement Confirmation</h3>
+            <p>Artwork files, placement, and sizing are confirmed against the garment before any decoration method is applied.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/services/artwork-and-placement-confirmation.webp" alt="Artwork placement template positioned on a black t-shirt" loading="lazy" decoding="async">
+          </div>
+        </article><article class="dossier-row reveal">
+          <div class="dossier-row__no">03 / 08</div>
+          <div class="dossier-row__body">
+            <h3>Decoration Technique Matching</h3>
+            <p>The decoration approach is matched to your artwork and the garment's fabric, then confirmed at the specification stage so the sample reflects what bulk production will produce.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/services/decoration-technique-matching.webp" alt="Heat press machine used for decoration testing in a workshop" loading="lazy" decoding="async">
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dossier" id="group-04" aria-label="Private Label and Packaging">
+  <div class="container">
+    <div class="dossier__grid">
+      <header class="dossier__head">
+        <div class="dossier__no reveal">04 / Private label and packaging</div>
+        <h2 class="dossier__title reveal" data-stagger="1">Private Label and Packaging</h2>
+        <p class="dossier__lead reveal" data-stagger="2">Brand details are specified down to the label, tag, and carton.</p>
+      </header>
+      <div class="dossier__body">
+        <article class="dossier-row reveal">
+          <div class="dossier-row__no">04 / 09</div>
+          <div class="dossier-row__body">
+            <h3>Labels and Trim Options</h3>
+            <p>Woven labels, neck labels, size labels, care labels, hang tags, stickers, and barcodes are specified according to each project's requirements.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/services/labels-and-trim-options.webp" alt="Woven labels, hang tags, and trim options laid out with a garment" loading="lazy" decoding="async">
+          </div>
+        </article><article class="dossier-row reveal">
+          <div class="dossier-row__no">04 / 10</div>
+          <div class="dossier-row__body">
+            <h3>Packaging and Carton Marking</h3>
+            <p>Packaging bags and carton marks are specified to match your brand and shipping requirements.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/services/packaging-and-carton-marking.webp" alt="Packed garments and cartons staged in a factory packing area" loading="lazy" decoding="async">
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dossier dossier-dark" id="group-05" aria-label="Quality Inspection">
+  <div class="container">
+    <div class="dossier__grid">
+      <header class="dossier__head">
+        <div class="dossier__no reveal">05 / Quality inspection</div>
+        <h2 class="dossier__title reveal" data-stagger="1">Quality Inspection</h2>
+        <p class="dossier__lead reveal" data-stagger="2">Quality gets checked against the approved sample, not a generic external standard.</p>
+      </header>
+      <div class="dossier__body">
+        <article class="dossier-row reveal">
+          <div class="dossier-row__no">05 / 11</div>
+          <div class="dossier-row__body">
+            <h3>Comparison Against the Approved Sample</h3>
+            <p>Only a sample both sides have signed off on is used as the reference for checks during and after production, so there's something concrete to compare against rather than a general description.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/services/comparison-against-the-approved-sample.webp" alt="Folded garments compared side by side against an approved sample" loading="lazy" decoding="async">
+          </div>
+        </article><article class="dossier-row reveal">
+          <div class="dossier-row__no">05 / 12</div>
+          <div class="dossier-row__body">
+            <h3>Buyer-Requested Inspection Evidence</h3>
+            <p>Photos, measurement records, and packing information can be requested at the sampling, production, inspection, and packing stages.</p>
+          </div>
+          <div class="dossier-row__media">
+            <img src="/uploads/services/buyer-requested-inspection-evidence.webp" alt="Garment measured with a tape measure during an inspection" loading="lazy" decoding="async">
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="three-col" id="group-06" aria-label="What you can start with" style="background:var(--yv-cream)">
+  <div class="container">
+    <header class="three-col__head">
+      <span class="eyebrow section-eyebrow reveal">06 / What you can start with</span>
+      <h2 class="reveal" data-stagger="1">What You Can Start With</h2>
+      <p class="lead reveal" data-stagger="2">Wherever your project is right now, there's a next step.</p>
+    </header>
+    <div class="three-col__grid">
+      <article class="cat-card reveal">
+        <div class="cat-card__media">
+          <img src="/uploads/services/i-have-an-idea-or-reference.webp" alt="Hoodie technical sketch with a reference photo and fabric swatches" loading="lazy" decoding="async">
         </div>
-        <div class="sw-grid sw-grid--2">
-          {section.blocks.map((block) => (
-            <article class="sw-block">
-              <span class="sw-num">{section.num} / {block.index}</span>
-              <h3>{block.title}</h3>
-              {block.lines.map((line) => <p>{line}</p>)}
-              {block.images ? (
-                <div class:list={["sw-figure", block.images.length > 1 && "sw-figure--pair"]}>
-                  {block.images.map((item) => (
-                    <img
-                      src={item.src}
-                      width="1200"
-                      height="900"
-                      alt={item.alt}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div class="sw-ph" aria-label={block.aria} data-evidence-status="needs_company_confirmation">
-                  <div class="sw-ph-media"><span class="sw-ph-tag">{block.index} / Required</span></div>
-                  <div class="sw-ph-copy">
-                    <strong>{block.tag}</strong>
-                    <small>Recommended 1600 × 1200</small>
-                  </div>
-                </div>
-              )}
-            </article>
-          ))}
+        <div class="cat-card__no">06 / 13</div>
+        <h3 class="cat-card__title">I Have an Idea or Reference</h3>
+        <div class="cat-card__body">
+          <p><strong>Share:</strong> garment type, reference images, and the fit or details you want to change.</p>
+          <p><strong>Next focus:</strong> defining the specification and sample brief.</p>
+        </div>
+      </article><article class="cat-card reveal" data-stagger="1">
+        <div class="cat-card__media">
+          <img src="/uploads/services/i-have-a-tech-pack-or-sample.webp" alt="Tech pack drawings laid out with a sample t-shirt and fabric swatch" loading="lazy" decoding="async">
+        </div>
+        <div class="cat-card__no">06 / 14</div>
+        <h3 class="cat-card__title">I Have a Tech Pack or Sample</h3>
+        <div class="cat-card__body">
+          <p><strong>Share:</strong> measurements, fabric and trim specifications, artwork, and any questions or marked changes.</p>
+          <p><strong>Next focus:</strong> reviewing fit and construction before confirming the specification.</p>
+        </div>
+      </article><article class="cat-card reveal" data-stagger="2">
+        <div class="cat-card__media">
+          <img src="/uploads/services/i-have-an-approved-sample.webp" alt="Approved sample hoodie with its hang tag" loading="lazy" decoding="async">
+        </div>
+        <div class="cat-card__no">06 / 15</div>
+        <h3 class="cat-card__title">I Have an Approved Sample</h3>
+        <div class="cat-card__body">
+          <p><strong>Share:</strong> quantities by style, color, and size, plus branding, packing, and delivery requirements.</p>
+          <p><strong>Next focus:</strong> confirming order scope and moving into bulk production.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="note-block" id="group-07" aria-label="Important note">
+  <div class="container">
+    <div class="note-block__inner reveal">
+      <span class="eyebrow" style="margin-bottom:16px">07 / Important note</span>
+      <div class="note-block__grid">
+        <h2>The Final Scope Depends on the Confirmed Product.</h2>
+        <div class="note-block__body">
+          <p>Standard orders start at 100 pieces. The final scope depends on the confirmed product — MOQ, price, lead time, material availability, inspection method, and delivery plan are reviewed after the product requirements are clear.</p>
         </div>
       </div>
-    </section>
-  ))}
-
-  {/* 07 / Important note —— 原文保持不变 */}
-  <section class="section standard-note-section">
-    <div class="shell standard-note">
-      <div><p class="kicker">07 / Important note</p><h2 class="section-title">The Final Scope Depends on the Confirmed Product.</h2></div>
-      <p>Standard orders start at 100 pieces. The final scope depends on the confirmed product — MOQ, price, lead time, material availability, inspection method, and delivery plan are reviewed after the product requirements are clear.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  {/* 08 / Start an inquiry —— data-product 传参链路保持不变 */}
-  <InquirySection
-    product="Our Services"
-    id="inquiry"
-    odId="inquiry-conversion"
-    band="band-alt"
-    kicker="08 / Start an inquiry"
-    title="Send the Product Details That Shape a Useful Review."
-    ctaLabel="Send project details"
-  />
-</BaseLayout>
+<section class="inquiry-band" id="group-08" aria-label="Start an inquiry">
+  <div class="container">
+    <div class="form-grid">
+      <div class="form-grid__head">
+        <span class="eyebrow reveal">08 / Start an inquiry</span>
+        <h2 class="reveal" data-stagger="1">Send the Product Details That Shape a Useful Review.</h2>
+        
+        <a href="/contact-us/" class="btn btn-primary reveal" data-stagger="3">Send project details <span class="arrow">→</span></a>
+      </div>
+      <form method="POST" action="/api/inquiry" data-product="Our Services" data-wa-phone="8615733728976" data-wa-key="" class="form-card reveal" data-stagger="1"><input type="hidden" name="product" value="Our Services" /><input type="hidden" name="_subject" value="Yauum inquiry — Our Services" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+        <div class="form-row">
+          <label for="yv-garment">Garment type</label>
+          <select id="yv-garment" name="garment_type" required>
+                        <option>Hoodies</option>
+            <option>T-Shirts</option>
+            <option>Jackets</option>
+            <option>Pants</option>
+            <option>Sportswear</option>
+            <option>Streetwear</option>
+            <option selected>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Quantity <span class="text-muted" style="font-weight:400">· 1 design · 1 color · 5 sizes</span></label>
+          <div class="form-row--radio" role="radiogroup" aria-label="Quantity">
+            <label><input type="radio" name="moq_tier" value="100–500 pcs">100–500 pcs</label>
+            <label><input type="radio" name="moq_tier" value="500–1,000 pcs">500–1,000 pcs</label>
+            <label><input type="radio" name="moq_tier" value="1,000–2,000 pcs">1,000–2,000 pcs</label>
+            <label><input type="radio" name="moq_tier" value="2,000+ pcs">2,000+ pcs</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="yv-name">Name</label>
+          <input id="yv-name" name="name" type="text" required>
+        </div>
+        <div class="form-row">
+          <label for="yv-email">Email</label>
+          <input id="yv-email" name="email" type="email" required>
+        </div>
+        <div class="form-row">
+          <label for="yv-details">Project details (optional)</label>
+          <textarea id="yv-details" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send inquiry <span class="arrow">→</span></button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var toggle=document.getElementById('yv-toggle');
+  var nav=document.getElementById('yv-nav');
+  if(toggle&&nav){
+    toggle.addEventListener('click',function(){
+      var open=nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});
+    },{rootMargin:'-40px 0px -40px 0px',threshold:0.05});
+    els.forEach(function(el){io.observe(el);});
+  }else{
+    els.forEach(function(el){el.classList.add('is-in');});
+  }
+  var links=document.querySelectorAll('.index-bar__link');
+  var map={};
+  links.forEach(function(l){var id=l.getAttribute('href').slice(1);var t=document.getElementById(id);if(t)map[id]={link:l,target:t};});
+  function update(){
+    var y=window.scrollY+180;
+    var current=null;
+    Object.keys(map).forEach(function(id){
+      if(map[id].target.offsetTop<=y)current=id;
+    });
+    links.forEach(function(l){l.classList.remove('is-active');});
+    if(current&&map[current])map[current].link.classList.add('is-active');
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();</script>
+  </Fragment>
+</V2Layout>

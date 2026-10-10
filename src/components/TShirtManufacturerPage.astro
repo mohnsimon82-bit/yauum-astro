@@ -1,391 +1,465 @@
 ---
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "./InquirySection.astro";
-import { SEO } from "../lib/seo";
+/** 
+ * t-shirt-manufacturer（V2 家族版式，2026-10-11 起）。
+ *
+ * 由终审定稿的预览成品移植：t-shirt-完整版.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/t-shirt-manufacturer.css。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { getSeo } from "../lib/seo";
 import "../styles/pages/t-shirt-manufacturer.css";
 ---
 
-<EditorialLayout
-  seo={SEO["/t-shirt-manufacturer/"]}
-  navCurrent={["/production/", "/t-shirt-manufacturer/"]}
->
-<!-- ============ 1 HERO ============ -->
-<section class="pd-hero" data-od-id="tshirt-hero">
-  <div class="shell">
-    <div class="pd-hero-grid">
-      <div class="pd-hero-copy">
-        <p class="label">B2B / OEM–ODM / PRIVATE LABEL</p>
-        <h1>Custom T-Shirt Manufacturer for Private Label Brands</h1>
-        <p class="lead pd-hero-lead">Develop a T-shirt from silhouette, fabric weight, measurements, artwork, labels, sample approval, and bulk references.</p>
-        <div class="pd-hero-actions">
-          <a class="button" href="/contact-us/">Start your T-shirt project</a>
-          <a class="link" href="#tshirt-styles">Explore styles</a>
-        </div>
-        <div class="hero-rail" aria-label="Project principles">
-          <span class="rail-item"><span class="rail-num">01</span><span class="rail-label">Sample-first development</span></span>
-          <span class="rail-item"><span class="rail-num">02</span><span class="rail-label">Project-confirmed details</span></span>
-          <span class="rail-item"><span class="rail-num">03</span><span class="rail-label">Private label finishing</span></span>
+<V2Layout seo={getSeo("/t-shirt-manufacturer/")} navCurrent={["/production/", "/t-shirt-manufacturer/"]}>
+<header class="hero">
+    <div class="container">
+      <div class="hero__main">
+        <p class="hero__eyebrow">B2B / OEM–ODM / PRIVATE LABEL</p>
+        <h1 class="section-h1 hero__h1">Custom T-Shirt Manufacturer for Private Label Brands</h1>
+        <p class="hero__lead">Develop a T-shirt from silhouette, fabric weight, measurements, artwork, labels, sample approval, and bulk references.</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="/contact-us/">Start your T-shirt project <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="hero-link" href="#tshirt-styles">Explore styles</a>
         </div>
       </div>
-      <figure class="pd-hero-media">
-        <img src="/uploads/t-shirt-manufacturer/hero-tshirt-private-label.webp" width="1536" height="1024" alt="Finished private label T-shirt shown as a full-garment product reference" fetchpriority="high" decoding="async" />
-        <figcaption class="pd-hero-cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 2 SECTION INDEX ============ -->
-<nav class="pd-index" aria-label="T-shirt page sections" data-od-id="page-section-index">
-  <div class="shell">
-    <a href="#tshirt-styles">Styles</a>
-    <a href="#tshirt-fabrics">Fabric and fit</a>
-    <a href="#tshirt-branding">Branding</a>
-    <a href="#tshirt-process">Process</a>
-    <a href="#tshirt-quality">Quality</a>
-    <a href="#tshirt-faq">FAQ</a>
-  </div>
-</nav>
-
-<!-- ============ 3 PRODUCT STYLES ============ -->
-<section class="section" id="tshirt-styles" data-od-id="tshirt-styles">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">01 / PRODUCT STYLES</p>
-        <h2>Custom T-Shirt Styles We Manufacture</h2>
+      <div class="hero__media">
+        <figure style="aspect-ratio:3/2">
+          <img src="/uploads/t-shirt-manufacturer/hero-tshirt-private-label.webp" alt="Finished private label T-shirt shown as a full-garment product reference" width="1536" height="1024" loading="eager" />
+        </figure><p class="hero__cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">The style groups are development directions for inquiry and sampling, not a fixed stock catalog. The final pattern, measurements, fabric, and finishing are confirmed for each project.</p>
-      </div>
-    </div>
-    <div class="pd-grid-4">
-      <article class="pd-card" data-reveal>
-        <span class="pd-media"><img src="/uploads/t-shirt-manufacturer/style-oversized-heavyweight.webp" width="1448" height="1086" alt="Oversized heavyweight T-shirt with dropped shoulders, full front view" loading="lazy" decoding="async" /></span>
-        <span class="pd-meta"><span class="pd-num">01</span><h3>Oversized and Heavyweight</h3></span>
-        <p class="pd-fill">Body width, shoulder position, sleeve volume, fabric body, and finish are reviewed together.</p>
-      </article>
-      <article class="pd-card" data-reveal>
-        <span class="pd-media"><img src="/uploads/t-shirt-manufacturer/style-classic-regular-fit.webp" width="1448" height="1086" alt="Classic regular-fit T-shirt, full front view" loading="lazy" decoding="async" /></span>
-        <span class="pd-meta"><span class="pd-num">02</span><h3>Classic and Regular Fit</h3></span>
-        <p class="pd-fill">A dependable base for everyday retail, wholesale, and private label programs.</p>
-      </article>
-      <article class="pd-card" data-reveal>
-        <span class="pd-media"><img src="/uploads/t-shirt-manufacturer/style-boxy-drop-shoulder.webp" width="1448" height="1086" alt="Boxy drop-shoulder T-shirt, full front view" loading="lazy" decoding="async" /></span>
-        <span class="pd-meta"><span class="pd-num">03</span><h3>Boxy and Drop Shoulder</h3></span>
-        <p class="pd-fill">Shoulder proportion, armhole depth, body length, and sleeve balance shape the silhouette.</p>
-      </article>
-      <article class="pd-card" data-reveal>
-        <span class="pd-media"><img src="/uploads/t-shirt-manufacturer/style-long-sleeve.webp" width="1448" height="1086" alt="Long-sleeve T-shirt, full front view" loading="lazy" decoding="async" /></span>
-        <span class="pd-meta"><span class="pd-num">04</span><h3>Long-Sleeve and Specialty</h3></span>
-        <p class="pd-fill">Wash, graphic, printed, embroidered, and puff-print directions are reviewed per brief.</p>
-      </article>
-    </div>
-    <div class="pd-callout" data-reveal>
-      <p class="label">BUYER CHECK</p>
-      <p>Show the silhouette, size range, color direction, and decoration that should be reviewed first.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4 MATERIAL AND FIT ============ -->
-<section class="section band-dark" id="tshirt-fabrics" data-od-id="tshirt-fabrics">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">02 / MATERIAL AND FIT</p>
-        <h2>T-Shirt Fabrics, GSM, Fits, and Construction Options</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Fabric, fit, and construction are reviewed together. Development directions may include cotton and blended jerseys, polyester knits, mesh, interlock, rib, linen blends, washed fabrics, and heavyweight knits.</p>
-      </div>
-    </div>
-    <div class="pd-ledger">
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">01</span>
-        <div><h3>Cotton and Blended Fabrics</h3><p>Review fiber composition, knit structure, hand feel, stretch, care, and intended use.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">02</span>
-        <div><h3>GSM and Fabric Weight</h3><p>Confirm lightweight, midweight, or heavyweight direction with the selected fabric.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">03</span>
-        <div><h3>Fit and Size Grading</h3><p>Lock chest, shoulder, body, sleeve, and armhole measurements across the size run.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">04</span>
-        <div><h3>Neckline and Construction</h3><p>Review collar shape, rib recovery, seams, reinforcement, and finishing details.</p></div>
-      </article>
-    </div>
-    <div class="pd-media-row">
-      <div class="pd-ph" role="img" aria-label="Pending image slot for T-shirt fabric and GSM reference">
-        <span class="pd-ph-tag">PENDING</span>
-        <strong>Fabric and GSM reference</strong>
-        <small>Needed: jersey face and reverse views, plus a verified GSM swatch comparison</small>
-      </div>
-      <figure class="pd-figure" data-reveal>
-        <img src="/uploads/t-shirt-manufacturer/construction-details.webp" width="1448" height="1086" alt="T-shirt construction details: neckline rib, shoulder seam, sleeve hem, and jersey face" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Construction details</figcaption>
-      </figure>
-    </div>
-    <p class="pd-source" data-reveal>GSM is confirmed with the selected fabric. Fiber composition, knit structure, color, hand feel, shrinkage, and decoration compatibility remain project-specific.</p>
-  </div>
-</section>
-
-<!-- ============ 5 DECORATION AND PRIVATE LABEL ============ -->
-<section class="section band-alt" id="tshirt-branding" data-od-id="tshirt-branding">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">03 / DECORATION AND PRIVATE LABEL</p>
-        <h2>Printing, Embroidery, and Private Label Options</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Decoration and brand finishing are specified with the order. The suitable method depends on artwork, fabric, placement, quantity, and required appearance.</p>
-      </div>
-    </div>
-    <div class="pd-ledger">
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">01</span>
-        <div><h3>Decoration Method Selection</h3><p>Artwork format, technique, colors, size, placement, fabric, and quantity guide the review.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">02</span>
-        <div><h3>Embroidery and Specialty Detail</h3><p>Scale, density, appearance, and attachment are checked when the method suits the product.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">03</span>
-        <div><h3>Neck, Care, and Size Labels</h3><p>Confirm content, dimensions, material, placement, and attachment for each label.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">04</span>
-        <div><h3>Hangtags, Stickers, and Codes</h3><p>Add buyer-supplied hangtags, stickers, barcodes, packaging bags, and carton marks.</p></div>
-      </article>
-    </div>
-    <div class="pd-callout" data-reveal>
-      <p class="label">ARTWORK INPUTS</p>
-      <p>Send file format, intended technique, colors, artwork size, and placement with the inquiry. Final suitability is confirmed before sampling.</p>
-    </div>
-    <div class="pd-media-row pd-media-row--split">
-      <figure class="pd-figure" data-reveal>
-        <img src="/uploads/t-shirt-manufacturer/branding-screen-printing-line.webp" width="1600" height="1067" alt="Carousel screen-printing line set up for garment printing in the production workshop" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Screen-printing line, production workshop</figcaption>
-      </figure>
-      <div class="pd-ph" role="img" aria-label="Pending image slot for embroidery, label, and hangtag examples">
-        <span class="pd-ph-tag">PENDING</span>
-        <strong>Labels and hangtags</strong>
-        <small>Needed: neck label, care label, size label, hangtag, sticker, and barcode examples</small>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 6 MOQ, SAMPLING, AND BULK ============ -->
-<section class="section band-dark" id="tshirt-process" data-od-id="tshirt-process">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">04 / MOQ, SAMPLING, AND BULK</p>
-        <h2>T-Shirt MOQ, Sampling, and Bulk Production Process</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Standard orders start at 100 pieces. Sampling time, sample cost, revision terms, MOQ, and the bulk timeline are confirmed according to the product specifications and order requirements. As a planning reference, standard custom T-shirts are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p>
-      </div>
-    </div>
-    <ol class="pd-flow">
-      <li class="pd-flow-step" data-reveal>
-        <span class="pd-flow-num">01</span>
-        <h3>Confirm the Brief</h3>
-        <p>Share product direction, quantity, size split, references, fabric, artwork, packing, destination, and timing.</p>
-      </li>
-      <li class="pd-flow-step" data-reveal>
-        <span class="pd-flow-num">02</span>
-        <h3>Review Materials and Details</h3>
-        <p>Align fabric, color, hand feel, measurements, stitching, decoration, labels, and packing.</p>
-      </li>
-      <li class="pd-flow-step" data-reveal>
-        <span class="pd-flow-num">03</span>
-        <h3>Develop the Sample</h3>
-        <p>Review fit, key measurements, fabric behavior, workmanship, branding, and overall appearance.</p>
-      </li>
-      <li class="pd-flow-step" data-reveal>
-        <span class="pd-flow-num">04</span>
-        <h3>Approve the Reference</h3>
-        <p>Record revisions and approve the sample and specification before bulk production.</p>
-      </li>
-      <li class="pd-flow-step" data-reveal>
-        <span class="pd-flow-num">05</span>
-        <h3>Produce, Check, and Pack</h3>
-        <p>Follow the approved reference through production, inspection, packing, and shipment preparation.</p>
-      </li>
-    </ol>
-    <div class="pd-media-row pd-media-row--4">
-      <figure class="pd-figure" data-reveal>
-        <img src="/uploads/t-shirt-manufacturer/process-pattern-sampling.webp" width="1600" height="1067" alt="Paper patterns and sample garments laid out on the pattern and sampling worktable" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Pattern and sampling</figcaption>
-      </figure>
-      <figure class="pd-figure" data-reveal>
-        <img src="/uploads/t-shirt-manufacturer/process-bulk-cutting.webp" width="1600" height="1067" alt="Layered fabric being cut into garment panels on the cutting table" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Bulk cutting</figcaption>
-      </figure>
-      <figure class="pd-figure" data-reveal>
-        <img src="/uploads/t-shirt-manufacturer/process-sewing-line.webp" width="1600" height="1067" alt="Sewing operators working along the garment production line" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Sewing line</figcaption>
-      </figure>
-      <figure class="pd-figure" data-reveal>
-        <img src="/uploads/t-shirt-manufacturer/process-packing.webp" width="1600" height="1067" alt="Folded garments bagged and bundled on the packing worktable" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Packing</figcaption>
-      </figure>
-    </div>
-    <p class="pd-source" data-reveal>Standard orders start at 100 pieces; production lead time should be confirmed after the product, materials, decoration, quantity, revisions, packing, and destination are understood.</p>
-  </div>
-</section>
-
-<!-- ============ 7 QUALITY AND HANDOFF ============ -->
-<section class="section" id="tshirt-quality" data-od-id="tshirt-quality">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">05 / QUALITY AND HANDOFF</p>
-        <h2>Quality Control, Packing, and Shipping Preparation</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Quality and packing points are connected to the approved sample and order specification. Acceptance rules and tolerances are agreed per order.</p>
-      </div>
-    </div>
-    <div class="pd-ledger">
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">01</span>
-        <div><h3>Fabric, Color, and Measurements</h3><p>Check shrinkage, color variation, surface condition, neckline, rib recovery, and size consistency.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">02</span>
-        <div><h3>Stitching and Decoration</h3><p>Review seams, workmanship, print or embroidery placement, sharpness, and appearance.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">03</span>
-        <div><h3>Labels and Quantities</h3><p>Verify label type, size, attachment, unit count, barcode, and order information.</p></div>
-      </article>
-      <article class="pd-ledger-row" data-reveal>
-        <span class="num">04</span>
-        <div><h3>Packing and Shipment</h3><p>Confirm folding, individual packaging, carton marks, inspection photos, and document support.</p></div>
-      </article>
-    </div>
-    <div class="pd-media-row pd-media-row--3">
-      <figure class="pd-figure" data-reveal>
-        <img src="/uploads/t-shirt-manufacturer/quality-finishing-ironing.webp" width="1600" height="1067" alt="Garments being steam-ironed and finished at the finishing station" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Finishing and ironing</figcaption>
-      </figure>
-      <figure class="pd-figure" data-reveal>
-        <img src="/uploads/t-shirt-manufacturer/quality-storage-cartons.webp" width="1600" height="1067" alt="Packing cartons and fabric rolls stored on warehouse shelving" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Cartons and storage</figcaption>
-      </figure>
-      <div class="pd-ph" role="img" aria-label="Pending image slot for measurement and label inspection evidence">
-        <span class="pd-ph-tag">PENDING</span>
-        <strong>Measurement and label checks</strong>
-        <small>Needed: size measurement, color and print check, and label verification photos</small>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 8 WORKING WITH YAUUM ============ -->
-<section class="section band-dark" id="why-yauum" data-od-id="why-yauum">
-  <div class="shell">
-    <div class="pd-proof">
-      <div class="pd-proof-intro" data-reveal>
-        <p class="label label--onDark">06 / WORKING WITH YAUUM</p>
-        <h2>Why Work with YAUUM as Your T-Shirt Manufacturer</h2>
-        <p class="lead">The workflow connects product definition, material review, sampling, revision, approval, bulk production, quality checks, packing, and shipment preparation.</p>
-      </div>
-      <div class="pd-proof-list">
-        <article class="pd-proof-row" data-reveal>
+      <div class="hero__rail">
+        <div class="hero__rail-item">
           <span class="num">01</span>
-          <div><h3>A Structured Product Development Process</h3><p>Each stage creates a reference for the next stage.</p></div>
-        </article>
-        <article class="pd-proof-row" data-reveal>
+          <span>Sample-first development</span>
+        </div>
+        <div class="hero__rail-item">
           <span class="num">02</span>
-          <div><h3>One Approved Reference for Sampling and Bulk</h3><p>Bulk production follows the approved sample and specification.</p></div>
-        </article>
-        <article class="pd-proof-row" data-reveal>
+          <span>Project-confirmed details</span>
+        </div>
+        <div class="hero__rail-item">
           <span class="num">03</span>
-          <div><h3>Production and Packing Records Buyers Can Review</h3><p>Photos and records can be requested by project stage.</p></div>
+          <span>Private label finishing</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="indexbar" aria-label="Section index">
+    <div class="container">
+      <div class="indexbar__list">
+        <a class="indexbar__item" href="#tshirt-styles">Styles</a>
+        <a class="indexbar__item" href="#tshirt-fabrics">Fabric and fit</a>
+        <a class="indexbar__item" href="#tshirt-branding">Branding</a>
+        <a class="indexbar__item" href="#tshirt-process">Process</a>
+        <a class="indexbar__item" href="#tshirt-quality">Quality</a>
+        <a class="indexbar__item" href="#tshirt-faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="tshirt-styles" class="section section--paper" data-od-id="tshirt-styles">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">01</span> / PRODUCT STYLES</p>
+          <h2 class="section-h2">Custom T-Shirt Styles We Manufacture</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">The style groups are development directions for inquiry and sampling, not a fixed stock catalog. The final pattern, measurements, fabric, and finishing are confirmed for each project.</p>
+        </div>
+      </div>
+      <div class="m-grid m-grid--4">
+        <article class="m-card">
+          <figure><img src="/uploads/t-shirt-manufacturer/style-oversized-heavyweight.webp" alt="Oversized heavyweight T-shirt with dropped shoulders, full front view" width="1448" height="1086" loading="lazy" /></figure>
+          <span class="num">01</span>
+          <h3 class="section-h3">Oversized and Heavyweight</h3>
+          <p>Body width, shoulder position, sleeve volume, fabric body, and finish are reviewed together.</p>
         </article>
-        <article class="pd-proof-row" data-reveal>
+        <article class="m-card">
+          <figure><img src="/uploads/t-shirt-manufacturer/style-classic-regular-fit.webp" alt="Classic regular-fit T-shirt, full front view" width="1448" height="1086" loading="lazy" /></figure>
+          <span class="num">02</span>
+          <h3 class="section-h3">Classic and Regular Fit</h3>
+          <p>A dependable base for everyday retail, wholesale, and private label programs.</p>
+        </article>
+        <article class="m-card">
+          <figure><img src="/uploads/t-shirt-manufacturer/style-boxy-drop-shoulder.webp" alt="Boxy drop-shoulder T-shirt, full front view" width="1448" height="1086" loading="lazy" /></figure>
+          <span class="num">03</span>
+          <h3 class="section-h3">Boxy and Drop Shoulder</h3>
+          <p>Shoulder proportion, armhole depth, body length, and sleeve balance shape the silhouette.</p>
+        </article>
+        <article class="m-card">
+          <figure><img src="/uploads/t-shirt-manufacturer/style-long-sleeve.webp" alt="Long-sleeve T-shirt, full front view" width="1448" height="1086" loading="lazy" /></figure>
           <span class="num">04</span>
-          <div><h3>Verified Company and Factory Information</h3><p>Publish company facts only after supporting information is confirmed.</p></div>
+          <h3 class="section-h3">Long-Sleeve and Specialty</h3>
+          <p>Wash, graphic, printed, embroidered, and puff-print directions are reviewed per brief.</p>
         </article>
       </div>
-    </div>
-    <div class="pd-proof-media" data-reveal>
-      <figure class="pd-figure">
-        <img src="/uploads/t-shirt-manufacturer/showroom-tshirt-samples.webp" width="1600" height="1067" alt="Finished T-shirts in multiple colors displayed on rails in the sample showroom" loading="lazy" decoding="async" />
-        <figcaption class="pd-cap">Sample T-shirts on display in the showroom</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 9 BUYER QUESTIONS ============ -->
-<section class="section band-alt" id="tshirt-faq" data-od-id="tshirt-faq">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">07 / BUYER QUESTIONS</p>
-        <h2>Common Questions Before Ordering Custom T-Shirts</h2>
-      </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Start with the questions that shape fabric, sampling, branding, quantity, quality, and delivery decisions.</p>
+      <div class="m-callout">
+        <p class="label">BUYER CHECK</p>
+        <p>Show the silhouette, size range, color direction, and decoration that should be reviewed first.</p>
       </div>
     </div>
-    <div class="pd-faq">
-      <details open>
-        <summary><h3>What T-Shirt Styles Can I Customize?</h3></summary>
-        <p>Style directions can include basic, fit-driven, wash, graphic, printed, and embroidered directions. The final pattern and measurements are confirmed during project review and sampling.</p>
-      </details>
-      <details>
-        <summary><h3>Which Fabric and GSM Should I Choose?</h3></summary>
-        <p>The choice depends on fit, season, hand feel, drape, surface, decoration, shrinkage expectations, and intended use. GSM is confirmed with the selected fabric during sampling.</p>
-      </details>
-      <details>
-        <summary><h3>Can I Add Printing or Embroidery?</h3></summary>
-        <p>Decoration methods are project-dependent. Send the file format, intended technique, colors, artwork size, and placement so the suitable option can be reviewed.</p>
-      </details>
-      <details>
-        <summary><h3>Can You Add Custom Labels or Hangtags?</h3></summary>
-        <p>Private label details can include woven main labels, neck labels, size labels, care labels, hangtags, stickers, barcodes, packaging bags, and carton marks when specified in the order.</p>
-      </details>
-      <details>
-        <summary><h3>What Is the MOQ?</h3></summary>
-        <p>Standard orders start at 100 pieces. The confirmed minimum depends on the product specification, decoration method, color and size breakdown, and order requirements.</p>
-      </details>
-      <details>
-        <summary><h3>Can I Order a Sample First?</h3></summary>
-        <p>Yes. The workflow is sample-first. Sample time, cost, and revision terms are set per project after materials and details are confirmed.</p>
-      </details>
-      <details>
-        <summary><h3>What Information Is Needed for a Quotation?</h3></summary>
-        <p>Send the product category, quantity and size split, references, fabric composition and target GSM, color and hand feel, artwork, label and packaging files, destination, and timing.</p>
-      </details>
-      <details>
-        <summary><h3>How Are Finished T-Shirts Checked and Packed?</h3></summary>
-        <p>Checks follow the approved sample and can cover measurements, fabric, color, construction, decoration, labels, quantities, and packing specifications.</p>
-      </details>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 10 START A PROJECT ============ -->
-<InquirySection
-  product="T-Shirts"
-  id="start-project"
-  odId="start-project"
-  band="band-dark"
-  onDark
-  kicker="08 / START A PROJECT"
-  title="Start Your Custom T-Shirt Project"
-  lead="Send your tech pack, reference photos, or sample garment with quantity, size range, fabric direction, decoration, packing, destination, and timing."
-  ctaLabel="Send project details"
-/>
-</EditorialLayout>
+  <section id="tshirt-fabrics" class="section section--dark" data-od-id="tshirt-fabrics">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">02</span> / MATERIAL AND FIT</p>
+          <h2 class="section-h2">T-Shirt Fabrics, GSM, Fits, and Construction Options</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">Fabric, fit, and construction are reviewed together. Development directions may include cotton and blended jerseys, polyester knits, mesh, interlock, rib, linen blends, washed fabrics, and heavyweight knits.</p>
+        </div>
+      </div>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3 section-h3--lg">Cotton and Blended Fabrics</h3>
+          <p>Review fiber composition, knit structure, hand feel, stretch, care, and intended use.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3 section-h3--lg">GSM and Fabric Weight</h3>
+          <p>Confirm lightweight, midweight, or heavyweight direction with the selected fabric.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3 section-h3--lg">Fit and Size Grading</h3>
+          <p>Lock chest, shoulder, body, sleeve, and armhole measurements across the size run.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3 section-h3--lg">Neckline and Construction</h3>
+          <p>Review collar shape, rib recovery, seams, reinforcement, and finishing details.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--2">
+        <div class="m-ph" role="img" aria-label="Pending image slot for T-shirt fabric and GSM reference">
+          <span class="ph-tag">PENDING</span>
+          <strong>Fabric and GSM reference</strong>
+          <small>Needed: jersey face and reverse views, plus a verified GSM swatch comparison</small>
+        </div>
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/construction-details.webp" alt="T-shirt construction details: neckline rib, shoulder seam, sleeve hem, and jersey face" width="1448" height="1086" loading="lazy" /></figure><p class="fig-cap">Construction details</p></div>
+      </div>
+      <p class="m-source">GSM is confirmed with the selected fabric. Fiber composition, knit structure, color, hand feel, shrinkage, and decoration compatibility remain project-specific.</p>
+    </div>
+  </section>
+
+  <section id="tshirt-branding" class="section section--cream" data-od-id="tshirt-branding">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">03</span> / DECORATION AND PRIVATE LABEL</p>
+          <h2 class="section-h2">Printing, Embroidery, and Private Label Options</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">Decoration and brand finishing are specified with the order. The suitable method depends on artwork, fabric, placement, quantity, and required appearance.</p>
+        </div>
+      </div>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3 section-h3--lg">Decoration Method Selection</h3>
+          <p>Artwork format, technique, colors, size, placement, fabric, and quantity guide the review.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3 section-h3--lg">Embroidery and Specialty Detail</h3>
+          <p>Scale, density, appearance, and attachment are checked when the method suits the product.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3 section-h3--lg">Neck, Care, and Size Labels</h3>
+          <p>Confirm content, dimensions, material, placement, and attachment for each label.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3 section-h3--lg">Hangtags, Stickers, and Codes</h3>
+          <p>Add buyer-supplied hangtags, stickers, barcodes, packaging bags, and carton marks.</p>
+        </div>
+      </div>
+      <div class="m-callout">
+        <p class="label">ARTWORK INPUTS</p>
+        <p>Send file format, intended technique, colors, artwork size, and placement with the inquiry. Final suitability is confirmed before sampling.</p>
+      </div>
+      <div class="m-media m-media--2">
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/branding-screen-printing-line.webp" alt="Carousel screen-printing line set up for garment printing in the production workshop" width="1600" height="1067" loading="lazy" /></figure><p class="fig-cap">Screen-printing line, production workshop</p></div>
+        <div class="m-ph" role="img" aria-label="Pending image slot for embroidery, label, and hangtag examples">
+          <span class="ph-tag">PENDING</span>
+          <strong>Labels and hangtags</strong>
+          <small>Needed: neck label, care label, size label, hangtag, sticker, and barcode examples</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tshirt-process" class="section section--dark" data-od-id="tshirt-process">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">04</span> / MOQ, SAMPLING, AND BULK</p>
+          <h2 class="section-h2">T-Shirt MOQ, Sampling, and Bulk Production Process</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">Standard orders start at 100 pieces. Sampling time, sample cost, revision terms, MOQ, and the bulk timeline are confirmed according to the product specifications and order requirements. As a planning reference, standard custom T-shirts are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p>
+        </div>
+      </div>
+      <ol class="m-flow">
+        <li class="m-flow__step">
+          <span class="num num--step">01</span>
+          <h3 class="section-h3 section-h3--lg">Confirm the Brief</h3>
+          <p>Share product direction, quantity, size split, references, fabric, artwork, packing, destination, and timing.</p>
+        </li>
+        <li class="m-flow__step">
+          <span class="num num--step">02</span>
+          <h3 class="section-h3 section-h3--lg">Review Materials and Details</h3>
+          <p>Align fabric, color, hand feel, measurements, stitching, decoration, labels, and packing.</p>
+        </li>
+        <li class="m-flow__step">
+          <span class="num num--step">03</span>
+          <h3 class="section-h3 section-h3--lg">Develop the Sample</h3>
+          <p>Review fit, key measurements, fabric behavior, workmanship, branding, and overall appearance.</p>
+        </li>
+        <li class="m-flow__step">
+          <span class="num num--step">04</span>
+          <h3 class="section-h3 section-h3--lg">Approve the Reference</h3>
+          <p>Record revisions and approve the sample and specification before bulk production.</p>
+        </li>
+        <li class="m-flow__step">
+          <span class="num num--step">05</span>
+          <h3 class="section-h3 section-h3--lg">Produce, Check, and Pack</h3>
+          <p>Follow the approved reference through production, inspection, packing, and shipment preparation.</p>
+        </li>
+      </ol>
+      <div class="m-media m-media--4">
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/process-pattern-sampling.webp" alt="Paper patterns and sample garments laid out on the pattern and sampling worktable" width="1600" height="1067" loading="lazy" /></figure><p class="fig-cap">Pattern and sampling</p></div>
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/process-bulk-cutting.webp" alt="Layered fabric being cut into garment panels on the cutting table" width="1600" height="1067" loading="lazy" /></figure><p class="fig-cap">Bulk cutting</p></div>
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/process-sewing-line.webp" alt="Sewing operators working along the garment production line" width="1600" height="1067" loading="lazy" /></figure><p class="fig-cap">Sewing line</p></div>
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/process-packing.webp" alt="Folded garments bagged and bundled on the packing worktable" width="1600" height="1067" loading="lazy" /></figure><p class="fig-cap">Packing</p></div>
+      </div>
+      <p class="m-source">Standard orders start at 100 pieces; production lead time should be confirmed after the product, materials, decoration, quantity, revisions, packing, and destination are understood.</p>
+    </div>
+  </section>
+
+  <section id="tshirt-quality" class="section section--paper" data-od-id="tshirt-quality">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">05</span> / QUALITY AND HANDOFF</p>
+          <h2 class="section-h2">Quality Control, Packing, and Shipping Preparation</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">Quality and packing points are connected to the approved sample and order specification. Acceptance rules and tolerances are agreed per order.</p>
+        </div>
+      </div>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3 section-h3--lg">Fabric, Color, and Measurements</h3>
+          <p>Check shrinkage, color variation, surface condition, neckline, rib recovery, and size consistency.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3 section-h3--lg">Stitching and Decoration</h3>
+          <p>Review seams, workmanship, print or embroidery placement, sharpness, and appearance.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3 section-h3--lg">Labels and Quantities</h3>
+          <p>Verify label type, size, attachment, unit count, barcode, and order information.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3 section-h3--lg">Packing and Shipment</h3>
+          <p>Confirm folding, individual packaging, carton marks, inspection photos, and document support.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--3">
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/quality-finishing-ironing.webp" alt="Garments being steam-ironed and finished at the finishing station" width="1600" height="1067" loading="lazy" /></figure><p class="fig-cap">Finishing and ironing</p></div>
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/quality-storage-cartons.webp" alt="Packing cartons and fabric rolls stored on warehouse shelving" width="1600" height="1067" loading="lazy" /></figure><p class="fig-cap">Cartons and storage</p></div>
+        <div class="m-ph" role="img" aria-label="Pending image slot for measurement and label inspection evidence">
+          <span class="ph-tag">PENDING</span>
+          <strong>Measurement and label checks</strong>
+          <small>Needed: size measurement, color and print check, and label verification photos</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-yauum" class="section section--dark" data-od-id="why-yauum">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">06</span> / WORKING WITH YAUUM</p>
+          <h2 class="section-h2">Why Work with YAUUM as Your T-Shirt Manufacturer</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">The workflow connects product definition, material review, sampling, revision, approval, bulk production, quality checks, packing, and shipment preparation.</p>
+        </div>
+      </div>
+      <div class="m-list">
+        <div class="m-list__row">
+          <span class="num">01</span>
+          <h3 class="section-h3 section-h3--lg">A Structured Product Development Process</h3>
+          <p>Each stage creates a reference for the next stage.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">02</span>
+          <h3 class="section-h3 section-h3--lg">One Approved Reference for Sampling and Bulk</h3>
+          <p>Bulk production follows the approved sample and specification.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">03</span>
+          <h3 class="section-h3 section-h3--lg">Production and Packing Records Buyers Can Review</h3>
+          <p>Photos and records can be requested by project stage.</p>
+        </div>
+        <div class="m-list__row">
+          <span class="num">04</span>
+          <h3 class="section-h3 section-h3--lg">Verified Company and Factory Information</h3>
+          <p>Publish company facts only after supporting information is confirmed.</p>
+        </div>
+      </div>
+      <div class="m-media m-media--1">
+        <div class="cap-cell"><figure><img src="/uploads/t-shirt-manufacturer/showroom-tshirt-samples.webp" alt="Finished T-shirts in multiple colors displayed on rails in the sample showroom" width="1600" height="1067" loading="lazy" /></figure><p class="fig-cap">Sample T-shirts on display in the showroom</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tshirt-faq" class="section section--cream" data-od-id="tshirt-faq">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">07</span> / BUYER QUESTIONS</p>
+          <h2 class="section-h2">Common Questions Before Ordering Custom T-Shirts</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">Start with the questions that shape fabric, sampling, branding, quantity, quality, and delivery decisions.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>
+            <span class="q">What T-Shirt Styles Can I Customize?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Style directions can include basic, fit-driven, wash, graphic, printed, and embroidered directions. The final pattern and measurements are confirmed during project review and sampling.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">Which Fabric and GSM Should I Choose?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">The choice depends on fit, season, hand feel, drape, surface, decoration, shrinkage expectations, and intended use. GSM is confirmed with the selected fabric during sampling.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">Can I Add Printing or Embroidery?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Decoration methods are project-dependent. Send the file format, intended technique, colors, artwork size, and placement so the suitable option can be reviewed.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">Can You Add Custom Labels or Hangtags?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Private label details can include woven main labels, neck labels, size labels, care labels, hangtags, stickers, barcodes, packaging bags, and carton marks when specified in the order.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">What Is the MOQ?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Standard orders start at 100 pieces. The confirmed minimum depends on the product specification, decoration method, color and size breakdown, and order requirements.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">Can I Order a Sample First?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Yes. The workflow is sample-first. Sample time, cost, and revision terms are set per project after materials and details are confirmed.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">What Information Is Needed for a Quotation?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Send the product category, quantity and size split, references, fabric composition and target GSM, color and hand feel, artwork, label and packaging files, destination, and timing.</div>
+        </details>
+        <details>
+          <summary>
+            <span class="q">How Are Finished T-Shirts Checked and Packed?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Checks follow the approved sample and can cover measurements, fabric, color, construction, decoration, labels, quantities, and packing specifications.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="start-project" class="section section--warm" data-od-id="start-project">
+    <div class="container">
+      <div class="inquiry">
+        <div class="inquiry__main">
+          <p class="section-eyebrow"><span class="num">08</span> / START A PROJECT</p>
+          <h2 class="section-h2">Start Your Custom T-Shirt Project</h2>
+          <p>Send your tech pack, reference photos, or sample garment with quantity, size range, fabric direction, decoration, packing, destination, and timing.</p>
+          <a class="btn btn-primary" href="/contact-us/">Send project details <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <form method="POST" action="/api/inquiry" data-product="T-Shirts" data-wa-phone="8615733728976" data-wa-key="" class="inquiry__form inquiry-form"><input type="hidden" name="product" value="T-Shirts" /><input type="hidden" name="_subject" value="Yauum inquiry — T-Shirts" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <div class="field">
+            <label for="garment">Garment type</label>
+            <select class="select" id="garment" name="garment_type">
+              <option>Hoodies</option>
+              <option selected>T-Shirts</option>
+              <option>Jackets</option>
+              <option>Pants</option>
+              <option>Sportswear</option>
+              <option>Streetwear</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="opt-legend">Quantity <span class="hint">· 1 design · 1 color · 5 sizes</span></span>
+            <div class="opt-row">
+              <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked />100–500 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" />500–1,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" />1,000–2,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" />2,000+ pcs</label>
+            </div>
+          </div>
+          <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" type="text" required /></div>
+          <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required /></div>
+          <div class="field"><label for="details">Project details <span style="color:var(--yv-muted)">(optional)</span></label><textarea class="textarea" id="details" name="message" rows="4"></textarea></div>
+          <div class="submit-row"><button class="btn btn-primary" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button></div>
+          <span class="form-status meta" aria-live="polite"></span>
+        </form>
+      </div>
+    </div>
+  </section>
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){io.observe(el)});
+})();</script>
+  </Fragment>
+</V2Layout>

@@ -1,0 +1,64 @@
+---
+/**
+ * V2 家族版式的询盘提交脚本（2026-10-11 迁移时引入）。
+ *
+ * 只做一件事：把页面上所有 action="/api/inquiry" 的表单接上真实投递链路——
+ * honeypot、地理/来源归因（lib/contact-intent）、成功/失败状态行与 GA4
+ * 事件 inquiry_form_submit，逻辑与 InquiryForm.astro 完全一致。
+ * 表单的视觉与字段结构由各页自己的标记与 CSS 负责，所以这里不渲染任何 DOM。
+ */
+---
+
+<script>
+  import { captureEntry, loadGeo, attribution, beijingTime, deliver } from "../lib/contact-intent";
+
+  captureEntry(); // 首次落地页归因（与 WhatsApp 点击追踪共用）
+
+  document.querySelectorAll<HTMLFormElement>('form[action$="/api/inquiry"]').forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const status = form.querySelector<HTMLElement>(".form-status");
+      const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      submit?.setAttribute("disabled", "");
+      if (status) { status.hidden = true; status.classList.remove("is-ok", "is-err"); }
+      try {
+        const data = new FormData(form);
+        const payload: Record<string, string> = {};
+        data.forEach((value, key) => (payload[key] = String(value)));
+
+        const geo = await loadGeo();
+        const attr = attribution();
+        const where = geo.country ? (geo.city ? `${geo.country}（${geo.city}）` : geo.country) : "未知地区";
+
+        payload["_subject"] = `🌳 Yauum网站来 ${where} 的询盘了！`;
+        payload["_replyto"] = payload["email"] || "";
+        payload["event_type"] = "inquiry_form";
+        payload["country"] = geo.country;
+        payload["city"] = geo.city;
+        payload["traffic_source"] = attr.traffic;
+        payload["channel"] = attr.channel;
+        payload["entry_page"] = attr.entryPage;
+        payload["entry_referrer"] = attr.entryReferrer;
+        payload["source_page"] = attr.sourcePage;
+        payload["garment_page"] = form.dataset.product || "";
+        payload["submitted_at"] = beijingTime();
+
+        // 投递到同源接口：主收件 + 提醒邮箱的分发在服务端完成
+        if (!(await deliver(payload))) throw new Error("delivery failed");
+        form.reset();
+        if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = "Thanks — your inquiry is on its way. We reply within one business day."; }
+        if (window.gtag) window.gtag("event", "inquiry_form_submit", { product: form.dataset.product || "General", moq: payload.moq_tier || "" });
+      } catch {
+        if (status) { status.hidden = false; status.classList.add("is-err"); status.textContent = "Something went wrong — please email mumu@yauum.com instead."; }
+      } finally {
+        submit?.removeAttribute("disabled");
+      }
+    });
+  });
+</script>
+
+<style>
+  /* 状态行配色（与旧表单 .inq-status.is-ok/.is-err 对应） */
+  .form-status.is-ok { color: var(--yv-ink, #1c1b18); }
+  .form-status.is-err { color: #8a2f2f; }
+</style>

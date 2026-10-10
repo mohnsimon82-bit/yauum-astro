@@ -1,0 +1,68 @@
+---
+/**
+ * V2 家族版式布局（2026-10-11 迁移的 11 个页面：6 产品页 + production / our-services /
+ * solutions / about-us / blog）。
+ *
+ * 与 EditorialLayout 的差异：
+ *  - 页头/页脚复用同一组 SiteChrome 组件，但样式来自每个页面自带的 V2 chrome CSS
+ *    （紫罗兰映射版，在各页 CSS 的「全局页头/页脚样式」段里）。因此这里**不引入**
+ *    site-chrome.css / global.css / redesign.css，避免旧设计样式串进新页面。
+ *  - 字体：fonts.css（Archivo / IBM Plex Mono / Inter）+ fonts-v2.css
+ *    （Archivo Black / Space Grotesk，自托管以配合 CSP font-src 'self'）。
+ *  - 公开 chrome 行为脚本沿用全站统一的 site.js（菜单 / 回顶 / reveal）。
+ *    各页自带的补充脚本（滚动揭示、scrollspy 等）通过 <Fragment slot="scripts"> 注入。
+ */
+import Analytics from "../components/Analytics.astro";
+import ContactIntentTracking from "../components/ContactIntentTracking.astro";
+import SeoMeta from "../components/SeoMeta.astro";
+import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
+import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
+import InquirySubmitScript from "../components/InquirySubmitScript.astro";
+import scriptSite from "../scripts/editorial/site.js?raw";
+import { canonicalUrl, type SeoData } from "../lib/seo";
+import "../styles/fonts.css";
+import "../styles/fonts-v2.css";
+
+interface Props {
+  /** 统一 SEO 数据，取自 src/lib/seo.ts 的 SEO 映射 */
+  seo: SeoData;
+  navCurrent?: string[];
+  /** 需要额外 body 类名的页面（如 sportswear 的 .sportswear-page） */
+  bodyClass?: string;
+}
+
+const { seo, navCurrent = [], bodyClass } = Astro.props;
+const canonical = canonicalUrl(seo);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
+    <link rel="canonical" href={canonical} />
+    {seo.noindex && <meta name="robots" content="noindex, nofollow" />}
+    <SeoMeta seo={seo} />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    {seo.jsonLd?.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+    <Analytics />
+    <ContactIntentTracking />
+  </head>
+  <body class={bodyClass}>
+    <SiteChromeTop mainId="main" navCurrent={navCurrent} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <SiteChromeFooter navCurrent={navCurrent} />
+
+    <script is:inline set:html={scriptSite} />
+    <InquirySubmitScript />
+    <slot name="scripts" />
+  </body>
+</html>

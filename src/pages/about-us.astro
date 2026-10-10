@@ -1,0 +1,189 @@
+---
+/** 
+ * about-us（V2 家族版式，2026-10-11 起）。
+ *
+ * 由终审定稿的预览成品移植：about-us-完整版.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/about-us.css。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { getSeo } from "../lib/seo";
+import "../styles/pages/about-us.css";
+---
+
+<V2Layout seo={getSeo("/about-us/")} navCurrent={["/about-us/"]}>
+<section class="hero reveal" id="hero">
+  <div class="container">
+    <span class="eyebrow">About Yauum</span>
+    <h1>Build Buyer Confidence with Verifiable Production Information.</h1>
+    <p class="lead">Yauum is positioned as a B2B menswear and streetwear manufacturing partner. Detailed company facts will be published after the company profile is completed.</p>
+    <a class="btn btn-primary" href="/contact-us/">Send a project brief <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<section class="section s01 reveal" id="about-us">
+  <div class="container">
+    <div class="s01__head">
+      <span class="eyebrow">01 / About Us</span>
+      <h2>What the Current Website Can State Responsibly.</h2>
+      <p class="lead">The design separates supported workflow information from facts that still need documentation.</p>
+    </div>
+
+    <div class="track track--verified">
+      <div class="cell">
+        <span class="num">01</span>
+        <h3>Product Focus</h3>
+        <p>Menswear and streetwear categories including hoodies, T-shirts, jackets, pants, sportswear, and streetwear.</p>
+      </div>
+      <div class="cell">
+        <span class="num">02</span>
+        <h3>Development Approach</h3>
+        <p>Product brief clarification, material and construction review, physical sampling, revision, and approval before bulk.</p>
+      </div>
+      <div class="cell">
+        <span class="num">03</span>
+        <h3>Brand Finishing</h3>
+        <p>Coordination of decoration, labels, tags, trims, unit packing, and carton requirements.</p>
+      </div>
+      <div class="cell">
+        <span class="num">04</span>
+        <h3>Buyer Visibility</h3>
+        <p>Production, inspection, packing, and shipment references can be discussed as part of the order workflow.</p>
+      </div>
+    </div>
+
+    <div class="track track--pending">
+      <div class="cell cell--pending">
+        <span class="num">PENDING</span>
+        <h3>Company Profile</h3>
+        <p>Legal name, year established, factory location, team, capacity, markets, payment terms, and trade information.</p>
+      </div>
+      <div class="cell cell--pending">
+        <span class="num">PENDING</span>
+        <h3>Compliance Evidence</h3>
+        <p>Certifications, audit reports, inspection standards, and other compliance claims require verified documents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s02 reveal" id="factory-record">
+  <div class="container">
+    <div class="s02__head">
+      <span class="eyebrow">02 / Supplied factory record</span>
+      <h2>Production Environments Buyers Can Inspect Visually.</h2>
+      <p class="lead">The image set covers pattern preparation, cutting, sewing, finishing, storage, and sample presentation. It is used as visual evidence without adding unsupported capacity or certification claims.</p>
+    </div>
+
+    <div class="photo-grid">
+      <figure class="photo">
+        <img src="/uploads/factory/factory-sewing-line-wide.webp" alt="Wide view of a garment sewing line with operators and workstations" width="2400" height="1600" loading="lazy" />
+        <figcaption class="caption"><span class="cap-num">01</span><span class="cap-text">Sewing line</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="/uploads/factory/factory-pattern.webp" alt="Pattern preparation and garment construction work in the supplied production environment" width="2000" height="1500" loading="lazy" />
+        <figcaption class="caption"><span class="cap-num">02</span><span class="cap-text">Pattern preparation</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="/uploads/factory/factory-cutting.webp" alt="Fabric cutting table and cutting equipment in the supplied production environment" width="2400" height="1600" loading="lazy" />
+        <figcaption class="caption"><span class="cap-num">03</span><span class="cap-text">Fabric cutting</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="/uploads/factory/factory-printing.webp" alt="Garment printing equipment and operators in the supplied production environment" width="2400" height="1600" loading="lazy" />
+        <figcaption class="caption"><span class="cap-num">04</span><span class="cap-text">Printing and decoration</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="/uploads/factory/factory-showroom.webp" alt="Garment sample showroom with apparel on display" width="2400" height="1600" loading="lazy" />
+        <figcaption class="caption"><span class="cap-num">05</span><span class="cap-text">Sample showroom</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="/uploads/factory/factory-packout.webp" alt="Finished garments being folded and prepared for packing" width="2400" height="1798" loading="lazy" />
+        <figcaption class="caption"><span class="cap-num">06</span><span class="cap-text">Pack-out preparation</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="s03 reveal" id="company-info-source">
+  <div class="container">
+  <div class="s03__block">
+    <span class="eyebrow">03 / Important note</span>
+    <h2>Company Information Source</h2>
+    <p>Add verified facts to yauum-site-content/company-info/company-profile.md. The website can then publish them without changing the page structure.</p>
+  </div>
+  </div>
+</section>
+
+<section class="s04 reveal" id="start-an-inquiry">
+  <div class="container">
+    <div class="s04__grid">
+      <div class="s04__left">
+        <span class="eyebrow">04 / Start an inquiry</span>
+        <h2>Send the Product Details That Shape a Useful Review.</h2>
+        <a class="btn btn-primary" href="/contact-us/">Send project details <span class="arrow">→</span></a>
+      </div>
+      <form method="POST" action="/api/inquiry" data-product="About Us" data-wa-phone="8615733728976" data-wa-key="" class="inquiry-form"><input type="hidden" name="product" value="About Us" /><input type="hidden" name="_subject" value="Yauum inquiry — About Us" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+        <div class="field">
+          <label for="garment">Garment type</label>
+          <select class="select" id="garment" name="garment_type">
+            <option>Hoodies</option>
+            <option>T-Shirts</option>
+            <option>Jackets</option>
+            <option>Pants</option>
+            <option>Sportswear</option>
+            <option>Streetwear</option>
+            <option selected>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Quantity</label>
+          <div class="opt-row">
+            <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked /><span>100–500 pcs</span></label>
+            <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" /><span>500–1,000 pcs</span></label>
+            <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" /><span>1,000–2,000 pcs</span></label>
+            <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" /><span>2,000+ pcs</span></label>
+          </div>
+          <span class="opt-legend">· 1 design · 1 color · 5 sizes</span>
+        </div>
+        <div class="field">
+          <label for="name">Name</label>
+          <input class="input" type="text" id="name" name="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" type="email" id="email" name="email" required />
+        </div>
+        <div class="field">
+          <label for="project">Project details <span style="color:var(--yv-muted)">(optional)</span></label>
+          <textarea class="textarea" id="project" name="message" rows="4"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit" style="align-self:flex-start">Send inquiry</button>
+        <span class="form-status meta" aria-live="polite"></span>
+      </form>
+    </div>
+  </div>
+</section>
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){io.observe(el)});
+})();</script>
+  </Fragment>
+</V2Layout>

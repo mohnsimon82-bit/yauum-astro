@@ -1,0 +1,169 @@
+---
+/** 
+ * solutions（V2 家族版式，2026-10-11 起）。
+ *
+ * 由终审定稿的预览成品移植：solutions-完整版.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/solutions.css。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { getSeo } from "../lib/seo";
+import "../styles/pages/solutions.css";
+---
+
+<V2Layout seo={getSeo("/solutions/")} navCurrent={["/solutions/"]}>
+<section class="hero" aria-label="Solutions overview">
+  <div class="container">
+    <div class="hero__inner reveal">
+      <span class="eyebrow">Buyer solutions</span>
+      <h1>A Production Path Shaped Around How Your Business Buys.</h1>
+      <p class="lead">Different buyer types need different product records, approval steps, packing rules, and repeat-order controls.</p>
+      <div class="hero__cta-row">
+        <a href="/contact-us/" class="btn btn-primary">Send a project brief <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="s01" aria-label="Solutions">
+  <div class="container">
+    <div class="s01__head">
+      <span class="eyebrow reveal">01 / Solutions</span>
+      <h2 class="reveal" data-stagger="1">Manufacturing Support for Four Common Buying Situations.</h2>
+      <p class="lead reveal" data-stagger="2">The product remains central, while the workflow adapts to the buyer’s launch, sales, warehouse, or procurement needs.</p>
+    </div>
+
+    <div class="matrix reveal" data-stagger="3">
+      <article class="matrix__cell">
+        <h3>New Private Label Brands</h3>
+        <p>Start with a focused category, define the product, approve the sample, and keep brand finishing clear.</p>
+        <ul>
+          <li>Product brief and category scope confirmed before sampling begins</li>
+          <li>Sample approval required before bulk production starts</li>
+          <li>Private label finishing (woven labels, neck labels, hang tags, barcodes) coordinated per project</li>
+        </ul>
+      </article>
+
+      <article class="matrix__cell">
+        <h3>Wholesalers and Retailers</h3>
+        <p>Use repeatable measurements, approved references, packing rules, and order records to support future runs.</p>
+        <ul>
+          <li>Approved sample kept as the reference for repeat orders</li>
+          <li>Measurement and construction specs recorded for consistency across runs</li>
+          <li>Packing and carton marking rules set once, reused on reorders</li>
+        </ul>
+      </article>
+
+      <article class="matrix__cell">
+        <h3>E-Commerce and Marketplace Sellers</h3>
+        <p>Coordinate fit, product presentation, labels, barcodes, unit packing, and carton handling inputs.</p>
+        <ul>
+          <li>Barcode, hang tag and packaging inputs coordinated for listing requirements</li>
+          <li>Unit packing and carton handling set up for marketplace fulfillment, including Amazon FBA prep</li>
+          <li>Fit and product presentation confirmed against your reference or listing photos</li>
+        </ul>
+      </article>
+
+      <article class="matrix__cell">
+        <h3>Sourcing and Procurement Teams</h3>
+        <p>Review specifications, production references, checkpoints, packing, destination, and document needs in one path.</p>
+        <ul>
+          <li>Specification and production checkpoints documented at each stage</li>
+          <li>Destination, shipping method (FOB/CIF) and packing requirements confirmed upfront</li>
+          <li>Full traceability from approved sample through inspection and packing</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="s02" aria-label="Important note">
+  <div class="container">
+    <span class="eyebrow reveal">02 / Important note</span>
+    <div class="note reveal" data-stagger="1">
+      <div class="note__grid">
+        <h2>Start with Your Operational Handoff.</h2>
+        <div class="note__body">
+          <p>Tell Yauum where the goods need to go next—retail, wholesale, e-commerce, warehouse, or another distribution point—so packing inputs can be discussed early.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="s03" id="inquiry" aria-label="Start an inquiry">
+  <div class="container">
+    <div class="form-grid">
+      <div class="form-grid__head">
+        <span class="eyebrow reveal">03 / Start an inquiry</span>
+        <h2 class="reveal" data-stagger="1">Send the Product Details That Shape a Useful Review.</h2>
+        <a href="/contact-us/" class="btn btn-primary reveal" data-stagger="2">Send project details <span class="arrow">→</span></a>
+      </div>
+
+      <form method="POST" action="/api/inquiry" data-product="Solutions" data-wa-phone="8615733728976" data-wa-key="" class="form-card reveal" data-stagger="1"><input type="hidden" name="product" value="Solutions" /><input type="hidden" name="_subject" value="Yauum inquiry — Solutions" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+        <div class="form-row">
+          <label for="yv-garment">Garment type</label>
+          <select id="yv-garment" name="garment_type" required>
+            <option>Hoodies</option>
+            <option>T-Shirts</option>
+            <option>Jackets</option>
+            <option>Pants</option>
+            <option>Sportswear</option>
+            <option>Streetwear</option>
+            <option selected>Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Quantity</label>
+          <span class="form-row__hint">· 1 design · 1 color · 5 sizes</span>
+          <div class="form-row--radio" role="radiogroup" aria-label="Quantity">
+            <label><input type="radio" name="moq_tier" value="100–500 pcs">100–500 pcs</label>
+            <label><input type="radio" name="moq_tier" value="500–1,000 pcs">500–1,000 pcs</label>
+            <label><input type="radio" name="moq_tier" value="1,000–2,000 pcs">1,000–2,000 pcs</label>
+            <label><input type="radio" name="moq_tier" value="2,000+ pcs">2,000+ pcs</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="yv-name">Name</label>
+          <input id="yv-name" name="name" type="text" required>
+        </div>
+
+        <div class="form-row">
+          <label for="yv-email">Email</label>
+          <input id="yv-email" name="email" type="email" required>
+        </div>
+
+        <div class="form-row">
+          <label for="yv-details">Project details (optional)</label>
+          <textarea id="yv-details" name="message"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send inquiry</button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});
+    },{rootMargin:'-40px 0px -40px 0px',threshold:0.05});
+    els.forEach(function(el){io.observe(el);});
+  }else{
+    els.forEach(function(el){el.classList.add('is-in');});
+  }
+})();</script>
+  </Fragment>
+</V2Layout>

@@ -1,299 +1,321 @@
 ---
-import EditorialLayout from "../layouts/EditorialLayout.astro";
-import InquirySection from "./InquirySection.astro";
-import { SEO } from "../lib/seo";
+/** 
+ * streetwear-manufacturer（V2 家族版式，2026-10-11 起）。
+ *
+ * 由终审定稿的预览成品移植：streetwear-完整版.html
+ * （07-开发分析与临时产物/首页v2-配图预览-2026-10-10/）。
+ * 版式与文案逐字保留；页头/页脚改用共享 chrome 组件（V2Layout，其样式在页面
+ * CSS 的「全局页头/页脚样式（绿色→紫罗兰映射）」段）；询盘表单保留原标记，
+ * 接线换成真实投递链路（action=/api/inquiry + InquirySubmitScript）；SEO 文案
+ * 取自 src/lib/seo.ts 的同路径条目，与旧版逐字一致（面包屑 / 内链 / 原文经
+ * 全站终审核对）。页面级样式：src/styles/pages/streetwear-manufacturer.css。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { getSeo } from "../lib/seo";
 import "../styles/pages/streetwear-manufacturer.css";
 ---
 
-<EditorialLayout
-  seo={SEO["/streetwear-manufacturer/"]}
-  navCurrent={["/production/", "/streetwear-manufacturer/"]}
->
-<!-- ============ 1 HERO ============ -->
-<section class="pd-hero" data-od-id="streetwear-hero">
-  <div class="shell">
-    <div class="pd-hero-grid">
-      <div class="pd-hero-copy">
-        <p class="label">B2B / OEM–ODM / Private label</p>
-        <h1>Streetwear Manufacturing for Private Label Brands.</h1>
-        <p class="lead pd-hero-lead">Build coordinated streetwear through silhouette, material, washes or decoration, private labels, sampling, and pack-out rules.</p>
-        <div class="sw-hero-actions">
-          <a class="button" href="/contact-us/">Send a streetwear brief</a>
-          <a class="link" href="#manufacturing-scope">Review manufacturing scope</a>
+<V2Layout seo={getSeo("/streetwear-manufacturer/")} navCurrent={["/production/", "/streetwear-manufacturer/"]}>
+<!-- §0 HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero__main">
+        <p class="hero__eyebrow">B2B / OEM–ODM / Private label</p>
+        <h1 class="section-h1 hero__h1">Streetwear Manufacturing for Private Label Brands.</h1>
+        <p class="hero__lead">Build coordinated streetwear through silhouette, material, washes or decoration, private labels, sampling, and pack-out rules.</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="/contact-us/">Send a streetwear brief <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="hero-link" href="#manufacturing-scope">Review manufacturing scope</a>
         </div>
       </div>
-      <figure class="pd-hero-media">
-        <img src="/uploads/streetwear-manufacturer/hero-streetwear-private-label.webp" width="1536" height="1024" alt="Private label streetwear range produced as a finished-garment reference" fetchpriority="high" decoding="async" />
-        <figcaption>Supplied product reference · materials and specifications require confirmation</figcaption>
-      </figure>
+      <div class="hero__media">
+        <figure>
+          <img src="/uploads/streetwear-manufacturer/hero-streetwear-private-label.webp" alt="Private label streetwear range produced as a finished-garment reference" width="1536" height="1024" loading="eager" />
+        </figure><p class="hero__cap">Supplied product reference · materials and specifications require confirmation</p>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ============ SCOPE STRIP ============ -->
-<section class="st-strip" aria-label="Manufacturing workflow" data-od-id="page-section-index">
-  <div class="shell">
-    <span>Product definition</span>
-    <span>Sample approval</span>
-    <span>Private label</span>
-    <span>Quality points</span>
-    <span>Pack-out</span>
-  </div>
-</section>
+  <!-- §1 5-item strip -->
+  <section class="st-strip" aria-label="Manufacturing workflow">
+    <div class="container">
+      <span>Product definition</span>
+      <span>Sample approval</span>
+      <span>Private label</span>
+      <span>Quality points</span>
+      <span>Pack-out</span>
+    </div>
+  </section>
 
-<!-- ============ 01 PRODUCT OVERVIEW ============ -->
-<section class="section band-alt" aria-labelledby="streetwear-overview-title" data-od-id="sw-overview">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">01 / Product overview</p>
-        <h2 id="streetwear-overview-title">Custom Streetwear Manufacturing by Yauum</h2>
+  <!-- §2 #1 white, 5 text cards -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">01</span> / Product overview</p>
+          <h2 class="section-h2">Custom Streetwear Manufacturing by Yauum</h2>
+        </div>
+        <p class="section-lead sec-head__note">A strong streetwear program starts with a clear shared picture of what's being built. Fit, fabric, construction, branding, sample approval, packing, and delivery all need to be agreed on before pricing or production begins, so both sides are working from the same page instead of guessing at what the other means.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">A strong streetwear program starts with a clear shared picture of what's being built. Fit, fabric, construction, branding, sample approval, packing, and delivery all need to be agreed on before pricing or production begins, so both sides are working from the same page instead of guessing at what the other means.</p>
+      <div class="m-cols m-cols--3">
+        <div class="m-col"><span class="num">01 / PRODUCT</span><h3 class="section-h3 section-h3--lg">Product Category and Style Direction</h3><p>Let us know the streetwear category and general style direction you're working toward, whether that's oversized tees, cargo pants, or layered outerwear. This gives us a starting reference point to build from instead of a blank page.</p></div>
+        <div class="m-col"><span class="num">02 / VOLUME</span><h3 class="section-h3 section-h3--lg">Estimated Quantity and Color Breakdown</h3><p>Share a rough sense of the quantity you're planning and how it splits across colors. Even an estimate helps us think through cutting, dyeing, and how the production schedule should be laid out.</p></div>
+        <div class="m-col"><span class="num">03 / FIT</span><h3 class="section-h3 section-h3--lg">Target Market and Size Range</h3><p>Tell us who the piece is for and what size range it needs to cover, along with any measurements you already have in mind. The fit conversation starts from here.</p></div>
+        <div class="m-col"><span class="num">04 / BRAND</span><h3 class="section-h3 section-h3--lg">Branding and Packing Requirements</h3><p>Artwork, labels, trims, tags, and how the finished pieces should be packed all shape the final look and feel of the product, so it helps to bring these details in early rather than adding them after sampling has already started.</p></div>
+        <div class="m-col"><span class="num">05 / DELIVERY</span><h3 class="section-h3 section-h3--lg">Delivery Destination and Timeline</h3><p>Where the order is heading, when you'd like it to arrive, and any documents needed for customs or retail compliance all affect how the schedule gets planned, so it's worth flagging these upfront rather than partway through.</p></div>
       </div>
     </div>
-    <div class="sw-cards sw-cards--3">
-      <article class="sw-card" data-reveal><span class="sw-card-num">01 / PRODUCT</span><h3>Product Category and Style Direction</h3><p>Let us know the streetwear category and general style direction you're working toward, whether that's oversized tees, cargo pants, or layered outerwear. This gives us a starting reference point to build from instead of a blank page.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">02 / VOLUME</span><h3>Estimated Quantity and Color Breakdown</h3><p>Share a rough sense of the quantity you're planning and how it splits across colors. Even an estimate helps us think through cutting, dyeing, and how the production schedule should be laid out.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">03 / FIT</span><h3>Target Market and Size Range</h3><p>Tell us who the piece is for and what size range it needs to cover, along with any measurements you already have in mind. The fit conversation starts from here.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">04 / BRAND</span><h3>Branding and Packing Requirements</h3><p>Artwork, labels, trims, tags, and how the finished pieces should be packed all shape the final look and feel of the product, so it helps to bring these details in early rather than adding them after sampling has already started.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">05 / DELIVERY</span><h3>Delivery Destination and Timeline</h3><p>Where the order is heading, when you'd like it to arrive, and any documents needed for customs or retail compliance all affect how the schedule gets planned, so it's worth flagging these upfront rather than partway through.</p></article>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 02 BUYER FIT AND SIZING ============ -->
-<section class="section" aria-labelledby="streetwear-fit-title" data-od-id="sw-fit">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">02 / Buyer fit and sizing</p>
-        <h2 id="streetwear-fit-title">Streetwear Fit and Sizing</h2>
+  <!-- §2 #2 cream, 3 text cards -->
+  <section class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">02</span> / Buyer fit and sizing</p>
+          <h2 class="section-h2">Streetwear Fit and Sizing</h2>
+        </div>
+        <p class="section-lead sec-head__note">Fit tends to shape everything that comes after it, from the pattern to the grading to how a fabric actually behaves once it's on the body. That's why it makes sense to settle fit before locking in construction or material decisions.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Fit tends to shape everything that comes after it, from the pattern to the grading to how a fabric actually behaves once it's on the body. That's why it makes sense to settle fit before locking in construction or material decisions.</p>
+      <div class="m-cols m-cols--3">
+        <div class="m-col"><span class="num">01 / SHAPE</span><h3 class="section-h3 section-h3--lg">Silhouette and Proportions</h3><p>We work through the intended shape together, whether that's slim, relaxed, oversized, or boxy, along with how the proportions and drape should sit once worn.</p></div>
+        <div class="m-col"><span class="num">02 / GRADING</span><h3 class="section-h3 section-h3--lg">Size Range and Grading</h3><p>Once the base shape is agreed on, we define the size range and the grading logic used to scale that pattern consistently across every size in the run.</p></div>
+        <div class="m-col"><span class="num">03 / MEASUREMENTS</span><h3 class="section-h3 section-h3--lg">Measurement Points and Tolerances</h3><p>Key measurement points like chest, length, sleeve, and waist get identified together, along with a tolerance range you're comfortable with for each one, so later quality checks have something concrete to measure against.</p></div>
       </div>
     </div>
-    <div class="sw-cards sw-cards--3">
-      <article class="sw-card" data-reveal><span class="sw-card-num">01 / SHAPE</span><h3>Silhouette and Proportions</h3><p>We work through the intended shape together, whether that's slim, relaxed, oversized, or boxy, along with how the proportions and drape should sit once worn.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">02 / GRADING</span><h3>Size Range and Grading</h3><p>Once the base shape is agreed on, we define the size range and the grading logic used to scale that pattern consistently across every size in the run.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">03 / MEASUREMENTS</span><h3>Measurement Points and Tolerances</h3><p>Key measurement points like chest, length, sleeve, and waist get identified together, along with a tolerance range you're comfortable with for each one, so later quality checks have something concrete to measure against.</p></article>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 03 MANUFACTURING SCOPE ============ -->
-<section class="section band-alt" id="manufacturing-scope" aria-labelledby="streetwear-scope-title" data-od-id="sw-scope">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">03 / Manufacturing scope</p>
-        <h2 id="streetwear-scope-title">Streetwear Fabric, Construction, and Decoration</h2>
+  <!-- §2 #3 id=manufacturing-scope, cream, list ×4 + 4-image wall -->
+  <section id="manufacturing-scope" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">03</span> / Manufacturing scope</p>
+          <h2 class="section-h2">Streetwear Fabric, Construction, and Decoration</h2>
+        </div>
+        <p class="section-lead sec-head__note">None of these decisions really stand on their own. Fabric, construction, and decoration all influence each other, which is why it helps to plan them together rather than one at a time before sampling begins.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">None of these decisions really stand on their own. Fabric, construction, and decoration all influence each other, which is why it helps to plan them together rather than one at a time before sampling begins.</p>
+      <div class="m-list">
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">01 / FABRIC</span>Fabric Composition and Weight</h3><p>We go through composition, weight, color, handfeel, stretch, drape, surface texture, and care instructions together, since these details end up affecting almost every other decision downstream.</p></div>
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">02 / BUILD</span>Seams, Stitching, and Reinforcement</h3><p>Seam types, stitching style, reinforcement points, lining, and finishing standards get documented clearly, so the factory floor has exact instructions to build from rather than assumptions.</p></div>
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">03 / TRIMS</span>Pockets, Closures, and Trims</h3><p>Pocket types, closures, zippers, drawcords, and hardware trims are confirmed together, since even small trim choices can shift both cost and the overall feel of the finished piece.</p></div>
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">04 / ARTWORK</span>Artwork, Print, and Embroidery</h3><p>We help you choose between artwork applications like screen print, embroidery, puff, or appliqué, and coordinate the placement so it works well alongside labels and tags instead of competing with them visually.</p></div>
+      </div>
+      <div class="m-media m-media--4">
+        <figure><img src="/uploads/streetwear-manufacturer/scope-fabric-swatch-color.webp" alt="Washed cotton and fleece fabric swatches in black, grey, and olive for streetwear development" width="1448" height="1086" loading="lazy" /></figure>
+        <figure><img src="/uploads/streetwear-manufacturer/scope-seam-reinforcement.webp" alt="Streetwear construction details: placket, ribbed cuff, pocket, and hem finishing" width="1448" height="1086" loading="lazy" /></figure>
+        <figure><img src="/uploads/streetwear-manufacturer/scope-pocket-closure-trim.webp" alt="Hoodie shoulder seam, ribbed cuff, and kangaroo pocket construction detail" width="1448" height="1086" loading="lazy" /></figure>
+        <figure><img src="/uploads/streetwear-manufacturer/scope-artwork-print-placement.webp" alt="Printed artwork and custom branding applied to a washed streetwear hoodie" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="sw-grid sw-grid--2">
-      <article class="sw-block" data-reveal><span class="sw-num">01 / FABRIC</span><h3>Fabric Composition and Weight</h3><p>We go through composition, weight, color, handfeel, stretch, drape, surface texture, and care instructions together, since these details end up affecting almost every other decision downstream.</p></article>
-      <article class="sw-block" data-reveal><span class="sw-num">02 / BUILD</span><h3>Seams, Stitching, and Reinforcement</h3><p>Seam types, stitching style, reinforcement points, lining, and finishing standards get documented clearly, so the factory floor has exact instructions to build from rather than assumptions.</p></article>
-      <article class="sw-block" data-reveal><span class="sw-num">03 / TRIMS</span><h3>Pockets, Closures, and Trims</h3><p>Pocket types, closures, zippers, drawcords, and hardware trims are confirmed together, since even small trim choices can shift both cost and the overall feel of the finished piece.</p></article>
-      <article class="sw-block" data-reveal><span class="sw-num">04 / ARTWORK</span><h3>Artwork, Print, and Embroidery</h3><p>We help you choose between artwork applications like screen print, embroidery, puff, or appliqué, and coordinate the placement so it works well alongside labels and tags instead of competing with them visually.</p></article>
-    </div>
-    <div class="sw-media sw-media--4">
-      <img src="/uploads/streetwear-manufacturer/scope-fabric-swatch-color.webp" width="1448" height="1086" alt="Washed cotton and fleece fabric swatches in black, grey, and olive for streetwear development" loading="lazy" decoding="async" />
-      <img src="/uploads/streetwear-manufacturer/scope-seam-reinforcement.webp" width="1448" height="1086" alt="Streetwear construction details: placket, ribbed cuff, pocket, and hem finishing" loading="lazy" decoding="async" />
-      <img src="/uploads/streetwear-manufacturer/scope-pocket-closure-trim.webp" width="1448" height="1086" alt="Hoodie shoulder seam, ribbed cuff, and kangaroo pocket construction detail" loading="lazy" decoding="async" />
-      <img src="/uploads/streetwear-manufacturer/scope-artwork-print-placement.webp" width="1448" height="1086" alt="Printed artwork and custom branding applied to a washed streetwear hoodie" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 04 FACTORY EVIDENCE ============ -->
-<section class="section" aria-labelledby="streetwear-proof-title" data-od-id="sw-proof">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">04 / Factory evidence</p>
-        <h2 id="streetwear-proof-title">Streetwear Product and Factory Evidence</h2>
+  <!-- §2 #4 white, evidence gallery -->
+  <section class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">04</span> / Factory evidence</p>
+          <h2 class="section-h2">Streetwear Product and Factory Evidence</h2>
+        </div>
+        <p class="section-lead sec-head__note">The supplied reference gives this page its starting anchor. The additional positions below are where real production photos and documents will go in as they become available, so buyers can see actual output rather than stock imagery.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">The supplied reference gives this page its starting anchor. The additional positions below are where real production photos and documents will go in as they become available, so buyers can see actual output rather than stock imagery.</p>
+      <div class="m-gallery">
+        <figure class="m-gallery__main">
+          <img src="/uploads/products/streetwear-manufacturer.webp" alt="Full streetwear product reference" width="844" height="1448" loading="lazy" />
+          <figcaption>01 / FULL GARMENT REFERENCE</figcaption>
+        </figure>
+        <div class="m-gallery__grid">
+          <figure><img src="/uploads/streetwear-manufacturer/evidence-fabric-face-inside.webp" alt="Washed fleece fabric face and inside detail: brushed reverse, ribbed neckline and cuff with overlocked seams" width="1448" height="1086" loading="lazy" /></figure>
+          <figure><img src="/uploads/streetwear-manufacturer/evidence-workmanship-closeups.webp" alt="Oversized washed tee shown front and back with collar, sleeve, and hem close-ups" width="1448" height="1086" loading="lazy" /></figure>
+          <figure><img src="/uploads/streetwear-manufacturer/evidence-artwork-print-label.webp" alt="Screen-printed graphic, woven label, and embroidery detail on a washed hoodie" width="1448" height="1086" loading="lazy" /></figure>
+          <figure><img src="/uploads/streetwear-manufacturer/evidence-packing-carton.webp" alt="Finished streetwear garments folded and prepared with packing" width="1448" height="1086" loading="lazy" /></figure>
+        </div>
       </div>
     </div>
-    <div class="st-gallery" data-reveal>
-      <figure class="st-gallery-main">
-        <img src="/uploads/products/streetwear-manufacturer.webp" alt="Full streetwear product reference" width="844" height="1448" loading="lazy" decoding="async" />
-        <figcaption>01 / FULL GARMENT REFERENCE</figcaption>
-      </figure>
-      <div class="st-slots">
-        <img src="/uploads/streetwear-manufacturer/evidence-fabric-face-inside.webp" width="1448" height="1086" alt="Washed fleece fabric face and inside detail: brushed reverse, ribbed neckline and cuff with overlocked seams" loading="lazy" decoding="async" />
-        <img src="/uploads/streetwear-manufacturer/evidence-workmanship-closeups.webp" width="1448" height="1086" alt="Oversized washed tee shown front and back with collar, sleeve, and hem close-ups" loading="lazy" decoding="async" />
-        <img src="/uploads/streetwear-manufacturer/evidence-artwork-print-label.webp" width="1448" height="1086" alt="Screen-printed graphic, woven label, and embroidery detail on a washed hoodie" loading="lazy" decoding="async" />
-        <img src="/uploads/streetwear-manufacturer/evidence-packing-carton.webp" width="1448" height="1086" alt="Finished streetwear garments folded and prepared with packing" loading="lazy" decoding="async" />
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 05 SAMPLE APPROVAL ============ -->
-<section class="section band-dark" aria-labelledby="streetwear-sample-title" data-od-id="sw-sample">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">05 / Sample approval</p>
-        <h2 id="streetwear-sample-title">Streetwear Sample Approval</h2>
+  <!-- §2 #5 dark, list ×5 + 3-image wall -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">05</span> / Sample approval</p>
+          <h2 class="section-h2">Streetwear Sample Approval</h2>
+        </div>
+        <p class="section-lead sec-head__note">A sample takes everything discussed on paper and turns it into a real garment, something the buyer can measure, wear, photograph, comment on, revise, and eventually sign off on before bulk production begins.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">A sample takes everything discussed on paper and turns it into a real garment, something the buyer can measure, wear, photograph, comment on, revise, and eventually sign off on before bulk production begins.</p>
+      <div class="m-list">
+        <div class="m-list__row"><span class="num">01</span><h3 class="section-h3 section-h3--lg">Fit and Measurement Review</h3><p>We look at shape, length, width, and proportions together, checking them against the confirmed spec so any adjustments are caught before cutting starts on the full order.</p></div>
+        <div class="m-list__row"><span class="num">02</span><h3 class="section-h3 section-h3--lg">Fabric and Handfeel Review</h3><p>The sampled fabric gets assessed for handfeel, drape, surface, color, and how it's likely to wear over time, since these qualities are hard to judge from a swatch alone.</p></div>
+        <div class="m-list__row"><span class="num">03</span><h3 class="section-h3 section-h3--lg">Workmanship and Trim Review</h3><p>Seams, stitching, closures, reinforcement, hardware, and finishing all get checked closely, since these details are usually where quality differences show up first.</p></div>
+        <div class="m-list__row"><span class="num">04</span><h3 class="section-h3 section-h3--lg">Brand Application Review</h3><p>Artwork scale, placement, print or embroidery quality, labels, and tags are reviewed together to make sure the branding reads the way it was intended once it's actually on the garment.</p></div>
+        <div class="m-list__row"><span class="num">05</span><h3 class="section-h3 section-h3--lg">Packing Instruction Review</h3><p>Folding, bags, inserts, stickers, and packing count are confirmed against the original plan, so there are no surprises once the order reaches the buyer's warehouse.</p></div>
+      </div>
+      <div class="m-media m-media--3">
+        <figure><img src="/uploads/streetwear-manufacturer/sample-fit-proportion.webp" alt="Streetwear sample tee reviewed against the measurement sheet, with neckline detail" width="1448" height="1086" loading="lazy" /></figure>
+        <figure><img src="/uploads/streetwear-manufacturer/sample-fabric-handfeel.webp" alt="Sample hoodie reviewed together with its fabric swatch and specification sheet" width="1448" height="1086" loading="lazy" /></figure>
+        <figure><img src="/uploads/streetwear-manufacturer/sample-workmanship-trim.webp" alt="Sample fabric, pocket, and label detail review for a streetwear hoodie" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="sw-spec">
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">01</span><div><h3>Fit and Measurement Review</h3><p>We look at shape, length, width, and proportions together, checking them against the confirmed spec so any adjustments are caught before cutting starts on the full order.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">02</span><div><h3>Fabric and Handfeel Review</h3><p>The sampled fabric gets assessed for handfeel, drape, surface, color, and how it's likely to wear over time, since these qualities are hard to judge from a swatch alone.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">03</span><div><h3>Workmanship and Trim Review</h3><p>Seams, stitching, closures, reinforcement, hardware, and finishing all get checked closely, since these details are usually where quality differences show up first.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">04</span><div><h3>Brand Application Review</h3><p>Artwork scale, placement, print or embroidery quality, labels, and tags are reviewed together to make sure the branding reads the way it was intended once it's actually on the garment.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">05</span><div><h3>Packing Instruction Review</h3><p>Folding, bags, inserts, stickers, and packing count are confirmed against the original plan, so there are no surprises once the order reaches the buyer's warehouse.</p></div></article>
-    </div>
-    <div class="sw-media">
-      <img src="/uploads/streetwear-manufacturer/sample-fit-proportion.webp" width="1448" height="1086" alt="Streetwear sample tee reviewed against the measurement sheet, with neckline detail" loading="lazy" decoding="async" />
-      <img src="/uploads/streetwear-manufacturer/sample-fabric-handfeel.webp" width="1448" height="1086" alt="Sample hoodie reviewed together with its fabric swatch and specification sheet" loading="lazy" decoding="async" />
-      <img src="/uploads/streetwear-manufacturer/sample-workmanship-trim.webp" width="1448" height="1086" alt="Sample fabric, pocket, and label detail review for a streetwear hoodie" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 06 ORDER PROCESS ============ -->
-<section class="section" aria-labelledby="streetwear-path-title" data-od-id="sw-path">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">06 / Order process</p>
-        <h2 id="streetwear-path-title">Streetwear Manufacturing Order Process</h2>
+  <!-- §2 #6 white, list ×5 -->
+  <section class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">06</span> / Order process</p>
+          <h2 class="section-h2">Streetwear Manufacturing Order Process</h2>
+        </div>
+        <p class="section-lead sec-head__note">Standard orders start at 100 pieces. A realistic timeline only comes together once the product, materials, customization, quantity, revisions, packing, and destination are all understood. Trying to quote before that tends to create more back-and-forth later, not less. As a planning reference, standard custom streetwear pieces are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Standard orders start at 100 pieces. A realistic timeline only comes together once the product, materials, customization, quantity, revisions, packing, and destination are all understood. Trying to quote before that tends to create more back-and-forth later, not less. As a planning reference, standard custom streetwear pieces are typically quoted at <strong>US$10–15 per piece</strong>; the confirmed price follows the final specification.</p>
+      <div class="m-list">
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">01 / REVIEW</span>Product Brief and Requirement Review</h3><p>We start by clarifying category, quantity, target market, references, size range, fabric, branding, packing, and destination, so everyone is working from the same brief from day one.</p></div>
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">02 / DEFINE</span>Specification and Tech Pack</h3><p>Fit, measurements, materials, workmanship, trims, artwork, labels, and pack-out all get pulled together into one shared specification that both sides can refer back to throughout the project.</p></div>
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">03 / SAMPLE</span>Sample Development and Revision</h3><p>The sample gets made, comments get documented clearly, and anything that isn't approved yet gets revised before moving forward.</p></div>
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">04 / BULK</span>Bulk Production</h3><p>Once the sample is approved, that reference along with the order notes guides cutting, sewing, decoration, and finishing across the full run.</p></div>
+        <div class="m-list__row"><span class="num"></span><h3 class="section-h3 section-h3--lg"><span class="meta">05 / HANDOFF</span>Final Check and Packing</h3><p>Finished garments, labels, unit packing, and carton details all get reviewed together as part of preparing the shipment.</p></div>
       </div>
     </div>
-    <div class="sw-spec st-steps">
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">01 / REVIEW</span><div><h3>Product Brief and Requirement Review</h3><p>We start by clarifying category, quantity, target market, references, size range, fabric, branding, packing, and destination, so everyone is working from the same brief from day one.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">02 / DEFINE</span><div><h3>Specification and Tech Pack</h3><p>Fit, measurements, materials, workmanship, trims, artwork, labels, and pack-out all get pulled together into one shared specification that both sides can refer back to throughout the project.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">03 / SAMPLE</span><div><h3>Sample Development and Revision</h3><p>The sample gets made, comments get documented clearly, and anything that isn't approved yet gets revised before moving forward.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">04 / BULK</span><div><h3>Bulk Production</h3><p>Once the sample is approved, that reference along with the order notes guides cutting, sewing, decoration, and finishing across the full run.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">05 / HANDOFF</span><div><h3>Final Check and Packing</h3><p>Finished garments, labels, unit packing, and carton details all get reviewed together as part of preparing the shipment.</p></div></article>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 07 QUALITY CONTROL ============ -->
-<section class="section band-dark" aria-labelledby="streetwear-quality-title" data-od-id="sw-quality">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">07 / Quality control</p>
-        <h2 id="streetwear-quality-title">Streetwear Quality Control</h2>
+  <!-- §2 #7 dark, list ×5 + 3-image wall -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">07</span> / Quality control</p>
+          <h2 class="section-h2">Streetwear Quality Control</h2>
+        </div>
+        <p class="section-lead sec-head__note">Acceptance points should be agreed on for the specific order and checked directly against the approved product reference, rather than judged against a generic quality standard that doesn't reflect this particular piece.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Acceptance points should be agreed on for the specific order and checked directly against the approved product reference, rather than judged against a generic quality standard that doesn't reflect this particular piece.</p>
+      <div class="m-list">
+        <div class="m-list__row"><span class="num">01</span><h3 class="section-h3 section-h3--lg">Material and Color Inspection</h3><p>Fabric and trims get compared against the approved direction to catch any drift in color or material before it becomes a bigger issue.</p></div>
+        <div class="m-list__row"><span class="num">02</span><h3 class="section-h3 section-h3--lg">Measurement and Construction Check</h3><p>Dimensions, seams, stitching, pockets, closures, and overall workmanship are reviewed carefully against the confirmed spec.</p></div>
+        <div class="m-list__row"><span class="num">03</span><h3 class="section-h3 section-h3--lg">Decoration and Label Verification</h3><p>Artwork placement, how the application actually looks, label type, and attachment method all get checked together.</p></div>
+        <div class="m-list__row"><span class="num">04</span><h3 class="section-h3 section-h3--lg">Finished Garment Comparison</h3><p>The finished garment gets compared directly against the approved sample for fit, appearance, finish, and detail.</p></div>
+        <div class="m-list__row"><span class="num">05</span><h3 class="section-h3 section-h3--lg">Packing and Carton Verification</h3><p>Folding, bags, tags, packing count, carton marks, and reference photos are all verified before the order ships.</p></div>
+      </div>
+      <div class="m-media m-media--3">
+        <figure><img src="/uploads/streetwear-manufacturer/qc-material-color-match.webp" alt="Fabric, colour, and decoration inspection on a printed streetwear tee" width="1448" height="1086" loading="lazy" /></figure>
+        <figure><img src="/uploads/streetwear-manufacturer/qc-construction-measurement.webp" alt="Fit, measurement, and construction check on a sample streetwear hoodie" width="1448" height="1086" loading="lazy" /></figure>
+        <figure><img src="/uploads/streetwear-manufacturer/qc-finished-garment.webp" alt="Finished streetwear hoodie after bulk production" width="1448" height="1086" loading="lazy" /></figure>
       </div>
     </div>
-    <div class="sw-spec">
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">01</span><div><h3>Material and Color Inspection</h3><p>Fabric and trims get compared against the approved direction to catch any drift in color or material before it becomes a bigger issue.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">02</span><div><h3>Measurement and Construction Check</h3><p>Dimensions, seams, stitching, pockets, closures, and overall workmanship are reviewed carefully against the confirmed spec.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">03</span><div><h3>Decoration and Label Verification</h3><p>Artwork placement, how the application actually looks, label type, and attachment method all get checked together.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">04</span><div><h3>Finished Garment Comparison</h3><p>The finished garment gets compared directly against the approved sample for fit, appearance, finish, and detail.</p></div></article>
-      <article class="sw-spec-row" data-reveal><span class="sw-spec-num">05</span><div><h3>Packing and Carton Verification</h3><p>Folding, bags, tags, packing count, carton marks, and reference photos are all verified before the order ships.</p></div></article>
-    </div>
-    <div class="sw-media">
-      <img src="/uploads/streetwear-manufacturer/qc-material-color-match.webp" width="1448" height="1086" alt="Fabric, colour, and decoration inspection on a printed streetwear tee" loading="lazy" decoding="async" />
-      <img src="/uploads/streetwear-manufacturer/qc-construction-measurement.webp" width="1448" height="1086" alt="Fit, measurement, and construction check on a sample streetwear hoodie" loading="lazy" decoding="async" />
-      <img src="/uploads/streetwear-manufacturer/qc-finished-garment.webp" width="1448" height="1086" alt="Finished streetwear hoodie after bulk production" loading="lazy" decoding="async" />
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 08 PRIVATE LABEL ============ -->
-<section class="section band-alt" aria-labelledby="streetwear-packing-title" data-od-id="sw-packing">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">08 / Private label</p>
-        <h2 id="streetwear-packing-title">Private Label Branding for Streetwear</h2>
+  <!-- §2 #8 cream, 3 text cards -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">08</span> / Private label</p>
+          <h2 class="section-h2">Private Label Branding for Streetwear</h2>
+        </div>
+        <p class="section-lead sec-head__note">Brand details tend to matter more than they first appear. They shape how the product looks on a shelf, how it gets counted, and how smoothly it moves through receiving, so it's worth settling these early rather than treating them as an afterthought.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Brand details tend to matter more than they first appear. They shape how the product looks on a shelf, how it gets counted, and how smoothly it moves through receiving, so it's worth settling these early rather than treating them as an afterthought.</p>
+      <div class="m-cols m-cols--3">
+        <div class="m-col"><span class="num">01 / GARMENT</span><h3 class="section-h3 section-h3--lg">Woven and Neck Labels</h3><p>Woven, neck, size, and care labels get produced from the content and placement you supply, so the finished garment carries your brand correctly from the very first unit.</p></div>
+        <div class="m-col"><span class="num">02 / MERCHANDISE</span><h3 class="section-h3 section-h3--lg">Hangtags and Barcodes</h3><p>Hangtags, stickers, barcodes, and any warehouse references you need get incorporated according to your specifications.</p></div>
+        <div class="m-col"><span class="num">03 / ARTWORK</span><h3 class="section-h3 section-h3--lg">Artwork Placement and Application</h3><p>Artwork position, application method, and how it scales across different sizes all get confirmed together, so the branding stays consistent across the whole size run.</p></div>
       </div>
     </div>
-    <div class="sw-cards sw-cards--3">
-      <article class="sw-card" data-reveal><span class="sw-card-num">01 / GARMENT</span><h3>Woven and Neck Labels</h3><p>Woven, neck, size, and care labels get produced from the content and placement you supply, so the finished garment carries your brand correctly from the very first unit.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">02 / MERCHANDISE</span><h3>Hangtags and Barcodes</h3><p>Hangtags, stickers, barcodes, and any warehouse references you need get incorporated according to your specifications.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">03 / ARTWORK</span><h3>Artwork Placement and Application</h3><p>Artwork position, application method, and how it scales across different sizes all get confirmed together, so the branding stays consistent across the whole size run.</p></article>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 09 PACKING AND PACK-OUT ============ -->
-<section class="section" aria-labelledby="streetwear-packout-title" data-od-id="sw-packout">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label">09 / Packing and pack-out</p>
-        <h2 id="streetwear-packout-title">Streetwear Packing and Pack-Out</h2>
+  <!-- §2 #9 white, 3 text cards -->
+  <section class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">09</span> / Packing and pack-out</p>
+          <h2 class="section-h2">Streetwear Packing and Pack-Out</h2>
+        </div>
+        <p class="section-lead sec-head__note">How a product gets packed ends up shaping how easily it's counted, received, and distributed once it leaves the factory, so these instructions are worth nailing down clearly rather than leaving to default assumptions.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">How a product gets packed ends up shaping how easily it's counted, received, and distributed once it leaves the factory, so these instructions are worth nailing down clearly rather than leaving to default assumptions.</p>
+      <div class="m-cols m-cols--3">
+        <div class="m-col"><span class="num">01 / UNIT</span><h3 class="section-h3 section-h3--lg">Folding and Polybag Requirements</h3><p>Folding method, polybags, inserts, and stickers per unit are all specified, so the finished pieces arrive presented the way you intended.</p></div>
+        <div class="m-col"><span class="num">02 / CARTON</span><h3 class="section-h3 section-h3--lg">Carton Marks and Size Ratios</h3><p>Carton quantity, size mix, carton marks, and handling instructions get confirmed to keep receiving and distribution running smoothly on your end.</p></div>
+        <div class="m-col"><span class="num">03 / PROOF</span><h3 class="section-h3 section-h3--lg">Packing Reference Photos</h3><p>Packing photos and carton information from a confirmed production run give a realistic sense of what to expect once the shipment actually arrives.</p></div>
       </div>
     </div>
-    <div class="sw-cards sw-cards--3">
-      <article class="sw-card" data-reveal><span class="sw-card-num">01 / UNIT</span><h3>Folding and Polybag Requirements</h3><p>Folding method, polybags, inserts, and stickers per unit are all specified, so the finished pieces arrive presented the way you intended.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">02 / CARTON</span><h3>Carton Marks and Size Ratios</h3><p>Carton quantity, size mix, carton marks, and handling instructions get confirmed to keep receiving and distribution running smoothly on your end.</p></article>
-      <article class="sw-card" data-reveal><span class="sw-card-num">03 / PROOF</span><h3>Packing Reference Photos</h3><p>Packing photos and carton information from a confirmed production run give a realistic sense of what to expect once the shipment actually arrives.</p></article>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 10 RELATED CATEGORIES ============ -->
-<section class="section band-dark" aria-labelledby="streetwear-related-title" data-od-id="sw-related">
-  <div class="shell">
-    <div class="pd-head">
-      <div class="pd-title" data-reveal>
-        <p class="label label--onDark">10 / Related categories</p>
-        <h2 id="streetwear-related-title">Build a Coordinated Apparel Program.</h2>
+  <!-- §2 #10 dark, 3 related product cards -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">10</span> / Related categories</p>
+          <h2 class="section-h2">Build a Coordinated Apparel Program.</h2>
+        </div>
+        <p class="section-lead sec-head__note">Review adjacent product groups with the same structured development approach.</p>
       </div>
-      <div class="pd-note" data-reveal>
-        <p class="lead">Review adjacent product groups with the same structured development approach.</p>
+      <div class="m-related">
+        <a href="/hoodie-manufacturer/"><figure><img src="/uploads/products/hoodie-manufacturer.webp" alt="Hoodie Manufacturer product reference" width="844" height="1448" loading="lazy" /></figure><h3 class="section-h3">Hoodie</h3><span>View manufacturing page →</span></a>
+        <a href="/t-shirt-manufacturer/"><figure><img src="/uploads/products/t-shirt-manufacturer.webp" alt="T-Shirt Manufacturer product reference" width="844" height="1448" loading="lazy" /></figure><h3 class="section-h3">T-Shirt</h3><span>View manufacturing page →</span></a>
+        <a href="/jackets-manufacturer/"><figure><img src="/uploads/products/jackets-manufacturer.webp" alt="Jackets Manufacturer product reference" width="844" height="1448" loading="lazy" /></figure><h3 class="section-h3">Jackets</h3><span>View manufacturing page →</span></a>
       </div>
     </div>
-    <div class="st-related">
-      <a href="/hoodie-manufacturer/">
-        <img src="/uploads/products/hoodie-manufacturer.webp" alt="Hoodie Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" />
-        <h3>Hoodie</h3>
-        <span>View manufacturing page →</span>
-      </a>
-      <a href="/t-shirt-manufacturer/">
-        <img src="/uploads/products/t-shirt-manufacturer.webp" alt="T-Shirt Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" />
-        <h3>T-Shirt</h3>
-        <span>View manufacturing page →</span>
-      </a>
-      <a href="/jackets-manufacturer/">
-        <img src="/uploads/products/jackets-manufacturer.webp" alt="Jackets Manufacturer product reference" width="844" height="1448" loading="lazy" decoding="async" />
-        <h3>Jackets</h3>
-        <span>View manufacturing page →</span>
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ 11 START AN INQUIRY ============ -->
-<InquirySection
-  product="Streetwear"
-  id="sw-inquiry"
-  odId="sw-inquiry"
-  band="band-alt"
-  kicker="11 / Start an inquiry"
-  title="Send the Product Details That Shape a Useful Review."
-  titleId="streetwear-inquiry-title"
-  ctaLabel="Send project details"
-/>
-</EditorialLayout>
+  <!-- §2 #11 id=sw-inquiry, warm, inquiry band (no intro) -->
+  <section id="sw-inquiry" class="section section--warm">
+    <div class="container">
+      <div class="inquiry">
+        <div class="inquiry__main">
+          <p class="section-eyebrow"><span class="num">11</span> / Start an inquiry</p>
+          <h2 class="section-h2">Send the Product Details That Shape a Useful Review.</h2>
+          <a class="btn btn-primary" href="/contact-us/">Send project details <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <form method="POST" action="/api/inquiry" data-product="Streetwear" data-wa-phone="8615733728976" data-wa-key="" class="inquiry__form inquiry-form"><input type="hidden" name="product" value="Streetwear" /><input type="hidden" name="_subject" value="Yauum inquiry — Streetwear" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <div class="field">
+            <label for="garment">Garment type</label>
+            <select class="select" id="garment" name="garment_type">
+              <option>Hoodies</option>
+              <option>T-Shirts</option>
+              <option>Jackets</option>
+              <option>Pants</option>
+              <option>Sportswear</option>
+              <option selected>Streetwear</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="opt-legend">Quantity <span class="hint">· 1 design · 1 color · 5 sizes</span></span>
+            <div class="opt-row">
+              <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked />100–500 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" />500–1,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" />1,000–2,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" />2,000+ pcs</label>
+            </div>
+          </div>
+          <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" type="text" required /></div>
+          <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required /></div>
+          <div class="field"><label for="details">Project details <span style="color:var(--yv-muted)">(optional)</span></label><textarea class="textarea" id="details" name="message" rows="4"></textarea></div>
+          <div class="submit-row"><button class="btn btn-primary" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button></div>
+          <span class="form-status meta" aria-live="polite"></span>
+        </form>
+      </div>
+    </div>
+  </section>
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){io.observe(el)});
+})();</script>
+  </Fragment>
+</V2Layout>
