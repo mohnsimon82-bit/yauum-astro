@@ -22,7 +22,7 @@ export const articles: Article[] = [
   {
     route: "/how-to-find-alibaba-hoodie-manufacturers/",
     title: "How to Find Alibaba Hoodie Manufacturers: A Complete Screening Framework (From Search to Factory Audit)",
-    description: "Six screening steps for Alibaba hoodie suppliers: keyword strategy, filters, shortlisting, factory verification, sampling, and payment terms.",
+    description: "Six screening steps for Alibaba hoodie suppliers: keyword strategy, filters, shortlisting, factory verification, sampling, and payment terms",
     date: "2026-10-10",
     dateLabel: "October 10, 2026",
     tag: "Sourcing guide",
@@ -30,7 +30,7 @@ export const articles: Article[] = [
   {
     route: "/how-to-find-a-hoodie-manufacturer/",
     title: "How to Find a Hoodie Manufacturer: A Step-by-Step Guide for Brands (2026)",
-    description: "Sourcing channels, a vetting checklist, sampling tests, pricing factors, and the red flags that separate real factories from trading companies.",
+    description: "Sourcing channels, a vetting checklist, sampling tests, pricing factors, and the red flags that separate real factories from trading companies",
     date: "2026-10-10",
     dateLabel: "October 10, 2026",
     tag: "Buyer's guide",
@@ -38,7 +38,7 @@ export const articles: Article[] = [
   {
     route: "/top-puff-print-hoodie-manufacturers-china/",
     title: "Top 10 Puff Print Hoodie Supplier Types in China: How to Shortlist by Region & Capability",
-    description: "Ten puff print hoodie supplier types in China by region and capability, six evaluation criteria, and a five-step vetting sequence.",
+    description: "Ten puff print hoodie supplier types in China by region and capability, six evaluation criteria, and a five-step vetting sequence",
     date: "2026-10-09",
     dateLabel: "October 9, 2026",
     tag: "Buyer's guide",
@@ -46,7 +46,7 @@ export const articles: Article[] = [
   {
     route: "/top-8-zip-up-hoodie-manufacturers-china/",
     title: "Top 8 Zip Up Hoodie Manufacturers in China: A 2026 Buyer's Guide to Choosing the Right Factory",
-    description: "Eight zip up hoodie manufacturers in China, the six evaluation dimensions, and the specs that decide whether bulk matches your approved sample.",
+    description: "Eight zip up hoodie manufacturers in China, the six evaluation dimensions, and the specs that decide whether bulk matches your approved sample",
     date: "2026-10-09",
     dateLabel: "October 9, 2026",
     tag: "Buyer's guide",
@@ -54,7 +54,7 @@ export const articles: Article[] = [
   {
     route: "/top-10-embroidered-hoodie-manufacturers-china/",
     title: "Top 10 Embroidered Hoodie Manufacturers in China: A Buyer's Guide to Choosing the Right Factory",
-    description: "Ten embroidered hoodie manufacturers in China, the five-point selection criteria, and how to evaluate embroidery quality, MOQ, and lead time.",
+    description: "Ten embroidered hoodie manufacturers in China, the five-point selection criteria, and how to evaluate embroidery quality, MOQ, and lead time",
     date: "2026-10-07",
     dateLabel: "October 7, 2026",
     tag: "Buyer's guide",
@@ -62,7 +62,7 @@ export const articles: Article[] = [
   {
     route: "/oversized-hoodie-manufacturer-types-china/",
     title: "10 Types of Oversized Hoodie Manufacturers in China: How to Choose the Right Factory Profile",
-    description: "Ten oversized hoodie manufacturer archetypes, the seven-point vetting criteria behind them, and the spec details to lock before contacting a factory.",
+    description: "Ten oversized hoodie manufacturer archetypes, the seven-point vetting criteria behind them, and the spec details to lock before contacting a factory",
     date: "2026-10-07",
     dateLabel: "October 7, 2026",
     tag: "Buyer's guide",
@@ -70,7 +70,7 @@ export const articles: Article[] = [
   {
     route: "/cotton-hoodie-manufacturer-types-china/",
     title: "10 Types of Cotton Hoodie Manufacturers in China: How to Vet Suppliers (2026)",
-    description: "Ten supplier archetypes for 100% cotton hoodies in China, a six-dimension vetting methodology, and the mistakes that decide whether an order runs.",
+    description: "Ten supplier archetypes for 100% cotton hoodies in China, a six-dimension vetting methodology, and the mistakes that decide whether an order runs",
     date: "2026-10-07",
     dateLabel: "October 7, 2026",
     tag: "Buyer's guide",
@@ -78,7 +78,7 @@ export const articles: Article[] = [
   {
     route: "/best-400-gsm-hoodie-manufacturers-china/",
     title: "Best 400 GSM Hoodie Manufacturers in China: A Buyer's Guide to Vetting, Sampling & Sourcing",
-    description: "A 7-point framework for vetting 400 GSM hoodie manufacturers, the red flags that separate real mills from trading companies, and a scoring method for any shortlist.",
+    description: "A 7-point framework for vetting 400 GSM hoodie manufacturers, the red flags that separate real mills from trading companies, and a scoring method for any shortlist",
     date: "2026-10-07",
     dateLabel: "October 7, 2026",
     tag: "Buyer's guide",
@@ -86,7 +86,7 @@ export const articles: Article[] = [
   {
     route: "/fleece-hoodie-manufacturer-types-china/",
     title: "10 Types of Fleece Hoodie Manufacturers in China: How to Pick the Right Factory Profile",
-    description: "Ten factory profiles for fleece hoodies in China, the criteria behind the list, and the sourcing mistakes that cost buyers money.",
+    description: "Ten factory profiles for fleece hoodies in China, the criteria behind the list, and the sourcing mistakes that cost buyers money",
     date: "2026-10-06",
     dateLabel: "October 6, 2026",
     tag: "Buyer's guide",
@@ -94,7 +94,7 @@ export const articles: Article[] = [
   {
     route: "/where-are-t-shirts-manufactured/",
     title: "Where Are T-Shirts Manufactured? A Complete Guide to Global T-Shirt Production",
-    description: "The major producing countries, why production concentrates where it does, and how to turn origin into a sourcing decision.",
+    description: "The major producing countries, why production concentrates where it does, and how to turn origin into a sourcing decision",
     date: "2026-10-06",
     dateLabel: "October 6, 2026",
     tag: "Sourcing guide",

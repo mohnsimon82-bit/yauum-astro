@@ -70,3 +70,73 @@
   letter-spacing: .06em;
   text-transform: uppercase;
 }
+
+
+/* ════════════════════════════════════════════════════════════════
+   2026-10-11 微调二：①去掉导航 PRODUCTION 的 “+” 按钮
+   ②右上 CTA 改椭圆 + 紫色渐变 + 外发光 ③下拉面板重设计为编辑式单列列表
+   ════════════════════════════════════════════════════════════════ */
+.ed.site-header .nav-prod-toggle { display: none; }
+
+.ed.site-header .header-cta {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7a54c8 0%, #5b3a8e 52%, #472d70 100%);
+  box-shadow: 0 0 18px rgba(122, 84, 200, .38), inset 0 0 0 1px rgba(201, 176, 232, .18);
+  padding: 11px 22px;
+}
+.ed.site-header .header-cta:hover {
+  background: linear-gradient(135deg, #8a63d6 0%, #6b46a4 52%, #543785 100%);
+  box-shadow: 0 0 28px rgba(138, 99, 214, .55), inset 0 0 0 1px rgba(201, 176, 232, .32);
+}
+
+/* 下拉面板：编辑式单列列表（替代 3×2 方框格） */
+.ed .prod-panel {
+  width: min(430px, calc(100vw - 48px));
+  grid-template-columns: 1fr;
+  padding: 0;
+  border-top: 3px solid var(--accent);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, .45), 0 0 34px rgba(91, 58, 142, .16);
+}
+.ed .prod-panel a {
+  display: block;
+  min-height: 0;
+  padding: 15px 24px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  position: relative;
+  transition: background .16s ease, padding-left .16s ease;
+}
+.ed .prod-panel a:last-child { border-bottom: 0; }
+.ed .prod-panel span {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: var(--accent-on-dark, #c9b0e8);
+}
+.ed .prod-panel strong {
+  font-family: var(--font-display, 'Archivo Black');
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: .01em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: rgba(246, 244, 239, .88);
+}
+.ed .prod-panel a::after {
+  content: "\2192";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  color: var(--accent-on-dark, #c9b0e8);
+  opacity: 0;
+  transition: opacity .16s ease, transform .16s ease;
+}
+.ed .prod-panel a:hover { background: rgba(255, 255, 255, .05); padding-left: 30px; }
+.ed .prod-panel a:hover strong, .ed .prod-panel a[aria-current=page] strong { color: #fff; }
+.ed .prod-panel a:hover::after, .ed .prod-panel a[aria-current=page]::after { opacity: 1; transform: translateY(-50%); }
+.ed .prod-panel .prod-overview { background: rgba(91, 58, 142, .18); border-bottom: 1px solid rgba(91, 58, 142, .45); }
+.ed .prod-panel .prod-overview strong { font-size: 16px; }
