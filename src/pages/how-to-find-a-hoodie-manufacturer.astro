@@ -1,0 +1,203 @@
+---
+/**
+ * /how-to-find-a-hoodie-manufacturer/ 文章页（内容生产系统第九篇 · 审核 87）。
+ *
+ * 来源：内容生产系统（Dify）输出 `how-to-find-a-hoodie-manufacturer-终稿.md`
+ * （2026-10-10 运行，run 7176a5cb；slug 取 TDK 的 /how-to-find-a-hoodie-manufacturer/）。
+ *
+ * 上线前处理（报告 P0-A 与发布规则）：
+ *   - 年份：H1 "(2025)"→"(2026)"（本页 hero 与 seo.ts 的 headline 同步），Title 补 2026（写在 seo.ts 里）
+ *   - P1-3 语法修复（与链接映射同行）："read [see inside our factory]" → "For a closer look at how a
+ *     real production floor differs, [see inside our factory]"
+ *   - 两处 "Download our supplier vetting checklist" 下载承诺改为真实动作（规则同文章 3/5/8）；
+ *     Meta Description 同步去掉 "free supplier checklist" 表述（seo.ts）
+ *   - 禁用词：表格 "Heavyweight, premium streetwear" → "Heavyweight streetwear"（公司简介长期约束）
+ *   - #IMAGE#（4 槽）→ .sw-ph 占位符卡；#OG_IMAGE# → factory-sewing-line-wide 实拍图
+ *   - 4 条内链映射：/production/#factory-record、/hoodie-manufacturer/、/our-services/、
+ *     /hoodie-manufacturer/#commercial（全部为现网真实页面/锚点）
+ *
+ * 审核报告 87 分"未达标需人工复核后发布"——用户确认发布；P0-B（词数复核）与其余 P1 未执行。
+ * FAQ 的 8 组问答与 seo.ts 中 FAQPage JSON-LD 逐字一致。
+ */
+import EditorialLayout from "../layouts/EditorialLayout.astro";
+import InquirySection from "../components/InquirySection.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/pages/how-to-find-a-hoodie-manufacturer.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why", "Why it matters"],
+  ["02", "step-1", "Define requirements"],
+  ["03", "step-2", "Where to find"],
+  ["04", "step-3", "Vetting checklist"],
+  ["05", "step-4", "Sampling tests"],
+  ["06", "step-5", "Pricing & MOQ"],
+  ["07", "mistakes", "Common mistakes"],
+  ["08", "faq", "FAQ"],
+  ["09", "ready-to-start", "Next step"],
+];
+---
+
+<EditorialLayout
+  seo={SEO["/how-to-find-a-hoodie-manufacturer/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">How to Find a Hoodie Manufacturer</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>How to Find a Hoodie Manufacturer: A Step-by-Step Guide for Brands (2026)</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-10">October 10, 2026</time></span>
+        <span class="ar-views" data-views-for="/how-to-find-a-hoodie-manufacturer/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">Finding a hoodie manufacturer is a filtering problem, not a search problem. Type "hoodie manufacturer" into any B2B platform and you get thousands of results instantly. The hard part is working out which of those suppliers can actually run a 380 GSM heavyweight fleece with a consistent dye lot, hold a ±1 cm size tolerance across three production runs, and still reply to your email in week six.</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Custom hoodies being manufactured in a hoodie factory workshop">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>Factory production reference</strong><small>Needed: a verified photo of custom hoodies being manufactured in the production environment.</small></div>
+      </div>
+    </figure>
+        <p>This guide covers the five steps experienced brand buyers follow, plus the specific checkpoints where first-time sourcing projects fall apart. It is written for apparel brands, private label buyers, and e-commerce sellers placing a first or second hoodie order, usually 300 to 3,000 pieces per style.</p>
+        <h2 id="why">Why Finding the Right Hoodie Manufacturer Makes or Breaks Your Brand</h2>
+        <p>Count the panels, ribbing, drawcords, eyelets, and label placements on a hoodie and you are at roughly 25 to 35 separate components — each one a place where a weak supplier cuts a corner you won't notice until your customer does.</p>
+        <p>Three failure modes account for most first-order disasters:</p>
+        <ul class="ar-list"><li><strong>MOQ misjudgment.</strong> Committing to 1,000 pieces per color for a lower unit price, then sitting on 700 units of a color that never sells.</li><li><strong>Factory vs. trading company confusion.</strong> The supplier quotes a strong price, then subcontracts to a workshop you have never seen.</li><li><strong>Sampling-to-production drift.</strong> The sample is perfect; the bulk order arrives with lighter fabric or a shifted print placement.</li></ul>
+        <p>The process below is built to catch all three before money moves.</p>
+        <p>Not sure where to start with your own spec? <a href="/contact-us/">We can help assess your needs</a>.</p>
+        <h2 id="step-1">Step 1 — Define Your Hoodie Requirements Before You Search</h2>
+        <p>How well you define the product before contacting anyone predicts the rest of the project. Suppliers respond to clarity. Vague inquiries produce vague quotes, and vague quotes cannot be compared against each other.</p>
+        <p>Build a one-page brief covering two categories of decisions.</p>
+        <h3>Key Hoodie Specs Buyers Must Decide Early</h3>
+        <p>Fabric weight is the first fork in the road. It drives cost, hand feel, seasonality, and how the garment drapes.</p>
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>GSM Range</th><th>Typical Use</th><th>Hand Feel</th><th>Relative Cost</th></tr></thead><tbody><tr><td>240–280 GSM</td><td>Lightweight, spring/fall, layering</td><td>Soft, thinner, more drape</td><td>Lower</td></tr><tr><td>300–340 GSM</td><td>Standard midweight, year-round core</td><td>Balanced structure</td><td>Mid</td></tr><tr><td>350–400 GSM</td><td>Heavyweight streetwear</td><td>Dense, structured, holds shape</td><td>Higher</td></tr><tr><td>400+ GSM</td><td>Ultra-heavy, oversized silhouettes</td><td>Rigid until washed, very warm</td><td>Highest</td></tr></tbody></table></div>
+        <p class="ar-note"><em>GSM ranges reflect common practice for cotton and cotton-blend fleece. Cost impact shifts with fiber composition, yarn type, and finishing.</em></p>
+        <p>Beyond weight, lock these down before you write a single inquiry:</p>
+        <ul class="ar-list"><li><strong>Fiber composition.</strong> 100% cotton, cotton/poly blends (80/20, 65/35, 50/50), or cotton/poly/rayon. Each behaves differently after three home washes.</li><li><strong>Construction.</strong> Pullover, half-zip, or full-zip. Each adds different hardware and panel complexity.</li><li><strong>Fit block.</strong> Regular, relaxed, oversized, or drop shoulder. An oversized drop-shoulder block consumes noticeably more fabric per unit than a regular fit in the same size range.</li><li><strong>Decoration.</strong> Screen print, embroidery, DTG, puff print, chenille patches, or a combination. The method sets both cost and minimum quantity per design.</li><li><strong>Color and trim.</strong> Body color, drawcord color, ribbing color, eyelet finish, zipper type and tooth size if applicable.</li></ul>
+        <h3>What to Put in a Simple Tech Pack</h3>
+        <p>You do not need a designer to produce a usable tech pack. A functional one contains:</p>
+        <ol class="ar-list"><li><strong>Front and back flat sketch.</strong> Hand-drawn is fine if the proportions are accurate.</li><li><strong>Points of measure (POM) sheet</strong> with target dimensions per size and stated tolerance, usually ±0.5 to 1.0 cm on most body measurements.</li><li><strong>Fabric specification.</strong> GSM, composition, knit type, plus a reference swatch or photo.</li><li><strong>Color references.</strong> Pantone TCX codes or physical swatches.</li><li><strong>Decoration placement.</strong> Artwork files with position and dimensions in centimeters, measured from HPS.</li><li><strong>Labeling and packaging.</strong> Neck label, hangtag, poly bag, carton requirements.</li><li><strong>Target quantity per color and size</strong> with your size curve.</li></ol>
+        <p>The tech pack does not need to be perfect on day one. It needs to exist. Factories that receive one quote faster and more accurately than factories that receive a paragraph of text and a Pinterest link.</p>
+        <h2 id="step-2">Step 2 — Where to Find Hoodie Manufacturers (Channels Compared)</h2>
+        <p>No single channel wins. Each carries a distinct cost, trust profile, and failure mode.</p>
+        <h3>B2B Platforms vs. Trade Shows vs. Direct Sourcing</h3>
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Channel</th><th>Cost to Buyer</th><th>Trust Level</th><th>Best For</th><th>Main Risk</th></tr></thead><tbody><tr><td>B2B platforms (Alibaba, Made-in-China, Global Sources)</td><td>Low (free browsing)</td><td>Variable, mixed factory/trader</td><td>Early shortlisting, price benchmarking</td><td>Trading companies posing as factories</td></tr><tr><td>Industry trade shows</td><td>High (travel, time, sometimes booth fees)</td><td>High, physical presence</td><td>Relationship building, handling samples in person</td><td>Limited to suppliers who exhibit</td></tr><tr><td>Direct sourcing / agent</td><td>Medium (agent commission, commonly 3–10%)</td><td>Depends on agent track record</td><td>Buyers without local presence</td><td>Agent incentives may not align with yours</td></tr><tr><td>Sourcing clusters (China, Vietnam, Turkey, Portugal)</td><td>High (travel, local logistics)</td><td>High when you visit in person</td><td>Serious programs, multi-style development</td><td>Requires local knowledge and time on the ground</td></tr></tbody></table></div>
+        <p class="ar-note"><em>Commission and cost figures reflect common ranges. Confirm terms with any agent or platform before engaging.</em></p>
+        <p>For a first-time buyer, platforms are the practical entry point. The mistake is treating platform listings as a shortlist when they are a raw pool. Plan on contacting 15 to 25 suppliers to end up with 3 to 5 worth sampling.</p>
+        <h3>Why "Manufacturer" Listings Are Often Trading Companies</h3>
+        <p>Plenty of listings tagged "manufacturer" belong to trading companies or sourcing agents. That isn't automatically a problem. A capable trading company coordinates several factories, manages QC, and simplifies logistics. What matters is knowing which model you are buying from, because pricing structure, communication chain, and accountability all change. Ask direct questions and watch how specific the answers get.</p>
+        <p>Signals that a listing is probably not a direct factory:</p>
+        <ul class="ar-list"><li>The product range spans unrelated categories: hoodies, phone cases, furniture</li><li>They cannot describe their production floor or name their equipment</li><li>The quoted MOQ bears no relationship to any real line minimum</li><li>A short factory walkthrough video never materializes</li></ul>
+        <p>For a closer look at how a real production floor differs, <a href="/production/#factory-record">see inside our factory</a>.</p>
+        <h2 id="step-3">Step 3 — How to Vet a Hoodie Manufacturer (The Core Checklist)</h2>
+        <p>Most buyers rush this step, and it is the one that decides whether the next six months run smoothly or turn into firefighting by email.</p>
+        <p>Vetting covers four dimensions: capability, capacity, communication, and credibility.</p>
+        <h3>Factory vs. Trading Company: How to Tell the Difference</h3>
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Verification Point</th><th>Direct Factory</th><th>Trading Company</th></tr></thead><tbody><tr><td>Business license scope</td><td>Manufacturing / production</td><td>Trading / import-export</td></tr><tr><td>Production floor</td><td>Shows live video or hosts a visit</td><td>Deflects, or shows a partner's floor</td></tr><tr><td>Equipment specifics</td><td>Names machine types and counts</td><td>Vague, or changes the subject</td></tr><tr><td>Sampling capability</td><td>In-house sample room or named partner</td><td>Outsources without visibility</td></tr><tr><td>Quote structure</td><td>Breaks down fabric, labor, trim, overhead</td><td>Single lump price</td></tr><tr><td>MOQ flexibility</td><td>Tied to actual line minimums</td><td>Varies, sometimes genuinely flexible</td></tr><tr><td>Lead time control</td><td>Direct control over scheduling</td><td>Dependent on a third-party factory</td></tr></tbody></table></div>
+        <h3>7 Questions to Ask Every Hoodie Manufacturer</h3>
+        <p>Send these in your first or second message. How they answer tells you more than what they answer.</p>
+        <ol class="ar-list"><li>What is your MOQ per color per style, and does it change across multiple sizes within one color?</li><li>Do you have an in-house sample room? What is your sample lead time and sample fee policy?</li><li>What is your bulk lead time after sample approval, at 500 pieces and at 2,000 pieces?</li><li>Can you send a short video of your production floor and sample room?</li><li>What are your payment terms, which milestones trigger each payment, and what certifications does the facility hold?</li><li>What is your QC process, and how many inspection points sit inside the production run?</li><li>What happens if bulk production does not match the approved sample?</li></ol>
+        <p>To see how these capabilities translate into a live program, our <a href="/hoodie-manufacturer/">custom hoodie manufacturing capabilities</a> page walks through the workflow from tech pack to shipment.</p>
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Step-by-step process to vet and select a hoodie manufacturer">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>Supplier vetting flowchart</strong><small>Needed: a verified process diagram matching the five steps in this guide.</small></div>
+      </div>
+    </figure>
+        <h3>Red Flags That Signal a Risky Supplier</h3>
+        <p>Some warning signs justify walking away, others justify digging much harder. No legitimate factory has a reason to refuse a live video walkthrough of the floor, so refusal belongs in the first group, as does pressure to wire a large bulk deposit before any sample exists — a sample fee is standard practice, a 50% prepayment on an unseen product is not. Pricing that sits far outside the band everyone else quotes deserves the same suspicion: if three quotes cluster in one band and a fourth lands at roughly half that, something is being cut, whether fabric weight, labor, or the factory itself.</p>
+        <p>The softer signals accumulate. Shifting answers on MOQ and lead time are tolerable once; repeated evasion is a pattern. Catalog images with no production photos prove nothing, since anyone can download product shots. Check the registered business address, and treat a residential or missing address as a reason to verify before proceeding. Finally, a proforma invoice with no written terms leaves both sides exposed, which is why a real contract matters more on a first order than on a fifth.</p>
+        <p>Want a second opinion on a supplier's answers? <a href="/contact-us/">Talk to our team</a> and we will walk through the checklist with you.</p>
+        <h2 id="step-4">Step 4 — Sampling &amp; Communication: Testing Before You Commit</h2>
+        <p>Sampling is the only reliable test of real capability. A good sampling round proves four things at once: tech-pack compliance, actual fabric weight, construction cleanliness, and color accuracy.</p>
+        <h3>How to Evaluate a Sample (Checklist)</h3>
+        <p>Judge the sample against your tech pack, not against your memory of what you asked for.</p>
+        <ul class="ar-list"><li><strong>Measurements.</strong> Measure every point on the POM sheet and record deviations. A 1 cm variance on chest width is usually workable; 3 cm means the pattern is wrong.</li><li><strong>Fabric and color.</strong> Weigh the garment against the specified GSM and check consistency between body and sleeve panels. Compare color against the approved lab dip under daylight, not office fluorescents.</li><li><strong>Stitching quality.</strong> Inspect the hood seam, armhole, cuff and hem ribbing attachment, and any topstitching. Look for skipped stitches, puckering, loose thread ends.</li><li><strong>Decoration, hardware and trims.</strong> Confirm print placement, size, Pantone match, and adhesion; for embroidery, check stitch density and backing. Then verify drawcord type and length, eyelet finish, zipper travel, and label placement.</li><li><strong>Fit on body.</strong> Put it on a fit model or yourself. Pattern problems show up on a body, never on a hanger.</li></ul>
+        <p>Photograph every issue and write it up. Send one consolidated feedback document instead of a stream of separate messages, because factories move faster against a single revision list. Our <a href="/our-services/">sampling process</a> is built on exactly that: one round of consolidated feedback, one revision, then approval.</p>
+        <p>In YAUUM programs we work to a defined cadence: one proto sample, one correction round, and a pre-production sample signed off before fabric is cut. During bulk, inspection points sit at in-line cutting, mid-production sewing, and final pack-out, with ±1 cm held on principal girth measurements and ±0.5 cm on ribbing and sleeve length.</p>
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Evaluating a custom hoodie sample: fabric, stitching and print quality">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>Sample evaluation reference</strong><small>Needed: a verified photo of a hoodie sample being checked for fabric, stitching, and print quality.</small></div>
+      </div>
+    </figure>
+        <h3>A Simple Inquiry Email Template</h3>
+        <p>Fill the brackets and send. The supplier gets everything needed to quote accurately on the first reply.</p>
+        <pre class="ar-pre"><code>Subject: Hoodie production inquiry - [Your Brand] - [Quantity] pcs
+        Hi [Name],
+We are [Brand], a [streetwear / casual / sportswear] brand selling in [market],
+looking for a manufacturing partner for a hoodie program.
+        - Style: [pullover / half-zip / full-zip]
+- Fabric: [GSM], [composition]
+- Fit: [regular / relaxed / oversized / drop shoulder]
+- Decoration: [screen print / embroidery / DTG / other]
+- Sizes: [range], size curve attached
+- Quantity: [pcs per color], [number of colors]
+- Target delivery: [month/year]
+        Tech pack and reference sample available on request. Please confirm MOQ per color,
+sample lead time and fee, bulk lead time, FOB price range, payment terms, and
+whether you can share a short factory video.
+        [Name], [Brand]</code></pre>
+        <h2 id="step-5">Step 5 — Pricing, MOQ &amp; Lead Time: What to Expect</h2>
+        <p>Hoodie pricing turns on five variables. Any supplier who quotes a flat number without asking about them is guessing.</p>
+        <p>Fabric is the largest single cost line, driven by GSM and fiber composition: moving from 280 GSM to 400 GSM raises unit cost materially, while swapping 100% cotton for a 65/35 cotton/poly blend pushes it back down. Decoration is priced by method — embroidery typically per 1,000 stitches, screen printing per color per location, DTG with economics that change sharply by volume. Order quantity spreads setup cost across more units, and the curve is steepest between 100 and 500 pieces before it flattens. Construction complexity adds on top, since full-zip hoodies carry a zipper, extra paneling, and extra stitching operations, and drop-shoulder or oversized blocks consume more fabric. Trims and packaging close the list: custom woven labels, hangtags, poly bags, and retail-ready presentation all add per-unit cost that most retail buyers will not let you skip.</p>
+        <p>For planning purposes, hoodie MOQs commonly sit between 100 and 500 pieces per color across many factories. Per-unit FOB pricing tracks your fabric, decoration, and volume combination rather than any single published rate, and it swings widely by factory and region, so treat any range you see as a planning input and not a quote. The detail sits on our page covering <a href="/hoodie-manufacturer/#commercial">hoodie manufacturing MOQ and lead times</a>.</p>
+        <p><strong>Lead time and payment planning:</strong></p>
+        <p>Sampling and bulk production run on separate clocks: sample development, revision where needed, bulk production, QC, then shipping, with transit depending on destination and mode (sea freight slower and cheaper than air). On the payment side, typical structures pair a deposit at order confirmation with a balance before or after shipment, sometimes with a third-party inspection milestone between the two. Whatever you agree, put it in writing, and on larger orders hold the balance payment until a third-party inspection report clears.</p>
+        <h2 id="mistakes">Common Mistakes Buyers Make When Sourcing Hoodies</h2>
+        <ul class="ar-list"><li><strong>Comparing quotes that aren't comparable.</strong> Two prices only line up when fabric, construction, and decoration match. Normalize every quote against the same tech pack.</li><li><strong>Skipping sampling to save time.</strong> Those two weeks saved routinely become two months of rework. Never release bulk production without a signed-off sample in hand.</li><li><strong>Ignoring compliance requirements.</strong> Textile labeling, fiber content disclosure, and chemical restriction rules vary by market. State your target market and compliance needs in the first inquiry, not after cutting.</li><li><strong>Vague communication.</strong> "Make it like the photo" is not a specification. Work from a tech pack plus a reference sample, and define acceptable quality limits, measurement tolerances, and defect thresholds in the PO.</li></ul>
+        <figure class="ar-figure">
+      <div class="sw-ph" role="img" aria-label="Finished custom hoodie produced for a client brand">
+        <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+        <div class="sw-ph-copy"><strong>Finished garment reference</strong><small>Needed: a verified finished hoodie photo from the supplied production environment.</small></div>
+      </div>
+    </figure>
+        <h2 id="faq">FAQ: Finding a Hoodie Manufacturer</h2>
+        <details class="ar-faq-item" open><summary><h3>How do I find a hoodie manufacturer for a small brand?</h3></summary><p>Build a raw list from B2B platforms, then filter hard using the vetting checklist above. Prioritize factories transparent about minimums and willing to run smaller initial orders over the lowest quoted price. Expect to contact 15–25 suppliers to find 3–5 worth sampling with.</p></details>
+        <details class="ar-faq-item"><summary><h3>What is the MOQ for custom hoodies?</h3></summary><p>MOQ varies by factory, but many hoodie manufacturers set minimums in the 100–500 piece range per color per style. Custom decoration, specialty fabrics, and custom trims push minimums higher. Stock fabrics and standard constructions often qualify for lower minimums.</p></details>
+        <details class="ar-faq-item"><summary><h3>How much does it cost to manufacture a hoodie?</h3></summary><p>Unit cost depends on fabric weight and composition, decoration method, order quantity, and construction complexity. A midweight hoodie with one print location sits in a different band than a 400 GSM heavyweight with embroidery and custom trims. Request itemized quotes against a fixed spec.</p></details>
+        <details class="ar-faq-item"><summary><h3>How do I know if a hoodie manufacturer is legit?</h3></summary><p>Ask for a live video walkthrough of the production floor, request the business license, ask specific questions about equipment and capacity, and start with a paid sample. Legitimate factories answer without hesitation. Reluctance to show the factory is the strongest single warning sign.</p></details>
+        <details class="ar-faq-item"><summary><h3>Should I choose a factory or a trading company?</h3></summary><p>Choose a direct factory for lowest cost and direct quality control if you can manage production communication yourself. Choose a trading company for multi-category sourcing, logistics coordination, or a buffer between you and several factories. Either way, know which one you are dealing with before committing.</p></details>
+        <details class="ar-faq-item"><summary><h3>How long does hoodie sampling and production take?</h3></summary><p>Sampling and bulk production run on separate timelines. Sampling typically takes one to three weeks depending on complexity and revision rounds. Bulk production adds several weeks, depending on quantity, fabric availability, and factory scheduling. Shipping is additional, so build buffer into your launch calendar.</p></details>
+        <details class="ar-faq-item"><summary><h3>Can I get custom hoodies with no minimum order?</h3></summary><p>True zero-minimum custom hoodie manufacturing is rare. Some suppliers offer low minimums on stock fabrics and standard constructions, but custom fabrics, custom dyeing, and custom decoration usually carry a minimum. If a supplier claims no minimum, verify what "custom" actually includes.</p></details>
+        <details class="ar-faq-item"><summary><h3>What should I ask a hoodie manufacturer before ordering?</h3></summary><p>Ask about MOQ per color, sample lead time and fee, bulk lead time, in-house versus outsourced decoration, QC process and inspection points, payment terms, certifications, and what happens if bulk production does not match the approved sample. Get the answers in writing.</p></details>
+        <h2 id="ready-to-start">Ready to Start? How We Can Help</h2>
+        <p>If you are early in the process and want a second opinion on your spec, or you have a tech pack ready and want a quote, send it over. YAUUM works with brands, wholesalers, and e-commerce sellers on private label hoodie programs across pullover, half-zip, and full-zip constructions.</p>
+        <p>Ready to move? <a href="/contact-us/">Request a hoodie quote</a> with your tech pack, reference sample, or even a rough brief. Still building the spec? <a href="/contact-us/">Talk to our team</a> and we will help you pressure-test it before you contact suppliers.</p>
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <InquirySection
+    product="Hoodies"
+    id="inquiry"
+    odId="inquiry-conversion"
+    band="band-alt"
+    kicker="Start an inquiry"
+    title="Send the Hoodie Spec That Makes Quotes Comparable."
+    lead="Fabric weight, construction, decoration, quantity, and destination: the brief this guide teaches you to prepare."
+    ctaLabel="Send project details"
+  />
+
+  <ViewCounter />
+</EditorialLayout>

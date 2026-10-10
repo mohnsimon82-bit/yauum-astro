@@ -1083,6 +1083,73 @@ const RAW_SEO: Record<string, SeoData> = {
       ]),
     ],
   },
+  // 文章详情页 · 第九篇（2026-10-10）。slug 取 TDK（/how-to-find-a-hoodie-manufacturer/）。
+  // 审核报告 87 分（未达标需人工复核，用户确认发布）。P0-A 年份已改（H1/headline 为 (2026)、
+  // Title 补 2026）；两处下载承诺改真实动作，Meta Description 同步去掉 "free supplier checklist"；
+  // 正文表格里的 premium 已替换（公司简介禁用词）。下方 FAQ text 与页面可见 FAQ 文本逐字一致。
+  "/how-to-find-a-hoodie-manufacturer/": {
+    title: "How to Find a Hoodie Manufacturer: Step-by-Step Guide 2026 | Yauum",
+    description:
+      "Learn how to find a hoodie manufacturer: sourcing channels, a vetting checklist, sampling tips, and red flags. Request a quote with your hoodie spec.",
+    path: "/how-to-find-a-hoodie-manufacturer/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide.webp"),
+    ogImageAlt: "Custom hoodies being manufactured in a hoodie factory workshop",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["How to Find a Hoodie Manufacturer", "/how-to-find-a-hoodie-manufacturer/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "How to Find a Hoodie Manufacturer: A Step-by-Step Guide for Brands (2026)",
+        description:
+          "Learn how to find a hoodie manufacturer: sourcing channels, a vetting checklist, sampling tips, and red flags. Request a quote with your hoodie spec.",
+        path: "/how-to-find-a-hoodie-manufacturer/",
+        image: "/uploads/factory/factory-sewing-line-wide.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-10T00:00:00+08:00",
+        dateModified: "2026-10-10T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "How do I find a hoodie manufacturer for a small brand?",
+          "Build a raw list from B2B platforms, then filter hard using the vetting checklist above. Prioritize factories transparent about minimums and willing to run smaller initial orders over the lowest quoted price. Expect to contact 15–25 suppliers to find 3–5 worth sampling with.",
+        ],
+        [
+          "What is the MOQ for custom hoodies?",
+          "MOQ varies by factory, but many hoodie manufacturers set minimums in the 100–500 piece range per color per style. Custom decoration, specialty fabrics, and custom trims push minimums higher. Stock fabrics and standard constructions often qualify for lower minimums.",
+        ],
+        [
+          "How much does it cost to manufacture a hoodie?",
+          "Unit cost depends on fabric weight and composition, decoration method, order quantity, and construction complexity. A midweight hoodie with one print location sits in a different band than a 400 GSM heavyweight with embroidery and custom trims. Request itemized quotes against a fixed spec.",
+        ],
+        [
+          "How do I know if a hoodie manufacturer is legit?",
+          "Ask for a live video walkthrough of the production floor, request the business license, ask specific questions about equipment and capacity, and start with a paid sample. Legitimate factories answer without hesitation. Reluctance to show the factory is the strongest single warning sign.",
+        ],
+        [
+          "Should I choose a factory or a trading company?",
+          "Choose a direct factory for lowest cost and direct quality control if you can manage production communication yourself. Choose a trading company for multi-category sourcing, logistics coordination, or a buffer between you and several factories. Either way, know which one you are dealing with before committing.",
+        ],
+        [
+          "How long does hoodie sampling and production take?",
+          "Sampling and bulk production run on separate timelines. Sampling typically takes one to three weeks depending on complexity and revision rounds. Bulk production adds several weeks, depending on quantity, fabric availability, and factory scheduling. Shipping is additional, so build buffer into your launch calendar.",
+        ],
+        [
+          "Can I get custom hoodies with no minimum order?",
+          "True zero-minimum custom hoodie manufacturing is rare. Some suppliers offer low minimums on stock fabrics and standard constructions, but custom fabrics, custom dyeing, and custom decoration usually carry a minimum. If a supplier claims no minimum, verify what \"custom\" actually includes.",
+        ],
+        [
+          "What should I ask a hoodie manufacturer before ordering?",
+          "Ask about MOQ per color, sample lead time and fee, bulk lead time, in-house versus outsourced decoration, QC process and inspection points, payment terms, certifications, and what happens if bulk production does not match the approved sample. Get the answers in writing.",
+        ],
+      ]),
+    ],
+  },
 
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。

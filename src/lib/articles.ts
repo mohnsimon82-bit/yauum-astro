@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/how-to-find-a-hoodie-manufacturer/",
+    title: "How to Find a Hoodie Manufacturer: A Step-by-Step Guide for Brands (2026)",
+    description: "Sourcing channels, a vetting checklist, sampling tests, pricing factors, and the red flags that separate real factories from trading companies.",
+    date: "2026-10-10",
+    dateLabel: "October 10, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-puff-print-hoodie-manufacturers-china/",
     title: "Top 10 Puff Print Hoodie Supplier Types in China: How to Shortlist by Region & Capability",
     description: "Ten puff print hoodie supplier types in China by region and capability, six evaluation criteria, and a five-step vetting sequence.",
