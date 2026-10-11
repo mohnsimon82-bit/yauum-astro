@@ -52,6 +52,25 @@ const canonical = canonicalUrl(seo);
     {seo.jsonLd?.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
     <Analytics />
     <ContactIntentTracking />
+    {
+      /* 全分辨率自适应（2026-10-11）：设计基准 1440px，视口更宽时按比例整体缩放
+         （等价于自动浏览器缩放），任何分辨率都保持同一构图并铺满屏幕；
+         ≤1440 与不支持 zoom 的浏览器完全不生效（零影响）。innerWidth 不受
+         CSS zoom 影响，因此无反馈循环；媒体查询仍按真实视口求值，断点行为不变。 */
+    }
+    <script is:inline>
+      (() => {
+        const BASE = 1440, MAX = 2;
+        const root = document.documentElement;
+        if (!("zoom" in root.style)) return;
+        const fit = () => {
+          const z = Math.min(Math.max(window.innerWidth / BASE, 1), MAX);
+          root.style.zoom = z === 1 ? "" : String(z);
+        };
+        fit();
+        window.addEventListener("resize", fit, { passive: true });
+      })();
+    </script>
   </head>
   <body class={bodyClass}>
     <SiteChromeTop mainId="main" navCurrent={navCurrent} />
