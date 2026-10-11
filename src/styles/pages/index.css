@@ -32,7 +32,7 @@
       --yv-font-body:    'Inter', sans-serif;
 
       /* scale */
-      --fs-h1:    clamp(38px, 5.2vw, 64px);
+      --fs-h1:    clamp(30px, 3.5vw, 46px);
       --fs-h2:    clamp(28px, 3.4vw, 42px);
       --fs-h3:    20px;
       --fs-lead:  18px;
@@ -430,7 +430,7 @@
 
     /* ─── hero ──────────────────────────────────────────────────────── */
     .hero {
-      padding-block: clamp(72px, 9vw, 128px);
+      padding-block: 50px;
       background:
         radial-gradient(880px 420px at 84% 0%, var(--yv-sun-soft), transparent 62%),
         radial-gradient(760px 420px at 4% 100%, var(--yv-accent-soft), transparent 65%);
@@ -1069,7 +1069,7 @@
     @media (max-width: 560px) { .topnav-inner { gap: 12px; } .nav-cta .btn { padding: 10px 14px; font-size: 13px; } }
 
     /* ═══ 首屏变体：hero-v1 全幅+深色渐变蒙层 ═══ */
-    .hero { position: relative; padding: 0 0 clamp(48px, 6vw, 72px); min-height: min(88vh, 800px); display: flex; align-items: center; overflow: hidden; }
+    .hero { position: relative; padding: 50px 0; min-height: min(88vh, 800px); display: flex; align-items: center; overflow: hidden; }
     .hero .container { position: static; width: 100%; }   /* 让图的包含块回到 .hero，实现真·全幅 */
     .hero-inner { display: block; }
     /* 图片层：铺满整个 hero；渐变叠在图上（同一层内），保证顺序正确 */

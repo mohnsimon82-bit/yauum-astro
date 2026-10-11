@@ -58,7 +58,7 @@
     .section-h1 {
       font-family:var(--font-display);
       font-weight:400;
-      font-size:clamp(36px,4.6vw,60px);
+      font-size:clamp(30px,3.5vw,46px);
       line-height:1.05;
       letter-spacing:.01em;
       text-transform:uppercase;
@@ -152,8 +152,8 @@
     .hero {
       background:var(--yv-dark);
       color:var(--yv-paper);
-      padding-top:clamp(88px,10vw,128px);
-      padding-bottom:clamp(64px,7vw,88px);
+      padding-top:50px;
+      padding-bottom:50px;
     }
     .hero .container {
       display:grid;
@@ -443,7 +443,7 @@
 .container{width:min(var(--container),calc(100% - (var(--gutter) * 2)));max-width:none;padding-inline:0;margin-inline:auto}
 .hero .container{width:min(var(--container),calc(100% - (var(--gutter) * 2)))}
 /* 2) 站点旧层 body .hero h1 会改本页 hero 字号，这里恢复本页规格 */
-body .hero h1{font-size:clamp(36px,4.6vw,60px)}
+body .hero h1{font-size:clamp(30px,3.5vw,46px)}
 @media (max-width:640px){body .hero h1{font-size:clamp(30px,8.5vw,38px)}}
 /* 3) 深色节里的行线与源注按深底变体 */
 .section--dark .m-list__row{border-top-color:rgba(255,255,255,.12)}

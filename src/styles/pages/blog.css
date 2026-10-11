@@ -22,7 +22,7 @@ p{text-wrap:pretty}
 .container{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
 .section{padding-block:clamp(72px,9vw,112px)}
 .grid{display:grid}
-h1{font-family:'Archivo Black',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;color:var(--yv-ink);font-size:clamp(44px,6vw,84px)}
+h1{font-family:'Archivo Black',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;color:var(--yv-ink);font-size:clamp(30px,3.5vw,46px)}
 h2{font-family:'Archivo Black',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;color:var(--yv-ink);font-size:clamp(28px,3.4vw,42px)}
 h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;line-height:1.3;color:var(--yv-ink);letter-spacing:-.01em}
 .lead{font-family:'Inter',sans-serif;font-size:18px;line-height:1.65;color:var(--yv-muted);max-width:62ch;margin:0}
@@ -37,7 +37,7 @@ h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;line-he
 ::selection{background:var(--yv-accent-soft);color:var(--yv-ink)}
 
 
-.hero{background:var(--yv-dark);color:#fff;padding-block:clamp(96px,12vw,160px);position:relative;overflow:hidden}
+.hero{background:var(--yv-dark);color:#fff;padding-block:50px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(720px 360px at 92% 0%,rgba(91,58,142,.20),transparent 65%);pointer-events:none}
 .hero .container{position:relative;z-index:1}
 .hero .eyebrow{color:var(--yv-sun)}
@@ -125,8 +125,8 @@ img{height:auto}
 .container{width:min(var(--container),calc(100% - (var(--gutter) * 2)));max-width:none;padding-inline:0;margin-inline:auto}
 .hero .container{width:min(var(--container),calc(100% - (var(--gutter) * 2)))}
 /* 2) 站点旧层 body .hero h1 的 40-60px 会压住本页 H1，这里恢复"Blog"单字大标题 */
-body .hero h1{font-size:clamp(44px,6vw,84px)}
-@media (max-width:640px){body .hero h1{font-size:clamp(52px,15vw,64px)}}
+body .hero h1{font-size:clamp(30px,3.5vw,46px)}
+@media (max-width:640px){body .hero h1{font-size:clamp(28px,7.6vw,34px)}}
 /* 3) 卡片整块可点：链接撑满，CTA 贴底对齐（OD 的 align-items:start 会让行内卡片不拉伸） */
 .grid-list{align-items:stretch}
 .grid-card > a{display:flex;flex-direction:column;flex:1}

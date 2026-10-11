@@ -73,7 +73,7 @@ h1,h2,h3,h4{
   line-height:1.18;
   color:var(--yv-ink);
 }
-h1{font-family:'Archivo Black',sans-serif;font-size:clamp(40px,5.6vw,72px);line-height:1.06}
+h1{font-family:'Archivo Black',sans-serif;font-size:clamp(30px,3.5vw,46px);line-height:1.06}
 h2{font-size:clamp(28px,3.4vw,44px)}
 h3{font-size:clamp(20px,2vw,26px)}
 h4{font-size:18px}
@@ -163,7 +163,7 @@ p{color:var(--yv-ink)}
 }
 .hero__inner{
   width:100%;
-  padding-block:clamp(72px,12vw,140px) clamp(40px,6vw,80px);
+  padding-block:50px;
 }
 .hero__grid{
   display:grid;grid-template-columns:1fr;gap:24px;
