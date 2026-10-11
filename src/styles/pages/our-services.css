@@ -151,7 +151,7 @@ p{color:var(--yv-ink)}
 .hero{
   position:relative;overflow:hidden;
   min-height:min(88vh,800px);
-  display:flex;align-items:flex-end;
+  display:flex;align-items:flex-start;
   color:#fff;
   isolation:isolate;
 }
@@ -163,7 +163,7 @@ p{color:var(--yv-ink)}
 }
 .hero__inner{
   width:100%;
-  padding-block:50px;
+  padding-block:120px 50px;
 }
 .hero__grid{
   display:grid;grid-template-columns:1fr;gap:24px;

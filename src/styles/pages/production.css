@@ -558,7 +558,7 @@ h4, .h4 {
 /* (a) hero 文字原本被 .hero-inner 的 max-width 连带居中：容器恢复 1280，只限制文字块 */
 .hero-inner { max-width: var(--container); }   /* 与下方各段同一左边界 */
 .hero-inner > * { max-width: 760px; }
-.hero { align-items: center; }
+.hero { align-items: flex-start; padding-top: 50px; }
 /* (b) 照片墙改 3 列：feature 2×2 + 5 张单格 = 正好 9 格填满，不再留洞 */
 .photo-wall { grid-template-columns: repeat(3, 1fr); }
 .photo.feature { aspect-ratio: auto; }
