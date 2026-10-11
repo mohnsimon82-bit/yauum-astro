@@ -14,6 +14,56 @@
 
   captureEntry(); // 首次落地页归因（与 WhatsApp 点击追踪共用）
 
+  // —— Cloudflare Turnstile（防垃圾，2026-10-11）——
+  // 交互式隐形：正常访客无感，可疑流量才弹验证。token（cf-turnstile-response）
+  // 随提交一起发给 /api/inquiry，由 Pages Function 调 siteverify 校验。
+  const TURNSTILE_SITEKEY = "0x4AAAAAAFT4EH72lw517pdU";
+  const inquiryForms = Array.from(document.querySelectorAll<HTMLFormElement>('form[action$="/api/inquiry"]'));
+  const tsWidgetByForm = new Map<HTMLFormElement, string>();
+  const ts = () => (window as unknown as { turnstile?: any }).turnstile;
+
+  async function turnstileToken(form: HTMLFormElement): Promise<string> {
+    const api = ts();
+    const id = tsWidgetByForm.get(form);
+    if (!api || id === undefined) return "";
+    const current: string = api.getResponse(id) || "";
+    if (current) return current;
+    try { api.execute(id); } catch { /* 已在执行中则忽略 */ }
+    for (let i = 0; i < 40; i++) {
+      await new Promise((r) => setTimeout(r, 150));
+      const t: string = api.getResponse(id) || "";
+      if (t) return t;
+    }
+    return "";
+  }
+
+  if (inquiryForms.length) {
+    const loader = document.createElement("script");
+    loader.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    loader.async = true;
+    loader.defer = true;
+    loader.onload = () => {
+      const api = ts();
+      if (!api) return;
+      inquiryForms.forEach((form) => {
+        if (tsWidgetByForm.has(form)) return;
+        const holder = document.createElement("div");
+        holder.className = "ts-field";
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn && btn.parentElement) btn.parentElement.insertBefore(holder, btn);
+        else form.appendChild(holder);
+        const id = api.render(holder, {
+          sitekey: TURNSTILE_SITEKEY,
+          appearance: "interaction-only",
+          size: "flexible",
+          theme: "auto",
+        });
+        tsWidgetByForm.set(form, id);
+      });
+    };
+    document.head.appendChild(loader);
+  }
+
   document.querySelectorAll<HTMLFormElement>('form[action$="/api/inquiry"]').forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -22,9 +72,11 @@
       submit?.setAttribute("disabled", "");
       if (status) { status.hidden = true; status.classList.remove("is-ok", "is-err"); }
       try {
+        const turnstile = await turnstileToken(form);
         const data = new FormData(form);
         const payload: Record<string, string> = {};
         data.forEach((value, key) => (payload[key] = String(value)));
+        if (turnstile) payload["cf-turnstile-response"] = turnstile;
 
         const geo = await loadGeo();
         const attr = attribution();
@@ -52,6 +104,10 @@
         if (status) { status.hidden = false; status.classList.add("is-err"); status.textContent = "Something went wrong — please email mumu@yauum.com instead."; }
       } finally {
         submit?.removeAttribute("disabled");
+        // Turnstile token 单次有效：无论成败都重置，下一次提交重新取证
+        const id = tsWidgetByForm.get(form);
+        const api = ts();
+        if (api && id !== undefined) { try { api.reset(id); } catch { /* 忽略 */ } }
       }
     });
   });

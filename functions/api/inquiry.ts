@@ -20,6 +20,8 @@ interface Env {
   RESEND_API_KEY?: string;
   INQUIRY_TO?: string;
   INQUIRY_FROM?: string;
+  /** Cloudflare Turnstile secret（防垃圾）。未配置时跳过校验（本地开发/预览）。 */
+  TURNSTILE_SECRET?: string;
 }
 
 const DEFAULT_TO = ["mumu@yauum.com", "397740930@qq.com", "aisen@qyoure.com"];
@@ -58,7 +60,7 @@ function rows(payload: Record<string, string>): Array<[string, string]> {
     if (value) { out.push([label, value]); seen.add(key); }
   }
   for (const [key, value] of Object.entries(payload)) {
-    if (seen.has(key) || key.startsWith("_") || !value.trim()) continue;
+    if (seen.has(key) || key.startsWith("_") || key === "cf-turnstile-response" || !value.trim()) continue;
     out.push([key, String(value).trim()]);
   }
   return out;
@@ -150,6 +152,36 @@ export const onRequestPost = async (context: { request: Request; env: Env }): Pr
     return wantsJson
       ? jsonResponse({ success: false, error: "invalid submission" }, 400)
       : htmlResponse("Something went wrong", "Please check your name, email, and project details, or email mumu@yauum.com.", 400);
+  }
+
+  // Cloudflare Turnstile（防垃圾）：配置了 secret 就强制校验；
+  // 未配置（本地开发）时跳过，保持开发链路可用。
+  const turnstileSecret = (env.TURNSTILE_SECRET || "").trim();
+  if (turnstileSecret) {
+    const token = (payload["cf-turnstile-response"] || "").trim();
+    let passed = false;
+    if (token) {
+      try {
+        const verify = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            secret: turnstileSecret,
+            response: token,
+            remoteip: request.headers.get("CF-Connecting-IP") || undefined,
+          }),
+        });
+        const outcome = await verify.json().catch(() => null) as { success?: boolean } | null;
+        passed = Boolean(outcome && outcome.success);
+      } catch {
+        passed = false;
+      }
+    }
+    if (!passed) {
+      return wantsJson
+        ? jsonResponse({ success: false, error: "verification failed" }, 403)
+        : htmlResponse("Verification failed", "Please refresh the page and try again, or email mumu@yauum.com.", 403);
+    }
   }
 
   const apiKey = (env.RESEND_API_KEY || "").trim();
