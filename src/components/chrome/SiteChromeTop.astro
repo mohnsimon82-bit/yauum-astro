@@ -33,7 +33,6 @@ const c = (base: string) => `${base} ed`;
                 <a class="nav-prod-btn" aria-current={isCurrent("/production/") ? "page" : undefined} href="/production/">Production</a>
                 <button class="nav-prod-toggle" type="button" aria-label="Show production categories" aria-haspopup="true" aria-expanded="false" aria-controls="production-panel">+</button>
                 <div class="prod-panel" id="production-panel" aria-label="Production product categories">
-                  <a class="prod-overview" href="/production/"><span>00 / OVERVIEW</span><strong>Production</strong></a>
                   <a aria-current={isCurrent("/hoodie-manufacturer/") ? "page" : undefined} href="/hoodie-manufacturer/"><span>01 / PRODUCT</span><strong>Hoodies</strong></a>
                   <a aria-current={isCurrent("/t-shirt-manufacturer/") ? "page" : undefined} href="/t-shirt-manufacturer/"><span>02 / PRODUCT</span><strong>T-Shirts</strong></a>
                   <a aria-current={isCurrent("/jackets-manufacturer/") ? "page" : undefined} href="/jackets-manufacturer/"><span>03 / PRODUCT</span><strong>Jackets</strong></a>
