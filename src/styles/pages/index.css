@@ -513,10 +513,12 @@
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
       gap: clamp(32px, 4vw, 64px);
-      align-items: center;
+      align-items: stretch;
       margin-bottom: var(--gap-xl);
     }
-    .value-copy { display: flex; flex-direction: column; gap: 16px; max-width: 620px; }
+    .value-copy { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; max-width: 620px; }
+    .value-text { display: flex; flex-direction: column; gap: 16px; }
+    .value-copy .btn { align-self: flex-start; }
     .value-copy p { font-family: var(--yv-font-body); font-size: 15px; line-height: 1.7; color: var(--yv-muted); }
     .value-copy .value-lead { font-size: 17px; line-height: 1.6; color: var(--yv-ink); }
     .value-media img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--yv-radius-card); box-shadow: var(--yv-shadow-card); display: block; }
