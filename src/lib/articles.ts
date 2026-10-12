@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/where-are-hoodies-manufactured/",
+    title: "Where Are Hoodies Manufactured? A Global Manufacturing Map for Brands & Buyers",
+    description: "The main hoodie producing countries, what each does best, and a decision framework for matching production location to order profile",
+    date: "2026-10-12",
+    dateLabel: "October 12, 2026",
+    tag: "Sourcing guide",
+  },
+  {
     route: "/how-to-find-alibaba-hoodie-manufacturers/",
     title: "How to Find Alibaba Hoodie Manufacturers: A Complete Screening Framework (From Search to Factory Audit)",
     description: "Six screening steps for Alibaba hoodie suppliers: keyword strategy, filters, shortlisting, factory verification, sampling, and payment terms",

@@ -1210,6 +1210,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十一篇（2026-10-12, where-are-hoodies-manufactured）。
+  // 审核 75 分；文件名"❌不完整"为流水线误报（HTML 完整收尾、FAQ 与 Schema 逐字一致）。
+  // 上线处理：6 内链映射、premium→high-end（10 处）、删 "vetted factory network" 口径、
+  // P2-7 Turkey 语法修复；P1-5/P1-6/P2-8 未执行（见上传汇报）。
+  "/where-are-hoodies-manufactured/": {
+    title: "Where Are Hoodies Manufactured? Global Guide | Yauum",
+    description:
+      "Where are hoodies manufactured? Compare China, Vietnam, Bangladesh, Turkey and Portugal on cost, MOQ and lead time, then pick the right factory",
+    path: "/where-are-hoodies-manufactured/",
+    ogType: "article",
+    ogImage: abs("/uploads/hoodie-manufacturer/hero-blank-pullover.webp"),
+    ogImageAlt: "Blank pullover hoodie shown as a custom manufacturing style reference",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Where Are Hoodies Manufactured?", "/where-are-hoodies-manufactured/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Where Are Hoodies Manufactured? A Global Manufacturing Map for Brands & Buyers",
+        description:
+          "Where are hoodies manufactured? Compare China, Vietnam, Bangladesh, Turkey and Portugal on cost, MOQ and lead time, then pick the right factory",
+        path: "/where-are-hoodies-manufactured/",
+        image: "/uploads/hoodie-manufacturer/hero-blank-pullover.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-12T00:00:00+08:00",
+        dateModified: "2026-10-12T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "Where are most hoodies manufactured?",
+          "The majority of the world's hoodies are manufactured in Asia, led by China, Vietnam, Bangladesh, and India. China handles the widest range of order sizes and decoration types, while Vietnam and Bangladesh dominate high-volume basic fleece production. Turkey and Portugal serve European brands seeking faster delivery and high-end construction.",
+        ],
+        [
+          "Is it cheaper to manufacture hoodies in China or Bangladesh?",
+          "Bangladesh is generally cheaper for large-volume basic hoodies, with unit costs running meaningfully below comparable Chinese production once you pass roughly 1,000 pieces per color. China becomes more cost-effective for smaller runs, complex decoration, and multi-SKU orders, where its supply-chain flexibility reduces waste and rework.",
+        ],
+        [
+          "What is the minimum order quantity for custom hoodies?",
+          "MOQ varies by country and fabric. China commonly accepts 100–500 pieces per color on stock fabrics, Portugal and Turkey sit around 150–1,000 pieces, and Bangladesh typically starts at 1,000–3,000 pieces. Custom-dyed fabric raises the minimum almost everywhere, because the dyehouse sets its own batch size.",
+        ],
+        [
+          "Which country is best for small-batch hoodie production?",
+          "China, Portugal, and Turkey are the strongest options for small-batch hoodie production. China offers the widest fabric and decoration range at low MOQs, Portugal delivers high-end construction on 150–500 piece runs, and Turkey balances quality with speed for European brands.",
+        ],
+        [
+          "How long does hoodie manufacturing take?",
+          "Sampling typically takes 7–25 days depending on country and complexity. Bulk production runs 25–90 days, with China and Turkey at the faster end and Bangladesh at the slower end. Add 10–20 days for custom dyeing and 25–35 days for ocean freight. Air freight cuts transit to about a week but raises cost sharply.",
+        ],
+        [
+          "Do hoodie manufacturers offer OEM and ODM services?",
+          "Most established hoodie manufacturers offer both. OEM means the factory produces to your designs and tech packs. ODM means it supplies existing designs you adapt with your own branding. OEM gives you more control and differentiation, while ODM gets you to market faster and cheaper.",
+        ],
+        [
+          "What certifications should I look for in a hoodie factory?",
+          "Look for social-compliance audits such as WRAP or BSCI, quality-management certification such as ISO 9001, and chemical or environmental certification such as OEKO-TEX where your category requires it. Requirements depend on your target retailers, so confirm which frameworks they accept before you select a factory.",
+        ],
+        [
+          "Can I get hoodie samples before placing a bulk order?",
+          "Yes, and you should. Reputable factories provide fit samples, lab dips, and pre-production samples, usually for a fee that is often credited against the bulk order. Always approve a pre-production sample before mass production begins.",
+        ],
+      ]),
+    ],
+  },
+
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
   "/thank-you/": {

@@ -1,0 +1,229 @@
+---
+/**
+ * /where-are-hoodies-manufactured/ 文章页（内容生产系统流水线第十一篇 · 终稿 · 审核 75）。
+ *
+ * 来源：内容生产系统（Dify）输出 `❌不完整-where-are-hoodies-manufactured-终稿.md`（2026-10-12）。
+ * 文件名"❌不完整"为流水线误报：HTML 正常收尾、8 条 FAQ 完整且与 Schema 逐字一致（审核报告已复核）。
+ *
+ * 上线前处理（其余正文逐字取自终稿，仅做 markdown→HTML 结构转换）：
+ *   - #CTA_LINK#（6 处）→ 站内真实页面：5 条内容内链（/production/、/hoodie-manufacturer/×2、
+ *     /our-services/、/how-to-find-a-hoodie-manufacturer/）+ 1 条 CTA（/contact-us/）
+ *   - (IMAGE)（5 槽）→ 2 张实拍（factory-sewing-line-detail、hero-blank-pullover）
+ *     + 3 张 .sw-ph 占位符卡（世界地图、流程图、对比图待制作）
+ *   - 禁用词 premium（10 处：表格 3 + 正文 3 + FAQ 2 + Schema 同步 2）→ high-end
+ *   - 口径最小改写：删 "through a vetted factory network inside the clusters described above"
+ *     （避免代理/转包口径）；CTA 锚文本 "Get a sourcing assessment" → "Get a manufacturing assessment"
+ *   - 审核报告 P2-7（Turkey 段语法残句）按报告原文修复
+ *   - P1-5（6 处模板化收尾句改写）、P1-6（CTA 补交付物/时效承诺）、P2-8（流程段改 bullet）未执行（见上传汇报）
+ *   - 段末句号按全站规则剥除；FAQ 可见文本与 seo.ts faqJsonLd 存在"尾句号级"差异（既定口径）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-concentrates", "Why production concentrates"],
+  ["02", "global-map", "The global map at a glance"],
+  ["03", "china", "China: the flexibility hub"],
+  ["04", "vietnam-bangladesh", "Vietnam & Bangladesh"],
+  ["05", "portugal-turkey", "Portugal, Turkey & near-shore"],
+  ["06", "choosing-a-location", "Choosing the right location"],
+  ["07", "common-mistakes", "Common sourcing mistakes"],
+  ["08", "why-yauum", "Working with YAUUM"],
+  ["09", "faq", "FAQ"],
+];
+---
+
+<V2Layout
+  seo={SEO["/where-are-hoodies-manufactured/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Where Are Hoodies Manufactured?</span>
+      </nav>
+      <p class="label">Sourcing guide</p>
+      <h1>Where Are Hoodies Manufactured? A Global Manufacturing Map for Brands &amp; Buyers</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-12">October 12, 2026</time></span>
+      <span class="ar-views" data-views-for="/where-are-hoodies-manufactured/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">Hoodie production does not spread evenly across the planet. It clusters hard into a handful of regions where yarn spinners, fabric mills, dyehouses, cut-and-sew lines, and trim suppliers sit within a few hours' drive of each other. Understanding why those clusters formed tells you more about sourcing than any list of country names ever will</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <p>This guide maps the main hoodie manufacturing countries, explains what each one actually does well, and gives you a decision framework for matching a production location to your order size, budget, target market, and compliance requirements</p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="World map showing where hoodies are manufactured across major producing countries">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Global production map</strong><small>Needed: a verified world map covering the hoodie producing countries in this guide</small></div>
+          </div>
+        </figure>
+
+        <h2 id="why-concentrates">Why Hoodie Manufacturing Concentrates in Specific Regions</h2>
+
+        <p>Three forces decide where hoodies get made: labor cost, supply-chain completeness, and trade policy. Labor cost is the obvious one and the least interesting. The other two explain why some low-wage countries never became garment hubs while others did</p>
+
+        <p>Consider what a single hoodie requires. Yarn gets spun, then knit into fleece or french terry. That greige fabric moves to a dyehouse for dyeing and finishing, often a separate facility in a separate town. Then it is cut, sewn (body, hood, kangaroo pocket, ribbed cuffs and hem), and decorated with print, embroidery, or a garment wash. Every handoff adds freight, days on the calendar, and defect risk</p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="Hoodie manufacturing process flowchart from yarn to finished garment">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Production flow diagram</strong><small>Needed: a hoodie process flow from yarn through knitting, dyeing, cut-and-sew and decoration to finished garment</small></div>
+          </div>
+        </figure>
+
+        <p>A region becomes competitive when most of those steps happen locally. Guangdong and Zhejiang host knitting, dyeing, cut-and-sew, and decoration inside a single industrial belt. That density is why a Chinese factory can quote a 300-piece run and still hit a two-week sampling window, while a sewing-only factory elsewhere has to import fabric and wait 30 days for it to land</p>
+
+        <p>Trade policy sits on top of all of it. Preferential tariffs, rules of origin, and quota arrangements push orders toward specific countries for specific end markets. Two hoodies with an identical FOB price can arrive at a European warehouse with landed costs 15% apart, purely because of where they were sewn</p>
+
+        <p>So the real question is never "which country is best." It is which corner of the cost / flexibility / compliance triangle you are willing to give up. You do not get all three at once</p>
+
+        <h2 id="global-map">The Global Hoodie Manufacturing Map: Main Producing Countries at a Glance</h2>
+
+        <p>The table covers the seven locations that dominate hoodie sourcing conversations. Figures describe mid-weight fleece pullovers in the 280–400 GSM range and work as planning benchmarks, not quotations</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Country / Region</th><th>Strength</th><th>Typical MOQ (per color)</th><th>Sampling &amp; Production Lead Time</th><th>Best Fit</th></tr></thead><tbody><tr><td>China</td><td>Flexibility, full-chain supply, decoration range</td><td>100–500 pcs</td><td>Sampling 7–15 days; production 25–45 days + shipping</td><td>Small-batch, multi-SKU, tech packs with heavy print or embroidery</td></tr><tr><td>Vietnam</td><td>Volume plus improving complexity</td><td>500–2,000 pcs</td><td>Sampling 10–20 days; production 30–60 days + shipping</td><td>Mid-to-large brands needing consistent bulk runs</td></tr><tr><td>Bangladesh</td><td>Lowest cost at scale</td><td>1,000–3,000 pcs</td><td>Sampling 15–25 days; production 45–90 days + shipping</td><td>Large basic fleece programs, price-driven lines</td></tr><tr><td>India</td><td>Cotton access, growing knit capacity</td><td>500–2,000 pcs</td><td>Sampling 12–20 days; production 40–70 days + shipping</td><td>Cotton-rich fleece, domestic-market programs</td></tr><tr><td>Turkey</td><td>Speed to the EU, mid-to-high quality</td><td>300–1,000 pcs</td><td>Sampling 7–14 days; production 25–45 days + shipping</td><td>European brands, fast replenishment</td></tr><tr><td>Portugal</td><td>High-end construction, small runs</td><td>150–500 pcs</td><td>Sampling 10–18 days; production 30–50 days + shipping</td><td>High-end labels, near-shore EU supply</td></tr><tr><td>United States</td><td>Quick-turn domestic, "Made in USA" positioning</td><td>100–500 pcs</td><td>Sampling 10–20 days; production 30–60 days</td><td>Niche high-end, fast domestic replenishment</td></tr></tbody></table></div>
+
+        <p>For a broader view of how these clusters fit into the wider garment trade, see our <a href="/production/">full apparel manufacturing guide</a></p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="Comparison chart of hoodie manufacturing countries by cost, lead time and MOQ">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Country comparison chart</strong><small>Needed: a chart comparing producing countries on cost, lead time and MOQ</small></div>
+          </div>
+        </figure>
+
+        <p>Two things to keep in mind when you read that table. MOQ bends with fabric choice: a stock 320 GSM brushed fleece in black runs small far more easily than a custom-dyed loopback in a Pantone match. And every lead time above assumes fabric exists. Custom dyeing adds roughly 10–20 days in any of these countries, sometimes more if the dyehouse is batching for larger customers</p>
+
+        <h2 id="china">China: The Flexible Hub for Custom &amp; Small-Batch Hoodies</h2>
+
+        <p>If your project involves four colorways, heavy decoration, or a first run under 500 pieces, China is almost always the right call. Its advantage is not labor rate. Vietnam and Bangladesh both beat China there. The advantage is supply-chain depth</p>
+
+        <p>Production splits by cluster. Guangdong, centered on Guangzhou and Dongguan, leans toward streetwear, washed and distressed fleece, and complex decoration. Zhejiang, around Ningbo and Hangzhou, runs knit-heavy programs and mid-weight fleece efficiently. Jiangsu handles export programs for Western retail with tighter documentation and QC discipline</p>
+
+        <p>What that looks like on an order:</p>
+
+        <ul class="ar-list"><li><strong>Small runs are genuinely viable.</strong> 100–300 pieces per colorway works on stock fabrics, which is how most emerging brands test demand without burning cash on inventory</li><li><strong>Decoration range is the widest anywhere.</strong> Screen print, DTG, DTF, puff, embossing, plus flat, 3D, chenille, and patch embroidery, often inside one building or a 20-minute drive away</li><li><strong>Sampling moves fast.</strong> A first prototype in 7–15 days is routine when the fabric is already in stock</li></ul>
+
+        <p>The trade-off: at 5,000 pieces of a plain pullover, China loses on price, and buyers shipping to certain markets need to check tariff treatment before they fall in love with a quote. For custom work where flexibility beats unit price, nothing else comes close. Explore our <a href="/hoodie-manufacturer/">custom hoodie manufacturing</a> capabilities if that profile matches your project</p>
+
+        <figure class="ar-figure">
+          <img src="/uploads/factory/factory-sewing-line-detail.webp" width="2400" height="1600" alt="Hoodie sewing workshop in a Chinese garment factory" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">From the supplied production environment: the cut-and-sew stage where hoodie bodies, hoods and pockets are assembled</figcaption>
+        </figure>
+
+        <h2 id="vietnam-bangladesh">Vietnam &amp; Bangladesh: Volume, Cost &amp; Compliance Considerations</h2>
+
+        <p>Vietnam and Bangladesh carry the bulk fleece programs for most Western brands, and the logic is simple. They deliver consistent quality at scale for less money than China</p>
+
+        <p>Vietnam has moved well past basic cut-and-sew. Factories there handle bonded fleece, technical finishes, and multi-panel construction, with delivery dates you can plan a retail calendar around. Bangladesh remains the cost leader on high-volume basics: plain pullovers, standard 300 GSM fleece, simple left-chest embroidery, typically at 2,000 pieces or more per color</p>
+
+        <p>Compliance usually decides the matter. European and North American retailers increasingly require social-compliance audits, and in some chemical-sensitive categories, environmental certification as well. Confirm which audit frameworks a factory actually holds, with report dates, before you commit tooling or deposits. Audit status drives both eligibility and price. Our overview of <a href="/our-services/">apparel compliance and certifications</a> walks through what each framework verifies in practice</p>
+
+        <p>This region fits when your order is large, your design is stable, unit cost drives the decision, and you can live with longer production plus 25–35 days on the water. It does not fit when you need 200 pieces across three colorways next month. The MOQ math never works</p>
+
+        <h2 id="portugal-turkey">Portugal, Turkey &amp; Near-Shore Options: Speed, Quality &amp; Smaller Runs</h2>
+
+        <p>Near-shoring has quietly become the default for European brands that would rather pay more per piece than wait eight weeks for a container</p>
+
+        <p>Portugal sits at the high end. Factories there specialize in heavyweight fleece at 400 GSM and above, garment-dyed and overdyed finishes, and the kind of seam and rib detailing that justifies a €150 retail price. Runs of 150–500 pieces per colorway are normal, and in-line QC is strong. Prices sit at the top of this list, and so does the construction ceiling</p>
+
+        <p>Turkey occupies the middle ground. It combines competitive pricing with Turkish-spun cotton fleece from local mills, 7–14 day sampling, and 25–45 day production. For a brand running monthly drops into the EU, that cycle makes real replenishment possible instead of theoretical</p>
+
+        <p>Both options buy you the same things: shorter freight legs, factory visits you can do in a day, faster reorders, and a country-of-origin story that holds up at a higher price point. If you compete on fit and finish rather than price, near-shore production tends to pay for itself through fewer markdowns</p>
+
+        <h2 id="choosing-a-location">How to Choose the Right Manufacturing Location for Your Hoodie Project</h2>
+
+        <p>Work through five variables in order. The first two eliminate most of the map on their own</p>
+
+        <p><strong>1. Order quantity per colorway.</strong> Under 300 pieces, your realistic choices are China, Portugal, Turkey, or domestic production. Above 1,000, Vietnam and Bangladesh come into play</p>
+
+        <p><strong>2. Target retail price and margin.</strong> A $120 hoodie and a $35 hoodie cannot share a supply chain. High-end construction belongs in Portugal or Turkey. Value basics belong in Bangladesh or Vietnam</p>
+
+        <p><strong>3. Decoration complexity.</strong> All-over print, puff, chenille, or four embroidery placements narrow the field quickly. China leads; Turkey and Portugal can execute it at a higher price</p>
+
+        <p><strong>4. Compliance requirements.</strong> If your retailer demands a specific audit, verify factory status before you order samples, not after you have approved a fit</p>
+
+        <p><strong>5. Lead time tolerance.</strong> Budget 10–20 days for custom dyeing, 25–35 days for ocean freight, and a buffer for port congestion. With a fixed launch date, work backward from the floor set and let the calendar choose the country</p>
+
+        <p>Use this matrix as a first filter:</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Your Priority</th><th>Recommended Location</th></tr></thead><tbody><tr><td>Small batch + complex decoration</td><td>China</td></tr><tr><td>Lowest unit cost at volume</td><td>Bangladesh</td></tr><tr><td>Balance of cost and complexity</td><td>Vietnam</td></tr><tr><td>Fast EU replenishment</td><td>Turkey</td></tr><tr><td>High-end quality, small runs</td><td>Portugal</td></tr><tr><td>"Made in USA" positioning</td><td>United States</td></tr></tbody></table></div>
+
+        <p>Before you contact factories, build a proper tech pack and cost sheet. Our <a href="/how-to-find-a-hoodie-manufacturer/">guide to finding a hoodie manufacturer</a> covers what to prepare so the quotes you receive are actually comparable</p>
+
+        <p>One more warning for this stage: a quote that looks 20% cheaper frequently loses that gap once you add freight, duty, sample fees, and a 3% defect allowance. Compare landed cost per sellable unit or do not compare at all</p>
+
+        <h2 id="common-mistakes">Common Mistakes When Sourcing Hoodies Overseas</h2>
+
+        <p>Most sourcing failures trace back to five avoidable errors</p>
+
+        <ol class="ar-list"><li><strong>Chasing the lowest unit price.</strong> The cheapest quote usually carries a higher MOQ, thinner QC, or a longer ship date. Price without context tells you nothing</li><li><strong>Leaving MOQ to the end.</strong> Finding out about a 2,000-piece minimum after designing a five-color drop costs weeks of design time</li><li><strong>Skipping the pre-production sample.</strong> Lab dips and fit samples surface problems while they still cost $200 to fix instead of $20,000</li><li><strong>Taking certifications on trust.</strong> Claims cost nothing. Ask for the audit report, check the issue date, check the scope</li><li><strong>Underestimating logistics and duty.</strong> FOB is a negotiating number. Landed cost is what hits your P&amp;L</li></ol>
+
+        <p>A structured supplier evaluation catches all five before money moves, which is precisely what experienced sourcing support is for</p>
+
+        <h2 id="why-yauum">How YAUUM Helps You Navigate Hoodie Manufacturing</h2>
+
+        <p>YAUUM is a B2B menswear manufacturer working across six categories: hoodies, T-shirts, jackets, pants, sportswear, and streetwear. On the hoodie side, we produce pullover and zip-up constructions in fleece and french terry, with decoration covering screen print, DTG, DTF, puff print, and embroidery</p>
+
+        <p>We are not the cheapest and not the largest. What we bring is process: matching your order profile to the right production location, running sampling and lab dips to approval, and holding QC from first cut through final inspection. If you are still deciding where your hoodies should be made, that decision is the first thing we help you get right. You can review <a href="/hoodie-manufacturer/">our hoodie manufacturing services</a> for construction, fabric, and decoration specifics</p>
+
+        <p>Not sure which region fits your project? <a href="/contact-us/">Get a manufacturing assessment</a> and we will map your requirements to the most suitable production option</p>
+
+        <figure class="ar-figure">
+          <img src="/uploads/hoodie-manufacturer/hero-blank-pullover.webp" width="1248" height="1248" alt="Custom hoodies produced for brand clients by YAUUM" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">A finished pullover hoodie reference prepared for review, from the supplied production environment</figcaption>
+        </figure>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+
+          <details class="ar-faq-item" open><summary><h3>Where are most hoodies manufactured?</h3></summary><p>The majority of the world's hoodies are manufactured in Asia, led by China, Vietnam, Bangladesh, and India. China handles the widest range of order sizes and decoration types, while Vietnam and Bangladesh dominate high-volume basic fleece production. Turkey and Portugal serve European brands seeking faster delivery and high-end construction</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Is it cheaper to manufacture hoodies in China or Bangladesh?</h3></summary><p>Bangladesh is generally cheaper for large-volume basic hoodies, with unit costs running meaningfully below comparable Chinese production once you pass roughly 1,000 pieces per color. China becomes more cost-effective for smaller runs, complex decoration, and multi-SKU orders, where its supply-chain flexibility reduces waste and rework</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What is the minimum order quantity for custom hoodies?</h3></summary><p>MOQ varies by country and fabric. China commonly accepts 100–500 pieces per color on stock fabrics, Portugal and Turkey sit around 150–1,000 pieces, and Bangladesh typically starts at 1,000–3,000 pieces. Custom-dyed fabric raises the minimum almost everywhere, because the dyehouse sets its own batch size</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Which country is best for small-batch hoodie production?</h3></summary><p>China, Portugal, and Turkey are the strongest options for small-batch hoodie production. China offers the widest fabric and decoration range at low MOQs, Portugal delivers high-end construction on 150–500 piece runs, and Turkey balances quality with speed for European brands</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How long does hoodie manufacturing take?</h3></summary><p>Sampling typically takes 7–25 days depending on country and complexity. Bulk production runs 25–90 days, with China and Turkey at the faster end and Bangladesh at the slower end. Add 10–20 days for custom dyeing and 25–35 days for ocean freight. Air freight cuts transit to about a week but raises cost sharply</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Do hoodie manufacturers offer OEM and ODM services?</h3></summary><p>Most established hoodie manufacturers offer both. OEM means the factory produces to your designs and tech packs. ODM means it supplies existing designs you adapt with your own branding. OEM gives you more control and differentiation, while ODM gets you to market faster and cheaper</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What certifications should I look for in a hoodie factory?</h3></summary><p>Look for social-compliance audits such as WRAP or BSCI, quality-management certification such as ISO 9001, and chemical or environmental certification such as OEKO-TEX where your category requires it. Requirements depend on your target retailers, so confirm which frameworks they accept before you select a factory</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Can I get hoodie samples before placing a bulk order?</h3></summary><p>Yes, and you should. Reputable factories provide fit samples, lab dips, and pre-production samples, usually for a fee that is often credited against the bulk order. Always approve a pre-production sample before mass production begins</p></details>
+
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="Hoodies"
+    kicker="Start an inquiry"
+    title="Send the Hoodie Details That Shape a Useful Review"
+    lead="Order profile, target market, decoration direction, and timeline: the same inputs this guide uses to match a project with a production location"
+    ctaLabel="Send project details"
+  />
+
+  <ViewCounter />
+</V2Layout>
