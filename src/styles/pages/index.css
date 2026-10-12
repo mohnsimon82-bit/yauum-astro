@@ -508,6 +508,23 @@
     .section-head .lead { color: var(--yv-ink); }
     @media (max-width: 760px) { .section-head { grid-template-columns: 1fr; } }
 
+    /* ─── company intro: copy left + factory photo right ────────────── */
+    .value-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+      gap: clamp(32px, 4vw, 64px);
+      align-items: center;
+      margin-bottom: var(--gap-xl);
+    }
+    .value-copy { display: flex; flex-direction: column; gap: 16px; max-width: 620px; }
+    .value-copy p { font-family: var(--yv-font-body); font-size: 15px; line-height: 1.7; color: var(--yv-muted); }
+    .value-copy .value-lead { font-size: 17px; line-height: 1.6; color: var(--yv-ink); }
+    .value-media img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--yv-radius-card); box-shadow: var(--yv-shadow-card); display: block; }
+    @media (max-width: 960px) {
+      .value-split { grid-template-columns: 1fr; }
+      .value-copy { max-width: none; }
+    }
+
     /* ─── 4-up buyer cards (manufacturer value — NO numbering) ──────── */
     .buyer-cards {
       display: grid;
