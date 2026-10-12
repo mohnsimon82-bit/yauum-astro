@@ -1083,14 +1083,14 @@
         rgba(18,16,22,.32) 74%,
         rgba(18,16,22,.14) 100%); }
     /* 文字层：定位 + 更高 z-index，压在图与渐变之上 */
-    .hero-text { position: relative; z-index: 1; max-width: 640px;
+    .hero-text { position: relative; z-index: 1; max-width: 780px;
       padding-block: 0 clamp(72px, 9vw, 110px); }
     .hero-meta { position: relative; z-index: 1; margin-top: 0; padding-top: 28px;
       border-top: 1px solid rgba(255,255,255,.22); }
     .hero .eyebrow { color: var(--yv-sun); }
     .hero h1 { color: #FFFFFF; }
     .hero h1 .hl { color: var(--yv-accent-on-dark); }
-    .hero .lead { color: rgba(255,255,255,.85); }
+    .hero .lead { color: rgba(255,255,255,.85); max-width: 640px; }
     .hero .btn-ghost { color: #FFFFFF; }
     .hero-meta .item .k { color: #FFFFFF; }
     .hero-meta .item .v { color: rgba(255,255,255,.73); }
