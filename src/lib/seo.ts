@@ -1278,6 +1278,73 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十二篇（2026-10-12, custom-t-shirt-manufacturer-guide）。
+  // 审核 84 分；红线通过、FAQ 逐字一致；P0-B（分类数字）已执行；P0-A（压缩 400–500 词）未执行（照发，见汇报）。
+  // 上线处理：5 处 yauum.com 不存在链接 + 4 处 CTA 映射站内页；下载承诺改真实动作；premium positioning ×2 → high-end。
+  "/custom-t-shirt-manufacturer-guide/": {
+    title: "Custom T-Shirt Manufacturer Guide: How to Choose One | Yauum",
+    description:
+      "A buyer's guide to choosing a custom t-shirt manufacturer: fabric, MOQ, sampling, QC and pricing. Request a quote today",
+    path: "/custom-t-shirt-manufacturer-guide/",
+    ogType: "article",
+    ogImage: abs("/uploads/t-shirt-manufacturer/branding-screen-printing-line.webp"),
+    ogImageAlt: "Screen printing on a custom T-shirt production line",
+    ogImageWidth: 1600,
+    ogImageHeight: 1067,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Custom T-Shirt Manufacturer Guide", "/custom-t-shirt-manufacturer-guide/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "How to Choose a Custom T-Shirt Manufacturer: A Buyer's Decision Guide",
+        description:
+          "A buyer's guide to choosing a custom t-shirt manufacturer: fabric, MOQ, sampling, QC and pricing. Request a quote today",
+        path: "/custom-t-shirt-manufacturer-guide/",
+        image: "/uploads/t-shirt-manufacturer/branding-screen-printing-line.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-12T00:00:00+08:00",
+        dateModified: "2026-10-12T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for custom t-shirts?",
+          "For men's cut-and-sew T-shirts, MOQ commonly falls in the 300–500 pieces per color range, driven by mill fabric and dye-lot minimums rather than factory policy. Stock fabrics allow lower thresholds; custom-developed fabrics push MOQ higher. Confirm MOQ per color and per size before finalizing your design, because a second colorway can double your commitment.",
+        ],
+        [
+          "How long does sampling take, and is the sample fee refundable?",
+          "Sampling typically runs 7–15 days depending on fabric availability and decoration complexity, with fees commonly quoted between $50 and $150 per basic style. Whether that fee is credited against bulk varies by factory and order size. Ask before you pay, and get the answer in writing along with the number of included revision rounds.",
+        ],
+        [
+          "What file format should I provide for my design?",
+          "Vector files are the standard for print production: AI, EPS, or PDF with outlined fonts. For embroidery, supply a 300 DPI minimum PNG or JPG and expect the factory to digitize it into a stitch file. A competent factory flags low-resolution artwork for cleanup. Include Pantone numbers for every color.",
+        ],
+        [
+          "Can you match a specific Pantone color across different fabrics?",
+          "Exact matching across different fabric compositions is not realistic, because cotton, CVC, and polyester absorb dye differently. A capable factory produces a lab dip on your actual production fabric and secures written approval before bulk dyeing. Expect a result inside a stated tolerance rather than a perfect match, and write that tolerance into your spec sheet.",
+        ],
+        [
+          "What's the difference between OEM and ODM for t-shirt manufacturing?",
+          "OEM means you supply the design, tech pack, and specifications, and the factory manufactures to them. ODM means the factory offers existing patterns that you customize with branding and minor modifications. OEM gives full differentiation but needs a complete tech pack and usually a higher MOQ. ODM starts faster and cheaper, though competitors can source the same garment.",
+        ],
+        [
+          "How do you ensure reorder consistency months later?",
+          "Consistency depends on documentation, not memory. Ask whether the factory retains a sealed approval sample, archives lab dips by dye lot, and stores print screens or embroidery files. Confirm how long those records are kept. A factory that can rebuild your fabric, color, and measurements from an archived reference is a long-term partner.",
+        ],
+        [
+          "Do you provide fabric test reports and compliance certificates?",
+          "Capable manufacturers supply fabric composition reports and internal test data, while third-party testing for restricted substances or market-specific compliance is usually arranged at the buyer's cost. Ask before production rather than before shipment, since retroactive testing can delay delivery by weeks. Request the document list your destination market requires.",
+        ],
+        [
+          "What are typical lead times for bulk orders?",
+          "Bulk production commonly runs 30–45 days after sample approval, followed by 25–35 days of sea freight to North America or Europe, plus customs clearance. Door-to-door totals of 8–12 weeks are normal for ocean shipments. Peak season, complex decoration, and custom fabric development extend these windows. Plan backward from your delivery date.",
+        ],
+      ]),
+    ],
+  },
+
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
   "/thank-you/": {

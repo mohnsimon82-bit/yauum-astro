@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/custom-t-shirt-manufacturer-guide/",
+    title: "How to Choose a Custom T-Shirt Manufacturer: A Buyer's Decision Guide",
+    description: "Fabric, GSM, decoration, MOQ, sampling, QC and pricing: an eight-point framework for choosing a custom T-shirt manufacturer",
+    date: "2026-10-12",
+    dateLabel: "October 12, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/where-are-hoodies-manufactured/",
     title: "Where Are Hoodies Manufactured? A Global Manufacturing Map for Brands & Buyers",
     description: "The main hoodie producing countries, what each does best, and a decision framework for matching production location to order profile",

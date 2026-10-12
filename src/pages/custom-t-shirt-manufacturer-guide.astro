@@ -1,0 +1,268 @@
+---
+/**
+ * /custom-t-shirt-manufacturer-guide/ 文章页（内容生产系统流水线第十二篇 · 终稿 · 审核 84）。
+ *
+ * 来源：内容生产系统（Dify）输出 `custom-t-shirt-manufacturer-guide-终稿.md`（2026-10-12）。
+ * 上线前处理（其余正文逐字取自终稿，仅做 markdown→HTML 结构转换）：
+ *   - yauum.com 绝对链接（5 处，站内均不存在）与 #CTA_LINK#（4 处）→ 站内真实页面：
+ *     private label t-shirt manufacturing / small batch → /t-shirt-manufacturer/；
+ *     printing services → /our-services/；contact our team / Get a Sample / Request a Quote ×2 → /contact-us/；
+ *     "private label labeling and packaging" 按审核报告 P1-C 备选去链接（避免与第 1 条同页重复内链）
+ *   - 下载承诺（"Download the full evaluation checklist…Checklist"）→ 改为真实动作引导（站内无资源页）
+ *   - Meta description 删去 "Download our free checklist or"（同上）
+ *   - 禁用词 premium positioning ×2 → high-end positioning
+ *   - 审核报告 P0-B（"Three separate disciplines" 与实际四块内容不符）→ "Four separate disciplines"
+ *   - 审核报告 P0-A（压缩 400–500 词）、P1-A/B（改写加粗标签）、P1-D（Schema ImageObject）未执行（见上传汇报）
+ *   - 段末句号按全站规则剥除；FAQ 可见文本与 seo.ts faqJsonLd 存在"尾句号级"差异（既定口径）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-it-matters", "Why the right factory decides"],
+  ["02", "evaluation-framework", "The 8-point framework"],
+  ["03", "fabric-gsm", "Fabric & GSM"],
+  ["04", "decoration-methods", "Decoration methods"],
+  ["05", "moq-sampling-pricing", "MOQ, sampling & pricing"],
+  ["06", "choosing-by-scenario", "Choosing by scenario"],
+  ["07", "qc-compliance", "QC, compliance & reorder"],
+  ["08", "common-mistakes", "Common mistakes"],
+  ["09", "faq", "FAQ"],
+  ["10", "next-step", "Next step"],
+];
+---
+
+<V2Layout
+  seo={SEO["/custom-t-shirt-manufacturer-guide/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Custom T-Shirt Manufacturer Guide</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>How to Choose a Custom T-Shirt Manufacturer: A Buyer's Decision Guide</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-12">October 12, 2026</time></span>
+      <span class="ar-views" data-views-for="/custom-t-shirt-manufacturer-guide/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">Sourcing a custom T-shirt manufacturer is a risk decision, not a purchasing task. The factory you pick sets your landed cost, decides whether your reorder in six months matches the first run, and determines whether a size M actually fits the customers you sold to. Get it wrong and you absorb the loss quietly, order after order</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <figure class="ar-figure">
+          <img src="/uploads/t-shirt-manufacturer/branding-screen-printing-line.webp" width="1600" height="1067" alt="Custom t-shirt manufacturer production line with finished printed t-shirts" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">From the supplied production environment: printing on the T-shirt production line</figcaption>
+        </figure>
+
+        <p>This guide is for buyers who have already concluded they need a factory rather than a print-on-demand shop. You get an evaluation framework, the technical questions that separate real manufacturers from trading intermediaries, and selection criteria that shift with your order profile. Where numbers matter, we give working ranges and tell you what to lock in writing before the deposit leaves your account. YAUUM Sourcing Team writes from the production side of private-label men's apparel, building T-shirts, hoodies, jackets, pants, sportswear, and streetwear for brands, wholesalers, and e-commerce sellers</p>
+
+        <h2 id="why-it-matters">Why Choosing the Right Custom T-Shirt Manufacturer Decides Your Brand's Future</h2>
+
+        <p>A T-shirt is the cheapest garment to make and the easiest to get wrong. Thin fabric, tight margins, and a customer who notices a collar that twists after three washes or a body length 2cm short of the spec you approved. Two supplier types dominate search results, and they solve different problems</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Dimension</th><th>Retail / Print-on-Demand Platform</th><th>OEM / ODM Factory</th></tr></thead><tbody><tr><td>Order size</td><td>1–100 pieces typical</td><td>MOQ-based, commonly 300–500 pcs/color for cut-and-sew</td></tr><tr><td>Unit cost at scale</td><td>$12–28/pc retail-equivalent</td><td>FOB roughly $2.8–6.5/pc (180gsm combed cotton crew neck, 3,000 pcs)</td></tr><tr><td>Fabric control</td><td>Catalog blanks only</td><td>Custom GSM, blend, yarn count, and finish</td></tr><tr><td>Labeling</td><td>Limited or none</td><td>Woven label, neck label, size label, care label, hang tag</td></tr><tr><td>Lead time</td><td>3–10 days</td><td>Sampling 7–15 days, bulk 30–45 days, sea freight 25–35 days</td></tr></tbody></table></div>
+
+        <p>"Custom" means two different things here. On a platform, it means your artwork on someone else's blank. With a factory, it means the garment itself: 180gsm versus 240gsm, shoulder seam placement, neck rib width at 2cm or 2.5cm, enzyme wash or raw finish. Only the second route builds a product your competitor cannot order from the same catalog page next Tuesday</p>
+
+        <h2 id="evaluation-framework">The 8-Point Evaluation Framework for Vetting a T-Shirt Factory</h2>
+
+        <p>Run every candidate through these eight dimensions and score each one. Any dimension where you cannot get a straight answer counts as a red flag, not a neutral</p>
+
+        <p><strong>1. Fabric capability.</strong> Can they specify fabric by composition, GSM, yarn count, and finish, and send the mill spec sheet? A supplier who answers "cotton, good quality" is a trading company or a ten-machine workshop</p>
+
+        <p><strong>2. Decoration methods.</strong> Screen printing, DTG, heat transfer, and embroidery: which run in-house, and which get subcontracted? In-house breadth gives you a single point of accountability when a print placement drifts 10mm</p>
+
+        <p><strong>3. Sampling process.</strong> Is the sample sewn on the same line as bulk, by the same operators? Is the sample fee credited against bulk? How many revision rounds are included?</p>
+
+        <p><strong>4. MOQ logic.</strong> Ask what drives the minimum: mill fabric quantity, dyehouse lot size, or screen and digitizing setup. The driver tells you where negotiation room exists</p>
+
+        <p><strong>5. Quality control.</strong> What happens at in-line inspection versus final inspection, and do they work to a stated AQL level?</p>
+
+        <p><strong>6. Compliance documentation.</strong> Fabric composition, color fastness, dimensional stability, restricted substances: which reports can they hand over, and which need a third-party lab? Ask now, not when customs holds your container</p>
+
+        <p><strong>7. Communication efficiency.</strong> Response time in hours, ability to read a tech pack without hand-holding, and whether they raise problems during production or after the goods ship</p>
+
+        <p><strong>8. Reorder consistency.</strong> How are approved samples, lab dips, and print screens stored, and for how long? The answer predicts whether order two matches order one</p>
+
+        <p>For reference on what a full in-house scope looks like: YAUUM runs screen print, DTG, heat transfer, and embroidery under one roof, with cut-and-sew tee programs starting at 300 pieces per color</p>
+
+        <p>Want to score candidates side by side? <a href="/contact-us/">Talk to our team</a> with your shortlist</p>
+
+        <h2 id="fabric-gsm">Fabric &amp; GSM: What Your Manufacturer Should Be Able to Tell You</h2>
+
+        <p>Most sourcing arguments start with fabric, because buyer and factory often mean different things by the same word</p>
+
+        <p><strong>100% cotton</strong> delivers the best hand feel and the cleanest print surface, shrinks more, and costs more. <strong>CVC (chief value cotton, typically 60/40 cotton-poly)</strong> trades a little softness for dimensional stability and carries most retail core programs. <strong>TC (poly-cotton, usually 65/35)</strong> is durable and cheap, with a drier hand that buyers either accept or reject immediately. <strong>100% polyester</strong> belongs in performance and sublimation work</p>
+
+        <p>GSM, grams per square meter, is the weight dial:</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Fabric</th><th>Typical GSM</th><th>Best For</th></tr></thead><tbody><tr><td>Lightweight cotton jersey</td><td>140–160</td><td>Summer basics, layering, warm climates</td></tr><tr><td>Standard retail jersey</td><td>170–190</td><td>Year-round core tees, screen print</td></tr><tr><td>Heavyweight jersey</td><td>200–240</td><td>Streetwear, oversized fits, high-end positioning</td></tr><tr><td>French terry (for sweatshirts)</td><td>280–400</td><td>Hoodies and crewnecks, not tees</td></tr></tbody></table></div>
+
+        <p>Write a tolerance into the spec. A ±5% GSM band is normal mill practice, and stating it keeps a 180gsm order from arriving at 165gsm with everyone shrugging</p>
+
+        <p>Pantone matching deserves direct pressure during supplier calls. The same Pantone number reads differently on 100% cotton, CVC, and polyester, because dye uptake varies by fiber. A factory that promises an exact match without dipping your actual fabric is either inexperienced or selling. Require a lab dip on production fabric, approve it in writing, then release bulk dyeing</p>
+
+        <p>On shrinkage and color fastness, ask which test method the factory references and what acceptance criteria it works to. Common targets sit under 5% shrinkage after three home launderings and grade 4 or better on the grey scale, with the exact standard set by your destination market. Our <a href="/t-shirt-manufacturer/">private label t-shirt manufacturing</a> workflow builds these numbers into the spec sheet before sampling starts</p>
+
+        <h2 id="decoration-methods">Printing &amp; Decoration Methods: Screen Print vs DTG vs Heat Transfer vs Embroidery</h2>
+
+        <p>Decoration is a volume-and-durability calculation. Choose wrong and you either overpay per unit or ship a garment that fails in the third wash</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Method</th><th>Best Order Size</th><th>Color Range</th><th>Durability</th><th>Relative Unit Cost</th></tr></thead><tbody><tr><td>Screen print</td><td>100–50,000+ pcs</td><td>1–8 spot colors, plastisol or water-based</td><td>50+ home washes with minimal fade</td><td>$0.40–1.80/pc at 500–3,000 pcs</td></tr><tr><td>DTG (direct to garment)</td><td>1–200 pcs</td><td>Full color, no screen setup</td><td>Holds 25–40 washes, softer hand</td><td>$3.00–8.00/pc</td></tr><tr><td>Heat transfer</td><td>50–2,000 pcs</td><td>Full color, fine gradients</td><td>Cracks at fold lines under heavy wear</td><td>$1.20–3.50/pc</td></tr><tr><td>Embroidery</td><td>50–5,000+ pcs</td><td>Up to 12 thread colors</td><td>Outlasts the garment</td><td>$1.50–4.50/pc, stitch-count driven</td></tr></tbody></table></div>
+
+        <p>Decoration cost moves with artwork size, stitch count, and the number of placements, so a two-placement design never prices like a left-chest logo</p>
+
+        <p>The decision rule is short. Below roughly 100 pieces per design, DTG wins because nobody pays for screens. Above 100 pieces, screen setup amortizes and unit price falls hard; by 500 pieces it is usually the cheapest durable option on the table. Heat transfer covers full-color art at moderate volume where screen counts would get absurd. Embroidery is the default for left-chest logos and high-end positioning, and it pairs cleanly with a screen-printed back graphic</p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="Screen print vs DTG vs heat transfer vs embroidery comparison on t-shirts">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Decoration comparison chart</strong><small>Needed: a chart comparing screen print, DTG, heat transfer and embroidery on volume, durability and unit cost</small></div>
+          </div>
+        </figure>
+
+        <p>Watch for one capability signal. A factory running all four processes in-house can recommend honestly, because no single method pays its rent. If a supplier pushes DTG for a 5,000-piece order, ask what equipment they actually own. Our <a href="/our-services/">custom t-shirt printing services</a> page shows how multi-method work gets scheduled across a single production window</p>
+
+        <h2 id="moq-sampling-pricing">MOQ, Sampling &amp; Pricing Logic: How to Read a Factory Quote</h2>
+
+        <p>MOQ is not a policy. It is the sum of three cost floors: mill fabric minimum, dyehouse lot minimum, and decoration setup covering screens, digitizing, and plates</p>
+
+        <p>That arithmetic explains why MOQ is quoted per color. One color in one fabric might start at 300 pieces. Add a second colorway and the second color carries its own dye minimum, so your commitment doubles while your design count stays at one. It also explains the hesitation you hear when you ask for 100 pieces: the factory is checking whether fabric and dye minimums leave anything resembling margin</p>
+
+        <p>For men's cut-and-sew tees, expect <strong>300–500 pieces per color</strong>, lower on stock fabrics held at the mill, higher on custom-developed constructions. Pin the exact figure for your fabric and colorway before you lock the design</p>
+
+        <p>Sampling runs <strong>7–15 days</strong>, with fees commonly quoted at <strong>$50–150 per style</strong> for a basic tee. Two questions decide whether that fee is fair: does it convert to a credit against bulk, and how many revision rounds are included? A factory confident in its pattern-making offers the credit. One that refuses is telling you something about its sample-to-bulk consistency</p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="Custom t-shirt sampling and bulk production workflow diagram">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Sampling and production flow</strong><small>Needed: a flow from tech pack through sampling approval to bulk cutting, sewing, decoration and packing</small></div>
+          </div>
+        </figure>
+
+        <p>A complete quote itemizes every line below. If one is missing, you are comparing incomplete numbers:</p>
+
+        <ul class="ar-list"><li>Fabric cost per garment, with GSM and composition stated</li><li>Cut, sew, and finishing labor</li><li>Decoration cost by method and placement</li><li>Labeling and packaging: woven label, neck label, care label, hang tag, poly bag, carton</li><li>Sample fee, and whether it is deductible</li><li>MOQ per color and per size</li><li>Production lead time counted from sample approval</li><li>Payment terms and deposit percentage</li><li>Incoterm (FOB, EXW, or CIF) and port of loading</li></ul>
+
+        <p>A quote without an Incoterm is not a quote. It is a number you cannot compare to anything</p>
+
+        <p>Ready to test a factory on a real spec? <a href="/contact-us/">Get a Sample</a></p>
+
+        <h2 id="choosing-by-scenario">Choosing by Scenario: Small Batch, Scaling Brand, Corporate &amp; Cross-Border</h2>
+
+        <p>Your order profile should set your selection weights. The factory that handles a 200-piece test run beautifully is frequently the wrong partner for a 20,000-piece seasonal program</p>
+
+        <h3>Small batch and first-time brand launches</h3>
+
+        <p>Prioritize low MOQ, fast sampling, and willingness to work from reference photos. At this stage you are buying information as much as product: your size curve, sell-through rate, and real cost of goods. Accept the higher unit cost. Factories offering <a href="/t-shirt-manufacturer/">small batch custom t-shirt production</a> that can scale the same style to 5,000 pieces save you a re-sourcing cycle later</p>
+
+        <h3>Scaling brands with repeat programs</h3>
+
+        <p>Reorder consistency, capacity headroom, and planning discipline matter most. The killer is a factory that nails order one and drifts on order three: a different dye lot, a body length 1.5cm off, a rib that feels tighter. Demand a documented sample retention process and an archived lab dip. Bulk typically runs <strong>30–45 days</strong> after sample approval, with <strong>25–35 days</strong> of sea freight on top</p>
+
+        <h3>Corporate, team, and event uniforms</h3>
+
+        <p>Fabric innovation barely matters here; deadline reliability and decoration throughput do. Embroidery and screen print on stock fabrics, with a hard in-hand date and a written contingency plan. Ask whether the factory holds blank inventory or cuts to order, since that single answer moves your lead time by two to three weeks</p>
+
+        <h3>Cross-border e-commerce and private label</h3>
+
+        <p>Packaging, labeling compliance, and per-unit landed cost dominate. You need barcode-ready poly bags, care labels written for the destination market, and carton marks that survive a fulfillment center's receiving dock. That is where private label labeling and packaging pays for itself: every label, tag, sticker, and carton mark specified per project rather than improvised</p>
+
+        <figure class="ar-figure">
+          <img src="/uploads/t-shirt-manufacturer/showroom-tshirt-samples.webp" width="1600" height="1067" alt="Private label custom t-shirts produced for a brand client" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">Finished T-shirt references prepared for review, from the supplied production environment</figcaption>
+        </figure>
+
+        <p>Whichever profile fits, <a href="/contact-us/">Request a Quote</a> with quantity, fabric target, and delivery market, and you get a breakdown you can line up against competing offers</p>
+
+        <h2 id="qc-compliance">Quality Control, Compliance &amp; Reorder Consistency</h2>
+
+        <p>Four separate disciplines, routinely confused with each other</p>
+
+        <p><strong>Factory audit.</strong> Before bulk, verify the facility exists and operates as described. A basic audit covers the production floor, machinery inventory, worker count, and whether the processes you are paying for actually sit under that roof. A supplier who refuses a live video walkthrough or a third-party audit has answered your question</p>
+
+        <p>Final random inspection runs against a stated AQL level, commonly 2.5 for major and 4.0 for minor defects on apparel. Your inspector measures against the approved size spec, then checks workmanship, decoration placement, labeling, and packing. Schedule inspection before the balance payment, because after payment your leverage is gone</p>
+
+        <p>Compliance requirements follow the destination market. Typical asks include fabric composition reports, color fastness results, shrinkage data, and restricted substances testing. Clarify which reports the factory supplies directly and which require an outside lab at your cost, and do it before production starts. Retroactive testing has delayed more shipments than any sewing problem</p>
+
+        <figure class="ar-figure">
+          <img src="/uploads/t-shirt-manufacturer/quality-finishing-ironing.webp" width="1600" height="1199" alt="Quality control inspection of custom t-shirts at the factory" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">Finishing and final check before packing, from the supplied production environment</figcaption>
+        </figure>
+
+        <p>Reorder consistency is the metric that decides long-term partnerships. Ask three specific questions: how are approved samples stored, how long are they retained, and are lab dips archived by dye lot? A factory holding a sealed approval sample and a reference lab dip can rebuild your order 14 months later. A factory running on memory cannot, and you will see it in the third shipment</p>
+
+        <h2 id="common-mistakes">Common Mistakes Buyers Make When Sourcing Custom T-Shirts</h2>
+
+        <p><strong>Comparing unit price without comparing scope.</strong> A $3.20 quote and a $4.10 quote are not comparable when one excludes labeling, packaging, and inland freight. Normalize to the same Incoterm and bill of materials first</p>
+
+        <p><strong>Skipping the pre-production sample.</strong> Verbal and reference-photo approvals produce disputes. Approve a physical garment, sign the tag, and leave one sealed copy with the factory</p>
+
+        <p>A sample also proves less than buyers assume. One garment sewn by a senior pattern maker shows the pattern works; it says nothing about 3,000 pieces off a line of 40 operators. Ask whether sampling and bulk run on the same line</p>
+
+        <p>Lead time gets underestimated more than any other variable. Production plus freight plus clearance routinely totals <strong>8–12 weeks</strong> door to door, and buyers who planned for 30 days end up paying air freight that wipes out their negotiated savings</p>
+
+        <p>Capacity conflicts cause the rest of the slippage. If your order lands in the factory's peak season, your date moves. Ask what else occupies the line during your production window, and whose order gets priority</p>
+
+        <p><strong>Treating slow replies as a minor annoyance.</strong> A supplier taking four days to answer a pre-sales question will take longer once your deposit has cleared. Response time is the cheapest leading indicator available</p>
+
+        <h2 id="faq">FAQ: Custom T-Shirt Manufacturer Questions Buyers Ask Most</h2>
+
+          <details class="ar-faq-item" open><summary><h3>What is the MOQ for custom t-shirts?</h3></summary><p>For men's cut-and-sew T-shirts, MOQ commonly falls in the 300–500 pieces per color range, driven by mill fabric and dye-lot minimums rather than factory policy. Stock fabrics allow lower thresholds; custom-developed fabrics push MOQ higher. Confirm MOQ per color and per size before finalizing your design, because a second colorway can double your commitment</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How long does sampling take, and is the sample fee refundable?</h3></summary><p>Sampling typically runs 7–15 days depending on fabric availability and decoration complexity, with fees commonly quoted between $50 and $150 per basic style. Whether that fee is credited against bulk varies by factory and order size. Ask before you pay, and get the answer in writing along with the number of included revision rounds</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What file format should I provide for my design?</h3></summary><p>Vector files are the standard for print production: AI, EPS, or PDF with outlined fonts. For embroidery, supply a 300 DPI minimum PNG or JPG and expect the factory to digitize it into a stitch file. A competent factory flags low-resolution artwork for cleanup. Include Pantone numbers for every color</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Can you match a specific Pantone color across different fabrics?</h3></summary><p>Exact matching across different fabric compositions is not realistic, because cotton, CVC, and polyester absorb dye differently. A capable factory produces a lab dip on your actual production fabric and secures written approval before bulk dyeing. Expect a result inside a stated tolerance rather than a perfect match, and write that tolerance into your spec sheet</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What's the difference between OEM and ODM for t-shirt manufacturing?</h3></summary><p>OEM means you supply the design, tech pack, and specifications, and the factory manufactures to them. ODM means the factory offers existing patterns that you customize with branding and minor modifications. OEM gives full differentiation but needs a complete tech pack and usually a higher MOQ. ODM starts faster and cheaper, though competitors can source the same garment</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How do you ensure reorder consistency months later?</h3></summary><p>Consistency depends on documentation, not memory. Ask whether the factory retains a sealed approval sample, archives lab dips by dye lot, and stores print screens or embroidery files. Confirm how long those records are kept. A factory that can rebuild your fabric, color, and measurements from an archived reference is a long-term partner</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Do you provide fabric test reports and compliance certificates?</h3></summary><p>Capable manufacturers supply fabric composition reports and internal test data, while third-party testing for restricted substances or market-specific compliance is usually arranged at the buyer's cost. Ask before production rather than before shipment, since retroactive testing can delay delivery by weeks. Request the document list your destination market requires</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What are typical lead times for bulk orders?</h3></summary><p>Bulk production commonly runs 30–45 days after sample approval, followed by 25–35 days of sea freight to North America or Europe, plus customs clearance. Door-to-door totals of 8–12 weeks are normal for ocean shipments. Peak season, complex decoration, and custom fabric development extend these windows. Plan backward from your delivery date</p></details>
+
+        <h2 id="next-step">Next Step: Request a Quote or Get a Sample</h2>
+
+        <p>A framework only earns its keep when you point it at real candidates. Score two or three factories against the eight dimensions, request a lab dip on your actual fabric, and ask the reorder-consistency question before any deposit moves</p>
+
+        <p>Projects at YAUUM start from a tech pack, reference photos, a physical sample, or nothing more than a target fabric and quantity. We confirm materials and construction details, produce and review the sample with you, then move to bulk with inspection, folding, packing, and shipping preparation</p>
+
+        <p>Send your spec and target delivery date, and we return a quotation with MOQ, lead time, and Incoterm stated so you can compare it against anything else on your desk. Quotations return within one business day. <a href="/contact-us/">Request a Quote</a> or <a href="/contact-us/">contact our team</a> to start with a sample</p>
+
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="T-Shirts"
+    kicker="Start an inquiry"
+    title="Send the T-Shirt Spec That Deserves a Real Quote"
+    lead="Quantity, fabric target, decoration direction, and delivery market: the inputs this guide uses to compare factory quotes side by side"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>
