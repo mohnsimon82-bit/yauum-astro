@@ -1345,6 +1345,73 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十三篇（2026-10-12, top-10-t-shirt-manufacturers-china）。
+  // 审核 79 分；红线通过、FAQ 逐字一致；P0-2 年份（2025→2026）已执行；P0-1（压缩 550 词）未执行（照发，见汇报）。
+  // 上线处理：4 内链 + 5 CTA 映射；"supplier shortlist"/"audit checklist" 口径改写；premium ×3 → high-end。
+  "/top-10-t-shirt-manufacturers-china/": {
+    title: "Top 10 T-Shirt Manufacturers in China (2026 Guide) | Yauum",
+    description:
+      "Compare the top 10 t-shirt manufacturers in China by MOQ, certifications & capacity. Use our 7-point framework to pick the right partner. Get a free quote",
+    path: "/top-10-t-shirt-manufacturers-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/t-shirt-manufacturer/process-sewing-line.webp"),
+    ogImageAlt: "T-shirt sewing line in a Chinese garment factory",
+    ogImageWidth: 1600,
+    ogImageHeight: 1067,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 T-Shirt Manufacturers in China", "/top-10-t-shirt-manufacturers-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 T-Shirt Manufacturers in China: How to Choose the Right Partner (2026 Guide)",
+        description:
+          "Compare the top 10 t-shirt manufacturers in China by MOQ, certifications & capacity. Use our 7-point framework to pick the right partner. Get a free quote",
+        path: "/top-10-t-shirt-manufacturers-china/",
+        image: "/uploads/t-shirt-manufacturer/process-sewing-line.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-12T00:00:00+08:00",
+        dateModified: "2026-10-12T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for t-shirt manufacturing in China?",
+          "MOQ varies by factory type. Large vertically integrated manufacturers often require several thousand pieces per style, while specialized workshops and flexible suppliers commonly start around 300–500 pieces per color. Fabric choice and decoration method can raise the minimum. Always confirm MOQ per color, per style, and per fabric, since those three numbers often differ.",
+        ],
+        [
+          "How long does it take to manufacture custom t-shirts in China?",
+          "Typical timelines run 7–14 days for sampling, 30–45 days for bulk production after sample approval, and 25–35 days for sea freight to the US or EU. Air freight cuts shipping to roughly 5–10 days at higher cost. Peak season, around August to October, can add one to two weeks. These are common market ranges, so confirm against your specific order.",
+        ],
+        [
+          "How much does it cost to manufacture t-shirts in China?",
+          "FOB pricing commonly falls around $2.8–6.5 per piece for a 180gsm combed cotton crew neck at a 3,000-piece order, depending on fabric, decoration, and construction. Organic cotton, heavyweight fleece, and complex printing push the upper end. These are industry reference ranges, so request a live quote for your exact spec.",
+        ],
+        [
+          "What certifications should a Chinese t-shirt manufacturer have?",
+          "It depends on your market. For EU and US retail, buyers typically look for social compliance audits such as BSCI or WRAP, a quality management certification such as ISO 9001, and chemical safety certification such as OEKO-TEX for the finished fabric. No single certificate covers everything, so match the documentation to your channel's requirements.",
+        ],
+        [
+          "Can I get samples before placing a bulk order?",
+          "Yes, and you should. Most manufacturers provide paid samples, with costs often credited against the bulk order. Sampling typically takes 7–14 days. Treat the sample as a quality test, not a formality, and evaluate fabric weight, stitching, print durability, and measurements against your spec.",
+        ],
+        [
+          "What's the difference between OEM and ODM for t-shirts?",
+          "OEM means you supply the design, tech pack, and specifications, and the factory manufactures to your spec. ODM means the factory offers existing designs and patterns that you brand as your own. OEM gives you control and exclusivity; ODM gives you speed and lower development cost. Confirm pattern ownership before choosing ODM.",
+        ],
+        [
+          "How do I verify a t-shirt manufacturer is legitimate?",
+          "Verify certificate numbers on the issuing body's registry, request a live video walkthrough of the production floor, run a small trial order, and book third-party inspection for bulk. Also confirm whether production is in-house or subcontracted. Legitimate factories answer these requests directly.",
+        ],
+        [
+          "Do Chinese t-shirt manufacturers ship internationally?",
+          "Most established manufacturers and exporters ship worldwide, quoting FOB, CIF, or DDP depending on your preference. They typically work with freight forwarders for sea, air, and express shipping. Confirm which incoterms they quote and who handles customs documentation before you finalize terms.",
+        ],
+      ]),
+    ],
+  },
+
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
   "/thank-you/": {

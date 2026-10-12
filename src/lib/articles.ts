@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-t-shirt-manufacturers-china/",
+    title: "Top 10 T-Shirt Manufacturers in China: How to Choose the Right Partner (2026 Guide)",
+    description: "Ten manufacturers ranked by buyer profile, plus the seven-point framework and verification sequence for choosing a T-shirt factory in China",
+    date: "2026-10-12",
+    dateLabel: "October 12, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/custom-t-shirt-manufacturer-guide/",
     title: "How to Choose a Custom T-Shirt Manufacturer: A Buyer's Decision Guide",
     description: "Fabric, GSM, decoration, MOQ, sampling, QC and pricing: an eight-point framework for choosing a custom T-shirt manufacturer",

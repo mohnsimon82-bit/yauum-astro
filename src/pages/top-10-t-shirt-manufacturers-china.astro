@@ -1,0 +1,286 @@
+---
+/**
+ * /top-10-t-shirt-manufacturers-china/ 文章页（内容生产系统流水线第十三篇 · 终稿 · 审核 79）。
+ *
+ * 来源：内容生产系统（Dify）输出 `top-10-t-shirt-manufacturers-in-china-终稿.md`（2026-10-12）。
+ * 上线前处理（其余正文逐字取自终稿，仅做 markdown→HTML 结构转换）：
+ *   - 标题年份 (2025 Guide) → (2026 Guide)：H1 与 seo.ts 的 headline/title（审核报告 P0-2）
+ *   - #INTERNAL_LINK#（4）→ /our-services/、/t-shirt-manufacturer/×2、/custom-t-shirt-manufacturer-guide/（新发文章）
+ *   - #CTA_LINK#（5）→ /contact-us/；其中两处按口径最小改写：
+ *     "Get a personalized supplier shortlist" → "Get a personalized production review"（避免代理口径，
+ *     第四篇先例）；"Request a factory audit checklist"（文档下载承诺，站内无资源）→ 改为真实动作引导
+ *   - 口径：正文 "YAUUM is a B2B menswear supplier" → "manufacturer"；对比表 "multi-region sourcing" → "multi-region production"
+ *   - 禁用词：Premium ×3（H3/正文/表格）→ High-End / the higher price
+ *   - 审核报告 P0-1（压缩约 550 词）、P1-4~8（认证列改写/收尾句去模板/Factory 1 合规段/CTA 编号/企业名）
+ *     未执行（见上传汇报）；P0-3（Schema publisher.url）由本站 seo.ts 模板天然满足
+ *   - 实名榜单按第七/八篇先例处理：本篇无 Website 列，无需域名核验；工厂描述均为公开常识级信息
+ *   - 段末句号按全站规则剥除；FAQ 可见文本与 seo.ts faqJsonLd 存在"尾句号级"差异（既定口径）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-china-leads", "Why China still leads"],
+  ["02", "seven-point-framework", "The 7-point framework"],
+  ["03", "top-10", "The ten manufacturers"],
+  ["04", "comparison-table", "Comparison table"],
+  ["05", "batch-vs-bulk", "Small batch vs bulk vs ODM"],
+  ["06", "common-mistakes", "Common mistakes"],
+  ["07", "verification", "Verifying a manufacturer"],
+  ["08", "faq", "FAQ"],
+  ["09", "next-step", "Next step"],
+];
+---
+
+<V2Layout
+  seo={SEO["/top-10-t-shirt-manufacturers-china/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Top 10 T-Shirt Manufacturers in China</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>Top 10 T-Shirt Manufacturers in China: How to Choose the Right Partner (2026 Guide)</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-12">October 12, 2026</time></span>
+      <span class="ar-views" data-views-for="/top-10-t-shirt-manufacturers-china/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">China's apparel export machine doesn't slow down for headlines about rising labor costs or shifting supply chains. It remains the single largest apparel exporter by value, and knit T-shirts sit near the center of that volume. So if you're a brand owner in Los Angeles or a sourcing manager in Rotterdam, the real question was never whether to produce in China. It's which factory, at what MOQ, with which compliance paperwork, and how fast</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <figure class="ar-figure">
+          <img src="/uploads/t-shirt-manufacturer/process-sewing-line.webp" width="1600" height="1067" alt="T-shirt manufacturing factory production line in China" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">From the supplied production environment: a T-shirt sewing line</figcaption>
+        </figure>
+
+        <p>This guide answers that. We review ten manufacturers positioned for different buyer profiles, then hand you the seven-point framework our sourcing team runs on every new factory. Use the list as a shortlist. Keep the framework</p>
+
+        <h2 id="why-china-leads">Why China Still Leads Global T-Shirt Manufacturing</h2>
+
+        <p>Three structural advantages hold, and none of them is cheap labor</p>
+
+        <p><strong>Fabric supply density.</strong> Combed ring-spun jersey, slub, interlock, poly-spandex performance blends: most of it is milled within a few hundred kilometers of the sewing floors that consume it. That proximity is why a 400-piece lab dip run on a 180gsm jersey is even possible. Elsewhere, the mill won't open a dye lot that small</p>
+
+        <p><strong>Vertical integration.</strong> A single industrial zone in Guangdong can cover spinning, dyeing, cutting, sewing, screen printing, embroidery, and packing. Move a chest print 2cm and nobody waits three weeks for blanks from a third country</p>
+
+        <p><strong>Export logistics maturity.</strong> Shenzhen, Ningbo, and Shanghai sail apparel containers on fixed weekly schedules, and the forwarders there already know how a knit-garment commercial invoice, packing list, and certificate of origin need to read for US and EU customs</p>
+
+        <p>For buyers, that adds up to MOQs stretching from a few hundred pieces per color to tens of thousands, production cycles that fit a seasonal calendar, and FOB pricing that still wins on a landed-cost basis once rework and rejection rates are priced in</p>
+
+        <h2 id="seven-point-framework">How We Evaluated These T-Shirt Manufacturers (Our 7-Point Framework)</h2>
+
+        <p>Every factory below was scored against seven criteria. Reuse the checklist on any supplier you find yourself</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Evaluation Dimension</th><th>Why It Matters</th><th>How to Verify</th></tr></thead><tbody><tr><td>Certifications &amp; compliance</td><td>Determines whether you can sell into EU/US retail and whether your brand carries social-audit risk</td><td>Request certificate numbers, check them on the issuing body's public registry</td></tr><tr><td>MOQ flexibility</td><td>Mismatched MOQ is one of the most common reasons small brands get rejected or over-order</td><td>Ask for MOQ per color, per style, and per fabric</td></tr><tr><td>Sampling capability</td><td>Sample quality predicts bulk quality more reliably than any sales pitch</td><td>Order a paid sample and time the turnaround</td></tr><tr><td>Production capacity</td><td>Capacity determines whether your reorder ships on schedule</td><td>Ask for monthly output by category, not a single total</td></tr><tr><td>OEM/ODM capability</td><td>ODM shortens development; OEM protects your exact spec</td><td>Confirm who owns the pattern and who develops the fit</td></tr><tr><td>Export experience</td><td>Experienced exporters handle documentation and inspection without hand-holding</td><td>Ask which markets they ship to and which incoterms they quote</td></tr><tr><td>Communication responsiveness</td><td>Time-zone friction kills projects more often than price</td><td>Send a technical question and measure reply quality, not just speed</td></tr></tbody></table></div>
+
+        <p>Run them in that order. Compliance and MOQ eliminate most mismatches before you've spent a dollar on sampling</p>
+
+        <p>A word on certificates, because buyers mix these up constantly. BSCI and WRAP are social audits covering labor conditions and working hours. ISO 9001 certifies a quality management system, not the garment. OEKO-TEX STANDARD 100 covers chemical residues in the finished textile, tested against limit values for substances such as formaldehyde and azo dyes. A factory holding one and not the others is normal, not a red flag. For a plain-language breakdown before you start requesting documents, read our guide to <a href="/our-services/">apparel compliance certifications explained</a></p>
+
+        <p>Unsure which criteria carry the most weight for your order? <a href="/contact-us/">Talk to our sourcing team</a> and we'll name the three dimensions that matter at your volume and in your target market</p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="7-point framework for evaluating t-shirt manufacturers in China">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Evaluation framework visual</strong><small>Needed: a visual laying out the seven evaluation dimensions used in this guide</small></div>
+          </div>
+        </figure>
+
+        <h2 id="top-10">Top 10 T-Shirt Manufacturers in China (Reviewed)</h2>
+
+        <p>The ten below sit at different points on the spectrum: small-batch specialists, high-volume knit exporters, and ODM-led developers. Profiles draw on published company information and our own sourcing work. Pull current MOQ, pricing, and certificate status from each factory before you commit</p>
+
+        <h3>1. YAUUM – Best for Private-Label and Streetwear Programs</h3>
+
+        <p>YAUUM is a B2B menswear manufacturer built around private-label and streetwear buyers: apparel brands, wholesalers, retailers, e-commerce sellers, and in-house sourcing teams. Six core categories run through the same workflow, hoodies, T-shirts, jackets, pants, sportswear, and streetwear</p>
+
+        <p><strong>Core Strengths &amp; Capabilities</strong></p>
+
+        <p>T-shirt programs sit alongside hoodie and streetwear production, which matters when you want a coordinated capsule instead of one orphan SKU. The <a href="/t-shirt-manufacturer/">custom t-shirt manufacturing services</a> intake starts from a tech pack, reference photos, physical samples, target fabric, size range, label artwork, quantity, packaging spec, and destination market. Private-label detailing covers woven labels, neck and size labels, care labels, hang tags, stickers, barcodes, poly bags, and carton marks, all specified per project rather than forced into a house template</p>
+
+        <p><strong>Certifications &amp; Compliance</strong></p>
+
+        <p>Documentation is assembled per project against the destination market. Buyers shipping into EU or US retail should name the exact audit and chemical-safety certificates their channel requires at RFQ stage, not after sample approval</p>
+
+        <p><strong>MOQ, Lead Time &amp; Capacity</strong></p>
+
+        <p>MOQ and lead time are quoted per project, because fabric choice and decoration method drive both. For calibration: T-shirt MOQ in this segment typically lands at 300–500 pieces per color, sampling runs 7–14 days, bulk production 30–45 days, sea freight another 25–35 days. Treat those as planning ranges and check them against a live quote</p>
+
+        <p><strong>Who It's Best For</strong></p>
+
+        <p>Brands that want one supplier across T-shirts, hoodies, and streetwear, plus buyers who need private-label trim and packaging handled end to end</p>
+
+        <h3>2. Shenzhou International Group – Best for Large-Scale Knit Production</h3>
+
+        <p>Vertically integrated knitwear at the top of the Chinese market, running knitting through sewing inside one operational system and supplying major international sportswear labels. Minimums run into the multiple thousands per style, negotiated by contract. If your seasonal buy is forecast a year out and measured in containers, this is the tier that holds tolerance across it</p>
+
+        <h3>3. Esquel Group – Best for High-End Cotton and Vertical Integration</h3>
+
+        <p>A cotton specialist integrated from yarn to finished garment, which is where hand-feel and fiber traceability actually come from. Mid-to-large volume only, so startup quantities won't clear the threshold. Is cotton provenance part of your retail story? Then the higher price buys something your customer can be told about</p>
+
+        <h3>4. Luen Thai Holdings – Best for Full-Service Apparel Programs</h3>
+
+        <p>Hong Kong-headquartered with production spread across several Asian countries, bundling design support, sourcing, manufacturing, and logistics into one contract. Mid-to-large volume on negotiated terms, with lead time shifting depending on which site in the network builds the order. Brands tired of coordinating six suppliers across four categories tend to end up at this model</p>
+
+        <h3>5. TAL Apparel – Best for Technical and Performance Knits</h3>
+
+        <p>An engineering-led manufacturer with a long shirt and knitwear history, strong on seam construction, performance fabrics, and tolerance tables. Volume-oriented, suited to buyers working from an established demand forecast. The more technical your tech pack, the shorter the conversation gets</p>
+
+        <h3>6. Youngor Group – Best for Integrated Vertical Manufacturing</h3>
+
+        <p>A large integrated textile and garment enterprise where fabric and garment sit inside the same company, which shows up as color consistency on repeat orders rather than as a line on a brochure. Medium and large volume; small startup runs are not the model. Reordering the same shade three seasons running is the scenario this suits</p>
+
+        <h3>7. Bosideng International – Best for Outerwear-Adjacent Knit Programs</h3>
+
+        <p>Best known for down outerwear, with the seasonal collection infrastructure to carry knit tops alongside it. Volume-oriented and negotiated per program. Worth approaching when your tee line is one component of a wider range, less so when it is the whole order</p>
+
+        <h3>8. Ever-Glory International Group – Best for Mid-Volume Export Programs</h3>
+
+        <p>A Nanjing-based listed apparel OEM/ODM exporter with long-running experience shipping into Europe, the US, and Japan. Mid-volume minimums, and lead times that fit standard seasonal planning. Think of it as the middle ground between a twenty-machine workshop and a mega-factory that never answers your email</p>
+
+        <h3>9. Jiangsu Hongdou – Best for Cost-Efficient Bulk Basics</h3>
+
+        <p>An established Chinese apparel enterprise with broad capacity in basic knitwear, where unit economics rather than development support make the case. Bulk-oriented minimums. Buyers whose margin model lives or dies on cost per piece will see the logic immediately; everyone else should look higher up this list</p>
+
+        <h3>10. Smaller Specialized Knit Workshops (Guangdong &amp; Zhejiang Clusters) – Best for Low MOQ and Fast Sampling</h3>
+
+        <p>Past the named manufacturers, Guangdong and Zhejiang host hundreds of specialized knit workshops serving small brands, DTC sellers, and Amazon FBA operators</p>
+
+        <p><strong>Core Strengths &amp; Capabilities</strong></p>
+
+        <p>Low MOQ, fast sampling, and genuine flexibility on decoration, screen print, DTG, puff print, embroidery. You trade away vertical integration and consistent compliance maturity to get it</p>
+
+        <p><strong>Certifications &amp; Compliance</strong></p>
+
+        <p>Wildly variable. Some hold valid social audits, many hold none. Verification matters more here than anywhere else on this list</p>
+
+        <p><strong>MOQ, Lead Time &amp; Capacity</strong></p>
+
+        <p>Minimums often start in the low hundreds per color. Sampling is quick, bulk scheduling is less predictable, especially from August through October</p>
+
+        <p><strong>Who It's Best For</strong></p>
+
+        <p>Startups, DTC brands, and buyers testing designs before scaling. For low-minimum runs with full private-label detailing, see our <a href="/custom-t-shirt-manufacturer-guide/">low MOQ t-shirt manufacturing</a> options</p>
+
+        <h2 id="comparison-table">Quick Comparison Table: Top 10 T-Shirt Manufacturers at a Glance</h2>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Manufacturer</th><th>Location</th><th>Certifications (verify current)</th><th>Typical MOQ Range</th><th>Best Category Fit</th><th>Buyer Scale</th></tr></thead><tbody><tr><td>YAUUM</td><td>China (multi-region production)</td><td>Project-specific, market-based</td><td>300–500 pcs/color</td><td>T-shirts, hoodies, streetwear</td><td>Small to mid</td></tr><tr><td>Shenzhou International</td><td>Zhejiang / multi-site</td><td>Multiple social &amp; quality</td><td>Multi-thousand pcs/style</td><td>Knitwear, sportswear</td><td>Large</td></tr><tr><td>Esquel Group</td><td>Multi-region</td><td>Broad social &amp; chemical</td><td>Mid-to-large volume</td><td>High-end cotton knits</td><td>Mid to large</td></tr><tr><td>Luen Thai Holdings</td><td>Multi-country</td><td>Social compliance</td><td>Mid-to-large volume</td><td>Multi-category apparel</td><td>Mid to large</td></tr><tr><td>TAL Apparel</td><td>Multi-region</td><td>Social &amp; quality</td><td>Volume-based</td><td>Technical knits</td><td>Large</td></tr><tr><td>Youngor Group</td><td>Zhejiang / multi-site</td><td>Recognized certifications</td><td>Mid-to-large volume</td><td>Integrated knit &amp; woven</td><td>Mid to large</td></tr><tr><td>Bosideng International</td><td>Multi-region</td><td>Relevant certifications</td><td>Volume-based</td><td>Seasonal collections</td><td>Mid to large</td></tr><tr><td>Ever-Glory International</td><td>Jiangsu (Nanjing)</td><td>Export-relevant</td><td>Mid-volume</td><td>Knit &amp; woven basics</td><td>Mid</td></tr><tr><td>Jiangsu Hongdou</td><td>Jiangsu</td><td>Recognized certifications</td><td>Bulk-oriented</td><td>Basic knitwear</td><td>Large</td></tr><tr><td>Specialized knit workshops</td><td>Guangdong / Zhejiang</td><td>Varies widely</td><td>Low hundreds pcs/color</td><td>Custom &amp; decorated tees</td><td>Small</td></tr></tbody></table></div>
+
+        <p>MOQ, lead time, and pricing figures above are common market ranges. Lock them against a live quote before you place an order</p>
+
+        <p>Want a plan built around your volume and target market rather than a generic ranking? <a href="/contact-us/">Get a personalized production review</a></p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="Map of top 10 t-shirt manufacturers across China">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>China manufacturer map</strong><small>Needed: a map showing where the reviewed manufacturers are based across China</small></div>
+          </div>
+        </figure>
+
+        <h2 id="batch-vs-bulk">Small Batch vs. Bulk vs. ODM: Which Type of Manufacturer Do You Need?</h2>
+
+        <p>Most sourcing frustration traces back to a scale mismatch, not a bad factory. Match the manufacturer type to your real order profile</p>
+
+        <p><strong>Small batch, roughly 100–500 pieces per color.</strong> You're testing designs, validating demand, or running a DTC drop. Weight sampling speed, low minimums, and decoration flexibility above unit cost, because you will pay more per piece and that's fine. Two failure modes dominate: approaching a mega-factory and getting ignored, or ordering 2,000 pieces to hit a MOQ when your sell-through supports 400. <a href="/t-shirt-manufacturer/">Private label t-shirt manufacturing</a> with low minimums is the right entry point at this stage</p>
+
+        <p><strong>Mid to bulk, roughly 1,000–10,000+ pieces per style.</strong> Demand is proven and you now need cost efficiency and schedule reliability. Weight capacity, compliance documentation, and reorder consistency. The trap is taking the lowest quote and discovering at 5,000 pieces that the factory can't repeat the sample, usually showing up as a half-size drift in body length or a shade shift between dye lots</p>
+
+        <p><strong>ODM, where the factory develops design and patterns.</strong> You want speed to market and you're willing to build on the factory's existing blocks. Weight design capability, pattern ownership terms, and exclusivity. Buyers routinely assume ODM means they own the design. They often don't. Get pattern ownership, and whether the style can be sold to a competitor, in writing before you approve the sample</p>
+
+        <p>A working rule: under 500 pieces per color, skip the vertically integrated mega-factory. Over 5,000, don't run a small workshop without third-party inspection booked</p>
+
+        <h2 id="common-mistakes">Common Mistakes When Sourcing T-Shirts from China (And How to Avoid Them)</h2>
+
+        <p>These surface in nearly every sourcing conversation we have</p>
+
+        <p><strong>Chasing the lowest unit price.</strong> A quote that undercuts the field by 20% is usually hiding something specific: 160gsm fabric instead of 180gsm, lower stitch density, single-needle hems where you specified double, or a subcontracted sewing floor nobody told you about. Normalize every quote to identical fabric weight and construction, or you're comparing two different garments. The same mistake shows up at the other end of the deal, when FOB gets treated as landed cost. Sea freight, insurance, duty, brokerage, and last-mile delivery all land on top before you set a retail price</p>
+
+        <p><strong>Skipping the paid sample and leaving GSM out of the brief.</strong> "Cotton T-shirt" specifies nothing. A 180gsm combed ring-spun crew neck and a 140gsm carded jersey are different products at different prices and different retail positions. Fix the spec first, then pay for a sample and judge the garment in your hands rather than the photo in the chat window. A factory that can't nail the sample won't nail the bulk</p>
+
+        <p><strong>Misreading certification scope.</strong> A valid BSCI audit says nothing about chemical residues in your fabric. Match each certificate to what your selling channel actually asks for</p>
+
+        <p><strong>Running on verbal agreements.</strong> MOQ, lead time, measurement tolerance, payment terms, AQL level: put all of it on paper. A one-page PO with clear specs prevents the large majority of disputes we see</p>
+
+        <h2 id="verification">How to Verify a T-Shirt Manufacturer Before You Order</h2>
+
+        <p>Verification is a sequence, not a gut feeling. Work it in this order</p>
+
+        <ol class="ar-list"><li><strong>Request certificate numbers, not certificate images.</strong> Take the number to the issuing body's public registry and check it there. Images get edited; registry entries don't</li><li><strong>Ask for a live video walkthrough.</strong> A scheduled call panning across the sewing floor, cutting tables, and QC station tells you more in ten minutes than a photo gallery ever will</li><li><strong>Run a trial order.</strong> Produce 100–300 pieces before you commit to the full run. This is how you learn the real lead time, the real defect rate, and how they behave when something goes wrong</li><li><strong>Book pre-shipment inspection.</strong> For bulk, a recognized third-party agency inspecting against your AQL catches defects while the goods are still in China</li><li><strong>Establish who actually sews the order.</strong> Plenty of suppliers broker production out. Ask whether it's in-house or outsourced, and ask early</li></ol>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="Step-by-step factory verification process for t-shirt sourcing">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Verification flow</strong><small>Needed: the five-step verification flow from certificate registry checks to pre-shipment inspection</small></div>
+          </div>
+        </figure>
+
+        <p>Want to run this sequence on a live RFQ? <a href="/contact-us/">Talk to our team</a> and we will walk the verification steps with you</p>
+
+        <h2 id="faq">FAQ: Sourcing T-Shirts from China</h2>
+
+          <details class="ar-faq-item" open><summary><h3>What is the MOQ for t-shirt manufacturing in China?</h3></summary><p>MOQ varies by factory type. Large vertically integrated manufacturers often require several thousand pieces per style, while specialized workshops and flexible suppliers commonly start around 300–500 pieces per color. Fabric choice and decoration method can raise the minimum. Always confirm MOQ per color, per style, and per fabric, since those three numbers often differ</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How long does it take to manufacture custom t-shirts in China?</h3></summary><p>Typical timelines run 7–14 days for sampling, 30–45 days for bulk production after sample approval, and 25–35 days for sea freight to the US or EU. Air freight cuts shipping to roughly 5–10 days at higher cost. Peak season, around August to October, can add one to two weeks. These are common market ranges, so confirm against your specific order</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How much does it cost to manufacture t-shirts in China?</h3></summary><p>FOB pricing commonly falls around $2.8–6.5 per piece for a 180gsm combed cotton crew neck at a 3,000-piece order, depending on fabric, decoration, and construction. Organic cotton, heavyweight fleece, and complex printing push the upper end. These are industry reference ranges, so request a live quote for your exact spec</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What certifications should a Chinese t-shirt manufacturer have?</h3></summary><p>It depends on your market. For EU and US retail, buyers typically look for social compliance audits such as BSCI or WRAP, a quality management certification such as ISO 9001, and chemical safety certification such as OEKO-TEX for the finished fabric. No single certificate covers everything, so match the documentation to your channel's requirements</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Can I get samples before placing a bulk order?</h3></summary><p>Yes, and you should. Most manufacturers provide paid samples, with costs often credited against the bulk order. Sampling typically takes 7–14 days. Treat the sample as a quality test, not a formality, and evaluate fabric weight, stitching, print durability, and measurements against your spec</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What's the difference between OEM and ODM for t-shirts?</h3></summary><p>OEM means you supply the design, tech pack, and specifications, and the factory manufactures to your spec. ODM means the factory offers existing designs and patterns that you brand as your own. OEM gives you control and exclusivity; ODM gives you speed and lower development cost. Confirm pattern ownership before choosing ODM</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How do I verify a t-shirt manufacturer is legitimate?</h3></summary><p>Verify certificate numbers on the issuing body's registry, request a live video walkthrough of the production floor, run a small trial order, and book third-party inspection for bulk. Also confirm whether production is in-house or subcontracted. Legitimate factories answer these requests directly</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Do Chinese t-shirt manufacturers ship internationally?</h3></summary><p>Most established manufacturers and exporters ship worldwide, quoting FOB, CIF, or DDP depending on your preference. They typically work with freight forwarders for sea, air, and express shipping. Confirm which incoterms they quote and who handles customs documentation before you finalize terms</p></details>
+
+        <h2 id="next-step">Need Help Choosing the Right T-Shirt Manufacturer?</h2>
+
+        <p>The list gives you a shortlist. The framework gives you a way to evaluate anyone on it, or anyone you find on your own. Neither one can stand on the floor, measure the sample against your tech pack, and catch the problem before the container seals</p>
+
+        <p>That's our job. YAUUM works with B2B menswear buyers across T-shirts, hoodies, jackets, pants, sportswear, and streetwear, from tech pack review through sampling, bulk production, inspection, and export documentation. We match factory capability to your volume, pull the compliance documents your channel requires, and keep the timeline honest instead of optimistic</p>
+
+        <p>Send us the tech pack, reference samples, target fabric, size range, and your delivery deadline. We'll tell you what's realistic and what isn't</p>
+
+        <p><a href="/contact-us/">Request a Free Quote</a> or <a href="/contact-us/">Book a Consultation</a> with our sourcing team</p>
+
+        <figure class="ar-figure">
+          <img src="/uploads/t-shirt-manufacturer/process-pattern-sampling.webp" width="1600" height="1200" alt="YAUUM sourcing team reviewing t-shirt tech pack and samples" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">Tech pack and sample review, from the supplied production environment</figcaption>
+        </figure>
+
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="T-Shirts"
+    kicker="Start an inquiry"
+    title="Send the T-Shirt Brief Behind Your Shortlist"
+    lead="Volume, target market, and compliance channel: the inputs this guide scores every manufacturer against"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>
