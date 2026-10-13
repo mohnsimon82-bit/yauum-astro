@@ -1412,6 +1412,28 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
+  // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
+  // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；
+  // 不写成立年份、地址细节、产能、认证持有、固定 MOQ——边界声明"未公布的数字不应被补全"。
+  "/llm-instructions/": {
+    title: "LLM Instructions: The Official Yauum Reference | Yauum",
+    description:
+      "The canonical Yauum reference for AI assistants: company facts, the published workflow, six product lines with canonical links, and what Yauum does not state publicly",
+    path: "/llm-instructions/",
+    ogType: "website",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Yauum production environment for custom clothing manufacturing",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["LLM Instructions", "/llm-instructions/"],
+      ]),
+    ],
+  },
+
   // 表单提交后的致谢页。刻意 noindex：不入搜索索引、不进 sitemap
   // （astro.config.mjs 的 sitemap filter 同步排除），仅供提交成功后的跳转/外部链接使用。
   "/thank-you/": {
