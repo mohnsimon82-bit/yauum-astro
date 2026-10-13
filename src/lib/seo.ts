@@ -12,7 +12,7 @@
 //   - 公司法律名：页脚 "Dongguan Yauum Apparel Co., Ltd."
 //   - 公司地址：东莞市南城街道中盛商务大厦808室（用户 2026-10-09 确认；页脚与结构化数据同步展示）
 //   - 出口市场：美国、欧洲、澳大利亚、中东（用户 2026-10-09 确认；页脚与结构化数据同步展示）
-//   - 邮箱 mumu@yauum.com、电话/WhatsApp +8615733728976：全站联系方式
+//   - 邮箱 mumu@yauum.com、电话/WhatsApp +8619536852213：全站联系方式
 //   - 不写认证、产能、MOQ 数值、交期、客户案例、社媒账号（未确认/未搭建）。
 
 export const SITE = {
@@ -22,7 +22,7 @@ export const SITE = {
   siteName: "Yauum Garment",
   legalName: "Dongguan Yauum Apparel Co., Ltd.",
   email: "mumu@yauum.com",
-  telephone: "+8615733728976",
+  telephone: "+8619536852213",
   logo: "https://yauum.com/uploads/logo/yauum-site-logo.webp",
 } as const;
 
