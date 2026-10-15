@@ -1751,6 +1751,73 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十九篇（2026-10-15, china-apparel-manufacturing-costs-ppi-2026）。
+  // 数据融合版：NBS PPI/PMI 月度序列（2025-01~2026-09）+ 郑商所期货主力 CF/CY/PF/TA（2026-09-30 收盘）。
+  // 正文与 FAQ 逐字取自 -终稿.md 数据融合版（尾句号级差异为既定口径）。本页不配图，og 用工厂实拍图。
+  "/china-apparel-manufacturing-costs-ppi-2026/": {
+    title: "China Apparel Manufacturing Costs 2026: PPI Data Explained | Yauum",
+    description:
+      "China's raw-material PPI is up 9.4% year on year while clothing factory-gate prices fell 1.2%. What the 2026 data means for apparel sourcing budgets and negotiation.",
+    path: "/china-apparel-manufacturing-costs-ppi-2026/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide.webp"),
+    ogImageAlt: "Garment factory sewing line representing apparel production costs in China",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["China Apparel Manufacturing Costs in 2026", "/china-apparel-manufacturing-costs-ppi-2026/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "China Apparel Manufacturing Costs in 2026: What the Latest PPI Data Shows",
+        description:
+          "China's raw-material PPI is up 9.4% year on year while clothing factory-gate prices fell 1.2%. What the 2026 data means for apparel sourcing budgets and negotiation.",
+        path: "/china-apparel-manufacturing-costs-ppi-2026/",
+        image: "/uploads/factory/factory-sewing-line-wide.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-15T00:00:00+08:00",
+        dateModified: "2026-10-15T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "Are China apparel manufacturing costs going up or down in 2026?",
+          "Upstream, they rose sharply: the raw-material PPI is up 9.4% year on year as of September 2026, with cotton at +18.2% and polyester inputs up 31.9% to 37.1%. At the factory gate, though, clothing prices fell 1.2%: the pressure is being absorbed across the chain rather than fully passed into garment prices.",
+        ],
+        [
+          "What does the PPI tell me about my FOB quotation?",
+          "It tells you the direction of upstream pressure on the fabric portion of your cost. It does not forecast your FOB. Fabric is only part of FOB, and CMT absorbs most of the movement, so expect a fraction of the PPI change to reach your quote.",
+        ],
+        [
+          "Is China still competitive compared to Vietnam or Bangladesh?",
+          "China remains competitive on fabric access, construction complexity, and lead-time reliability, while Vietnam and Bangladesh often win on labor-intensive, simpler constructions. The right answer depends on your category, order size, and how much fabric sourcing you need in one place.",
+        ],
+        [
+          "Which apparel categories are most affected by cost changes?",
+          "Fabric-heavy programs are most exposed: cotton knits and wovens face cotton at +18.2%. But note the inversion this year: polyester inputs rose faster than cotton, so synthetic-heavy programs face the largest fiber-level increases. Their protection is structure: with CMT dominating their cost, less of the fiber move reaches FOB.",
+        ],
+        [
+          "How often is the PPI data updated, and when should I refresh my budget?",
+          "China's PPI is published monthly, around the middle of the following month; the manufacturing PMI lands on the last day of each month. For budgeting, re-anchor quarterly; for negotiations, bring the most recent release.",
+        ],
+        [
+          "Does PPI include shipping, tariffs, or exchange rates?",
+          "No. PPI covers ex-factory goods prices only. Freight, tariffs, and currency sit entirely outside it and should be modeled as separate line items in your landed-cost calculation.",
+        ],
+        [
+          "How can I use PPI data in supplier negotiations?",
+          "Cite the number that matches your input. On a polyester program the supplier side has PF +31.9% and PTA +37.1% behind it; the buyer side points at the clothing factory-gate line at -1.2%. Whichever side you are on, the matching series is the credible one.",
+        ],
+        [
+          "What's the best time of year to place orders to manage cost risk?",
+          "With inputs firming through 2026, earlier placement locks current fiber pricing for cotton and polyester programs alike. Watch the monthly releases for pullbacks (cotton fell 8.8% in September 2026) and re-quote into those windows.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；
