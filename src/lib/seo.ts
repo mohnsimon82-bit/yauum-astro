@@ -1818,6 +1818,51 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // /mens-hoodie-manufacturer/ 子页（2026-10-15 由用户规格新建，/hoodie-manufacturer/ 的 men's 专项页）。
+  // 隐藏页：noindex（等用户图片资产完成后放开索引）——astro.config sitemap filter 同步排除。
+  // Schema：Breadcrumb 三级（Home → Hoodie Manufacturer → Men's Hoodie Manufacturer）+ Service + Product；
+  // Product 不带 offers——本页无价格文案，遵守"结构化数据价格必须与页面可见文案一致"的硬规则
+  // （父页/产品页的 US$10–15 区间价只在有对应可见文案的页面使用；MOQ 100 件与页面 "100 pieces per style" 一致）。
+  "/mens-hoodie-manufacturer/": {
+    title: "Men's Hoodie Manufacturer: Private Label & Streetwear | Yauum",
+    description:
+      "Men's hoodie manufacturing built for private label and streetwear lines: men's fit blocks, styles, fabrics, decoration, labels, and packing confirmed per project",
+    path: "/mens-hoodie-manufacturer/",
+    noindex: true,
+    ogType: "website",
+    ogImage: abs("/uploads/hoodie-manufacturer/style-quarter-zip.webp"),
+    ogImageAlt: "Quarter-zip hoodie shown as a men's style reference",
+    ogImageWidth: 1248,
+    ogImageHeight: 1248,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Hoodie Manufacturer", "/hoodie-manufacturer/"],
+        ["Men's Hoodie Manufacturer", "/mens-hoodie-manufacturer/"],
+      ]),
+      serviceJsonLd({
+        name: "Custom and Private Label Men's Hoodie Manufacturing",
+        serviceType: "Men's hoodie manufacturing and product development",
+        path: "/mens-hoodie-manufacturer/",
+        description: "Men's hoodie manufacturing built for private label and streetwear lines: men's fit blocks, styles, fabrics, decoration, labels, and packing confirmed per project",
+        image: "/uploads/hoodie-manufacturer/style-quarter-zip.webp",
+        produces: "https://yauum.com/mens-hoodie-manufacturer/#product",
+      }),
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://yauum.com/mens-hoodie-manufacturer/#product",
+        name: "Custom and Private Label Men's Hoodies",
+        description: "Men's hoodie manufacturing built for private label and streetwear lines: men's fit blocks, styles, fabrics, decoration, labels, and packing confirmed per project",
+        image: [abs("/uploads/hoodie-manufacturer/style-quarter-zip.webp")],
+        category: "Hoodies",
+        url: abs("/mens-hoodie-manufacturer/"),
+        manufacturer: { "@id": ORGANIZATION_ID },
+        isPartOf: { "@id": WEBSITE_ID },
+      },
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

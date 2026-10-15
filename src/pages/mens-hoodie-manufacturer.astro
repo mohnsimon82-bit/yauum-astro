@@ -1,0 +1,367 @@
+---
+/**
+ * /mens-hoodie-manufacturer/ 子页（/hoodie-manufacturer/ 的 men's 专项页，2026-10-15 新建）。
+ *
+ * 规格与正文由用户提供（正文逐字；仅按全站既有规则剥除句末句号）：
+ *   - 隐藏页：noindex（等用户完成图片资产后再放开索引）；不进顶部导航；
+ *     sitemap 已按 noindex 排除（astro.config.mjs filter）。
+ *   - 版权性：独立路由文件，不挂共享 ContentPage.astro。
+ *   - 版式：复用父页样式体系（import hoodie-manufacturer.css + 本页附录 css）。
+ *   - 出站内链 9 条（全部指向父页真实锚点，已逐一核实）：
+ *     H2 02→#specification；H2 03→#styles；H2 04→#fabric；
+ *     H2 05→#decoration / #labels / #packing；H2 06→#commercial；
+ *     过渡句→#workflow / #quality / #factory。
+ *   - 图片：全部复用父页真实款式图（hero 用 style-quarter-zip 避免与 H2 03 五卡重复）；
+ *     H2 01/02/04/05/06 不配图。
+ *   - 表单：沿用父页同款结构；data-product="Hoodies"，garment 默认 Hoodies；
+ *     _subject 改为 "Yauum inquiry — Men's Hoodie Manufacturer" 以区分询盘来源。
+ *   - 知识库禁令：不写具体尺码范围 / GSM 数字 / 成分比例；MOQ 统一 "100 pieces per style"。
+ *   - Schema：BreadcrumbList（三级）+ Service + Product（无 offers——本页无价格文案，
+ *     遵守"结构化数据价格必须与页面可见文案一致"的既有硬规则）+ Organization（站点级自动补）。
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import { SEO } from "../lib/seo";
+import "../styles/pages/hoodie-manufacturer.css";
+import "../styles/pages/mens-hoodie-manufacturer.css";
+
+const styleCards: Array<{ img: string; alt: string; num: string; title: string; copy: string }> = [
+  {
+    img: "style-oversized.webp",
+    alt: "Oversized drop-shoulder hoodie on a model",
+    num: "Style 01",
+    title: "Oversized Drop-Shoulder Block",
+    copy: "We confirm shoulder drop, sleeve volume, body length, and hood scale against your reference, so the proportions read as intentional rather than just \"a bigger size\"",
+  },
+  {
+    img: "style-heavyweight.webp",
+    alt: "Heavyweight hoodie on a model",
+    num: "Style 02",
+    title: "Heavyweight GSM",
+    copy: "For a line built around a more substantial handfeel, we confirm fabric weight, knit, and rib recovery against a real swatch before it goes into a sample",
+  },
+  {
+    img: "style-full-zip.webp",
+    alt: "Full zip-up hoodie on a model",
+    num: "Style 03",
+    title: "Full-Zip Construction",
+    copy: "We confirm zipper type, front alignment, pocket position, and hood finish — details that matter more on a full-zip build than on a pullover",
+  },
+  {
+    img: "style-acid-wash.webp",
+    alt: "Acid-wash hoodie on a model",
+    num: "Style 04",
+    title: "Acid-Wash and Vintage Wash",
+    copy: "We confirm the wash recipe, shade tolerance, and placement before bulk, since a washed finish changes the base color and handfeel of the whole garment",
+  },
+  {
+    img: "style-camo.webp",
+    alt: "Camo print hoodie on a model",
+    num: "Style 05",
+    title: "Camo and Placement Prints",
+    copy: "We confirm how your artwork repeats and aligns across the hood, body, sleeves, and pocket before the print goes to bulk",
+  },
+];
+---
+
+<V2Layout seo={SEO["/mens-hoodie-manufacturer/"]} navCurrent={["/production/", "/hoodie-manufacturer/"]}>
+  <header class="hero">
+    <div class="container">
+      <div class="hero__main">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep">/</span>
+          <a href="/hoodie-manufacturer/">Hoodie Manufacturer</a>
+          <span class="sep">/</span>
+          <span class="current">Men's Hoodie Manufacturer</span>
+        </nav>
+        <p class="hero__eyebrow">Men's hoodies / Private label &amp; streetwear</p>
+        <h1 class="section-h1 hero__h1">Men's Hoodie Manufacturer for Private Label and Streetwear Brands</h1>
+        <p class="hero__lead">We manufacture men's hoodies to your specification — fit, fabric, color, decoration, labels, and packing all confirmed around your brief, built specifically for menswear and streetwear proportions rather than a generic unisex average</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="/contact-us/">Send your men's hoodie brief <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="hero-link" href="#styles">Explore men's hoodie styles</a>
+          <a class="hero-link" href="/contact-us/">Send an inquiry</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <figure>
+          <img src="/uploads/hoodie-manufacturer/style-quarter-zip.webp" alt="Quarter-zip hoodie on a model as a visual style reference" width="1248" height="1248" loading="eager" />
+        </figure><p class="hero__cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</p>
+      </div>
+      <div class="hero__rail">
+        <div class="hero__rail-item">
+          <span class="num">01</span>
+          <span>Start with your references</span>
+        </div>
+        <div class="hero__rail-item">
+          <span class="num">02</span>
+          <span>Check the physical sample</span>
+        </div>
+        <div class="hero__rail-item">
+          <span class="num">03</span>
+          <span>Confirm details before bulk</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="why" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">01</span> / Menswear specialist</p>
+          <h2 class="section-h2">Why Build Your Men's Hoodie Line With a Menswear Specialist</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">We work in menswear and streetwear every day, so a men's hoodie brief doesn't need to be translated into a generic template first — we confirm it directly against men's fit and styling conventions</p>
+        </div>
+      </div>
+      <div class="mens-copy">
+        <h3 class="section-h3">Fit Blocks for Men's Builds</h3>
+        <p>We check your reference or existing block against men's proportions — shoulder, chest, body length, and sleeve volume — before it becomes a specification. You don't need to adjust a unisex pattern yourself; we confirm the fit against what you send us</p>
+
+        <h3 class="section-h3">Streetwear and Private Label Programs</h3>
+        <p>We support private label and streetwear brands building an ongoing men's hoodie program, not just a single order. You can bring one style or a full seasonal lineup, and we'll confirm each one the same way</p>
+
+        <h3 class="section-h3">Full Spec Customization</h3>
+        <p>Fit, fabric, color, decoration method, labels, and packing are all confirmed per project. If you're not sure yet which of these you can change, the short answer is: all of them — we'll help you work out which decisions matter most for your line</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fit" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">02</span> / Fit and grading</p>
+          <h2 class="section-h2">Fit, Size Range, and Grading for Men's Hoodies</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">Your size chart, reference garment, or key measurements give us a starting point — we confirm fit and grading from there rather than applying a fixed chart to every order</p>
+        </div>
+      </div>
+      <div class="mens-copy">
+        <h3 class="section-h3">Fit Block and Proportion</h3>
+        <p>We review shoulder width, chest, body length, and sleeve proportion against your reference or an existing fit block. If you're building a new block from scratch, we'll work through a sample to confirm it together</p>
+
+        <h3 class="section-h3">Size Range and Grade Rules</h3>
+        <p>Your size range and grading rules are followed as you provide them. If you don't have a finalized grade rule yet, we can help identify the key measurement points to lock down first, using a sample as the reference</p>
+
+        <p>You can review the full specification checklist — including hood, pocket, trim, and finish details — on our <a class="textlink" href="/hoodie-manufacturer/#specification">main hoodie specification guide</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="styles" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">03</span> / Men's hoodie styles</p>
+          <h2 class="section-h2">Men's Hoodie Styles You Can Customize</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">These are the directions private label and streetwear brands most often bring to us as a starting point. Each one is a reference, not a fixed template — the final specification is built around your brief</p>
+        </div>
+      </div>
+      <div class="m-grid m-grid--5">
+        {styleCards.map((card) => (
+          <article class="m-card">
+            <figure><img src={`/uploads/hoodie-manufacturer/${card.img}`} alt={card.alt} width="1248" height="1248" loading="lazy" /></figure>
+            <span class="num">{card.num}</span>
+            <h3 class="section-h3">{card.title}</h3>
+            <p>{card.copy}</p>
+          </article>
+        ))}
+      </div>
+      <div class="mens-copy">
+        <p>See the full style gallery — 12 references in total — on our <a class="textlink" href="/hoodie-manufacturer/#styles">hoodie manufacturer page</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fabric" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">04</span> / Fabric direction</p>
+          <h2 class="section-h2">Fabric Direction for Men's Hoodie Lines</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">We confirm fabric against your target rather than offering a fixed catalog, though certain directions come up more often on menswear and streetwear lines</p>
+        </div>
+      </div>
+      <div class="mens-copy">
+        <h3 class="section-h3">GSM and Handfeel</h3>
+        <p>Heavier weights and brushed or looped handfeels are common requests on menswear-facing lines, but the right choice depends on your climate, season, and price target — we confirm this against a real swatch, not a spec sheet number alone</p>
+
+        <h3 class="section-h3">Fiber Composition and Finish</h3>
+        <p>Composition, finish, and color method are reviewed against your brief and confirmed before the specification is locked in, so the sample is built from the same target as the bulk order</p>
+
+        <p>Compare the full range of fabric directions and swatches on our <a class="textlink" href="/hoodie-manufacturer/#fabric">fabric and GSM guide</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="decoration" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">05</span> / Decoration, labels &amp; packing</p>
+          <h2 class="section-h2">Decoration, Labels, and Packing for a Men's Hoodie Collection</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">When you're running more than one style, keeping decoration, labels, and packing consistent across the line matters as much as getting any single piece right</p>
+        </div>
+      </div>
+      <div class="mens-copy">
+        <h3 class="section-h3">Decoration and Placement</h3>
+        <p>We confirm artwork, placement, and method for each style individually, then check that the result reads consistently across the collection rather than style by style in isolation</p>
+
+        <h3 class="section-h3">Private Label and Branding Specs</h3>
+        <p>Your main label, size label, hangtag, and barcode are confirmed once and applied consistently across every style in the line</p>
+
+        <h3 class="section-h3">Carton Assortment and Packing</h3>
+        <p>We confirm how styles, sizes, and colors are assorted into cartons for a multi-style shipment, not just how a single style is packed</p>
+
+        <p>See the full range of decoration methods, label options, and packing formats on our <a class="textlink" href="/hoodie-manufacturer/#decoration">decoration</a>, <a class="textlink" href="/hoodie-manufacturer/#labels">private label</a>, and <a class="textlink" href="/hoodie-manufacturer/#packing">packaging pages</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="moq" class="section section--cream">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">06</span> / MOQ and getting started</p>
+          <h2 class="section-h2">MOQ and Getting Started With a Men's Hoodie Collection</h2>
+        </div>
+        <div class="sec-head__note">
+          <p class="section-lead">Building a collection means thinking in styles and colorways, not just one SKU — here's what that changes about your minimum</p>
+        </div>
+      </div>
+      <div class="mens-copy">
+        <h3 class="section-h3">MOQ by Style and Colorway</h3>
+        <p>Standard orders start at 100 pieces per style. If your line includes several styles, each one is confirmed against this minimum individually, not combined into a single collection-wide total</p>
+
+        <h3 class="section-h3">Size and Color Assortment Planning</h3>
+        <p>Within each style's minimum, sizes and colors can be split to match your target assortment — tell us the split you're planning and we'll confirm what's workable</p>
+
+        <p>See the full breakdown of what affects MOQ and unit price on our <a class="textlink" href="/hoodie-manufacturer/#commercial">MOQ and quotation page</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--warm">
+    <div class="container">
+      <div class="mens-bridge">
+        <p>This page covers what's specific to building a men's hoodie line. For the full sampling-to-bulk <a class="textlink" href="/hoodie-manufacturer/#workflow">production workflow</a>, <a class="textlink" href="/hoodie-manufacturer/#quality">quality checkpoints</a>, and <a class="textlink" href="/hoodie-manufacturer/#factory">production evidence</a>, see our main hoodie manufacturer page</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section section--paper">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-head__main">
+          <p class="section-eyebrow"><span class="num">07</span> / Buyer questions</p>
+          <h2 class="section-h2">FAQ</h2>
+        </div>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>
+            <span class="num">01</span>
+            <span class="q">Can You Build Fit Blocks for Men's Proportions?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Yes. We review your reference or existing block against men's proportions before confirming the specification, rather than adjusting a unisex pattern after the fact</div>
+        </details>
+        <details>
+          <summary>
+            <span class="num">02</span>
+            <span class="q">Can I Mix Styles in One Order?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Yes. Each style is still confirmed against its own minimum, but you can send a brief covering several styles at once and we'll work through them together</div>
+        </details>
+        <details>
+          <summary>
+            <span class="num">03</span>
+            <span class="q">How Do You Confirm Sizing Without a Finalized Size Chart?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Share a reference garment or key measurements and we'll help identify what's missing before quoting or sampling</div>
+        </details>
+        <details>
+          <summary>
+            <span class="num">04</span>
+            <span class="q">Can I Combine This With Your Other Menswear Categories?</span>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">Yes — if your line includes other categories alongside hoodies, send the full brief and we'll confirm each one using the same process</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="inquiry" class="section section--warm">
+    <div class="container">
+      <div class="inquiry">
+        <div class="inquiry__main">
+          <p class="section-eyebrow"><span class="num">08</span> / Start your inquiry</p>
+          <h2 class="section-h2">Ready to Start Your Men's Hoodie Line?</h2>
+          <p>Send the styles, quantities, branding, destination, and open questions together. You do not need every answer before you contact us</p>
+          <a class="btn btn-primary" href="/contact-us/">Discuss your men's hoodie project <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <form method="POST" action="/api/inquiry" data-product="Hoodies" data-wa-phone="8619536852213" data-wa-key="" class="inquiry__form inquiry-form"><input type="hidden" name="product" value="Hoodies" /><input type="hidden" name="_subject" value="Yauum inquiry — Men's Hoodie Manufacturer" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <div class="field">
+            <label for="garment">Garment type</label>
+            <select class="select" id="garment" name="garment_type">
+              <option selected>Hoodies</option>
+              <option>T-Shirts</option>
+              <option>Jackets</option>
+              <option>Pants</option>
+              <option>Sportswear</option>
+              <option>Streetwear</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="opt-legend">Quantity <span class="hint">· 1 design · 1 color · 5 sizes</span></span>
+            <div class="opt-row">
+              <label class="opt"><input type="radio" name="moq_tier" value="100–500 pcs" checked />100–500 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="500–1,000 pcs" />500–1,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="1,000–2,000 pcs" />1,000–2,000 pcs</label>
+              <label class="opt"><input type="radio" name="moq_tier" value="2,000+ pcs" />2,000+ pcs</label>
+            </div>
+          </div>
+          <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" type="text" required /></div>
+          <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required /></div>
+          <div class="field"><label for="details">Project details <span style="color:var(--yv-muted)">(optional)</span></label><textarea class="textarea" id="details" name="message" rows="4"></textarea></div>
+          <div class="submit-row"><button class="btn btn-primary" type="submit">Send inquiry <span class="arrow" aria-hidden="true">→</span></button></div>
+          <span class="form-status meta" aria-live="polite"></span>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="scripts">
+    <script is:inline>(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){io.observe(el)});
+})();</script>
+  </Fragment>
+</V2Layout>

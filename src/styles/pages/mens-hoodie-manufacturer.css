@@ -1,0 +1,29 @@
+/* /mens-hoodie-manufacturer/ 页面附录样式
+ *
+ * 本页绝大部分版式复用父页体系（页面 import 了 hoodie-manufacturer.css，
+ * hero / section / sec-head / m-grid / m-card / faq / inquiry 全部沿用）。
+ * 此文件只放本页特有的节奏规则；后续图片资产到位后如需视觉调整，也从这里改。
+ */
+
+/* 正文小节（h3 + p 的竖直节奏；父页体系没有这种"纯文字小节流"的现成规则） */
+.mens-copy h3 {
+  margin-top: 36px;
+}
+
+.mens-copy h3 + p {
+  margin-top: 12px;
+}
+
+.mens-copy h3:first-child {
+  margin-top: 0;
+}
+
+/* 过渡段（FAQ 前的轻量导流块） */
+.mens-bridge {
+  max-width: 780px;
+}
+
+.mens-bridge p {
+  font-size: 17px;
+  line-height: 1.7;
+}
