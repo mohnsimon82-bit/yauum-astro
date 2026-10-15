@@ -1480,6 +1480,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十五篇（2026-10-15, bomber-jacket-manufacturers-china-factory-types）。
+  // 审核 88 分达标；"❌不完整"指 HTML 导出件被截断，md 终稿完整、报告确认可发布。
+  // 上线处理：4 内链 + 9 CTA 按意图分流（contact/wa.me/mailto）；下载承诺改写（含 H2）；
+  // premium→high-end；删正文 "© YAUUM" 行（报告 P2-5）；Title 压至 60 字符（报告 P2-1）。本页不配图。
+  "/bomber-jacket-manufacturers-china-factory-types/": {
+    title: "Bomber Jacket Manufacturers in China: 10 Factory Types | Yauum",
+    description:
+      "Compare 10 types of bomber jacket factories in China by cluster and specialty. Selection criteria, craft essentials & sourcing pitfalls. Get a free quote",
+    path: "/bomber-jacket-manufacturers-china-factory-types/",
+    ogType: "article",
+    ogImage: abs("/uploads/jackets-manufacturer/hero-jackets-private-label.webp"),
+    ogImageAlt: "Private label jacket shown as a custom manufacturing reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Bomber Jacket Manufacturers in China", "/bomber-jacket-manufacturers-china-factory-types/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Bomber Jacket Manufacturers in China: 10 Factory Types & How to Choose the Right One",
+        description:
+          "Compare 10 types of bomber jacket factories in China by cluster and specialty. Selection criteria, craft essentials & sourcing pitfalls. Get a free quote",
+        path: "/bomber-jacket-manufacturers-china-factory-types/",
+        image: "/uploads/jackets-manufacturer/hero-jackets-private-label.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-15T00:00:00+08:00",
+        dateModified: "2026-10-15T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the typical MOQ for custom bomber jackets from China?",
+          "For stock fabrics, MOQ commonly falls in the 300 to 500 piece range per color. Custom-developed shell fabrics or special trims can push this to 500 to 1,000 pieces. Always confirm MOQ by component, not just finished garment.",
+        ],
+        [
+          "How long does it take to produce a custom bomber jacket order?",
+          "Sampling typically runs 7 to 25 days depending on fabric and trim sourcing. Bulk production generally takes 30 to 60 days, followed by 25 to 35 days for sea freight. Decoration-heavy styles sit at the long end of the sampling range.",
+        ],
+        [
+          "Can I get a sample before placing a bulk order?",
+          "Yes. Most manufacturers provide fit samples and pre-production samples at a sample fee that is often credited against the bulk order. Approve and seal a final sample before production begins.",
+        ],
+        [
+          "What materials are commonly used for bomber jackets?",
+          "Common shells include nylon, polyester, cotton twill, and wool blends. Linings are typically polyester or satin. Filling options range from cotton wadding to synthetic fill to down. Ribbing is usually an elastane-cotton or elastane-polyester blend.",
+        ],
+        [
+          "How do I verify a Chinese jacket manufacturer's compliance?",
+          "Request documentation samples during vetting, ask about audit cooperation, and confirm material traceability for any restricted substances. If a factory cannot produce documents on request, treat that as a red flag.",
+        ],
+        [
+          "What's the price range for custom bomber jackets?",
+          "FOB pricing for a standard nylon or poly bomber usually lands between $12 and $45 per piece, driven by shell fabric, filling, trim specification, and order volume. Leather and down styles sit well above that band. Get a quote against your own tech pack before building a cost model.",
+        ],
+        [
+          "Do Chinese manufacturers support private label and custom branding?",
+          "Yes. Private label, custom woven labels, branded zipper pulls, and custom packaging are standard offerings at most established factories. Confirm branding requirements at the sampling stage.",
+        ],
+        [
+          "How do I communicate design requirements if I'm not technical?",
+          "A tech pack with reference images, measurements, and material notes is the standard starting point. If you don't have one, a factory with pattern development capability can build it from your references.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

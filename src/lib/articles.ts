@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/bomber-jacket-manufacturers-china-factory-types/",
+    title: "Bomber Jacket Manufacturers in China: 10 Factory Types & How to Choose the Right One",
+    description: "Ten bomber jacket factory types in China by cluster and specialty, five selection criteria, craft essentials, and the pitfalls that derail outerwear programs",
+    date: "2026-10-15",
+    dateLabel: "October 15, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/custom-jacket-manufacturer-guide/",
     title: "Custom Jacket Manufacturer Guide: How to Choose the Right Partner (Without Costly Mistakes)",
     description: "Seven vetting criteria for custom jacket manufacturers, a brief-to-delivery process, MOQ and lead-time benchmarks, and the mistakes that drain the most money",
