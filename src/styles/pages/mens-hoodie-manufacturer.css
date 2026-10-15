@@ -167,3 +167,11 @@
   flex: 1;
   min-height: 0;
 }
+
+/* 真图接入：sw-media 容器内的图片按原比例满宽、卡片圆角 */
+.sw-media > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--yv-radius-card);
+}

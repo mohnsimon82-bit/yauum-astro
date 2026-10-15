@@ -11,9 +11,11 @@
  *     H2 02→#specification；H2 03→#styles；H2 04→#fabric；
  *     H2 05→#decoration / #labels / #packing；H2 06→#commercial；
  *     过渡句→#workflow / #quality / #factory。
- *   - 图片：本页共 16 个图片位，全部为 .sw-ph 占位卡（2026-10-15 纠错：不再复用父页图片，
- *     占位符即拍摄/制图规格）。规划：hero×1；H2 01 节尾×1；H2 02×3（fit block 1 + 测量点/放码 2）；
- *     H2 03 五卡×5；H2 04×2；H2 05×3；H2 06×1。真实图就绪后在对应位置替换占位卡。
+ *   - 图片（2026-10-15 深夜：真实素材接入）：16 个图片位已全部替换为真实图，
+ *     素材源 `YAUUM-网站图片素材收集盒/男士卫衣/iloveimg-compressed (3)`，
+ *     经 sharp 转 webp 存 `public/uploads/mens-hoodie-manufacturer/`（命名与页面语义一致）。
+ *     hero 1254²、五卡 1254²、"Why Build"节尾/02/04/05/06 各 1448×1086、GSM 800²、
+ *     Branding/Carton 为竖图 1536×2048。
  *   - 表单：沿用父页同款结构；data-product="Hoodies"，garment 默认 Hoodies；
  *     _subject 改为 "Yauum inquiry — Men's Hoodie Manufacturer" 以区分询盘来源。
  *   - 知识库禁令：不写具体尺码范围 / GSM 数字 / 成分比例；MOQ 统一 "100 pieces per style"。
@@ -27,30 +29,35 @@ import "../styles/pages/mens-hoodie-manufacturer.css";
 
 const styleCards: Array<{ img: string; alt: string; num: string; title: string; copy: string }> = [
   {
+    img: "style-oversized-drop-shoulder.webp",
     alt: "Oversized drop-shoulder hoodie on a model",
     num: "Style 01",
     title: "Oversized Drop-Shoulder Block",
     copy: "We confirm shoulder drop, sleeve volume, body length, and hood scale against your reference, so the proportions read as intentional rather than just \"a bigger size\"",
   },
   {
+    img: "style-heavyweight-gsm.webp",
     alt: "Heavyweight hoodie on a model",
     num: "Style 02",
     title: "Heavyweight GSM",
     copy: "For a line built around a more substantial handfeel, we confirm fabric weight, knit, and rib recovery against a real swatch before it goes into a sample",
   },
   {
+    img: "style-full-zip-construction.webp",
     alt: "Full zip-up hoodie on a model",
     num: "Style 03",
     title: "Full-Zip Construction",
     copy: "We confirm zipper type, front alignment, pocket position, and hood finish — details that matter more on a full-zip build than on a pullover",
   },
   {
+    img: "style-acid-wash-vintage-wash.webp",
     alt: "Acid-wash hoodie on a model",
     num: "Style 04",
     title: "Acid-Wash and Vintage Wash",
     copy: "We confirm the wash recipe, shade tolerance, and placement before bulk, since a washed finish changes the base color and handfeel of the whole garment",
   },
   {
+    img: "style-camo-placement-prints.webp",
     alt: "Camo print hoodie on a model",
     num: "Style 05",
     title: "Camo and Placement Prints",
@@ -81,10 +88,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
       </div>
       <div class="hero__media">
         <figure>
-          <div class="sw-ph" aria-label="Men's hoodie on a model as the primary menswear visual reference" data-evidence-status="needs_company_confirmation">
-            <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-            <div class="sw-ph-copy"><strong>Men's hoodie hero visual</strong><small>Recommended 1248 × 1248 · men's fit on a model</small></div>
-          </div>
+          <img src="/uploads/mens-hoodie-manufacturer/mens-hoodie-hero.webp" alt="Men's hoodie on a model as the primary menswear visual reference" width="1254" height="1254" loading="eager" />
         </figure><p class="hero__cap"><b>Product direction</b>Visual reference image · final specifications require confirmation</p>
       </div>
       <div class="hero__rail">
@@ -126,10 +130,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
         <p>Fit, fabric, color, decoration method, labels, and packing are all confirmed per project. If you're not sure yet which of these you can change, the short answer is: all of them — we'll help you work out which decisions matter most for your line</p>
 
         <div class="sw-media sw-media--1">
-          <div class="sw-ph" aria-label="Men's fit reference board showing proportions and styling conventions" data-evidence-status="needs_company_confirmation">
-            <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-            <div class="sw-ph-copy"><strong>Men's fit reference board</strong><small>Recommended 1600 × 1200 · fit blocks and menswear styling conventions</small></div>
-          </div>
+          <img src="/uploads/mens-hoodie-manufacturer/menswear-specialist-reference.webp" width="1448" height="1086" alt="Men's fit reference board showing proportions and menswear styling conventions" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
@@ -152,10 +153,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
           <p>We review shoulder width, chest, body length, and sleeve proportion against your reference or an existing fit block. If you're building a new block from scratch, we'll work through a sample to confirm it together</p>
 
           <div class="sw-media sw-media--1">
-            <div class="sw-ph" aria-label="Men's fit block reference showing shoulder, chest, body length and sleeve proportion" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Fit block and proportion reference</strong><small>Recommended 1600 × 1200 · shoulder, chest, body length and sleeve volume marked on a men's block</small></div>
-            </div>
+            <img src="/uploads/mens-hoodie-manufacturer/fit-block-proportion.webp" width="1448" height="1086" alt="Fit block and proportion reference: shoulder, chest, body length and sleeve volume marked on a men's block" loading="lazy" decoding="async" />
           </div>
         </div>
         <div class="mens-col">
@@ -163,14 +161,8 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
           <p>Your size range and grading rules are followed as you provide them. If you don't have a finalized grade rule yet, we can help identify the key measurement points to lock down first, using a sample as the reference</p>
 
           <div class="sw-media sw-media--1">
-            <div class="sw-ph" aria-label="Key measurement points marked on a men's hoodie" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Measurement point reference</strong><small>Recommended 1600 × 1200 · the measurement points to lock first</small></div>
-            </div>
-            <div class="sw-ph" aria-label="Size grading reference across a men's hoodie size run" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">02 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Size grade rule reference</strong><small>Recommended 1600 × 1200 · grading increments across the size run</small></div>
-            </div>
+            <img src="/uploads/mens-hoodie-manufacturer/measurement-point-reference.webp" width="1448" height="1086" alt="Measurement points to lock first on a men's hoodie reference" loading="lazy" decoding="async" />
+            <img src="/uploads/mens-hoodie-manufacturer/size-grade-rule-reference.webp" width="1448" height="1086" alt="Size grading increments across a men's hoodie size run" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -193,14 +185,9 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
         </div>
       </div>
       <div class="m-grid m-grid--5">
-        {styleCards.map((card, idx) => (
+        {styleCards.map((card) => (
           <article class="m-card">
-            <figure>
-              <div class="sw-ph" aria-label={`${card.alt} — required style reference`} data-evidence-status="needs_company_confirmation">
-                <div class="sw-ph-media"><span class="sw-ph-tag">0{idx + 1} / REQUIRED</span></div>
-                <div class="sw-ph-copy"><strong>{card.title}</strong><small>Recommended 1248 × 1248 · model shot for this style</small></div>
-              </div>
-            </figure>
+            <figure><img src={`/uploads/mens-hoodie-manufacturer/${card.img}`} alt={card.alt} width="1254" height="1254" loading="lazy" decoding="async" /></figure>
             <span class="num">{card.num}</span>
             <h3 class="section-h3">{card.title}</h3>
             <p>{card.copy}</p>
@@ -230,10 +217,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
           <p>Heavier weights and brushed or looped handfeels are common requests on menswear-facing lines, but the right choice depends on your climate, season, and price target — we confirm this against a real swatch, not a spec sheet number alone</p>
 
           <div class="sw-media sw-media--1">
-            <div class="sw-ph" aria-label="Fabric weight and handfeel swatches for a men's hoodie line" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Fabric weight and handfeel swatches</strong><small>Recommended 1600 × 1200 · swatches for heavier and brushed handfeels</small></div>
-            </div>
+            <img src="/uploads/mens-hoodie-manufacturer/gsm-handfeel-swatches.webp" width="800" height="800" alt="Fabric weight and handfeel swatches for a men's hoodie line" loading="lazy" decoding="async" />
           </div>
         </div>
         <div class="mens-col">
@@ -241,10 +225,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
           <p>Composition, finish, and color method are reviewed against your brief and confirmed before the specification is locked in, so the sample is built from the same target as the bulk order</p>
 
           <div class="sw-media sw-media--1">
-            <div class="sw-ph" aria-label="Fiber composition and finish swatch set for a men's hoodie line" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Fiber composition and finish swatches</strong><small>Recommended 1600 × 1200 · composition and finish swatch set</small></div>
-            </div>
+            <img src="/uploads/mens-hoodie-manufacturer/fiber-composition-finish.webp" width="1448" height="1086" alt="Fiber composition and finish swatch set for a men's hoodie line" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -272,10 +253,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
           <p>We confirm artwork, placement, and method for each style individually, then check that the result reads consistently across the collection rather than style by style in isolation</p>
 
           <div class="sw-media sw-media--1">
-            <div class="sw-ph" aria-label="Decoration placement reference on a men's hoodie" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Decoration placement reference</strong><small>Recommended 1600 × 1200 · embroidery or print placement on a men's hoodie</small></div>
-            </div>
+            <img src="/uploads/mens-hoodie-manufacturer/decoration-placement.webp" width="1448" height="1086" alt="Embroidery or print placement on a men's hoodie" loading="lazy" decoding="async" />
           </div>
         </div>
         <div class="mens-col">
@@ -283,10 +261,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
           <p>Your main label, size label, hangtag, and barcode are confirmed once and applied consistently across every style in the line</p>
 
           <div class="sw-media sw-media--1">
-            <div class="sw-ph" aria-label="Private label and branding set: main label, size label, hangtag and barcode" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Private label and branding set</strong><small>Recommended 1600 × 1200 · main label, size label, hangtag and barcode references</small></div>
-            </div>
+            <img src="/uploads/mens-hoodie-manufacturer/private-label-branding-set.webp" width="1536" height="2048" alt="Private label set: main label, size label, hangtag and barcode references" loading="lazy" decoding="async" />
           </div>
         </div>
         <div class="mens-col">
@@ -294,10 +269,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
           <p>We confirm how styles, sizes, and colors are assorted into cartons for a multi-style shipment, not just how a single style is packed</p>
 
           <div class="sw-media sw-media--1">
-            <div class="sw-ph" aria-label="Carton assortment reference for a multi-style men's hoodie shipment" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Carton assortment reference</strong><small>Recommended 1600 × 1200 · multi-style carton packing and assortment</small></div>
-            </div>
+            <img src="/uploads/mens-hoodie-manufacturer/carton-assortment-packing.webp" width="1536" height="2048" alt="Multi-style carton packing and assortment reference" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -325,10 +297,7 @@ const styleCards: Array<{ img: string; alt: string; num: string; title: string; 
           <p>Standard orders start at 100 pieces per style. If your line includes several styles, each one is confirmed against this minimum individually, not combined into a single collection-wide total</p>
 
           <div class="sw-media sw-media--1">
-            <div class="sw-ph" aria-label="Style and colorway lineup reference for a men's hoodie collection" data-evidence-status="needs_company_confirmation">
-              <div class="sw-ph-media"><span class="sw-ph-tag">01 / REQUIRED</span></div>
-              <div class="sw-ph-copy"><strong>Style and colorway lineup</strong><small>Recommended 1600 × 1200 · one style across several colorways</small></div>
-            </div>
+            <img src="/uploads/mens-hoodie-manufacturer/size-color-assortment-planning.webp" width="1448" height="1086" alt="Size and color assortment planning reference for a men's hoodie collection" loading="lazy" decoding="async" />
           </div>
         </div>
         <div class="mens-col">

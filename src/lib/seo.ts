@@ -1830,8 +1830,8 @@ const RAW_SEO: Record<string, SeoData> = {
     path: "/mens-hoodie-manufacturer/",
     noindex: true,
     ogType: "website",
-    ogImage: abs("/uploads/hoodie-manufacturer/style-quarter-zip.webp"),
-    ogImageAlt: "Quarter-zip hoodie shown as a men's style reference",
+    ogImage: abs("/uploads/mens-hoodie-manufacturer/mens-hoodie-hero.webp"),
+    ogImageAlt: "Men's hoodie on a model as the primary menswear visual reference",
     ogImageWidth: 1248,
     ogImageHeight: 1248,
     jsonLd: [
@@ -1845,7 +1845,7 @@ const RAW_SEO: Record<string, SeoData> = {
         serviceType: "Men's hoodie manufacturing and product development",
         path: "/mens-hoodie-manufacturer/",
         description: "Men's hoodie manufacturing built for private label and streetwear lines: men's fit blocks, styles, fabrics, decoration, labels, and packing confirmed per project",
-        image: "/uploads/hoodie-manufacturer/style-quarter-zip.webp",
+        image: "/uploads/mens-hoodie-manufacturer/mens-hoodie-hero.webp",
         produces: "https://yauum.com/mens-hoodie-manufacturer/#product",
       }),
       {
@@ -1854,7 +1854,7 @@ const RAW_SEO: Record<string, SeoData> = {
         "@id": "https://yauum.com/mens-hoodie-manufacturer/#product",
         name: "Custom and Private Label Men's Hoodies",
         description: "Men's hoodie manufacturing built for private label and streetwear lines: men's fit blocks, styles, fabrics, decoration, labels, and packing confirmed per project",
-        image: [abs("/uploads/hoodie-manufacturer/style-quarter-zip.webp")],
+        image: [abs("/uploads/mens-hoodie-manufacturer/mens-hoodie-hero.webp")],
         category: "Hoodies",
         url: abs("/mens-hoodie-manufacturer/"),
         manufacturer: { "@id": ORGANIZATION_ID },
