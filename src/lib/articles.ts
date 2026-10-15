@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-windbreaker-manufacturers-china/",
+    title: "Top 10 Windbreaker Manufacturers in China: A Buyer's Sourcing Guide (2026)",
+    description: "Ten windbreaker manufacturers to shortlist, a six-point evaluation checklist, the pitfalls that break functional outerwear orders, and how to pick OEM, ODM or wholesale",
+    date: "2026-10-15",
+    dateLabel: "October 15, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-10-varsity-jacket-manufacturers-china/",
     title: "Top 10 Varsity Jacket Manufacturers in China: An Honest Factory-Side Guide for B2B Buyers",
     description: "Ten varsity jacket factory categories in China, the eight dimensions that define top-tier, the three-question factory test, and a full vetting sequence",
