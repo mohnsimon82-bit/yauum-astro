@@ -19,6 +19,46 @@
   margin-top: 0;
 }
 
+/* 横向分列小节（H2 02/04/05/06：每个 H3 块 = 一列，文字下方跟随该块自己的图） */
+.mens-cols {
+  display: grid;
+  gap: 40px 28px;
+  align-items: start;
+}
+
+.mens-cols--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mens-cols--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mens-col h3.section-h3 {
+  margin-top: 0;
+}
+
+.mens-col > p {
+  margin-top: 12px;
+}
+
+.mens-col .sw-media {
+  margin-top: 22px;
+}
+
+@media (max-width: 1080px) {
+  .mens-cols--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .mens-cols--2,
+  .mens-cols--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* 过渡段（FAQ 前的轻量导流块） */
 .mens-bridge {
   max-width: 780px;
