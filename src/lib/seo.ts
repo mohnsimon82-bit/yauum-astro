@@ -1683,6 +1683,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十八篇（2026-10-15, top-10-leather-jacket-manufacturers-china）。
+  // 审核 87 分红线通过、FAQ 逐字一致。十类"工厂画像"（非实名排名）。
+  // 上线处理：年份 (2025)→(2026) 五处（报告 P0-1）；premium ×7 → high-end；recognise→recognize；
+  // 两处 vetting checklist 下载承诺改写；3 内链 + 2 CTA 映射。本页不配图。
+  "/top-10-leather-jacket-manufacturers-china/": {
+    title: "Top 10 Leather Jacket Manufacturer Profiles in China (2026) | Yauum",
+    description:
+      "Compare 10 leather jacket manufacturer profiles in China. Learn how to evaluate factories, avoid sourcing mistakes & get a free quote today",
+    path: "/top-10-leather-jacket-manufacturers-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/jackets-manufacturer/hero-jackets-private-label.webp"),
+    ogImageAlt: "Private label jacket shown as a custom manufacturing reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 Leather Jacket Manufacturer Profiles in China", "/top-10-leather-jacket-manufacturers-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 Leather Jacket Manufacturer Profiles in China: A Buyer's Evaluation Guide (2026)",
+        description:
+          "Compare 10 leather jacket manufacturer profiles in China. Learn how to evaluate factories, avoid sourcing mistakes & get a free quote today",
+        path: "/top-10-leather-jacket-manufacturers-china/",
+        image: "/uploads/jackets-manufacturer/hero-jackets-private-label.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-15T00:00:00+08:00",
+        dateModified: "2026-10-15T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "How do I find a reliable leather jacket manufacturer in China?",
+          "Start with a defined spec and build your shortlist on fit, not fame. Verify each candidate with a physical sample, a reference check, and straight answers on material sourcing. Score every factory against the same seven criteria so you are comparing capability rather than sales impressions.",
+        ],
+        [
+          "What is the typical MOQ for custom leather jackets from China?",
+          "MOQ moves with the factory, the leather type, and construction complexity. Fashion-focused and small-batch studios accept pilot runs in the low hundreds, while volume producers set higher thresholds to protect line efficiency and hide yield. Since the number depends on your design and material, the fastest path is to share your tech pack and request a quote against your real order profile.",
+        ],
+        [
+          "Can I get leather jacket samples before placing a bulk order?",
+          "Yes, and you should insist on it. You normally pay for the sample and any lab dips, with the cost often credited against bulk once the order is confirmed. Treat the approved sample as a binding reference: it defines the standard bulk production must match, including stitch density, hardware, and shade.",
+        ],
+        [
+          "What leather types are commonly used for leather jackets?",
+          "Two families cover most production: genuine leather (sheepskin, lambskin, cowhide, calfskin) and synthetics (PU, bonded, and vegan leather). Sheepskin and lambskin at 0.6–0.9 mm give the softest hand, while cowhide and calfskin above 1.1 mm suit durability-driven builds.",
+        ],
+        [
+          "How long does production and shipping usually take?",
+          "Lead time tracks leather availability, sampling rounds, order size, and finishing complexity. Distressed and hand-finished styles run longer than clean constructions, sometimes by two to three weeks. Ocean freight then adds transit on top of production. Ask each factory for a schedule split into sampling, production, and transit phases instead of one headline number.",
+        ],
+        [
+          "What should I check before choosing a leather jacket factory?",
+          "Confirm craft quality through a physical sample, verify material sourcing, pin down MOQ and price tiers in writing, measure sampling turnaround, and test compliance knowledge.",
+        ],
+        [
+          "Do Chinese leather jacket manufacturers support small orders or private label?",
+          "Many do. Small-batch studios and private-label specialists run lower minimums and full custom trim packages, covering woven labels, neck labels, size labels, care labels, hang tags, and packaging. That setup suits emerging brands testing a leather line before scaling.",
+        ],
+        [
+          "What certifications should a leather jacket manufacturer have?",
+          "It depends on your market and your retail customers. Buyers commonly request social compliance audits, restricted-substance test reports, and quality management documentation. Rather than assuming, ask each factory what it actually holds, request the certificates, and verify them with the issuing body.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

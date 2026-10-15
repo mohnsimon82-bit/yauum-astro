@@ -1,0 +1,346 @@
+---
+/**
+ * /top-10-leather-jacket-manufacturers-china/ 文章页（内容生产系统流水线第十八篇 · 终稿 · 审核 87）。
+ *
+ * 来源：内容生产系统（Dify）输出 `top-10-leather-jacket-manufacturers-in-china-终稿.md`（2026-10-15，完整导出）。
+ * 本文特色：十类"工厂画像"（按产区与能力分组，非实名公司排名），正文带 profile 边界声明。
+ *
+ * 上线前处理（其余正文逐字取自终稿，仅做 markdown→HTML 结构转换）：
+ *   - 配图：按用户要求不配图，4 处图标记（含 #OG_IMAGE#）全部跳过
+ *   - 年份统一 (2025)→(2026)：H1 / H2 "(2025 List)" / Title / Schema headline（审核报告 P0-1 点名，含带后缀变体）
+ *   - 禁用词 premium ×7（含 H3 标题与对比表）→ high-end；拼写 recognise→recognize（报告 P1-4）
+ *   - 下载承诺 ×2（"Download our full supplier vetting checklist" / "vetting checklist"）→ 真实动作引导
+ *   - 内链（3）→ /jackets-manufacturer/ ×2、/our-services/；CTA（2）→ /contact-us/
+ *   - 报告 P1-1（压缩 100 词）、P1-3（Best For 句式）、P1-5（响应承诺）未执行（见汇报）
+ *   - 段末句号按全站规则剥除；FAQ 可见文本与 seo.ts faqJsonLd 存在"尾句号级"差异（既定口径）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-china", "Why China dominates"],
+  ["02", "evaluation-framework", "The 7-point framework"],
+  ["03", "profiles", "The 10 profiles"],
+  ["04", "comparison", "Side-by-side comparison"],
+  ["05", "how-to-choose", "How to choose"],
+  ["06", "common-mistakes", "Common mistakes"],
+  ["07", "faq", "FAQ"],
+  ["08", "next-step", "Next step"],
+];
+---
+
+<V2Layout
+  seo={SEO["/top-10-leather-jacket-manufacturers-china/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Top 10 Leather Jacket Manufacturer Profiles in China</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>Top 10 Leather Jacket Manufacturer Profiles in China: A Buyer's Evaluation Guide (2026)</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-15">October 15, 2026</time></span>
+      <span class="ar-views" data-views-for="/top-10-leather-jacket-manufacturers-china/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">China's apparel export base is large enough that leather outerwear supports its own supply chain at every price tier. For a buyer, that scale matters far less than what sits underneath it: thousands of factories, capability levels that swing from workshop to industrial park, and a matching problem no ranking can solve on its own</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <p>Looking for a manufacturer right now? <a href="/contact-us/">Get a free quote from YAUUM</a> and skip the guesswork</p>
+
+        <p>This guide does two jobs. It walks through ten manufacturer profiles worth shortlisting, then hands you the evaluation framework to judge real candidates yourself. The framework matters more. A list tells you what exists; a framework tells you who fits your tech pack, your order size, and your delivery window</p>
+
+        <h2 id="why-china">Why China Dominates Leather Jacket Manufacturing (and What It Means for Buyers)</h2>
+
+        <p>Leather jacket production clusters around a handful of regions, and each cluster has a distinct personality</p>
+
+        <p><strong>Guangzhou and the Pearl River Delta</strong> built their reputation on fashion-forward outerwear. Factories here turn a reference photo into a fit sample in roughly two weeks, handle PU and bonded leather confidently, and sit within an hour of the trim and hardware markets in Panyu and Baiyun. If your line reacts to seasonal drops, this is the natural base</p>
+
+        <p><strong>Haining (Zhejiang)</strong> concentrates tanneries, leather trading, and garment workshops in one cluster. Sheepskin and lambskin nappa in the 0.6–0.9 mm range is routine work here, and the supply chain for Bemberg linings, YKK zippers, and finishing runs deep enough that a lining change rarely costs you a week</p>
+
+        <p><strong>Hebei and the northern belt</strong> leans toward heavier hides and utilitarian construction. Expect cowhide at 1.1–1.4 mm, workwear-oriented builds, and cost structures that reward volume</p>
+
+        <p><strong>Fujian and Jiangsu</strong> round out the map: sportswear crossover capacity in Fujian, mid-to-high-end tailored cut-and-sew in Jiangsu</p>
+
+        <p>So what does the geography mean in practice? Three things:</p>
+
+        <ul class="ar-list"><li><strong>The price range is genuinely wide.</strong> An entry-level PU fast-fashion jacket and a lambskin fashion piece can differ several times over in FOB cost, and come from factories four hours apart</li><li><strong>Capability does not travel.</strong> A factory that nails bonded-leather biker jackets has no business cutting full-grain aniline hides, and the sample will show it</li><li><strong>Sitting near the material shortens lead times,</strong> but only when the factory actually operates inside the relevant cluster rather than subcontracting into it</li></ul>
+
+        <p>The trap is assuming regional strength transfers to every supplier with that postcode. A Haining address guarantees nothing about leather handling, and a Guangzhou address guarantees nothing about trend accuracy</p>
+
+        <h2 id="evaluation-framework">How We Evaluated These Leather Jacket Manufacturers (Our 7-Point Framework)</h2>
+
+        <p>Method first, list second. We assess manufacturers against seven dimensions that actually predict whether an order lands on time and on spec. This is not a ranking of "best" in the abstract. It is a structured way to match one factory to one order</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>#</th><th>Evaluation Dimension</th><th>What to Look For</th></tr></thead><tbody><tr><td>1</td><td>Craft &amp; Stitching</td><td>Even topstitching at 8–10 stitches per inch, clean seam allowances, bar-tacked stress points at shoulder, cuff, and pocket mouth</td></tr><tr><td>2</td><td>Leather &amp; Material Sourcing</td><td>Named tannery, hide thickness held within ±0.1 mm, documented substrate for PU and bonded goods</td></tr><tr><td>3</td><td>MOQ Flexibility</td><td>Willingness to run a 100–300 piece pilot; written price breaks at 500 / 1,000 / 3,000 pieces</td></tr><tr><td>4</td><td>Sampling Capability</td><td>Lab dip in 5–7 days, fit sample in 10–15 days, number of revision rounds stated before you pay</td></tr><tr><td>5</td><td>Compliance Awareness</td><td>Working knowledge of REACH restricted substances, chrome VI limits, US and EU labeling rules, buyer-specific audit protocols</td></tr><tr><td>6</td><td>Communication</td><td>English-capable merchandiser, same-business-day replies, problems flagged before you ask</td></tr><tr><td>7</td><td>Capacity Stability</td><td>Holds a delivery window in August and September, not only in a quiet February</td></tr></tbody></table></div>
+
+        <p>Two dimensions carry more weight than the rest. <strong>MOQ flexibility</strong> separates factories hunting long-term brand partners from those chasing one-off bulk. <strong>Sampling capability</strong> decides most projects before cutting even starts: a factory that rushes your fit sample will rush your 2,000-piece run with the same instincts</p>
+
+        <p>One point on scope. The ten entries below are manufacturer <strong>profiles</strong>, grouped by production region and capability type, not a ranked list of named companies. They describe the kinds of suppliers you will meet at trade fairs and on sourcing platforms, so you can recognize which type you are talking to and which questions to ask. Treat the framework as an interview script rather than a scoring sheet</p>
+
+        <p>Want to run this on a real supplier call? <a href="/contact-us/">Ask our team for the vetting questions</a></p>
+
+        <h2 id="profiles">Top 10 Leather Jacket Manufacturer Profiles in China (2026 List)</h2>
+
+        <p>One note before the list: <strong>fit beats rank.</strong> Profile three may be wrong for you and profile eight exactly right. Read the "Best For" tag, not the number</p>
+
+        <h3>Profile #1: Guangzhou Fashion Outerwear Specialist</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Trend-driven leather and PU outerwear: biker jackets, moto styles, cropped fashion cuts, and four to six seasonal colorways per drop</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Strong on bonded and corrected-grain leathers, with in-house pattern-making that converts a reference photo into a wearable sample inside two weeks</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Choose this profile when your calendar is 60 to 90 days and speed outranks heritage construction</p>
+
+        <h3>Profile #2: Haining Lambskin Workshop</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Classic leather jackets in sheepskin and lambskin nappa: bomber silhouettes, minimalist zip-front styles, tailored fits</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Direct tannery access keeps hide quality consistent across reorders and gives real control over aniline, semi-aniline, and pigmented finishes</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Mid-to-high-end brands that want genuine leather with a soft hand and will trade two or three extra weeks of lead time to get it</p>
+
+        <h3>Profile #3: Zhejiang Full-Grain Leather House</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Heavier constructions in cowhide and full-grain leather: field jackets, trucker-style leathers, durable everyday wear</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Built around longevity, with double-needle stitching at stress seams, metal zippers from recognized brands, and linings that survive a full winter of wear</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Heritage and workwear-inspired labels selling durability as the primary story</p>
+
+        <h3>Profile #4: Guangdong PU &amp; Vegan Leather Producer</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>PU, bonded, and vegan leather outerwear at accessible price points: fashion jackets, oversized cuts, trend-led designs</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Cut-and-sew lines tuned for volume, with embossing, topcoat finish, and hardware weight used to pull a high-end look out of synthetic material</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>A fit for private-label programs that need thousands of units sharing one surface appearance</p>
+
+        <h3>Profile #5: Fujian Sportswear-Crossover Factory</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Leather and mixed-material jackets with athletic influence: raglan-sleeve leathers, paneled designs, hybrid outerwear</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Comfortable joining leather to knit, mesh, and technical shells without puckering, with sleeve pitch and armhole depth engineered for movement</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Athleisure and streetwear brands using leather as one element inside a broader collection</p>
+
+        <p>If your needs fall outside the classic fashion-leather mold, <a href="/jackets-manufacturer/">custom leather jacket manufacturing</a> through a partner like YAUUM covers the crossover ground: leather panels, mixed substrates, and private-label detailing handled in one production flow</p>
+
+        <h3>Profile #6: Jiangsu High-End Cut-and-Sew</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Elevated leather jackets with tailored construction: blazer-style leathers, structured shoulders, precise fit grading across XS–XXL</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Pattern-making precision and silhouette control, including canvas interlining and sleeve head work that cheaper lines skip</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Designer-led brands where fit and finish justify a higher unit cost</p>
+
+        <h3>Profile #7: Hebei Cowhide &amp; Utility Specialist</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Rugged leather outerwear: utility jackets, moto styles in heavier hides, cold-weather leathers with quilted or shearling linings</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Handles 1.2 mm and thicker hides without needle damage, specifies robust hardware as standard, and builds for abrasion resistance</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Pick this profile when abrasion resistance outranks drape and your volumes clear 1,000 pieces</p>
+
+        <h3>Profile #8: Guangzhou Small-Batch &amp; Private-Label Studio</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Flexible-run leather jackets for emerging brands: initial orders in the low hundreds, private-label trims, hands-on design iteration</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Set up for lower minimums and fast sampling, with merchandisers used to explaining tolerances and grading rules to first-time buyers</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Startups, independent designers, and brands testing a leather line before committing capital to volume</p>
+
+        <h3>Profile #9: Zhejiang Vintage &amp; Distressed Finish Specialist</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Washed, distressed, and vintage-finish leather jackets: lived-in looks, hand-finished detailing, retro silhouettes</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Finishing is the core asset, with garment washing, hand-rubbing, and controlled patina held to one standard across a full run</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Worth the call if the finish itself is what your customer is buying</p>
+
+        <h3>Profile #10: Integrated Outerwear Group (Multi-Region)</h3>
+
+        <p><strong>Specialty &amp; Product Range</strong></p>
+
+        <p>Broad outerwear capability spanning leather, PU, and mixed materials, with lines running across several categories at once</p>
+
+        <p><strong>Leather &amp; Craft Highlights</strong></p>
+
+        <p>Scale supports multi-style programs, one-stop sourcing, and consolidated shipments across an outerwear range</p>
+
+        <p><strong>Best For</strong></p>
+
+        <p>Larger brands and wholesalers cutting supplier count across an outerwear range</p>
+
+        <h2 id="comparison">Side-by-Side Comparison: The 10 Profiles at a Glance</h2>
+
+        <p>Use this table to shrink your shortlist before sampling starts. Match the "Best Order Type" column to your actual first order, not your five-year ambition</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>#</th><th>Profile</th><th>Positioning</th><th>Core Leather Type</th><th>Best Order Type</th></tr></thead><tbody><tr><td>1</td><td>Guangzhou Fashion Outerwear</td><td>Trend-fast</td><td>PU / corrected grain</td><td>Mid to large, seasonal</td></tr><tr><td>2</td><td>Haining Lambskin Workshop</td><td>High-end classic</td><td>Sheepskin / lambskin nappa</td><td>Mid volume, quality-first</td></tr><tr><td>3</td><td>Zhejiang Full-Grain House</td><td>Heritage durable</td><td>Cowhide / full-grain</td><td>Mid to large</td></tr><tr><td>4</td><td>Guangdong PU Producer</td><td>Value volume</td><td>PU / vegan leather</td><td>Large volume</td></tr><tr><td>5</td><td>Fujian Crossover</td><td>Athleisure hybrid</td><td>Leather + technical blend</td><td>Mid volume</td></tr><tr><td>6</td><td>Jiangsu High-End Cut-and-Sew</td><td>Designer-grade</td><td>Lambskin / calfskin</td><td>Small to mid, high value</td></tr><tr><td>7</td><td>Hebei Utility Specialist</td><td>Rugged workwear</td><td>Heavy cowhide</td><td>Mid to large</td></tr><tr><td>8</td><td>Guangzhou Small-Batch Studio</td><td>Emerging brands</td><td>Mixed / PU / leather</td><td>Small, pilot orders</td></tr><tr><td>9</td><td>Zhejiang Vintage Finish</td><td>High-end distressed</td><td>Washed / treated leather</td><td>Small to mid</td></tr><tr><td>10</td><td>Integrated Outerwear Group</td><td>One-stop scale</td><td>Multi-material</td><td>Large, multi-category</td></tr></tbody></table></div>
+
+        <h2 id="how-to-choose">How to Choose the Right Leather Jacket Manufacturer for Your Brand</h2>
+
+        <p>Selection is a matching exercise. Start from your order profile, not from the list</p>
+
+        <h3>If You're Building a High-End Genuine-Leather Line</h3>
+
+        <p>Hide quality and finishing should sit ahead of price in your decision. Ask for the tannery name, hide origin, thickness in millimeters, and finish type. Request a physical swatch cut from current stock, never a photo. A factory that cannot name its tannery cannot promise consistency on your reorder, and that is the order that damages your brand</p>
+
+        <h3>If You're Running PU or Fast-Fashion</h3>
+
+        <p>Repeatability wins. Confirm that the factory can hold one colorway across three separate production runs, then lock hardware and lining specs in writing before quoting. Cost creep hides in exactly those two places: a zipper downgrade and a lighter lining can shave a dollar off the quote and a year off the garment's life</p>
+
+        <h3>If You're Sourcing Moto or Vintage Styles</h3>
+
+        <p>Distressing, washing, and hand-rubbing results vary widely between workshops, even within the same town, so finishing expertise becomes the deciding factor. Demand a sample of the exact finish on the exact hide you plan to buy in bulk. A patina developed on a different leather tells you nothing about your order</p>
+
+        <h3>If You're a Small Brand or First-Time Buyer</h3>
+
+        <p>MOQ is your first filter, and plenty of factories will quietly disqualify themselves at this stage by stalling instead of answering. Look for partners built for <a href="/jackets-manufacturer/">low-MOQ leather jacket production</a>, studios that treat a 100-piece pilot as a real project. YAUUM works with private-label and streetwear buyers on that basis, starting from a tech pack, reference photos, or a physical sample</p>
+
+        <h3>Questions to Ask Every Factory</h3>
+
+        <ul class="ar-list"><li>What is the smallest pilot order you will run, and what are the unit prices at 500, 1,000, and 3,000 pieces?</li><li>How many sample revision rounds are included, and what triggers an extra charge?</li><li>Which tanneries or material suppliers do you buy from, and can you provide test reports?</li><li>Who handles my account day to day, and in what language?</li><li>What happens if bulk production deviates from the approved sample?</li></ul>
+
+        <p>Most buyers forget the last one. The answer reveals more about a factory than any company brochure</p>
+
+        <h2 id="common-mistakes">Common Mistakes When Sourcing Leather Jackets from China</h2>
+
+        <p>Failed orders almost always trace back to a short list of avoidable errors</p>
+
+        <p><strong>1. Choosing on price alone.</strong></p>
+
+        <p>The cheapest quote usually reflects a thinner hide, a cheaper lining, or lighter hardware. Compare every quote against one fixed spec sheet, never against each other in the abstract</p>
+
+        <p><strong>2. Skipping the physical sample.</strong></p>
+
+        <p>Photos hide hand feel, drape, stitch density, and hardware weight, which is to say they hide everything a customer notices. Nobody should approve bulk from a JPEG</p>
+
+        <p><strong>3. Under-specifying the tech pack.</strong></p>
+
+        <p>Vague inputs produce vague output. Include graded measurements with tolerances, thread type and ticket number, zipper brand and gauge, lining composition, interlining, and label placement</p>
+
+        <p><strong>4. Leaving compliance to the end.</strong></p>
+
+        <p>Restricted substances, fiber-content labeling, and buyer audits belong in the conversation before cutting, not after the container is booked. Ask what documentation a factory can supply, then verify it with the issuing body</p>
+
+        <p><strong>5. Treating the first order as the last.</strong></p>
+
+        <p>A pilot run tests communication as much as production. How a factory handles a 20-piece shade variance predicts how it handles a 2,000-piece one</p>
+
+        <p>Before committing to bulk, know how inspection works at each stage. Our breakdown of the <a href="/our-services/">leather jacket quality control process</a> covers what to check at sampling, mid-production, and pre-shipment</p>
+
+        <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
+
+          <details class="ar-faq-item" open><summary><h3>How do I find a reliable leather jacket manufacturer in China?</h3></summary><p>Start with a defined spec and build your shortlist on fit, not fame. Verify each candidate with a physical sample, a reference check, and straight answers on material sourcing. Score every factory against the same seven criteria so you are comparing capability rather than sales impressions</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What is the typical MOQ for custom leather jackets from China?</h3></summary><p>MOQ moves with the factory, the leather type, and construction complexity. Fashion-focused and small-batch studios accept pilot runs in the low hundreds, while volume producers set higher thresholds to protect line efficiency and hide yield. Since the number depends on your design and material, the fastest path is to share your tech pack and request a quote against your real order profile</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Can I get leather jacket samples before placing a bulk order?</h3></summary><p>Yes, and you should insist on it. You normally pay for the sample and any lab dips, with the cost often credited against bulk once the order is confirmed. Treat the approved sample as a binding reference: it defines the standard bulk production must match, including stitch density, hardware, and shade</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What leather types are commonly used for leather jackets?</h3></summary><p>Two families cover most production: genuine leather (sheepskin, lambskin, cowhide, calfskin) and synthetics (PU, bonded, and vegan leather). Sheepskin and lambskin at 0.6–0.9 mm give the softest hand, while cowhide and calfskin above 1.1 mm suit durability-driven builds</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How long does production and shipping usually take?</h3></summary><p>Lead time tracks leather availability, sampling rounds, order size, and finishing complexity. Distressed and hand-finished styles run longer than clean constructions, sometimes by two to three weeks. Ocean freight then adds transit on top of production. Ask each factory for a schedule split into sampling, production, and transit phases instead of one headline number</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What should I check before choosing a leather jacket factory?</h3></summary><p>Confirm craft quality through a physical sample, verify material sourcing, pin down MOQ and price tiers in writing, measure sampling turnaround, and test compliance knowledge</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Do Chinese leather jacket manufacturers support small orders or private label?</h3></summary><p>Many do. Small-batch studios and private-label specialists run lower minimums and full custom trim packages, covering woven labels, neck labels, size labels, care labels, hang tags, and packaging. That setup suits emerging brands testing a leather line before scaling</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What certifications should a leather jacket manufacturer have?</h3></summary><p>It depends on your market and your retail customers. Buyers commonly request social compliance audits, restricted-substance test reports, and quality management documentation. Rather than assuming, ask each factory what it actually holds, request the certificates, and verify them with the issuing body</p></details>
+
+        <h2 id="next-step">Next Step: Get a Quote or Talk to a Manufacturer</h2>
+
+        <p>The right manufacturer is not the one at the top of a list. It is the one whose MOQ, leather capability, finishing skill, and response speed match your order</p>
+
+        <p>YAUUM produces private-label and streetwear outerwear across six core categories, taking projects from tech pack or reference sample through material confirmation, sampling, bulk production, and inspection</p>
+
+        <p>Ready to move from research to numbers? <a href="/contact-us/">Request a custom leather jacket quote</a> and send your spec. Still narrowing the field? <a href="/contact-us/">Talk to our team</a> and let the framework do the filtering</p>
+
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="Jackets"
+    kicker="Start an inquiry"
+    title="Send the Leather Jacket Spec Behind Your Order"
+    lead="Styles, leather type and finish direction, MOQ target, and delivery window: the inputs this guide scores a factory against"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>

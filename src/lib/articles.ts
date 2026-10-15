@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-leather-jacket-manufacturers-china/",
+    title: "Top 10 Leather Jacket Manufacturer Profiles in China: A Buyer's Evaluation Guide (2026)",
+    description: "Ten leather jacket factory profiles by region and capability, a seven-point evaluation framework, and the mistakes that break leather outerwear orders",
+    date: "2026-10-15",
+    dateLabel: "October 15, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-10-windbreaker-manufacturers-china/",
     title: "Top 10 Windbreaker Manufacturers in China: A Buyer's Sourcing Guide (2026)",
     description: "Ten windbreaker manufacturers to shortlist, a six-point evaluation checklist, the pitfalls that break functional outerwear orders, and how to pick OEM, ODM or wholesale",
