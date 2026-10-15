@@ -1548,6 +1548,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十六篇（2026-10-15, top-10-varsity-jacket-manufacturers-china）。
+  // 审核 85 分红线通过、FAQ 逐字一致；"❌不完整"为误报。十类"类别"画像（非实名榜）。
+  // 上线处理：5 内链 + 5 CTA 映射；案例链接与两处 checklist 承诺改写；premium→higher price；
+  // Title 去年份（报告 P1-3）与 Meta 首句改 "10 types"（报告 P2-6）已执行；本页不配图。
+  "/top-10-varsity-jacket-manufacturers-china/": {
+    title: "Top 10 Varsity Jacket Manufacturers in China (B2B Guide) | Yauum",
+    description:
+      "Compare 10 types of varsity jacket manufacturers in China. Learn how to verify real factories, avoid trading companies, and request a sample. Get a quote today",
+    path: "/top-10-varsity-jacket-manufacturers-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/jackets-manufacturer/hero-jackets-private-label.webp"),
+    ogImageAlt: "Private label jacket shown as a custom manufacturing reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 Varsity Jacket Manufacturers in China", "/top-10-varsity-jacket-manufacturers-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 Varsity Jacket Manufacturers in China: An Honest Factory-Side Guide for B2B Buyers",
+        description:
+          "Compare 10 types of varsity jacket manufacturers in China. Learn how to verify real factories, avoid trading companies, and request a sample. Get a quote today",
+        path: "/top-10-varsity-jacket-manufacturers-china/",
+        image: "/uploads/jackets-manufacturer/hero-jackets-private-label.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-15T00:00:00+08:00",
+        dateModified: "2026-10-15T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for custom varsity jackets from Chinese manufacturers?",
+          "Minimum order quantities vary widely by factory type. Specialists serving streetwear brands commonly accept smaller runs per colorway, while large integrated bulk factories set much higher minimums. The number that matters is the minimum per color, not per style, because color drives fabric dyeing and trim purchasing. Confirm both figures before comparing quotes.",
+        ],
+        [
+          "How long does sampling take for a custom varsity jacket?",
+          "Sampling time tracks design complexity. A stock-fabric body with one chenille patch moves faster than a fully custom build that needs new rib development and multi-color chenille. Patch-heavy designs almost always need at least one revision round after the first proto. Ask for a dated sampling schedule in writing rather than a general estimate.",
+        ],
+        [
+          "How do I tell if a varsity jacket manufacturer is a real factory or a trading company?",
+          "Run three questions past them. Can they show the production line live on video? Can they break your quote down by material and process? Which processes run in-house and which are outsourced? A factory answers all three specifically. A trading company usually fails at least two.",
+        ],
+        [
+          "What factors affect the price of an OEM varsity jacket in China?",
+          "The main cost drivers are shell fabric type and weight, whether the body is wool-blend melton or fleece, rib quality, chenille patch size and color count, embroidery stitch count, lining material, and hardware such as snaps and zippers. Quantity per colorway and packaging complexity also move the number. Ask for a line-item breakdown so you can see exactly what you are paying for.",
+        ],
+        [
+          "Which Chinese cities are best for varsity jacket manufacturing?",
+          "Guangdong suits export-oriented mid-volume orders with fast material access. Zhejiang suits fleece and knit-heavy constructions. Jiangsu suits full-package OEM programs. Fujian suits sporty and athletic hybrid designs. Match the region to your construction rather than to a general ranking.",
+        ],
+        [
+          "Can I get a sample before placing a bulk order?",
+          "Yes, and you should treat it as non-negotiable. Request a sample in your actual construction and materials, not a stock sample with your label added. Check patch definition, rib recovery, hardware function and stitch quality, then wash-test it once before approving.",
+        ],
+        [
+          "What certifications should a varsity jacket factory have?",
+          "Expect a social compliance audit, accurate fiber content and care labeling, and product test reports for any performance claim such as water resistance. Request the specific report name and expiry date, and confirm the audit covers the facility that will actually produce your order.",
+        ],
+        [
+          "How do I verify quality during production?",
+          "Set checkpoints at incoming fabric, in-line assembly and pre-shipment. Use AQL sampling for final inspection, verify measurements against your size chart within agreed tolerances, and confirm labeling and packing before cartons are sealed. A third-party inspection before shipment is the most reliable safeguard.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

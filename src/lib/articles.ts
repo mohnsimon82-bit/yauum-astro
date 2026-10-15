@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-varsity-jacket-manufacturers-china/",
+    title: "Top 10 Varsity Jacket Manufacturers in China: An Honest Factory-Side Guide for B2B Buyers",
+    description: "Ten varsity jacket factory categories in China, the eight dimensions that define top-tier, the three-question factory test, and a full vetting sequence",
+    date: "2026-10-15",
+    dateLabel: "October 15, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/bomber-jacket-manufacturers-china-factory-types/",
     title: "Bomber Jacket Manufacturers in China: 10 Factory Types & How to Choose the Right One",
     description: "Ten bomber jacket factory types in China by cluster and specialty, five selection criteria, craft essentials, and the pitfalls that derail outerwear programs",
