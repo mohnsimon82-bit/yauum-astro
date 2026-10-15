@@ -1,0 +1,262 @@
+---
+/**
+ * /custom-jacket-manufacturer-guide/ 文章页（内容生产系统流水线第十四篇 · 终稿 · 审核 84）。
+ *
+ * 来源：内容生产系统（Dify）输出 `custom-jacket-manufacturer-guide-终稿.md`（2026-10-15）。
+ * 上线前处理（其余正文逐字取自终稿，仅做 markdown→HTML 结构转换）：
+ *   - 内链（4）→ /jackets-manufacturer/#jk-materials（面料锚点）、/our-services/、/production/；
+ *     "read the full case study"（站内无案例页）→ 改为 /contact-us/ 真实动作引导
+ *   - 下载承诺（"Download the free Supplier Vetting Checklist" ×3 + 结尾 H2 标题）→ 站内无资源页，
+ *     按先例改写为 /contact-us/ 真实动作；Meta description 同步删去 "and a free supplier checklist"
+ *   - CTA（request a custom jacket quote / Contact YAUUM）→ /contact-us/
+ *   - 审核报告 P0（压缩 350–500 词）、P1-2/3（模板化改写）、P1-4（Schema URL 占位约定）、P2-6（中段 CTA）
+ *     未执行（见上传汇报）；案例段经报告确认"未新增客户名/金额，合规"，按原文发布
+ *   - 段末句号按全站规则剥除；FAQ 可见文本与 seo.ts faqJsonLd 存在"尾句号级"差异（既定口径）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-it-matters", "What the wrong partner costs"],
+  ["02", "seven-criteria", "The 7 criteria"],
+  ["03", "process", "Brief to delivery"],
+  ["04", "common-mistakes", "Common mistakes"],
+  ["05", "case-study", "A real program"],
+  ["06", "vetting-checklist", "Vetting checklist"],
+  ["07", "faq", "FAQ"],
+  ["08", "next-step", "Next step"],
+];
+---
+
+<V2Layout
+  seo={SEO["/custom-jacket-manufacturer-guide/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Custom Jacket Manufacturer Guide</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>Custom Jacket Manufacturer Guide: How to Choose the Right Partner (Without Costly Mistakes)</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-15">October 15, 2026</time></span>
+      <span class="ar-views" data-views-for="/custom-jacket-manufacturer-guide/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">Sourcing custom jackets is the highest-stakes decision a menswear brand makes in a season. A jacket carries more fabric cost, more construction steps, and more fit risk than a T-shirt or a hoodie. Get it wrong and you are not writing off a few hundred dollars of samples. You are paying air freight to patch a delivery gap, discounting a style that missed its fit window, and explaining to retail buyers why the drop slipped three weeks</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <figure class="ar-figure">
+          <img src="/uploads/products/jackets-manufacturer.webp" width="844" height="1448" alt="Custom jacket manufacturer guide – finished custom jackets on display in a factory" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">A finished jacket reference prepared for review, from the supplied production environment</figcaption>
+        </figure>
+
+        <p>This guide is for the people who actually sign the purchase order: brand founders, sourcing managers, product developers, wholesale buyers. It will not explain what a bomber is. It gives you a vetting framework you can run against any custom jacket manufacturer, in any country, before you commit to tooling, fabric, or a production slot</p>
+
+        <p>Inside: seven evaluation criteria with the exact questions to ask, the full process from brief to delivery, the mistakes that drain the most money, and a step-by-step checklist you can reuse on your next three RFQs</p>
+
+        <p><strong>Not sure how to evaluate a supplier yet? <a href="/contact-us/">Talk to our team</a> and score candidates side by side.</strong></p>
+
+        <h2 id="why-it-matters">Why Choosing the Wrong Custom Jacket Manufacturer Costs You More Than You Think</h2>
+
+        <p>The invoice price is the smallest part of the risk. A jacket program hits your cash flow in four places: sampling spend, fabric commitment, production slot deposits, and the retail calendar. Break one and the cost compounds through the other three</p>
+
+        <p>Here is what buyers actually lose when the factory is the wrong fit:</p>
+
+        <ul class="ar-list"><li><strong>Delivery slippage against a fixed launch date.</strong> A two-week delay on a November drop means air freight at roughly five to ten times sea cost, or a missed season. Not a polite email to the retailer</li><li><strong>Fit and construction drift between sample and bulk.</strong> When the approved sample is not the reference document, bulk lands 1–2 cm off spec at the chest or sleeve, and the size run photographs badly</li><li><strong>Rework nobody budgeted.</strong> Wrong trims, labels, or polybags mean re-packing at destination, billed at destination labor rates instead of factory rates</li><li><strong>Communication lag.</strong> A supplier who answers in five to seven days turns a three-day problem into a three-week problem</li><li><strong>Compliance exposure.</strong> A missing test report or an undisclosed subcontractor can hold a container at customs</li></ul>
+
+        <h2 id="seven-criteria">What to Look for in a Custom Jacket Manufacturer: 7 Decision Criteria</h2>
+
+        <p>Treat supplier selection as a scored evaluation, not a gut call. Score each candidate 1–5 on the seven criteria below, keep the notes, and compare on one sheet</p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="Comparison chart of key criteria for choosing a custom jacket manufacturer">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Criteria comparison chart</strong><small>Needed: a chart comparing the seven jacket manufacturer criteria on sampling, fabric, MOQ, lead time and QC</small></div>
+          </div>
+        </figure>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Criterion</th><th>What "good" looks like</th><th>Typical range to expect</th><th>Ask the supplier</th></tr></thead><tbody><tr><td>Sampling capability</td><td>In-house sample room, pattern maker on staff, two revisions without restarting</td><td>Sample lead time 7–15 days; 2–3 revision rounds standard</td><td>"Who drafts the pattern, your team or a third party?"</td></tr><tr><td>Fabric sourcing</td><td>Documented mill relationships, lab dip process, test reports available</td><td>Fabric lead time 15–30 days; MOQ 300–1,000 m per color</td><td>"Can you source this composition, or only stock fabrics?"</td></tr><tr><td>Workmanship</td><td>Bar-tacks at stress points, matched seam allowances, consistent topstitch</td><td>AQL 2.5 inspection standard is common</td><td>"Show me a jacket you produced, not a catalog photo."</td></tr><tr><td>MOQ &amp; flexibility</td><td>Per-style or per-color MOQ, willingness to run multi-style orders</td><td>300–500 pcs per style/color for many programs</td><td>"What is your MOQ if I order 3 styles in one shipment?"</td></tr><tr><td>Lead time &amp; capacity</td><td>Published production calendar, realistic slot booking</td><td>Production 30–45 days plus sea freight 25–35 days</td><td>"What is my ship date if I approve the sample on [date]?"</td></tr><tr><td>Quality control</td><td>In-line QC plus final inspection with written report</td><td>In-line at 30–50% completion, final AQL 2.5</td><td>"Will I receive the inspection report before shipment?"</td></tr><tr><td>Compliance</td><td>Traceable materials, test reports on request, no undisclosed subcontracting</td><td>Varies by market and fiber content</td><td>"Which tests do you run, and who issues the reports?"</td></tr></tbody></table></div>
+
+        <p>These ranges describe mid-volume menswear jacket programs. Use them to pressure-test a quote, then lock your own numbers in the RFQ</p>
+
+        <h3>Sampling &amp; Prototyping Capability</h3>
+
+        <p>The sample is the contract. If the sample room sits outside the factory, every revision passes through a third party and your feedback loses fidelity on the way. The pattern maker who drafts the first sample should also handle bulk grading, otherwise the fit you approved gets re-interpreted at scale</p>
+
+        <p><strong>Questions to ask:</strong> Who drafts the pattern? How many revisions before a re-sample fee applies? Can I see the pattern file?</p>
+
+        <p><strong>Red flags:</strong> Vague answers on pattern ownership. Samples that arrive without a measurement sheet. A "sample" that turns out to be a stock jacket with your label sewn into the neck</p>
+
+        <h3>Fabric &amp; Material Sourcing</h3>
+
+        <p>Jacket fabric drives both cost and performance, usually 40% or more of the FOB on a shell jacket. Shell composition, lining, interlining, zipper brand, and hardware finish all belong in the spec by name and article number, not described loosely as "poly twill." A manufacturer with direct mill relationships turns a lab dip around in days; one buying from a trading market takes weeks and substitutes without telling you</p>
+
+        <p>For the full range of shells, linings, and finishes we work with, see <a href="/jackets-manufacturer/#jk-materials">our custom jacket fabric options</a></p>
+
+        <p><strong>Questions to ask:</strong> Which mill supplies this shell? Can you provide a lab dip before bulk? What happens if the mill drops this article mid-program?</p>
+
+        <p><strong>Red flags:</strong> "Similar fabric available" language in the quote. No lab dip stage. No colorfastness or water-repellency report on a functional shell</p>
+
+        <h3>Workmanship &amp; Construction Quality</h3>
+
+        <p>Jackets have more failure points than any other category: a padded bomber can run 60 to 80 operations against roughly 15 for a basic tee. So inspect the garment, not the catalog. When a physical sample arrives, turn the lining out first and look at how the seams are finished where nobody expects a buyer to look, then check bar-tacks at pocket corners and stress seams, then measure topstitch spacing across the two sleeves and compare. If the spacing drifts on a hand-held sample, it will drift across 500 pieces</p>
+
+        <p>The second question is ownership. Quilting, seam taping, and garment wash each need to be identified as in-house or subcontracted, because that answer tells you who carries the quality risk and whose calendar controls your ship date. A supplier who says "we can do anything" without naming the process is describing a sourcing network, not a capability. Ask which operations run under their roof and what stitch density they hold on topstitch; if there is no straight answer on subcontracting, and no physical sample you can cut open, you have learned enough to move on</p>
+
+        <h3>MOQ &amp; Flexibility for Small-Batch / Multi-Style Orders</h3>
+
+        <p>MOQ ambushes most first-time jacket buyers. Minimums are set per style and per color, and they climb the moment the fabric is custom-dyed or the trim is custom-tooled, since a mill dye lot and a zipper mold both carry their own floors. Running a three-style capsule? Ask for a combined-shipment MOQ instead of accepting three separate minimums</p>
+
+        <p><strong>Questions to ask:</strong> Is MOQ per style, per color, or per order? Does a custom zipper pull change the minimum? Can I combine styles in one shipment?</p>
+
+        <p><strong>Red flags:</strong> MOQ quoted before the fabric is named. Minimums that move after sampling. Flat refusal to combine styles</p>
+
+        <h3>Lead Time &amp; Production Capacity</h3>
+
+        <p>Ask for a calendar, not a number. A factory with booked capacity will name the earliest open slot and defend it; a factory without capacity will promise whatever you want to hear. Build the timeline backward from the retail floor date, which for a November drop looks roughly like this:</p>
+
+        <ul class="ar-list"><li>Retail floor date: 1 November</li><li>Goods at warehouse, inspected and re-packed: mid-October (hold two weeks for port congestion and re-pack)</li><li>Vessel departure: early September (sea freight 25–35 days)</li><li>Production start: late July (production 30–45 days)</li><li>Sample approval and bulk fabric release: early July</li><li>Brief and first sample: late May (sampling 7–15 days plus fabric lead time 15–30 days)</li></ul>
+
+        <p>Run that calendar against the supplier's answer. The useful question is not "how long do you need" but "what is the ship date if I approve the sample on 5 July," because a production duration with no start date attached commits nobody to anything. Also ask where peak season squeezes them, since a slot promised in April behaves differently in August</p>
+
+        <h3>Quality Control Process</h3>
+
+        <p>QC is a process, not a promise. Strong programs inspect in-line at 30–50% completion, while the line can still correct a sleeve pitch or a misaligned pocket, then run final inspection against AQL 2.5 before packing. Final-only inspection finds the same defects at ten times the cost to fix</p>
+
+        <p><strong>Questions to ask:</strong> Do you run in-line QC? Will I get a written report? Who signs the final inspection?</p>
+
+        <p><strong>Red flags:</strong> A supplier who inspects only at the end has no mechanism to correct anything, because the line has already moved to the next order. Watch for refusal to issue a written report. "We check everything" is not a standard, and a factory that cannot name AQL 2.5 or an equivalent benchmark is telling you it has none</p>
+
+        <h3>Compliance &amp; Certifications</h3>
+
+        <p>Compliance depends on your destination market, fiber content, and retail buyer, so do not assume a certificate exists until you have seen it. Four questions settle it: which tests does the manufacturer run, who issues the reports, does any production step leave the building, and can they provide fiber traceability? Certification claims with no certificate number attached, no test reports on file, and undisclosed subcontracting are the three failures that hold containers at customs. You can <a href="/our-services/">view our certifications and compliance</a> documentation to see what we make available on request</p>
+
+        <h2 id="process">The Custom Jacket Manufacturing Process: From Brief to Delivery</h2>
+
+        <p>A transparent process removes most of the anxiety in a first order. Here is how a jacket program runs, stage by stage, with the confirmation point that matters at each step</p>
+
+        <figure class="ar-figure">
+          <div class="sw-ph" role="img" aria-label="Step-by-step custom jacket manufacturing process flowchart from brief to delivery">
+            <div class="sw-ph-media"><span class="sw-ph-tag">Required image</span></div>
+            <div class="sw-ph-copy"><strong>Process flow diagram</strong><small>Needed: a jacket program flow from brief and sampling through bulk, inspection and shipment</small></div>
+          </div>
+        </figure>
+
+        <h3>Step 1 – Requirement Brief &amp; Design Communication</h3>
+
+        <p>Everything starts with what you send. A complete brief carries the tech pack, reference photos, a physical sample if you have one, target fabric, size range, label files, quantity, packaging spec, destination market, and delivery date. The more of that lands in the first email, the fewer revisions you pay for later</p>
+
+        <h3>Step 2 – Sampling &amp; Revision</h3>
+
+        <p>The sample room drafts the pattern, pulls or orders fabric, and builds the first sample. You review it against the spec: measurements, fit on a live fit model, trim placement, label position, finishing. Every revision gets logged, and the approved sample becomes the bulk reference. To see how we manage this stage, <a href="/production/">see how our sampling process works</a></p>
+
+        <p><strong>Confirmation point:</strong> a signed sample with its measurement sheet. Do not release bulk without both</p>
+
+        <h3>Step 3 – Bulk Production &amp; In-Line QC</h3>
+
+        <p>Production runs against the approved sample and the confirmed bill of materials. In-line QC checks the build at 30–50% completion, which is the window where a construction or measurement issue still gets corrected on the line instead of discovered after cartons are sealed</p>
+
+        <figure class="ar-figure">
+          <img src="/uploads/factory/factory-sewing-line-detail.webp" width="2400" height="1600" alt="Real factory production line for custom jacket manufacturing and sampling" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">From the supplied production environment: the cut-and-sew stage on the production line</figcaption>
+        </figure>
+
+        <h3>Step 4 – Final Inspection, Packing &amp; Shipping</h3>
+
+        <p>Final inspection measures the garment, grades workmanship, and verifies labeling against AQL 2.5. Goods are then folded, packed to your packaging spec, and staged for shipment. Private-label details go on per the project spec: woven label, neck label, size label, care label, hang tag, stickers, barcode, polybag, carton mark</p>
+
+        <h2 id="common-mistakes">Common Mistakes Buyers Make When Sourcing Custom Jackets</h2>
+
+        <p>Most sourcing failures are predictable, which also makes them preventable. The red flags listed under each of the seven criteria above cover the supplier-side warning signs; the four below are mistakes buyers make on their own side of the table</p>
+
+        <p><strong>Approving a sample without a measurement sheet.</strong> Without recorded measurements, "the sample fit well" is an opinion, not a standard. Require a measurement sheet with every sample and cite it in the PO</p>
+
+        <p><strong>Ignoring MOQ until after sampling.</strong> Buyers sample at low quantity, then discover the bulk minimum applies per color. Now the capsule needs rebuilding under deadline. Get MOQ per style and per color in writing before the first sample is cut</p>
+
+        <p><strong>Skipping the lab dip.</strong> Approve a color from a screen and you will meet it again as a mismatch across 500 pieces. Every color gets a physical lab dip</p>
+
+        <p><strong>Undisclosed subcontracting.</strong> When a wash house or quilting shop enters the chain without your knowledge, you lose control of both quality and schedule. Ask which operations stay in-house, and keep the answer in writing</p>
+
+        <h2 id="case-study">Real-World Case: Solving a Multi-Style Capsule Under One MOQ</h2>
+
+        <p>A streetwear buyer came to us with a three-style capsule: a bomber, a coach jacket, and a quilted liner, all in one seasonal colorway, total program in the 900–1,200 pcs range across five sizes (S–2XL). Their previous supplier had quoted three separate MOQs per color, which pushed the program past budget before sampling even started</p>
+
+        <figure class="ar-figure">
+          <img src="/uploads/jackets-manufacturer/hero-jackets-private-label.webp" width="1536" height="1024" alt="Custom jacket case study – finished product for a brand client" loading="lazy" decoding="async" />
+          <figcaption class="ar-cap">A private label jacket reference prepared for review, from the supplied production environment</figcaption>
+        </figure>
+
+        <p>The problem was order structure, not price. We mapped fabric consumption across the three styles and found all three could run on the same shell, a 220 gsm recycled-polyester taslan with a water-repellent finish, which meant one dye lot carried the whole capsule and the program sat against a single combined minimum. The quilted liner used the same shell as its face fabric with a separate padding spec, so the color standard stayed identical across the range. Sampling ran in parallel, which compressed the sampling stage from three sequential rounds to one</p>
+
+        <p>What they got: one combined order, one shipment, one final inspection passed at AQL 2.5, and a single color standard shared across the capsule. All three styles launched on the same date, with no style cut from the range</p>
+
+        <p>You can <a href="/contact-us/">talk to our team</a> for the sampling and consolidation detail behind this program</p>
+
+        <h2 id="vetting-checklist">How to Vet a Custom Jacket Manufacturer: A Step-by-Step Checklist</h2>
+
+        <p>Run this sequence on every candidate before a deposit leaves your account. It takes about a week and screens out most of the failures above</p>
+
+        <ol class="ar-list"><li><strong>Collect the basics in writing.</strong> Company profile, main jacket categories, factory location, and whether sampling is in-house</li><li><strong>Request a physical sample of a jacket they produced.</strong> An actual garment you can measure and turn inside out, not a catalog photo</li><li><strong>Confirm MOQ per style and per color in writing,</strong> including trim-driven minimums</li><li><strong>Get a ship date tied to a specific sample-approval date.</strong></li><li><strong>Request a lab dip for your target color.</strong> Approve it physically, under daylight, before bulk</li><li><strong>Confirm in-line QC plus final AQL 2.5 with a written report.</strong></li><li><strong>Get the in-house versus outsourced operation split in writing.</strong></li><li><strong>Request test reports and compliance documentation</strong> relevant to your destination market</li><li><strong>Confirm packaging and labeling spec.</strong> Woven label, neck label, size label, care label, hang tag, barcode, polybag, carton mark</li><li><strong>Score all candidates on the same sheet.</strong> Compare first, negotiate second</li></ol>
+
+        <p><strong>Ready to run this against real quotes? <a href="/contact-us/">Talk to our team</a> about your shortlist.</strong></p>
+
+        <h2 id="faq">Frequently Asked Questions About Custom Jacket Manufacturers</h2>
+
+          <details class="ar-faq-item" open><summary><h3>What is the minimum order quantity (MOQ) for custom jackets?</h3></summary><p>MOQ is typically set per style and per color, and it rises when the fabric is custom-dyed or the trim is custom-tooled. Many mid-volume menswear programs run in the 300–500 pcs per style/color range, but the figure depends on your fabric and construction. Confirm MOQ in writing before sampling, and ask whether styles can be combined into one shipment to reduce the effective minimum</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How long does it take to produce custom jackets from sample to delivery?</h3></summary><p>Sampling usually runs 7–15 days, bulk production 30–45 days, and sea freight 25–35 days depending on destination. Peak season and custom fabric dyeing add time on top. Treat these as planning ranges and confirm your actual ship date against a specific sample-approval date, since production time without a start date is not a real commitment</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Can you produce small-batch or multi-style orders?</h3></summary><p>Yes, when the order is structured around shared materials. If several styles use the same shell fabric and colorway, they can often be produced against a combined minimum rather than separate ones. The constraint is usually custom-dyed fabric or custom-tooled trim, which raises the minimum. Ask for a combined-shipment MOQ when you are running a capsule</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What fabrics and materials do you offer for custom jackets?</h3></summary><p>Shell options span woven and knit constructions depending on the style. Bomber, coach, varsity, denim, puffer, windbreaker, and work jackets each call for different shells, linings, and interlinings. Functional finishes such as water repellency and breathability are available on selected shells with test reports on request. Send your target composition and we will confirm availability and lead time</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Do you provide samples before bulk production? How does sampling work?</h3></summary><p>Yes. Sampling is a standard stage: pattern drafting, fabric sourcing, first sample, your review against the spec, and revisions until approval. The approved sample plus its measurement sheet becomes the reference for bulk. Ask how many revision rounds are included and whether the pattern is drafted in-house, since outsourced sampling slows every revision</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What certifications or compliance standards do you meet?</h3></summary><p>Compliance requirements depend on your market, fiber content, and buyer. We can provide relevant test reports and compliance documentation on request, and we disclose which production steps are in-house. Tell us your destination market and we will confirm the specific documentation available for your program</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How do you handle quality control during production?</h3></summary><p>In-line QC runs during production, commonly at 30–50% completion, so issues are corrected on the line, followed by a final inspection against AQL 2.5 before packing. You receive a written inspection report. Ask any candidate whether they run in-line QC or final inspection only; the difference shows up in rework cost</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What information do I need to provide to get an accurate quote?</h3></summary><p>Send the tech pack, reference photos, a physical sample if available, target fabric, size range, label files, quantity, packaging requirements, target market, and delivery date. The more complete the brief, the fewer revisions and the more accurate the quote. If you do not have a tech pack yet, reference photos and a target construction are enough to start</p></details>
+
+        <h2 id="next-step">Ready to Start? Get a Quote or Talk to Our Team</h2>
+
+        <p>Choosing a custom jacket manufacturer comes down to documentation and process, not sales claims. Score your candidates on the seven criteria above, lock MOQ and ship dates in writing, and approve a physical lab dip and sample before bulk cutting starts</p>
+
+        <p>If you want to run this process against a real quote, <a href="/contact-us/">request a custom jacket quote</a> and send your brief. If you would rather vet first, <a href="/contact-us/">talk to our team</a> before you apply this to every supplier on your list</p>
+
+        <p><strong>Talk to our team:</strong> <a href="/contact-us/">Contact YAUUM</a> for private-label jacket programs across hoodies, T-shirts, jackets, pants, sportswear, and streetwear</p>
+
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="Jackets"
+    kicker="Start an inquiry"
+    title="Send the Jacket Brief You Want Quoted"
+    lead="Styles, shell direction, MOQ target, and delivery date: the inputs this guide scores a jacket program against"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>

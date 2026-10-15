@@ -1412,6 +1412,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十四篇（2026-10-15, custom-jacket-manufacturer-guide）。
+  // 审核 84 分；红线通过、FAQ 逐字一致；案例段经报告确认合规。
+  // 上线处理：4 内链映射（含 #jk-materials 面料锚点）；3 处 checklist 下载承诺 + H2 标题 → 真实动作；
+  // CTA → /contact-us/；Meta description 删 "and a free supplier checklist"。P0（压缩词数）未执行（照发，见汇报）。
+  "/custom-jacket-manufacturer-guide/": {
+    title: "Custom Jacket Manufacturer: 7-Point Vetting Guide | Yauum",
+    description:
+      "How to choose a custom jacket manufacturer: 7 vetting criteria, MOQ and lead-time benchmarks, red flags, and how to get a quote from YAUUM",
+    path: "/custom-jacket-manufacturer-guide/",
+    ogType: "article",
+    ogImage: abs("/uploads/jackets-manufacturer/hero-jackets-private-label.webp"),
+    ogImageAlt: "Private label jacket shown as a custom manufacturing reference",
+    ogImageWidth: 1536,
+    ogImageHeight: 1024,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Custom Jacket Manufacturer Guide", "/custom-jacket-manufacturer-guide/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Custom Jacket Manufacturer Guide: How to Choose the Right Partner (Without Costly Mistakes)",
+        description:
+          "How to choose a custom jacket manufacturer: 7 vetting criteria, MOQ and lead-time benchmarks, red flags, and how to get a quote from YAUUM",
+        path: "/custom-jacket-manufacturer-guide/",
+        image: "/uploads/jackets-manufacturer/hero-jackets-private-label.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-15T00:00:00+08:00",
+        dateModified: "2026-10-15T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the minimum order quantity (MOQ) for custom jackets?",
+          "MOQ is typically set per style and per color, and it rises when the fabric is custom-dyed or the trim is custom-tooled. Many mid-volume menswear programs run in the 300–500 pcs per style/color range, but the figure depends on your fabric and construction. Confirm MOQ in writing before sampling, and ask whether styles can be combined into one shipment to reduce the effective minimum.",
+        ],
+        [
+          "How long does it take to produce custom jackets from sample to delivery?",
+          "Sampling usually runs 7–15 days, bulk production 30–45 days, and sea freight 25–35 days depending on destination. Peak season and custom fabric dyeing add time on top. Treat these as planning ranges and confirm your actual ship date against a specific sample-approval date, since production time without a start date is not a real commitment.",
+        ],
+        [
+          "Can you produce small-batch or multi-style orders?",
+          "Yes, when the order is structured around shared materials. If several styles use the same shell fabric and colorway, they can often be produced against a combined minimum rather than separate ones. The constraint is usually custom-dyed fabric or custom-tooled trim, which raises the minimum. Ask for a combined-shipment MOQ when you are running a capsule.",
+        ],
+        [
+          "What fabrics and materials do you offer for custom jackets?",
+          "Shell options span woven and knit constructions depending on the style. Bomber, coach, varsity, denim, puffer, windbreaker, and work jackets each call for different shells, linings, and interlinings. Functional finishes such as water repellency and breathability are available on selected shells with test reports on request. Send your target composition and we will confirm availability and lead time.",
+        ],
+        [
+          "Do you provide samples before bulk production? How does sampling work?",
+          "Yes. Sampling is a standard stage: pattern drafting, fabric sourcing, first sample, your review against the spec, and revisions until approval. The approved sample plus its measurement sheet becomes the reference for bulk. Ask how many revision rounds are included and whether the pattern is drafted in-house, since outsourced sampling slows every revision.",
+        ],
+        [
+          "What certifications or compliance standards do you meet?",
+          "Compliance requirements depend on your market, fiber content, and buyer. We can provide relevant test reports and compliance documentation on request, and we disclose which production steps are in-house. Tell us your destination market and we will confirm the specific documentation available for your program.",
+        ],
+        [
+          "How do you handle quality control during production?",
+          "In-line QC runs during production, commonly at 30–50% completion, so issues are corrected on the line, followed by a final inspection against AQL 2.5 before packing. You receive a written inspection report. Ask any candidate whether they run in-line QC or final inspection only; the difference shows up in rework cost.",
+        ],
+        [
+          "What information do I need to provide to get an accurate quote?",
+          "Send the tech pack, reference photos, a physical sample if available, target fabric, size range, label files, quantity, packaging requirements, target market, and delivery date. The more complete the brief, the fewer revisions and the more accurate the quote. If you do not have a tech pack yet, reference photos and a target construction are enough to start.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

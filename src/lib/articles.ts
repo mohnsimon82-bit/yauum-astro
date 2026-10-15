@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/custom-jacket-manufacturer-guide/",
+    title: "Custom Jacket Manufacturer Guide: How to Choose the Right Partner (Without Costly Mistakes)",
+    description: "Seven vetting criteria for custom jacket manufacturers, a brief-to-delivery process, MOQ and lead-time benchmarks, and the mistakes that drain the most money",
+    date: "2026-10-15",
+    dateLabel: "October 15, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-10-t-shirt-manufacturers-china/",
     title: "Top 10 T-Shirt Manufacturers in China: How to Choose the Right Partner (2026 Guide)",
     description: "Ten manufacturers ranked by buyer profile, plus the seven-point framework and verification sequence for choosing a T-shirt factory in China",
