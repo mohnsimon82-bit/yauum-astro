@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-casual-pants-manufacturers-in-china/",
+    title: "Top 10 Casual Pants Manufacturers in China: A Buyer's Sourcing Guide (2026)",
+    description: "Ten casual pants manufacturer profiles by buyer fit, a six-step vetting process, MOQ and FOB ranges, and the audit checks that decide a program",
+    date: "2026-10-16",
+    dateLabel: "October 16, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-10-jogger-pants-manufacturers-in-china/",
     title: "Top 10 Types of Jogger Pants Manufacturers in China: A Buyer's Sourcing Guide",
     description: "Ten jogger pants factory types by specialization, a five-step vetting framework, and the fabric, construction and MOQ calls behind a successful order",

@@ -1999,6 +1999,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二十一篇（2026-10-16, top-10-casual-pants-manufacturers-in-china）。
+  // 审核 85 分红线通过、FAQ 逐字一致（正文粗体标记在 Schema 去除）；"❌不完整"指 HTML 截断（md 完整）。
+  // 实名+集群混编榜（YAUUM 第 1 并新增披露句）；CTA 语义后缀（_QUOTE/_CHECKLIST/_CONTACT）。
+  // 上线处理：P0-1 年份 ×4；P0-2 披露句新增；premium ×5→high-end；内链 5 + CTA 5（checklist 改索取动作）。本页不配图。
+  "/top-10-casual-pants-manufacturers-in-china/": {
+    title: "Top 10 Casual Pants Manufacturers in China (2026 Buyer's Guide) | Yauum",
+    description:
+      "Compare the top 10 casual pants manufacturers in China: MOQ and FOB ranges, factory audit steps, and how to pick the right supplier",
+    path: "/top-10-casual-pants-manufacturers-in-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 Casual Pants Manufacturers in China", "/top-10-casual-pants-manufacturers-in-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 Casual Pants Manufacturers in China: A Buyer's Sourcing Guide (2026)",
+        description:
+          "Compare the top 10 casual pants manufacturers in China: MOQ and FOB ranges, factory audit steps, and how to pick the right supplier",
+        path: "/top-10-casual-pants-manufacturers-in-china/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-16T00:00:00+08:00",
+        dateModified: "2026-10-16T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for custom casual pants from Chinese manufacturers?",
+          "MOQ varies by factory type. Small and mid-size specialists in Guangdong commonly start at 300–500 pcs per style per color. Large vertically integrated groups typically require 2,000–5,000 pcs. Knit bottoms generally carry lower minimums than woven, because knit fabric can be produced in smaller dye lots. Always confirm the MOQ at your specific fabric and colorway, since a special dye lot can raise the minimum.",
+        ],
+        [
+          "How long does production and shipping take for casual pants orders?",
+          "A typical program runs 30–45 days for production plus 25–35 days for sea freight to North America or the EU, with customs clearance on top. Sampling adds 7–15 days before production starts. Air freight cuts transit to 5–10 days at a materially higher cost per unit. Lock the dates against your supplier's live schedule before you promise an in-store date.",
+        ],
+        [
+          "What's the difference between OEM and ODM for casual pants manufacturing?",
+          "OEM means the factory builds to your design and specification, using your tech pack, patterns, and branding. ODM means the factory offers an existing developed design that you adapt with your labels, colors, and minor modifications. OEM gives you full design control and higher development cost. ODM is faster and cheaper to launch, but your product shares a base pattern with other buyers' products.",
+        ],
+        [
+          "Which regions in China are best for casual pants manufacturing?",
+          "Guangdong leads for knit bottoms, streetwear silhouettes, and lower minimums, while Zhejiang and Jiangsu are stronger for woven trousers and chinos with deep fabric supply nearby. Fujian covers the mid-market woven and smart-casual middle, so the right region follows your fabric type and volume rather than any absolute ranking.",
+        ],
+        [
+          "How do I verify a Chinese casual pants manufacturer is legitimate?",
+          "Confirm that the business license name matches the quotation and bank account, that a production floor exists at the stated address, that certificate numbers resolve in the issuing body's public registry, and that in-line QC runs rather than final inspection only. A video walkthrough is a starting point; an in-person or third-party audit is the standard.",
+        ],
+        [
+          "Can I get samples before placing a bulk order?",
+          "Yes. Sampling is standard practice. Expect 7–15 days for a development sample, and budget for the sample fee plus courier cost, which many factories credit against the bulk order. Approve the sample in writing with a measurement spec attached, and retain a sealed copy with both parties.",
+        ],
+        [
+          "What certifications should a casual pants manufacturer have?",
+          "At minimum, look for a quality management certification and a social compliance audit relevant to your market. EU-bound programs often require additional chemical compliance documentation such as OEKO-TEX or equivalent test reports. Verify every certificate number against the issuing body's registry, and confirm the scope covers the specific product and material.",
+        ],
+        [
+          "How much does it cost to manufacture custom casual pants in China?",
+          "FOB pricing typically falls between $4.5 and $12.0 per piece for woven chinos at 260–320gsm, and $3.8 to $9.5 per piece for knit joggers at 280–380gsm, on orders around 3,000 pcs. High-end fabrics, garment washes, and complex construction push pricing above that band. Use these as planning benchmarks and request a live quote against your actual specification.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；
