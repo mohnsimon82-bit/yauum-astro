@@ -1819,7 +1819,8 @@ const RAW_SEO: Record<string, SeoData> = {
   },
 
   // /mens-hoodie-manufacturer/ 子页（2026-10-15 由用户规格新建，/hoodie-manufacturer/ 的 men's 专项页）。
-  // 隐藏页：noindex（等用户图片资产完成后放开索引）——astro.config sitemap filter 同步排除。
+  // 2026-10-16 已放开索引（用户确认）：noindex 移除、astro.config sitemap filter 同步放行；
+  // 仍不进顶部导航/产品下拉（按用户规格保持）。
   // Schema：Breadcrumb 三级（Home → Hoodie Manufacturer → Men's Hoodie Manufacturer）+ Service + Product；
   // Product 不带 offers——本页无价格文案，遵守"结构化数据价格必须与页面可见文案一致"的硬规则
   // （父页/产品页的 US$10–15 区间价只在有对应可见文案的页面使用；MOQ 100 件与页面 "100 pieces per style" 一致）。
@@ -1828,7 +1829,6 @@ const RAW_SEO: Record<string, SeoData> = {
     description:
       "Men's hoodie manufacturing built for private label and streetwear lines: men's fit blocks, styles, fabrics, decoration, labels, and packing confirmed per project",
     path: "/mens-hoodie-manufacturer/",
-    noindex: true,
     ogType: "website",
     ogImage: abs("/uploads/mens-hoodie-manufacturer/mens-hoodie-hero.webp"),
     ogImageAlt: "Men's hoodie on a model as the primary menswear visual reference",

@@ -185,10 +185,9 @@ export default defineConfig({
     sitemap({
       // 显式排除 noindex 页面（404 由集成自动排除；/thank-you/ 是表单致谢页，
       // 刻意不收录——SEO 条目里同样带 noindex）。
+      // /mens-hoodie-manufacturer/ 已于 2026-10-16 放开索引，正常收录。
       filter: (page) =>
-        !page.endsWith("/thank-you/") &&
-        // /mens-hoodie-manufacturer/ 是隐藏子页（noindex），待用户完成图片资产后再放开
-        !page.endsWith("/mens-hoodie-manufacturer/"),
+        !page.endsWith("/thank-you/"),
       serialize(item) {
         const lastmod = lastmodFor(item.url);
         return lastmod ? { ...item, lastmod } : item;
