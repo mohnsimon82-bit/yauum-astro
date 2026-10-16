@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-cargo-pants-manufacturers-in-china/",
+    title: "Top 10 Cargo Pants Manufacturers & Supply Sources in China: How to Choose the Right Partner (2026 Guide)",
+    description: "Ten cargo pants manufacturer and supply source profiles, a five-factor vetting framework, red flags, and the RFQ questions that decide an order",
+    date: "2026-10-16",
+    dateLabel: "October 16, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-10-casual-pants-manufacturers-in-china/",
     title: "Top 10 Casual Pants Manufacturers in China: A Buyer's Sourcing Guide (2026)",
     description: "Ten casual pants manufacturer profiles by buyer fit, a six-step vetting process, MOQ and FOB ranges, and the audit checks that decide a program",
