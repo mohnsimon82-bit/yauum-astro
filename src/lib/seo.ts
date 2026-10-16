@@ -2135,6 +2135,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二十三篇（2026-10-16, top-10-leather-pants-manufacturers-in-china）。
+  // 审核 80 分红线通过、FAQ 逐字一致。十类皮革裤工厂（非实名）。H1 无年份；Title 自带 2026。
+  // 上线处理：P0-2 H2 口径对齐 ×2；premium ×7 + luxury ×1→high-end 系；内链 6（含 #small-batch 页内锚点）
+  // + CTA 3（含 WhatsApp wa.me）；H2 下载承诺改写。本页不配图。
+  "/top-10-leather-pants-manufacturers-in-china/": {
+    title: "Top 10 Types of Leather Pants Manufacturers in China: 2026 Guide | Yauum",
+    description:
+      "Compare 10 types of leather pants manufacturers in China: MOQ, materials, certifications, lead times. Get a quote for your order",
+    path: "/top-10-leather-pants-manufacturers-in-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 Types of Leather Pants Manufacturers in China", "/top-10-leather-pants-manufacturers-in-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 Types of Leather Pants Manufacturers in China: A Buyer's Guide to Choosing the Right Factory",
+        description:
+          "Compare 10 types of leather pants manufacturers in China: MOQ, materials, certifications, lead times. Get a quote for your order",
+        path: "/top-10-leather-pants-manufacturers-in-china/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-16T00:00:00+08:00",
+        dateModified: "2026-10-16T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the typical MOQ for leather pants from Chinese manufacturers?",
+          "MOQ tracks the material more than the factory. PU-focused and small-batch lines often run low hundreds of pieces per color, since synthetic leather comes on rolls and can be bought in short lengths. Genuine leather specialists usually hold around 300–500 pieces per color because hides are purchased in lots. Minimums also flex across colorways and repeat orders, so confirm the number for your specific style and shade count during quoting.",
+        ],
+        [
+          "How much do leather pants cost to manufacture in China?",
+          "Four variables set the price: shell material, construction complexity, hardware, and order volume. PU sits at the accessible end because the material is uniform and cutting is automated. Genuine leather costs several times more, driven by hide price and consumption of roughly 1.5 to 2 square meters per pair. Hide prices move with raw supply, so ask for a current costing against your tech pack and target quantity tier.",
+        ],
+        [
+          "What's the difference between genuine leather, PU, and bonded leather pants?",
+          "Genuine leather is animal hide, usually cowhide, lambskin, or goatskin, offering the best durability, breathability, and feel at the highest cost. PU leather is a synthetic coating over a knit or woven backer, typically 0.6 to 0.9 mm thick, with consistent appearance and a far lower price. Bonded leather is leather fiber waste bonded with adhesive onto a backing: cheapest, shortest-lived, and prone to delamination with flexing.",
+        ],
+        [
+          "How long does sampling and production take for leather pants?",
+          "Treat them as three separate clocks. A first leather proto generally takes 10 to 15 days, with each revision round adding roughly 5 to 7 days, longer if a new hide color needs a lab dip. Bulk production typically runs 30 to 45 days once materials are in house. Ocean freight adds roughly 25 to 40 days depending on destination port, air freight 5 to 7 days. Ask for all three figures separately.",
+        ],
+        [
+          "Can Chinese leather pants factories do private label and custom packaging?",
+          "Yes, and most full-service and OEM/ODM factories treat it as standard. The usual scope covers woven and printed labels, custom hangtags, care and content labels built to your destination market's rules, custom hardware plating, branded polybags, and retail cartons. Bring these requirements to the first conversation, because custom hardware and woven labels carry their own minimums and lead times.",
+        ],
+        [
+          "What certifications should I look for in a leather pants manufacturer?",
+          "Split the question in two. On the factory side, look at social compliance audits such as BSCI, SEDEX/SMETA, or SA8000. On the material side, look for chemical test reports against your destination market's rules, including EU REACH limits on chromium VI in leather and restrictions on azo dyes, plus OEKO-TEX on linings. If traceable leather matters to your positioning, ask whether the tannery holds an LWG rating, then verify every certificate with the issuer.",
+        ],
+        [
+          "How do I verify a leather pants factory is legitimate?",
+          "Run four checks in order. Request the business license and export records and read the registered scope. Take a live, unedited video walkthrough of the cutting, sewing, and finishing areas, counting machines and hide racks. Verify every certification claim with the issuing body. Then place a small trial order, because a 150 to 300 piece run tests lead time, communication, and shade consistency in a way no document can.",
+        ],
+        [
+          "Do Chinese leather pants manufacturers support small batch or low MOQ orders?",
+          "Many do, particularly the PU-focused and small-batch lines built around new brands and market testing. Expect to pay 20 to 40 percent above volume pricing and to accept lower scheduling priority when a larger account books the line. That extra cost buys demand validation before you commit to hide inventory, which is usually the right trade for a first season. Move to a volume tier once a style proves its sell-through.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

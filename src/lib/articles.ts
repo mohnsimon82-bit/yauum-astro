@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-leather-pants-manufacturers-in-china/",
+    title: "Top 10 Types of Leather Pants Manufacturers in China: A Buyer's Guide to Choosing the Right Factory",
+    description: "Ten leather pants factory types by specialization, a seven-point evaluation framework, vetting steps, and the MOQ, material and compliance calls behind an order",
+    date: "2026-10-16",
+    dateLabel: "October 16, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-10-cargo-pants-manufacturers-in-china/",
     title: "Top 10 Cargo Pants Manufacturers & Supply Sources in China: How to Choose the Right Partner (2026 Guide)",
     description: "Ten cargo pants manufacturer and supply source profiles, a five-factor vetting framework, red flags, and the RFQ questions that decide an order",
