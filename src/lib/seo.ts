@@ -1931,6 +1931,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二十篇（2026-10-16, top-10-jogger-pants-manufacturers-in-china）。
+  // 审核 80 分红线通过、FAQ 逐字一致；"❌不完整"指 HTML 截断（md 完整）。十类"工厂类型画像"（非排名）。
+  // 上线处理：premium ×1→at a higher cost；checklist 下载/查看承诺 ×3 改写为索取动作（含尾节 H2）；
+  // 13 处 CTA 映射（/our-services/ ×3、/pants-manufacturer/ ×2、/contact-us/ ×8）。本页不配图。
+  "/top-10-jogger-pants-manufacturers-in-china/": {
+    title: "Top 10 Jogger Pants Manufacturers in China: Buyer's Guide | Yauum",
+    description:
+      "Compare 10 types of jogger pants factories in China by MOQ, fabric and certification. Learn how to vet suppliers & get a custom quote fast",
+    path: "/top-10-jogger-pants-manufacturers-in-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 Types of Jogger Pants Manufacturers in China", "/top-10-jogger-pants-manufacturers-in-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 Types of Jogger Pants Manufacturers in China: A Buyer's Sourcing Guide",
+        description:
+          "Compare 10 types of jogger pants factories in China by MOQ, fabric and certification. Learn how to vet suppliers & get a custom quote fast",
+        path: "/top-10-jogger-pants-manufacturers-in-china/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-16T00:00:00+08:00",
+        dateModified: "2026-10-16T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "How do I find a reliable jogger pants manufacturer in China?",
+          "Start with a cluster-based shortlist: Guangdong for knitwear, Zhejiang for performance fabrics, Fujian for sportswear. Then verify each candidate through sampling and a factory audit. Ask for recent jogger samples, current certifications, and buyer references in your market. Never place a bulk order without a paid sample and a third-party inspection.",
+        ],
+        [
+          "What is the typical MOQ for custom jogger pants from Chinese factories?",
+          "MOQs vary widely by factory tier. Small-batch specialists accept 100–300 pcs per color, mid-size OEM plants typically ask for 300–1,000 pcs per color, and large integrated groups start at 1,000–3,000 pcs per style. Custom fabric development pushes minimums higher. Confirm current MOQ directly, as it shifts with capacity and season.",
+        ],
+        [
+          "How long does it take to manufacture jogger pants in China?",
+          "Sampling typically runs 7–20 days depending on complexity and factory workload. Bulk production adds 25–75 days, with large integrated factories at the longer end. Sea freight to the US or EU adds another 25–35 days. From approved sample to delivered goods, most programs land between 60 and 110 days. Add buffer around Chinese New Year.",
+        ],
+        [
+          "What certifications should a jogger pants manufacturer have?",
+          "For EU and US retail, BSCI and WRAP are the most commonly requested social compliance audits. ISO 9001 signals a documented quality management system, and OEKO-TEX covers fabric safety testing. Always verify certificate numbers with the issuing body and check validity dates. An expired or unverifiable certificate is a warning sign.",
+        ],
+        [
+          "Can I get custom jogger pants with my own design and branding?",
+          "Yes. Most Chinese jogger manufacturers offer both OEM, where you supply the design and they produce it, and ODM, where you adapt their existing patterns. Custom branding covers woven labels, printed care tags, custom drawcords, and packaging. Provide a clear tech pack or reference sample to get accurate pricing.",
+        ],
+        [
+          "What's the price range for custom jogger pants from China?",
+          "At 3,000-piece volumes, FOB pricing commonly falls between $6 and $14 per piece, depending on fabric (French terry vs. performance knit), construction details, and finish. Small orders under 500 pieces run higher per unit. These are indicative industry ranges; confirm with live quotes before budgeting.",
+        ],
+        [
+          "How do I verify a jogger pants factory before placing an order?",
+          "Request current audit reports, order a paid sample, and commission a third-party pre-shipment inspection. Video walkthroughs of the production floor are useful for initial screening. For larger orders, an on-site visit or a third-party factory audit gives the strongest assurance.",
+        ],
+        [
+          "Do Chinese jogger pants manufacturers accept small batch orders?",
+          "Yes, a segment of the market specializes in small batches. Factories in Guangdong and Zhejiang commonly accept 100–300 pcs per color for emerging brands. Expect higher per-unit costs and less negotiating room on price, but the flexibility makes small-batch production viable for first collections and market tests.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；
