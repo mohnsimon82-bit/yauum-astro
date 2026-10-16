@@ -1863,6 +1863,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第十九篇（2026-10-16, top-10-pant-manufacturers-in-china）。
+  // 审核 83 分红线通过、FAQ 逐字一致；"❌不完整"指 HTML 截断（md 完整）。十类"工厂画像"（非排名）。
+  // 上线处理：年份 (2025)→(2026) 六处；premium ×1→high-end；1 处 checklist 下载承诺改写；
+  // 4 内链 + 3 CTA 映射。本页不配图。
+  "/top-10-pant-manufacturers-in-china/": {
+    title: "10 Pant Manufacturer Profiles in China: 2026 Buyer's Guide | Yauum",
+    description:
+      "Compare 10 pant manufacturer profiles in China using our 6-point buyer framework. Learn how to vet factories & request a quote today",
+    path: "/top-10-pant-manufacturers-in-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["10 Pant Manufacturer Profiles in China", "/top-10-pant-manufacturers-in-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "10 Pant Manufacturer Profiles in China: How to Match Factory Type to Your Order (2026)",
+        description:
+          "Compare 10 pant manufacturer profiles in China using our 6-point buyer framework. Learn how to vet factories & request a quote today",
+        path: "/top-10-pant-manufacturers-in-china/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-16T00:00:00+08:00",
+        dateModified: "2026-10-16T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the MOQ for pants manufacturing in China?",
+          "Most factories quote 200–500 pieces per color for cotton casual and denim styles, and 500–1,000 pieces per color for technical or performance fabrics. The sewing line is rarely the constraint; the mill is, since dye lots usually start at 500–1,000 meters. Always ask for MOQ per style and per color rather than per order.",
+        ],
+        [
+          "How much does it cost to manufacture pants in China?",
+          "FOB pricing generally runs $4–12 per piece for basic casual and chino styles, and $8–25 per piece for denim with wash development or technical pants with bonded seams. Fabric accounts for the largest share of the cost, so changing GSM or moving from piece-dye to garment-dye shifts the number more than labor does.",
+        ],
+        [
+          "Which city in China is best for pant manufacturing?",
+          "There is no single best city. Guangdong leads in denim and fast-reaction streetwear, Zhejiang in knit casual and joggers, Fujian in performance and synthetic pants, and Jiangsu in tailored woven trousers. Match the hub to your category, then compare factories inside it.",
+        ],
+        [
+          "How do I verify a Chinese pant manufacturer is legitimate?",
+          "Pull the business license and confirm the registered scope covers manufacturing and export. Verify every certificate number with the issuing body's own database, request references in your category and market, and run a live video or on-site audit of the specific line before you place a production order.",
+        ],
+        [
+          "What certifications should a Chinese pant factory have?",
+          "At minimum a social compliance audit such as BSCI, SMETA, or WRAP, plus a quality management certification like ISO 9001. Denim and synthetic categories should add wastewater documentation and chemical compliance reports, typically REACH SVHC for the EU and CPSIA or Prop 65 for the US. Verify certificate numbers independently in all cases.",
+        ],
+        [
+          "How long does sampling and production take for pants?",
+          "Sampling takes 7–18 days depending on category and fabric, with denim wash trials at the longer end. Production runs 25–50 days after sample approval, plus 25–35 days ocean freight to US or EU ports. Peak season from August through October adds roughly one to two weeks on both stages.",
+        ],
+        [
+          "Can I manufacture pants in China with a small brand or low volume?",
+          "Yes. Plenty of factories accept trial runs, but expect a higher unit cost and lower line priority than a volume account. For first orders under 500 pieces, small-batch specialists in Guangdong and Zhejiang are a better fit than large-volume plants.",
+        ],
+        [
+          "What's the difference between a trading company and a direct pant manufacturer?",
+          "A trading company sources from factories and adds a margin, which buys convenience and costs you production control. A direct manufacturer owns or manages the line, giving you visibility, faster problem-solving, and a better price at volume. Ask for a live walkthrough of the production floor to establish which one you are talking to.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

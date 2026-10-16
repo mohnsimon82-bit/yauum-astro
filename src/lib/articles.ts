@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-pant-manufacturers-in-china/",
+    title: "10 Pant Manufacturer Profiles in China: How to Match Factory Type to Your Order (2026)",
+    description: "Ten pant factory profiles by specialization, a six-point vetting framework, China's regional hubs, and the mistakes that decide whether an order runs",
+    date: "2026-10-16",
+    dateLabel: "October 16, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/china-apparel-manufacturing-costs-ppi-2026/",
     title: "China Apparel Manufacturing Costs in 2026: What the Latest PPI Data Shows",
     description: "China's raw-material PPI is up 9.4% year on year while clothing factory-gate prices fell 1.2%. What the 2026 data means for sourcing budgets, negotiation, and order timing",
