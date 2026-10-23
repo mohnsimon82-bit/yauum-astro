@@ -325,7 +325,7 @@ const RAW_SEO: Record<string, SeoData> = {
     name: "Hoodie",
     category: "Hoodies",
     serviceType: "Hoodie manufacturing and product development",
-    title: "Custom Hoodie Manufacturer: Private Label | Yauum",
+    title: "Custom Hoodie Manufacturer: Private Label, MOQ: 100PCS | Yauum",
     description:
       "Custom hoodie manufacturer for private label brands. Explore styles, fabrics, GSM, printing, embroidery, labels, sampling and quality control.",
     ogImage: "/uploads/hoodie-manufacturer/hero-blank-pullover.webp",
@@ -339,7 +339,7 @@ const RAW_SEO: Record<string, SeoData> = {
     name: "T-Shirt",
     category: "T-shirts",
     serviceType: "T-shirt manufacturing and product development",
-    title: "Custom T-Shirt Manufacturer: Private Label | Yauum",
+    title: "Custom T-Shirt Manufacturer: Private Label, MOQ: 100PCS | Yauum",
     description:
       "Custom T-shirt manufacturing for private label brands: styles, fabric weights, printing and embroidery, labels, sample approval, and packing.",
     ogImage: "/uploads/t-shirt-manufacturer/showroom-tshirt-samples.webp",
@@ -353,7 +353,7 @@ const RAW_SEO: Record<string, SeoData> = {
     name: "Jacket",
     category: "Jackets",
     serviceType: "Jacket manufacturing and product development",
-    title: "Custom Jacket Manufacturer: Private Label | Yauum",
+    title: "Custom Jacket Manufacturer: Private Label, MOQ: 100PCS | Yauum",
     description:
       "Custom jacket development for private label brands: shell, lining, insulation, decoration, sampling, quality checks, and packing requirements.",
     ogImage: "/uploads/jackets-manufacturer/hero-jackets-private-label.webp",
@@ -367,7 +367,7 @@ const RAW_SEO: Record<string, SeoData> = {
     name: "Pants",
     category: "Pants",
     serviceType: "Pants manufacturing and product development",
-    title: "Custom Pants Manufacturer: Private Label | Yauum",
+    title: "Custom Pants Manufacturer: Private Label, MOQ: 100PCS | Yauum",
     description:
       "Custom pants development for private label brands: fit blocks, waist construction, pockets, hardware, branding, sample approval, and checks.",
     ogImage: "/uploads/pants-manufacturer/hero-pants-private-label.webp",
@@ -381,7 +381,7 @@ const RAW_SEO: Record<string, SeoData> = {
     name: "Sportswear",
     category: "Sportswear",
     serviceType: "Sportswear manufacturing and product development",
-    title: "Custom Sportswear Manufacturer: Private Label | Yauum",
+    title: "Custom Sportswear Manufacturer: Private Label, MOQ: 100PCS | Yauum",
     description:
       "Custom sportswear development for private label brands: performance fabrics, fit, construction, branding, sampling, quality checks, and packing.",
     ogImage: "/uploads/sportswear-manufacturer/hero-sportswear-private-label.webp",
@@ -395,7 +395,7 @@ const RAW_SEO: Record<string, SeoData> = {
     name: "Streetwear",
     category: "Streetwear",
     serviceType: "Streetwear manufacturing and product development",
-    title: "Custom Streetwear Manufacturer: Private Label | Yauum",
+    title: "Custom Streetwear Manufacturer: Private Label, MOQ: 100PCS | Yauum",
     description:
       "Build coordinated streetwear programs for private label brands: silhouette, materials, washes and decoration, labels, sampling, and pack-out rules.",
     ogImage: "/uploads/streetwear-manufacturer/hero-streetwear-private-label.webp",
@@ -565,7 +565,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 文章详情页（内容生产系统流水线产出，逐篇新增条目）。
   // FAQ 问答与页面可见 FAQ 逐字一致，改正文 FAQ 时必须同步改这里。
   "/where-are-t-shirts-manufactured/": {
-    title: "Where Are T-Shirts Manufactured? Global Guide | Yauum",
+    title: "Where Are T-Shirts Manufactured? Global Guide, MOQ: 100PCS | Yauum",
     description:
       "Discover where T-shirts are manufactured worldwide, how origin affects quality & cost, and how to choose the right factory. Get a custom quote today.",
     path: "/where-are-t-shirts-manufactured/",
@@ -632,7 +632,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 审核报告 84 分：红线通过、FAQ 逐字一致；P0-A（年份矛盾）已按报告修正，P0-B（减词）未执行。
   // Meta description 相对 TDK 删去 "Download our catalog."（站内无目录资源，对应 CTA 已替换）。
   "/fleece-hoodie-manufacturer-types-china/": {
-    title: "10 Types of Fleece Hoodie Manufacturers in China | Yauum",
+    title: "10 Types of Fleece Hoodie Manufacturers in China, MOQ: 100PCS | Yauum",
     description:
       "Compare 10 factory profiles for fleece hoodies in China. Learn how to evaluate suppliers, avoid sourcing mistakes & get a quote.",
     path: "/fleece-hoodie-manufacturer-types-china/",
@@ -691,7 +691,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 审核报告 92 分：红线通过、FAQ 逐字一致、达标可发布；导出文件名的"❌不完整"前缀系 FAQ 渲染格式
   // 触发的误报（详见页面文件头注释）。站内没有 Supplier Scorecard 资源，相关承诺按发布规则替换。
   "/best-400-gsm-hoodie-manufacturers-china/": {
-    title: "Best 400 GSM Hoodie Manufacturers in China | Yauum",
+    title: "Best 400 GSM Hoodie Manufacturers in China, MOQ: 100PCS | Yauum",
     description:
       "Compare the best 400 GSM hoodie manufacturers in China. Learn how to verify fabric weight, vet suppliers & get a quote.",
     path: "/best-400-gsm-hoodie-manufacturers-china/",
@@ -758,7 +758,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 审核报告 84 分（未达标需人工复核，用户确认发布）。两类改写已获用户确认：年份 (2025)→(2026)；
   // sourcing 代理式表述最小改写为厂商口径（详见页面文件头注释）。meta description 尾句同步改写。
   "/cotton-hoodie-manufacturer-types-china/": {
-    title: "10 Cotton Hoodie Manufacturer Types in China | Yauum",
+    title: "10 Cotton Hoodie Manufacturer Types in China, MOQ: 100PCS | Yauum",
     description:
       "Compare 10 types of cotton hoodie manufacturers in China by MOQ, certifications & lead time. Request a sample or a quote from YAUUM.",
     path: "/cotton-hoodie-manufacturer-types-china/",
@@ -825,7 +825,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 审核报告 83 分（未达标需人工复核，用户确认发布）。Title 年份按报告要求 (2025)→(2026)；
   // 两处 Lead Magnet 下载（vetting checklist / comparison sheet）站内不存在，按发布规则替换。
   "/oversized-hoodie-manufacturer-types-china/": {
-    title: "10 Types of Oversized Hoodie Manufacturers in China | Yauum",
+    title: "10 Types of Oversized Hoodie Manufacturers in China, MOQ: 100PCS | Yauum",
     description:
       "Compare 10 oversized hoodie manufacturer profiles in China. Vetting criteria, MOQ, GSM specs, sampling tips & how to request a custom quote.",
     path: "/oversized-hoodie-manufacturer-types-china/",
@@ -893,7 +893,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // "Checklist 下载"与"portfolio 作品集"站内不存在，按发布规则替换。本篇实名列 9 家公开集团，
   // 文中自带 editorial/indicative 免责句（报告 P1 建议的进一步限定未执行）。
   "/top-10-embroidered-hoodie-manufacturers-china/": {
-    title: "Top 10 Embroidered Hoodie Manufacturers in China | Yauum",
+    title: "Top 10 Embroidered Hoodie Manufacturers in China, MOQ: 100PCS | Yauum",
     description:
       "Compare the top 10 embroidered hoodie manufacturers in China. Learn how to evaluate embroidery quality, MOQ & lead time. Get a free quote from YAUUM.",
     path: "/top-10-embroidered-hoodie-manufacturers-china/",
@@ -961,7 +961,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // shenzhou.com→shenzhouintl.com、heilan.com→hla.com.cn；其余 6 个域名打开确认为对应集团官网。
   // 两处 checklist 下载 CTA 按发布规则替换；标题年份流水线已自行同步为 2026。
   "/top-8-zip-up-hoodie-manufacturers-china/": {
-    title: "Top 8 Zip Up Hoodie Manufacturers in China | Yauum",
+    title: "Top 8 Zip Up Hoodie Manufacturers in China, MOQ: 100PCS | Yauum",
     description:
       "Compare the top 8 zip up hoodie manufacturers in China. Learn how to vet factories, avoid sourcing mistakes, and request a quote today.",
     path: "/top-8-zip-up-hoodie-manufacturers-china/",
@@ -1029,7 +1029,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 引言 2026 or 2027）；7 处失效站内链接（实测全 404）换成真实页面。FAQ A3 的链接句按发布规则改写，
   // 下方 text 与页面可见 FAQ 文本一致（链接仅存在于页面标记层）。
   "/top-puff-print-hoodie-manufacturers-china/": {
-    title: "Top 10 Puff Print Hoodie Supplier Types in China | Yauum",
+    title: "Top 10 Puff Print Hoodie Supplier Types in China, MOQ: 100PCS | Yauum",
     description:
       "Compare 10 puff print hoodie supplier types in China by region and capability. Vet suppliers, check MOQs, and request a free sample from YAUUM.",
     path: "/top-puff-print-hoodie-manufacturers-china/",
@@ -1088,7 +1088,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // Title 补 2026）；两处下载承诺改真实动作，Meta Description 同步去掉 "free supplier checklist"；
   // 正文表格里的 premium 已替换（公司简介禁用词）。下方 FAQ text 与页面可见 FAQ 文本逐字一致。
   "/how-to-find-a-hoodie-manufacturer/": {
-    title: "How to Find a Hoodie Manufacturer: Step-by-Step Guide 2026 | Yauum",
+    title: "How to Find a Hoodie Manufacturer: Step-by-Step Guide 2026, MOQ: 100PCS | Yauum",
     description:
       "Learn how to find a hoodie manufacturer: sourcing channels, a vetting checklist, sampling tips, and red flags. Request a quote with your hoodie spec.",
     path: "/how-to-find-a-hoodie-manufacturer/",
@@ -1155,7 +1155,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 下载承诺改真实动作；5 条内链映射到真实页面（/about-us/、/hoodie-manufacturer/#fabric 与 #workflow 等）。
   // 下方 FAQ text 与页面可见 FAQ 文本逐字一致。
   "/how-to-find-alibaba-hoodie-manufacturers/": {
-    title: "How to Find Alibaba Hoodie Manufacturers: Screening Guide | Yauum",
+    title: "How to Find Alibaba Hoodie Manufacturers: Screening Guide, MOQ: 100PCS | Yauum",
     description:
       "Learn how to find and verify Alibaba hoodie manufacturers. Screening framework, red flags, and factory audit tips. Get a tiered quote from YAUUM.",
     path: "/how-to-find-alibaba-hoodie-manufacturers/",
@@ -1215,7 +1215,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：6 内链映射、premium→high-end（10 处）、删 "vetted factory network" 口径、
   // P2-7 Turkey 语法修复；P1-5/P1-6/P2-8 未执行（见上传汇报）。
   "/where-are-hoodies-manufactured/": {
-    title: "Where Are Hoodies Manufactured? Global Guide | Yauum",
+    title: "Where Are Hoodies Manufactured? Global Guide, MOQ: 100PCS | Yauum",
     description:
       "Where are hoodies manufactured? Compare China, Vietnam, Bangladesh, Turkey and Portugal on cost, MOQ and lead time, then pick the right factory",
     path: "/where-are-hoodies-manufactured/",
@@ -1282,7 +1282,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 审核 84 分；红线通过、FAQ 逐字一致；P0-B（分类数字）已执行；P0-A（压缩 400–500 词）未执行（照发，见汇报）。
   // 上线处理：5 处 yauum.com 不存在链接 + 4 处 CTA 映射站内页；下载承诺改真实动作；premium positioning ×2 → high-end。
   "/custom-t-shirt-manufacturer-guide/": {
-    title: "Custom T-Shirt Manufacturer Guide: How to Choose One | Yauum",
+    title: "Custom T-Shirt Manufacturer Guide: How to Choose One, MOQ: 100PCS | Yauum",
     description:
       "A buyer's guide to choosing a custom t-shirt manufacturer: fabric, MOQ, sampling, QC and pricing. Request a quote today",
     path: "/custom-t-shirt-manufacturer-guide/",
@@ -1349,7 +1349,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 审核 79 分；红线通过、FAQ 逐字一致；P0-2 年份（2025→2026）已执行；P0-1（压缩 550 词）未执行（照发，见汇报）。
   // 上线处理：4 内链 + 5 CTA 映射；"supplier shortlist"/"audit checklist" 口径改写；premium ×3 → high-end。
   "/top-10-t-shirt-manufacturers-china/": {
-    title: "Top 10 T-Shirt Manufacturers in China (2026 Guide) | Yauum",
+    title: "Top 10 T-Shirt Manufacturers in China (2026 Guide), MOQ: 100PCS | Yauum",
     description:
       "Compare the top 10 t-shirt manufacturers in China by MOQ, certifications & capacity. Use our 7-point framework to pick the right partner. Get a free quote",
     path: "/top-10-t-shirt-manufacturers-china/",
@@ -1417,7 +1417,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：4 内链映射（含 #jk-materials 面料锚点）；3 处 checklist 下载承诺 + H2 标题 → 真实动作；
   // CTA → /contact-us/；Meta description 删 "and a free supplier checklist"。P0（压缩词数）未执行（照发，见汇报）。
   "/custom-jacket-manufacturer-guide/": {
-    title: "Custom Jacket Manufacturer: 7-Point Vetting Guide | Yauum",
+    title: "Custom Jacket Manufacturer: 7-Point Vetting Guide, MOQ: 100PCS | Yauum",
     description:
       "How to choose a custom jacket manufacturer: 7 vetting criteria, MOQ and lead-time benchmarks, red flags, and how to get a quote from YAUUM",
     path: "/custom-jacket-manufacturer-guide/",
@@ -1485,7 +1485,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：4 内链 + 9 CTA 按意图分流（contact/wa.me/mailto）；下载承诺改写（含 H2）；
   // premium→high-end；删正文 "© YAUUM" 行（报告 P2-5）；Title 压至 60 字符（报告 P2-1）。本页不配图。
   "/bomber-jacket-manufacturers-china-factory-types/": {
-    title: "Bomber Jacket Manufacturers in China: 10 Factory Types | Yauum",
+    title: "Bomber Jacket Manufacturers in China: 10 Factory Types, MOQ: 100PCS | Yauum",
     description:
       "Compare 10 types of bomber jacket factories in China by cluster and specialty. Selection criteria, craft essentials & sourcing pitfalls. Get a free quote",
     path: "/bomber-jacket-manufacturers-china-factory-types/",
@@ -1553,7 +1553,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：5 内链 + 5 CTA 映射；案例链接与两处 checklist 承诺改写；premium→higher price；
   // Title 去年份（报告 P1-3）与 Meta 首句改 "10 types"（报告 P2-6）已执行；本页不配图。
   "/top-10-varsity-jacket-manufacturers-china/": {
-    title: "Top 10 Varsity Jacket Manufacturers in China (B2B Guide) | Yauum",
+    title: "Top 10 Varsity Jacket Manufacturers in China (B2B Guide), MOQ: 100PCS | Yauum",
     description:
       "Compare 10 types of varsity jacket manufacturers in China. Learn how to verify real factories, avoid trading companies, and request a sample. Get a quote today",
     path: "/top-10-varsity-jacket-manufacturers-china/",
@@ -1620,7 +1620,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 审核 85 分红线通过、FAQ 逐字一致；"❌不完整"指 HTML 截断（md 完整）。实名榜自带"公开资料、非审计"免责声明。
   // 上线处理：3 内链 + 7 CTA 映射；checklist 下载承诺改写；premium ×4 → high-end；末行斜体更新声明转段落。本页不配图。
   "/top-10-windbreaker-manufacturers-china/": {
-    title: "Top 10 Windbreaker Manufacturers in China: 2026 Guide | Yauum",
+    title: "Top 10 Windbreaker Manufacturers in China: 2026 Guide, MOQ: 100PCS | Yauum",
     description:
       "Compare the top 10 windbreaker manufacturers in China. Learn how to evaluate factories, avoid sourcing pitfalls & request a quote today",
     path: "/top-10-windbreaker-manufacturers-china/",
@@ -1688,7 +1688,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：年份 (2025)→(2026) 五处（报告 P0-1）；premium ×7 → high-end；recognise→recognize；
   // 两处 vetting checklist 下载承诺改写；3 内链 + 2 CTA 映射。本页不配图。
   "/top-10-leather-jacket-manufacturers-china/": {
-    title: "Top 10 Leather Jacket Manufacturer Profiles in China (2026) | Yauum",
+    title: "Top 10 Leather Jacket Manufacturer Profiles in China (2026), MOQ: 100PCS | Yauum",
     description:
       "Compare 10 leather jacket manufacturer profiles in China. Learn how to evaluate factories, avoid sourcing mistakes & get a free quote today",
     path: "/top-10-leather-jacket-manufacturers-china/",
@@ -1755,7 +1755,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 数据融合版：NBS PPI/PMI 月度序列（2025-01~2026-09）+ 郑商所期货主力 CF/CY/PF/TA（2026-09-30 收盘）。
   // 正文与 FAQ 逐字取自 -终稿.md 数据融合版（尾句号级差异为既定口径）。本页不配图，og 用工厂实拍图。
   "/china-apparel-manufacturing-costs-ppi-2026/": {
-    title: "China Apparel Manufacturing Costs 2026: PPI Data Explained | Yauum",
+    title: "China Apparel Manufacturing Costs 2026: PPI Data Explained, MOQ: 100PCS | Yauum",
     description:
       "China's raw-material PPI is up 9.4% year on year while clothing factory-gate prices fell 1.2%. What the 2026 data means for apparel sourcing budgets and negotiation.",
     path: "/china-apparel-manufacturing-costs-ppi-2026/",
@@ -1825,7 +1825,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // Product 不带 offers——本页无价格文案，遵守"结构化数据价格必须与页面可见文案一致"的硬规则
   // （父页/产品页的 US$10–15 区间价只在有对应可见文案的页面使用；MOQ 100 件与页面 "100 pieces per style" 一致）。
   "/mens-hoodie-manufacturer/": {
-    title: "Men's Hoodie Manufacturer: Private Label & Streetwear | Yauum",
+    title: "Men's Hoodie Manufacturer: Private Label & Streetwear, MOQ: 100PCS | Yauum",
     description:
       "Men's hoodie manufacturing built for private label and streetwear lines: men's fit blocks, styles, fabrics, decoration, labels, and packing confirmed per project",
     path: "/mens-hoodie-manufacturer/",
@@ -1868,7 +1868,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：年份 (2025)→(2026) 六处；premium ×1→high-end；1 处 checklist 下载承诺改写；
   // 4 内链 + 3 CTA 映射。本页不配图。
   "/top-10-pant-manufacturers-in-china/": {
-    title: "10 Pant Manufacturer Profiles in China: 2026 Buyer's Guide | Yauum",
+    title: "10 Pant Manufacturer Profiles in China: 2026 Buyer's Guide, MOQ: 100PCS | Yauum",
     description:
       "Compare 10 pant manufacturer profiles in China using our 6-point buyer framework. Learn how to vet factories & request a quote today",
     path: "/top-10-pant-manufacturers-in-china/",
@@ -1936,7 +1936,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：premium ×1→at a higher cost；checklist 下载/查看承诺 ×3 改写为索取动作（含尾节 H2）；
   // 13 处 CTA 映射（/our-services/ ×3、/pants-manufacturer/ ×2、/contact-us/ ×8）。本页不配图。
   "/top-10-jogger-pants-manufacturers-in-china/": {
-    title: "Top 10 Jogger Pants Manufacturers in China: Buyer's Guide | Yauum",
+    title: "Top 10 Jogger Pants Manufacturers in China: Buyer's Guide, MOQ: 100PCS | Yauum",
     description:
       "Compare 10 types of jogger pants factories in China by MOQ, fabric and certification. Learn how to vet suppliers & get a custom quote fast",
     path: "/top-10-jogger-pants-manufacturers-in-china/",
@@ -2004,7 +2004,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 实名+集群混编榜（YAUUM 第 1 并新增披露句）；CTA 语义后缀（_QUOTE/_CHECKLIST/_CONTACT）。
   // 上线处理：P0-1 年份 ×4；P0-2 披露句新增；premium ×5→high-end；内链 5 + CTA 5（checklist 改索取动作）。本页不配图。
   "/top-10-casual-pants-manufacturers-in-china/": {
-    title: "Top 10 Casual Pants Manufacturers in China (2026 Buyer's Guide) | Yauum",
+    title: "Top 10 Casual Pants Manufacturers in China (2026 Buyer's Guide), MOQ: 100PCS | Yauum",
     description:
       "Compare the top 10 casual pants manufacturers in China: MOQ and FOB ranges, factory audit steps, and how to pick the right supplier",
     path: "/top-10-casual-pants-manufacturers-in-china/",
@@ -2072,7 +2072,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：P0-1 年份 + P0-4 标题加 "& Supply Sources" ×4；P0-4 说明句新增；premium ×3→high-end；
   // 内链 4 + CTA/RESOURCE 4（下载承诺改索取动作，RESOURCE_LINK 零残留）。本页不配图。
   "/top-10-cargo-pants-manufacturers-in-china/": {
-    title: "Top 10 Cargo Pants Manufacturers & Supply Sources in China (2026) | Yauum",
+    title: "Top 10 Cargo Pants Manufacturers & Supply Sources in China (2026), MOQ: 100PCS | Yauum",
     description:
       "Compare the top 10 cargo pants manufacturers in China and learn how to choose the right partner. Send your RFQ to YAUUM today",
     path: "/top-10-cargo-pants-manufacturers-in-china/",
@@ -2140,7 +2140,7 @@ const RAW_SEO: Record<string, SeoData> = {
   // 上线处理：P0-2 H2 口径对齐 ×2；premium ×7 + luxury ×1→high-end 系；内链 6（含 #small-batch 页内锚点）
   // + CTA 3（含 WhatsApp wa.me）；H2 下载承诺改写。本页不配图。
   "/top-10-leather-pants-manufacturers-in-china/": {
-    title: "Top 10 Types of Leather Pants Manufacturers in China: 2026 Guide | Yauum",
+    title: "Top 10 Types of Leather Pants Manufacturers in China: 2026 Guide, MOQ: 100PCS | Yauum",
     description:
       "Compare 10 types of leather pants manufacturers in China: MOQ, materials, certifications, lead times. Get a quote for your order",
     path: "/top-10-leather-pants-manufacturers-in-china/",
