@@ -1,0 +1,253 @@
+---
+/**
+ * /top-10-streetwear-manufacturers-china/ 文章页（流水线第二十六篇 · 终稿 · 审核 83）。
+ *
+ * 来源：内容生产系统（Dify）输出 `top-10-streetwear-manufacturers-china-终稿.md`（2026-10-23，运行 3fb68759）。
+ * 报告 83 分红线通过、FAQ 8/8 逐字一致；HTML 体检仅词数告警（3,246 超区间——按既定口径不压缩，汇报列明）。
+ * 本文特色：十类按 Group A–D 分组的强项画像（非 1–10 排名）+ 7 维框架 + 5 步验厂。
+ * 占位符：5×#INTERNAL_LINK#、3 个语义 CTA（_DOWNLOAD/_CONSULT/_WHATSAPP）、4×#IMAGE#；
+ * 段内单星斜体 6 处（how/your/before/is + Red flag: ×2）经 REPL 转 <em>。
+ *
+ * 上线前处理（其余正文逐字取自终稿，仅做 markdown→HTML 结构转换）：
+ *   - 配图：按默认口径不配图，4 处图标记全部跳过
+ *   - 内链 5：heavyweight hoodie → /hoodie-manufacturer/；sampling → /production/；
+ *     case studies + QC checklist → /streetwear-manufacturer/ ×2；talk → /contact-us/
+ *   - CTA 3：scorecard + consultation → /contact-us/；WhatsApp → wa.me/8619536852213
+ *   - 粗体行 "Download the streetwear sourcing checklist…" → "Ask us for…"（资源不存在）
+ *   - 禁用词 premium/luxury/blank 均为 0（本篇无需替换）；© YAUUM 行在 Schemask 之后、不进正文
+ *   - body 切割点为 `### Internal Link Summary`（三级标题，早于 TDK 区）
+ *   - 段末句号按全站规则剥除；FAQ 可见文本与 seo.ts faqJsonLd 存在"尾句号级"差异（既定口径）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-lists-fail", "Why top-10 lists fail"],
+  ["02", "craft-primer", "What streetwear requires"],
+  ["03", "framework", "The 7-point framework"],
+  ["04", "profiles", "The 10 profiles"],
+  ["05", "vetting", "How to vet a factory"],
+  ["06", "common-mistakes", "Common mistakes"],
+  ["07", "scorecard", "Build a scorecard"],
+  ["08", "faq", "FAQ"],
+  ["09", "next-step", "Next step"],
+];
+---
+
+<V2Layout
+  seo={SEO["/top-10-streetwear-manufacturers-china/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Top 10 Streetwear Manufacturers in China</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>Top 10 Streetwear Manufacturers in China: How to Shortlist, Vet &amp; Contact Them (2026 Guide)</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-23">October 23, 2026</time></span>
+      <span class="ar-views" data-views-for="/top-10-streetwear-manufacturers-china/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">Search "top 10 streetwear manufacturers China" and you get a wall of near-identical listicles. Most are pay-to-play directories: a company name, three adjectives, a WhatsApp number. None explain <em>how</em> the list was built, which means none of them help you decide who deserves your 30% deposit</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <p>This guide works differently. One seven-point framework, applied consistently, published so you can run it yourself on any factory, including the ones not profiled here. The YAUUM Sourcing Team writes from inside the supply chain. We quote, sample, and ship custom streetwear programs for brands, wholesalers, and procurement teams, and the same failure patterns repeat across the category year after year</p>
+
+        <p>Read this if you are a brand founder, independent designer, or sourcing agent trying to move from "I want to make streetwear" to "I have a shortlist and a sample on my desk."</p>
+
+        <h2 id="why-lists-fail">Why Most "Top 10" Lists Are Useless (and What This One Does Instead)</h2>
+
+        <p>Three problems show up in almost every ranking you'll find</p>
+
+        <p><strong>No stated criteria.</strong> A list without evaluation dimensions is an advertisement with numbering. If the author won't define "best," assume it means "paid the most."</p>
+
+        <p><strong>No verification path.</strong> Naming a factory is worthless unless you know how to confirm it can do what the list claims. A plant that runs clean 180 GSM jersey basics may have zero garment-dye capacity on site</p>
+
+        <p><strong>No fit logic.</strong> "Top" is relative to <em>your</em> order. A 30,000-piece heavyweight fleece program and a 150-piece capsule drop need different partners. The right manufacturer for a label doing $2M a year is usually the wrong one for a first-time designer with one hoodie and a sketch</p>
+
+        <p>So this guide publishes its criteria, groups candidates by manufacturing strength rather than a fabricated 1-to-10 ranking, and hands you the vetting sequence. Treat the profiles as starting points for outreach, not endorsements. Verify everything before you wire money</p>
+
+        <h2 id="craft-primer">What "Streetwear Manufacturing" Actually Requires (Category &amp; Craft Primer)</h2>
+
+        <p>Streetwear looks simple and isn't. A boxy heavyweight hoodie with a puff print and a garment-dyed finish touches four separate production competencies before it reaches a carton</p>
+
+        <p><strong>Fabric weight sets the floor.</strong> Streetwear lives at the heavy end of the knit spectrum. Mainstream hoodie fleece runs 280 to 400 GSM; heavyweight and ultra-heavy programs push 400 to 500 GSM and beyond. Standard tees sit around 160 to 220 GSM, while boxy streetwear tees typically land at 220 to 280 GSM. Check every figure against your own tech pack, because a 450 GSM loopback and a 450 GSM brushed fleece behave nothing alike after one wash</p>
+
+        <p><strong>Silhouette is where boxy blocks earn their keep.</strong> Oversized, boxy, cropped, and drop-shoulder fits are not graded-up regular fits. Shoulder drop, armhole depth, body width, and hem finish each need dedicated pattern work. A factory that only runs standard-fit jersey will take three fit rounds to approximate a true boxy block, and it still won't be right</p>
+
+        <p><strong>Decoration splits the field fastest.</strong> Screen printing (puff, high-density, discharge), digital and DTG printing, embroidery, woven patches, and specialty work like silicone or rhinestone all demand different equipment and different operator skill. A shop strong in plastisol screen print often outsources every stitch of embroidery</p>
+
+        <p><strong>Wash and finish carry hidden variance.</strong> Garment dye, acid wash, enzyme wash, vintage overdye, and distressed or raw-edge treatments are wet processes with their own minimums. Plenty of cut-and-sew factories send washing to a third-party laundry 40 minutes down the road. That's workable, provided you know exactly who controls the result when a shade goes off</p>
+
+        <p>Shrinkage and color consistency tie all four together. Without pre-shrunk fabric or a controlled wash, untreated 100% cotton jersey commonly loses 3% to 7% in length after the first home wash, depending on construction. That's enough to turn "boxy" into "slim" across a full size run. Ask for shrinkage data on the actual fabric lot, not a generic catalog claim</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Craft area</th><th>Typical streetwear application</th><th>What to verify before ordering</th></tr></thead><tbody><tr><td>Heavyweight fleece (280–500 GSM)</td><td>Hoodies, crewnecks, sweatpants</td><td>Fabric weight tolerance, shrinkage test, hand-feel sample</td></tr><tr><td>Boxy / oversized pattern work</td><td>Tees, hoodies, jackets</td><td>Existing block library, graded size set, fit sample</td></tr><tr><td>Screen print (puff, discharge, high-density)</td><td>Front/back graphics, logos</td><td>Print shop in-house vs outsourced, wash-fastness test</td></tr><tr><td>Garment dye &amp; wash</td><td>Vintage tees, acid-wash hoodies</td><td>In-house vs third-party laundry, color repeatability</td></tr><tr><td>Embroidery &amp; patches</td><td>Caps, chest logos, appliqué</td><td>Machine count, stitch density sample</td></tr><tr><td>Specialty decoration</td><td>Rhinestone, silicone, foil</td><td>Minimum quantity per design, durability test</td></tr></tbody></table></div>
+
+        <p>Our guide to <a href="/hoodie-manufacturer/">custom heavyweight hoodie manufacturing</a> covers fabric selection and construction for one product line in detail</p>
+
+        <h2 id="framework">The 7-Point Framework: How We Evaluated These Manufacturers</h2>
+
+        <p>Every profile below was assessed against the same seven dimensions. The framework is portable by design, so run it on your own candidates too</p>
+
+        <p><strong>1. Category specialization.</strong> Does the factory genuinely run streetwear silhouettes, or does it list "hoodies" as one of forty product types? Ask for production photos from the last 90 days of the exact style you want, then ask what share of monthly output that style represents</p>
+
+        <p><strong>2. Sampling capability and small-order feasibility.</strong> Request a sample quote with stated turnaround and per-sample cost <em>before</em> you discuss bulk pricing. Our <a href="/production/">sampling and prototyping process</a> outlines what a complete sample request should contain</p>
+
+        <p><strong>3. Quality control process.</strong> In-line checks plus final inspection, or a pre-shipment glance? Get the written QC checklist and the inspection standard. AQL 2.5 is common in apparel; confirm the level in writing rather than accepting a nod on a call</p>
+
+        <p><strong>4. Compliance documentation.</strong> Test reports for fiber content, colorfastness, and restricted substances should be available on request. Read one sample report and check which lab issued it, and when</p>
+
+        <p><strong>5. Communication efficiency.</strong> Send a technical question rather than a price question and judge the precision of the answer. You are also checking whether a single account manager owns your order end to end</p>
+
+        <p><strong>6. Lead-time stability.</strong> Sampling, bulk production, and shipping run on three separate clocks. Ask for the current quoted range plus a written production schedule with milestone dates</p>
+
+        <p><strong>7. IP protection.</strong> Get the NDA executed before any tech pack leaves your inbox, and ask directly whether the factory already produces for brands in your exact niche</p>
+
+        <p>Timelines are where first-time buyers get burned. Sampling typically runs 7 to 15 days after tech pack and material confirmation, longer when fabric has to be knitted rather than pulled from stock. Bulk cut-and-sew streetwear usually takes 30 to 45 days after sample approval. Sea freight to the US or EU adds roughly 25 to 35 days depending on route and season; air freight compresses that leg to about 5 to 10 days at several times the cost per kilo</p>
+
+        <p>MOQ varies more than any other number in the quote. Custom cut-and-sew programs commonly start at 100 to 300 pieces per color per style, and screen-printed graphics at 300 to 500 pieces per design. Always clarify whether the minimum applies per style, per colorway, or per fabric, because the three produce very different buy sheets</p>
+
+        <h2 id="profiles">The Top 10 Streetwear Manufacturers in China (Grouped by Strength)</h2>
+
+        <p>A ranked 1-to-10 list implies a precision nobody can justify. Grouping by manufacturing strength lets you match a factory to what your line actually needs. Geography helps too: knit streetwear capacity concentrates in Guangdong (Guangzhou, Dongguan, Foshan) for heavyweight fleece, jersey, and small-batch work; Fujian (Quanzhou, Shishi) for sportswear-leaning knits; Zhejiang for printing and knitwear; Jiangsu (Changshu and the surrounding casualwear belt) for outerwear and bottoms. Asking a candidate which cluster it sits in, and which neighbouring mills and laundries it uses, tells you a great deal before the first sample</p>
+
+        <p>Our <a href="/streetwear-manufacturer/">streetwear production case studies</a> show how these capabilities translate into finished programs</p>
+
+        <h3>Group A: Heavyweight Basics &amp; Cut-and-Sew Specialists</h3>
+
+        <p>Built around fleece and jersey. If your line rests on fabric weight and clean construction, start here. Most sit in the Guangzhou and Dongguan knit belt</p>
+
+        <p><strong>1. Heavyweight fleece and hoodie programs.</strong> Loopback and brushed fleece hoodies, crewnecks, and sweatpants from 300 to 500 GSM, on boxy and drop-shoulder blocks. Strongest fit for brands whose hero product is one heavyweight hoodie repeated across six colorways. Sampling speed hinges on whether the fleece is a stock article or a custom knit</p>
+
+        <p><strong>2. Boxy tee and jersey cut-and-sew.</strong> Heavyweight jersey tees at 220 to 280 GSM, oversized and cropped blocks, tubular and side-seamed construction. Pattern library depth is the real differentiator here: a proven boxy block saves you one full fit round and roughly two weeks of calendar</p>
+
+        <p><strong>3. Sweatpants and bottom-weight knits.</strong> Fleece and French terry bottoms, cargo-style knit pants, elastic and drawcord waist finishing. Bottoms fail in places tops don't, so confirm that in-line checks cover waistband recovery, pocket placement, and hem finish specifically</p>
+
+        <h3>Group B: Print, Garment-Dye &amp; Wash Experts</h3>
+
+        <p>Decoration and wash are where streetwear brands burn money on rework. These suppliers lead with process capability rather than sewing capacity</p>
+
+        <p><strong>4. Screen print and specialty decoration.</strong> Plastisol and water-based screen printing, including puff, high-density, discharge, and foil, with embroidery and patch application alongside. For graphic-led drops the print <em>is</em> the product, so one question decides the relationship: which processes run on site and which get subcontracted?</p>
+
+        <p><strong>5. Garment dye and vintage wash.</strong> Garment dye, acid wash, enzyme wash, and vintage overdye across tees and fleece. Appropriate when some color variance reads as character, though it still has to sit inside a defined tolerance. Wet processing brings its own minimums and its own lot-to-lot repeatability risk</p>
+
+        <p><strong>6. Allover print and digital/DTG.</strong> Digital printing, allover placement, and short-run graphics without screen setup charges. The most small-order-friendly decoration method available, which makes these shops sensible first partners for a label testing eight designs instead of committing to two</p>
+
+        <h3>Group C: Small-Batch &amp; Sampling-Friendly Partners</h3>
+
+        <p>Lower minimums, faster iteration, higher unit cost. That's the trade, and for a first collection it's usually worth taking</p>
+
+        <p><strong>7. Low-MOQ capsule production.</strong> Small-batch cut-and-sew across tees, hoodies, and light outerwear, with per-style minimums at the bottom of the market. Negotiating room on price is limited. The value sits in reduced inventory risk, not unit economics, and anyone who claims otherwise is selling</p>
+
+        <p><strong>8. Sampling and prototype studios.</strong> Pattern making, prototype development, and fit iteration, frequently paired with a partner factory for bulk. These studios solve the "I have a sketch, not a spec" problem that stalls so many first collections. Find out early whether bulk stays in-house, because the handoff is where specs get lost</p>
+
+        <h3>Group D: Full-Service / One-Stop Manufacturers</h3>
+
+        <p>One roof, multiple categories and processes. The convenience is real, and so is the risk of hiring a generalist</p>
+
+        <p><strong>9. Multi-category cut-and-sew.</strong> Hoodies, tees, jackets, pants, and sportswear on one site, with decoration in-house or through a tightly held partner. Worth considering when you want fewer supplier relationships, but verify depth over breadth: ask bluntly which categories run on their own lines</p>
+
+        <p><strong>10. Full-service private label programs.</strong> Tech pack development, fabric sourcing, sampling, bulk, labeling, and packaging under one accountable partner. Fits established brands and sourcing teams with multi-SKU packaging complexity, provided ownership of each step is written down rather than assumed</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Group</th><th>Evidence to demand before you commit</th></tr></thead><tbody><tr><td>A: Heavyweight basics</td><td>Fabric weight certificate and wash-test report on the exact fleece or jersey; graded size set; fit sample in your target size; waistband stretch-and-recovery result for bottoms</td></tr><tr><td>B: Print, dye &amp; wash</td><td>Wash-fastness test on your print type; print sample pulled on your actual fabric; lab dip approval step in writing; bulk sample from the dye lot you'll ship; DTG pre-treatment confirmation</td></tr><tr><td>C: Small batch</td><td>Written confirmation of whether MOQ is per style or per colorway; next price-break tier; pattern-making turnaround in working days; sample-fee credit policy</td></tr><tr><td>D: Full service</td><td>Production photos for every category you plan to order; documented QC process for your first category; written workflow with named milestones; labeling and packaging standards for your destination market</td></tr></tbody></table></div>
+
+        <h2 id="vetting">Step-by-Step: How to Vet a Streetwear Factory Before You Commit</h2>
+
+        <p>The shortlist gets you to the starting line. Vetting protects your deposit</p>
+
+        <p><strong>Step 1: Send a technical inquiry, not a price blast.</strong> Share your tech pack or reference photos, target fabric weight, size range, and quantity. Ask for the MOQ on that exact construction and the sampling lead time. <em>Red flag:</em> a quote that arrives with no clarifying questions. A factory quoting blind is guessing, and the guess gets corrected later at your expense</p>
+
+        <p><strong>Step 2: Request a sample and pay for it.</strong> Paid samples are normal and signal seriousness on both sides. Confirm in the same email whether the fee gets credited against bulk. <em>Red flag:</em> refusal to sample before a bulk commitment, or a sample that lands with no spec sheet attached</p>
+
+        <p><strong>Step 3: Inspect the sample against measurable criteria.</strong> Check color against your approved lab dip in daylight, measure every point of measure against spec, wash once and re-measure for shrinkage, then inspect seams, stitch density, and print adhesion. Shade variation between front and back panels, or shrinkage past tolerance with no technical explanation, tells you the fabric lot wasn't controlled</p>
+
+        <p><strong>Step 4: Run a small trial order.</strong> Place a reduced-quantity order to test communication, schedule adherence, and consistency between sample and bulk. Two hundred pieces is a cheap education. Watch what happens if bulk misses the sample on weight, shade, or fit: a factory without a defined remedy process will negotiate, while a good one already has a policy</p>
+
+        <p><strong>Step 5: Lock the pre-production sample and the written spec.</strong> The approved PP sample is your contract reference. Sign it off in writing alongside your <a href="/streetwear-manufacturer/">quality control checklist</a>, covering AQL level, measurement tolerances, and packaging. Any pressure to skip PP approval "to save time" should end the conversation; the week you save there costs four weeks in rework</p>
+
+        <div class="ar-table-wrap"><table class="ar-table"><thead><tr><th>Stage</th><th>Question to ask</th><th>Red flag to watch</th></tr></thead><tbody><tr><td>Inquiry</td><td>"What's your MOQ for this exact construction?"</td><td>Quote with no clarifying questions</td></tr><tr><td>Sampling</td><td>"Is the sample fee credited against bulk?"</td><td>Refusal to sample before bulk commitment</td></tr><tr><td>Sample inspection</td><td>"Can you share shrinkage data on this fabric lot?"</td><td>Shade variation with no explanation</td></tr><tr><td>Trial order</td><td>"How do you handle a bulk-vs-sample mismatch?"</td><td>No defined remedy process</td></tr><tr><td>Pre-production</td><td>"Will you sign off on this PP sample in writing?"</td><td>Pressure to skip PP approval</td></tr></tbody></table></div>
+
+        <h2 id="common-mistakes">Common Mistakes Brands Make When Sourcing Streetwear in China</h2>
+
+        <p>Each pattern below carries a measurable cost, and we see all six every quarter</p>
+
+        <p><strong>Comparing on unit price alone.</strong> A quote 15% below the others usually reflects lighter fabric, simpler construction, or outsourced decoration. Normalize first: same GSM, same print method, same packaging, same inspection level</p>
+
+        <p><strong>Skipping the written spec.</strong> Verbal agreements on fabric weight, fit, and color never survive a production handoff, especially when the merchandiser who took your call leaves in March. If it matters, it belongs in the tech pack or a signed spec sheet</p>
+
+        <p><strong>Ignoring shrinkage and color variance until bulk lands.</strong> Both are predictable and both are testable at sample stage. Discovering a 6% shrinkage problem after 2,000 units are cut means re-cutting, not adjusting</p>
+
+        <p><strong>Skipping pre-production samples.</strong> The PP sample is the last cheap checkpoint in the process. Brands that skip it find the problem at final inspection, when rework is slowest and the vessel is already booked</p>
+
+        <p><strong>Leaving IP unprotected.</strong> Sign the NDA first, release tech packs second, and ask whether the factory already produces for a direct competitor in your niche</p>
+
+        <p><strong>Underestimating the shipping clock.</strong> A 40-day production run plus 30 days of ocean transit is a 70-day cycle before customs clearance. Plan your launch date backward from that number, then add a two-week buffer</p>
+
+        <h2 id="scorecard">Tools &amp; Templates: Build Your Own Supplier Scorecard</h2>
+
+        <p>The framework earns its keep as a scoring tool. Build a grid with candidate factories as rows and the seven dimensions as columns, each scored 1 to 5 on evidence you physically hold: a sample on the desk, a test report with a lab name, a written quote with dates. Weight the columns to your business, since a first-time brand should favour sampling capability while a label shipping 20,000 units a season pushes lead-time stability and QC to the top. Price is one column among seven, never the tiebreaker. A score of 5 in quality control means you've read the checklist and confirmed the AQL level, not that a sales rep said quality is good</p>
+
+        <p><strong>Ask us for the streetwear sourcing checklist and supplier scorecard:</strong> <a href="/contact-us/">Get the supplier scorecard</a></p>
+
+        <h2 id="faq">FAQ: Streetwear Manufacturing in China</h2>
+
+          <details class="ar-faq-item" open><summary><h3>What is the typical MOQ for streetwear manufacturing in China?</h3></summary><p>Custom cut-and-sew streetwear commonly starts at 100 to 300 pieces per color per style, and 300 to 500 pieces per design for screen-printed graphics. Sampling-friendly factories accept smaller first orders at higher unit prices. Confirm in writing whether the minimum applies per style, per colorway, or per fabric</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How long does sampling take, and how much does it cost?</h3></summary><p>Sampling typically runs 7 to 15 days after tech pack and material confirmation, longer when fabric needs knitting rather than pulling from stock. Fees vary by construction and decoration, and many factories credit them against bulk. Ask for turnaround and fee inside the same quote</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How do I verify a factory is legitimate before paying a deposit?</h3></summary><p>Request a paid sample, a production photo of the exact style from the last 90 days, and test reports for fiber content and colorfastness. Confirm the legal business name and registration, then run a small trial order before full volume. Resistance to documentation ends the conversation</p></details>
+
+          <details class="ar-faq-item"><summary><h3>Can I get small-batch or low-MOQ production as a new brand?</h3></summary><p>Yes. Sampling-friendly factories and prototype studios serve lower-volume first orders by design. Expect higher per-unit pricing and little negotiating room, and confirm whether the minimum applies per style or per colorway. You are buying reduced inventory risk, not better unit economics</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What's the difference between trading companies and direct factories?</h3></summary><p>A direct factory owns equipment and controls its own schedule and QC. A trading company coordinates partner factories, adding category flexibility while reducing visibility into who makes your goods. Ask which processes run in-house and request photos from the line that will run your order</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How do I protect my designs and IP when manufacturing in China?</h3></summary><p>Sign an NDA before sharing tech packs, release only what each stage requires, and ask whether the factory produces for direct competitors in your niche. Register trademarks in your target markets and keep dated records of design files and approvals. IP protection is a process, not one document</p></details>
+
+          <details class="ar-faq-item"><summary><h3>What should I check on a pre-production sample?</h3></summary><p>Check color against your approved lab dip in daylight, measure key points against the spec, wash once and re-measure for shrinkage, then inspect seams, stitch density, and print adhesion. Confirm labeling and packaging. Sign the approved sample off in writing as your production reference</p></details>
+
+          <details class="ar-faq-item"><summary><h3>How do payment terms and production timelines usually work?</h3></summary><p>A deposit before production with the balance against shipment is standard; the exact split is negotiable and belongs in the order confirmation. Bulk cut-and-sew streetwear typically runs 30 to 45 days after sample approval, and sea freight to the US or EU adds 25 to 35 days</p></details>
+
+        <h2 id="next-step">Next Step: Get Matched With the Right Manufacturer</h2>
+
+        <p>The shortlist is a starting point, not a decision. Take the seven-point framework, score your candidates on evidence you actually hold, and let the scorecard narrow the field before any money moves</p>
+
+        <p>If you'd rather start with a conversation than a spreadsheet, <a href="/contact-us/">talk to our sourcing team</a> about your product line, target quantities, and timeline. We'll tell you what's realistic for your spec and where the risk sits</p>
+
+        <p><strong>Primary CTA:</strong> <a href="/contact-us/">Book a sourcing consultation</a>. Share your tech pack or reference photos and get a fit assessment for your program</p>
+
+        <p><strong>Prefer to message directly?</strong> <a href="https://wa.me/8619536852213">Reach us on WhatsApp</a> for a faster first exchange on MOQ, sampling, and lead times</p>
+
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="Streetwear"
+    kicker="Start an inquiry"
+    title="Send the Streetwear Spec Behind Your Order"
+    lead="Styles, fabric and finish direction, MOQ target, and delivery window: the inputs this guide scores a factory against"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>

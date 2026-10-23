@@ -2331,6 +2331,74 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二十六篇（2026-10-23, top-10-streetwear-manufacturers-china）。
+  // 审核 83 分红线通过、FAQ 8/8 逐字一致；词数 3,246 超区间（不压缩，汇报列明）。
+  // 十类按 Group A–D 强项分组（非排名）+ 7 维框架；语义 CTA（_DOWNLOAD/_CONSULT/_WHATSAPP）。
+  // 上线处理：内链 5 + CTA 3（WhatsApp 分流 wa.me）；单星斜体 6 处转 em。本页不配图。
+  "/top-10-streetwear-manufacturers-china/": {
+    title: "Top 10 Streetwear Manufacturers in China (2026 Guide), MOQ: 100PCS | Yauum",
+    description:
+      "Compare the top 10 streetwear manufacturers in China using a 7-point vetting framework. Learn how to shortlist, verify and contact factories",
+    path: "/top-10-streetwear-manufacturers-china/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Top 10 Streetwear Manufacturers in China", "/top-10-streetwear-manufacturers-china/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Top 10 Streetwear Manufacturers in China: How to Shortlist, Vet & Contact Them (2026 Guide)",
+        description:
+          "Compare the top 10 streetwear manufacturers in China using a 7-point vetting framework. Learn how to shortlist, verify and contact factories",
+        path: "/top-10-streetwear-manufacturers-china/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-23T00:00:00+08:00",
+        dateModified: "2026-10-23T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is the typical MOQ for streetwear manufacturing in China?",
+          "Custom cut-and-sew streetwear commonly starts at 100 to 300 pieces per color per style, and 300 to 500 pieces per design for screen-printed graphics. Sampling-friendly factories accept smaller first orders at higher unit prices. Confirm in writing whether the minimum applies per style, per colorway, or per fabric.",
+        ],
+        [
+          "How long does sampling take, and how much does it cost?",
+          "Sampling typically runs 7 to 15 days after tech pack and material confirmation, longer when fabric needs knitting rather than pulling from stock. Fees vary by construction and decoration, and many factories credit them against bulk. Ask for turnaround and fee inside the same quote.",
+        ],
+        [
+          "How do I verify a factory is legitimate before paying a deposit?",
+          "Request a paid sample, a production photo of the exact style from the last 90 days, and test reports for fiber content and colorfastness. Confirm the legal business name and registration, then run a small trial order before full volume. Resistance to documentation ends the conversation.",
+        ],
+        [
+          "Can I get small-batch or low-MOQ production as a new brand?",
+          "Yes. Sampling-friendly factories and prototype studios serve lower-volume first orders by design. Expect higher per-unit pricing and little negotiating room, and confirm whether the minimum applies per style or per colorway. You are buying reduced inventory risk, not better unit economics.",
+        ],
+        [
+          "What's the difference between trading companies and direct factories?",
+          "A direct factory owns equipment and controls its own schedule and QC. A trading company coordinates partner factories, adding category flexibility while reducing visibility into who makes your goods. Ask which processes run in-house and request photos from the line that will run your order.",
+        ],
+        [
+          "How do I protect my designs and IP when manufacturing in China?",
+          "Sign an NDA before sharing tech packs, release only what each stage requires, and ask whether the factory produces for direct competitors in your niche. Register trademarks in your target markets and keep dated records of design files and approvals. IP protection is a process, not one document.",
+        ],
+        [
+          "What should I check on a pre-production sample?",
+          "Check color against your approved lab dip in daylight, measure key points against the spec, wash once and re-measure for shrinkage, then inspect seams, stitch density, and print adhesion. Confirm labeling and packaging. Sign the approved sample off in writing as your production reference.",
+        ],
+        [
+          "How do payment terms and production timelines usually work?",
+          "A deposit before production with the balance against shipment is standard; the exact split is negotiable and belongs in the order confirmation. Bulk cut-and-sew streetwear typically runs 30 to 45 days after sample approval, and sea freight to the US or EU adds 25 to 35 days.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

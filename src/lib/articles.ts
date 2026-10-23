@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/top-10-streetwear-manufacturers-china/",
+    title: "Top 10 Streetwear Manufacturers in China: How to Shortlist, Vet & Contact Them (2026 Guide)",
+    description: "Ten streetwear manufacturer types grouped by strength, a seven-point vetting framework, and the sample, IP and payment checks that protect your deposit",
+    date: "2026-10-23",
+    dateLabel: "October 23, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/how-to-find-the-best-streetwear-cut-and-sew-manufacturers/",
     title: "How to Find the Best Streetwear Cut and Sew Manufacturers: A Buyer's Evaluation Framework",
     description: "A stage-based evaluation framework, a six-dimension supplier scorecard, and copy-paste RFQ questions for streetwear cut and sew sourcing",
