@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/how-to-find-a-streetwear-factory/",
+    title: "How to Find a Streetwear Factory: A Step-by-Step Vetting Roadmap for Brands",
+    description: "A five-step route from product brief and sourcing channels to factory vetting, sampling, and scaling out of a test run",
+    date: "2026-10-23",
+    dateLabel: "October 23, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-10-leather-pants-manufacturers-in-china/",
     title: "Top 10 Types of Leather Pants Manufacturers in China: A Buyer's Guide to Choosing the Right Factory",
     description: "Ten leather pants factory types by specialization, a seven-point evaluation framework, vetting steps, and the MOQ, material and compliance calls behind an order",

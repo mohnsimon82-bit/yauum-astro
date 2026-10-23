@@ -2203,6 +2203,66 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二十四篇（2026-10-23, how-to-find-a-streetwear-factory）。
+  // 审核 88 分红线通过、"达标，可发布"、FAQ 6/6 逐字一致；街头服饰品类首篇。
+  // 上线处理：内链 5（用户指定方向：首页 ×1 + streetwear 产品页 ×3 + contact ×1）；
+  // checklist 下载承诺 ×2 → 索取动作；删署名行/版权行；blank ×2 为行业技术术语保留。本页不配图。
+  "/how-to-find-a-streetwear-factory/": {
+    title: "How to Find a Streetwear Factory: A Vetting Roadmap, MOQ: 100PCS | Yauum",
+    description:
+      "How to find a streetwear factory step by step: define your product, compare sourcing channels, vet suppliers, and spot red flags",
+    path: "/how-to-find-a-streetwear-factory/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["How to Find a Streetwear Factory", "/how-to-find-a-streetwear-factory/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "How to Find a Streetwear Factory: A Step-by-Step Vetting Roadmap for Brands",
+        description:
+          "How to find a streetwear factory step by step: define your product, compare sourcing channels, vet suppliers, and spot red flags",
+        path: "/how-to-find-a-streetwear-factory/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-23T00:00:00+08:00",
+        dateModified: "2026-10-23T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "How do I find a reliable streetwear factory for a small brand?",
+          "Build a shortlist of 8–12 candidates through platforms, trade shows, or referrals, then run every one through the same vetting sequence: verifiable audit references, a live video walkthrough of the production floor, technical question responses, and a paid sample round. Reliability shows up in how a factory handles the sample stage, not in how it presents itself during quoting. Expect the full process to take several weeks before you commit a deposit.",
+        ],
+        [
+          "What is a typical MOQ for streetwear manufacturing?",
+          "MOQ varies widely by factory, construction type, and fabric. Cut-and-sew programs with custom patterns and custom fabrics generally carry higher minimums than decoration-on-blanks programs, and garment-dyed or washed styles often carry higher minimums again because of dye-lot economics. Many factories will accept a smaller first order as a trial run at a higher per-unit price. Ask for the MOQ at your specific spec rather than a general number, and confirm whether it applies per style, per colorway, or per fabric.",
+        ],
+        [
+          "How long does the streetwear sampling process usually take?",
+          "A single sample round commonly takes two to four weeks, depending on fabric availability, decoration complexity, and the factory's sample queue. Programs with custom fabrics, garment dye, or multiple decoration methods take longer. Budget for at least one revision round on top of the first sample, and treat any timeline as indicative until the factory confirms it against your actual specification.",
+        ],
+        [
+          "How do I verify a clothing factory is legitimate?",
+          "Cross-check four things: a verifiable business identity and physical production address, a current third-party audit report with a reference you can look up independently, a live video or in-person walkthrough of the actual production floor, and a payment structure tied to production milestones rather than full upfront payment. A factory that provides all four without friction is legitimate enough to start a sample round with. A factory that resists any one of them is a risk you don't need to take.",
+        ],
+        [
+          "Can one factory handle both printing and cut-and-sew for streetwear?",
+          "Many can, and in-house decoration is generally a quality advantage because it keeps accountability in one place. Ask specifically which decoration methods are in-house and which are subcontracted, who the subcontractors are, and how the factory controls their output. If decoration is outsourced, the subcontractor's reliability becomes your quality variable, and you should know its identity before placing bulk orders.",
+        ],
+        [
+          "How do I move from a small test run to full-scale production?",
+          "Place a limited order first and evaluate three things: whether bulk matches the approved sample, whether the stated timeline holds, and whether communication quality survives the shift from sales to production. If all three pass, increase volume per style and add SKUs gradually. Ask the factory directly how they schedule multi-SKU orders and what their realistic monthly capacity is for your construction type before you commit to a seasonal plan.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；
