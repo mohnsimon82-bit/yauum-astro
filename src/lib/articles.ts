@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/how-to-find-custom-streetwear-manufacturer/",
+    title: "How to Find a Custom Streetwear Manufacturer: A Step-by-Step Sourcing Guide",
+    description: "A four-step filtering method for custom streetwear sourcing: product brief, channel map, a weighted screening scorecard, and sampling plus trial-order checks",
+    date: "2026-10-23",
+    dateLabel: "October 23, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/top-10-streetwear-manufacturers-china/",
     title: "Top 10 Streetwear Manufacturers in China: How to Shortlist, Vet & Contact Them (2026 Guide)",
     description: "Ten streetwear manufacturer types grouped by strength, a seven-point vetting framework, and the sample, IP and payment checks that protect your deposit",

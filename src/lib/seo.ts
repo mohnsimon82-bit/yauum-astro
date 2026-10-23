@@ -2399,6 +2399,70 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二十七篇（2026-10-23, how-to-find-custom-streetwear-manufacturer）。
+  // 审核 85 分红线通过、FAQ 7/7 逐字一致；词数 2,982 超区间（不压缩，汇报列明）。
+  // 上线处理：4 个虚构绝对链接改写（sampling→/production/、capabilities+QC→/streetwear-manufacturer/、
+  // case-studies→索取 references）；CTA 4 → /contact-us/；单星斜体 ×1。本页不配图。
+  "/how-to-find-custom-streetwear-manufacturer/": {
+    title: "How to Find a Custom Streetwear Manufacturer: Sourcing Guide, MOQ: 100PCS | Yauum",
+    description:
+      "How to find a custom streetwear manufacturer step by step: channels, screening criteria, sampling tips, and red flags. Request a quote from YAUUM",
+    path: "/how-to-find-custom-streetwear-manufacturer/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["How to Find a Custom Streetwear Manufacturer", "/how-to-find-custom-streetwear-manufacturer/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "How to Find a Custom Streetwear Manufacturer: A Step-by-Step Sourcing Guide",
+        description:
+          "How to find a custom streetwear manufacturer step by step: channels, screening criteria, sampling tips, and red flags. Request a quote from YAUUM",
+        path: "/how-to-find-custom-streetwear-manufacturer/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-23T00:00:00+08:00",
+        dateModified: "2026-10-23T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        [
+          "What is a typical MOQ for custom streetwear, and can factories handle small batches?",
+          "MOQ varies widely by factory, fabric, and decoration method, and specialized streetwear factories generally accept shorter runs than general apparel factories. Custom fabric and garment dye push the minimum higher than stock fabric with standard screen print. Ask for the minimum per style and per colorway separately, since color minimums often bind before style minimums do, and confirm any small-order surcharge in writing before sampling. Use a trial order to test consistency before scaling.",
+        ],
+        [
+          "How long does sampling take for streetwear production?",
+          "Sampling commonly takes one to three weeks depending on fabric availability, decoration complexity, and wash requirements. Complex washes, custom trims, and new pattern development push toward the longer end. Bulk production typically follows after sample approval, with lead time confirmed against your specific specification and the factory's current schedule.",
+        ],
+        [
+          "How do I verify a manufacturer is legitimate?",
+          "Request the business license, relevant audit or certification documents, and their standard inspection terms, then verify certificate numbers with the issuing body. Ask for a live video walkthrough of the production floor and the QC station. A legitimate factory shares documentation without friction and can explain exactly which production steps happen on-site.",
+        ],
+        [
+          "What should I ask a streetwear manufacturer before ordering?",
+          "Ask for fabric GSM and composition, which decoration methods are in-house, minimum per style and color, sampling and bulk lead times, their QC checklist and AQL standard, and how they handle defects. Also confirm who owns the pattern and print files, and whether labels and packaging are sourced by them or supplied by you.",
+        ],
+        [
+          "Can manufacturers handle DTG, screen printing, and embroidery together?",
+          "Many can, but often not all in-house. Ask which methods are done on-site and which are subcontracted, because outsourcing adds lead time and splits quality accountability. For multi-decoration garments, confirm the minimum run per method and how registration is controlled across panels.",
+        ],
+        [
+          "What are common red flags when choosing a clothing manufacturer?",
+          "Refusing a paid sample, quoting far below the shortlist without explanation, vague answers on fabric or decoration specs, no describable QC process, and pressure to place a full order before sample approval. One flag may be explainable; a pattern of three or more is a reason to move on.",
+        ],
+        [
+          "How much does it cost to manufacture custom streetwear?",
+          "Cost depends on fabric weight and composition, decoration method and coverage, wash treatment, trim, order quantity, and destination. Heavier fleece, multi-process decoration, and small batches all raise unit cost. Request itemized quotes against the same specification so you can compare suppliers on a like-for-like basis rather than on a single headline number.",
+        ],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；
