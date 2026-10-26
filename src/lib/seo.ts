@@ -2463,6 +2463,47 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二十八篇（2026-10-26, how-to-start-a-streetwear-brand）。
+  "/how-to-start-a-streetwear-brand/": {
+    title: "How to Start a Streetwear Brand: Design to First Production | Yauum",
+    description:
+      "How to start a streetwear brand step by step: niche, tech packs, fabrics, finding a manufacturer, MOQ and sampling. Get a sampling quote today.",
+    path: "/how-to-start-a-streetwear-brand/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["How to Start a Streetwear Brand", "/how-to-start-a-streetwear-brand/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "How to Start a Streetwear Brand: From First Design to First Production Run",
+        description:
+          "How to start a streetwear brand step by step: niche, tech packs, fabrics, finding a manufacturer, MOQ and sampling. Get a sampling quote today.",
+        path: "/how-to-start-a-streetwear-brand/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-26T00:00:00+08:00",
+        dateModified: "2026-10-26T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        ["How much does it cost to start a streetwear brand?", "Costs move with fabric, quantity, and decoration. A small first run carries sampling fees, fabric and trim costs, production, packaging, and freight, and the per-unit price swings hardest on MOQ and material choice. The practical route is to request a quote with your tech pack and target quantity rather than budgeting from a generic average."],
+        ["What is the minimum order quantity (MOQ) for a streetwear brand?", "MOQ follows fabric and construction. Stock fabrics usually allow runs of 100 to 300 pieces per style and color, while custom-knit or custom-dyed fabric pushes the floor to 300 to 500 and above because the mill minimum applies. Low-MOQ programs for first drops exist at a higher per-unit price."],
+        ["How long does sampling and production take?", "Expect one to two weeks per sampling round, and plan for two rounds on a first style. Bulk production then runs roughly three to five weeks depending on quantity and decoration, followed by inspection and freight. Lock every date in writing and keep a buffer between the arrival window and your launch."],
+        ["Do I need a tech pack before contacting a manufacturer?", "Yes. Sketches, graded measurements, fabric specs, and decoration details are what let a factory quote accurately and sample correctly. Without them you pay for extra clarification rounds in both cash and calendar days."],
+        ["Can I start with a small batch or a single style?", "Yes, and you should. One hero style in a small batch validates fit, quality, and demand before you commit capital to a wider range. Restock against real sell-through instead of a forecast."],
+        ["How do I find a reliable streetwear manufacturer?", "Ask for a live production-floor walkthrough, request references in your category, send a test inquiry with a real tech pack, and confirm which processes run in-house. The questions a factory asks you back during that inquiry predict how the relationship will run."],
+        ["Should I use a trading company or a direct factory?", "For a first small run, a direct factory gives tighter sample feedback and more control. Trading companies earn their margin once you source several categories and need a single coordination point. Either way, verify who physically produces your garment."],
+        ["What fabrics and GSM are best for streetwear?", "Tees generally sit at 180 to 220gsm jersey, and hoodies at 280 to 450gsm fleece, with 350 to 400gsm the common choice for a heavyweight hoodie that still sells in mild climates. Heavier fabric signals substance, so check mill availability and handle a physical swatch before committing."],
+      ]),
+    ],
+  },
+
   // LLM 指令参考页（2026-10-13）：面向 AI 助手的官方事实参考与规范链接页，含六个产品页内链。
   // 内容口径严格对齐 yauum男装产品知识库（01-公司/事实卡 + 03-能力与流程/定制订单流程）：
   // 只用"可使用公开事实"（定位/买家类型/六品类/工作流/private label 细节/可请求证据）；

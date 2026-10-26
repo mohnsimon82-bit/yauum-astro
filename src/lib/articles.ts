@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/how-to-start-a-streetwear-brand/",
+    title: "How to Start a Streetwear Brand: From First Design to First Production Run",
+    description: "A start-to-finish route from niche and price position through tech packs, fabrics, manufacturer vetting, MOQ, sampling, quality control, and the first drop",
+    date: "2026-10-26",
+    dateLabel: "October 26, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/how-to-find-custom-streetwear-manufacturer/",
     title: "How to Find a Custom Streetwear Manufacturer: A Step-by-Step Sourcing Guide",
     description: "A four-step filtering method for custom streetwear sourcing: product brief, channel map, a weighted screening scorecard, and sampling plus trial-order checks",

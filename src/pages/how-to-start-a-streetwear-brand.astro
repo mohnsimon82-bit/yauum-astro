@@ -1,0 +1,358 @@
+---
+/**
+ * /how-to-start-a-streetwear-brand/ 文章页（流水线第二十八篇 · 终稿 · 审核 85）。
+ *
+ * 来源：内容生产系统（Dify）输出 `how-to-start-a-streetwear-brand-终稿.md`
+ * （2026-10-26，运行 5812cc94）。报告 85 分红线通过、FAQ 8/8 逐字一致；
+ * 词数 3,154 超区间（按既定口径不压缩，汇报列明）。
+ *
+ * 上线前处理（正文逐字取自终稿，仅做 markdown→HTML 结构转换）：
+ *   - 配图：按默认口径不配图，4 处图标记全部跳过
+ *   - 3 个站上不存在的 yauum.com 绝对链接改为真实路由：
+ *     heavyweight cotton and fleece options → /our-services/；
+ *     custom streetwear manufacturing services → /streetwear-manufacturer/；
+ *     quality control process → /production/
+ *   - 4 个 CTA 全部落 /contact-us/；PDF 下载型 CTA 改为"索取清单"（站上无资源页）
+ *   - About the Author 段不入页（作者署名在 hero meta，与既有文章一致）
+ *   - 段末句号按全站规则剥除；FAQ 可见文本与 seo.ts faqJsonLd 存在"尾句号级"差异
+ *   - 报告 P0（压缩 400–600 词）、P1（数字宣告式小节改写）未执行，沿用既定口径
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-different", "Why it is different"],
+  ["02", "step-1", "Step 1: Niche and price"],
+  ["03", "step-2", "Step 2: Tech packs and samples"],
+  ["04", "step-3", "Step 3: Fabrics and prints"],
+  ["05", "step-4", "Step 4: Finding a manufacturer"],
+  ["06", "step-5", "Step 5: MOQ and cost"],
+  ["07", "step-6", "Step 6: Production and QC"],
+  ["08", "step-7", "Step 7: Launch and drops"],
+  ["09", "mistakes", "Common mistakes"],
+  ["10", "faq", "FAQ"],
+];
+
+const LEDE = 'Most people searching &quot;how to start a streetwear brand&quot; already have a logo in their head and a folder of 200 screenshots. What they don&#39;t have is a tech pack, a fabric decision, or a factory that replies to their email. The gap between the idea and the first carton of finished garments is where most labels stall';
+---
+
+<V2Layout
+  seo={SEO["/how-to-start-a-streetwear-brand/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">How to Start a Streetwear Brand</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>How to Start a Streetwear Brand: From First Design to First Production Run</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-26">October 26, 2026</time></span>
+      <span class="ar-views" data-views-for="/how-to-start-a-streetwear-brand/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">{LEDE}</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+<p>This guide covers the full path: positioning, design handoff, fabric and print choices, manufacturer vetting, MOQ negotiation, sampling, bulk production, quality control, and launch. The supply chain sections run deepest, because that&#39;s where first-time founders burn cash and calendar. Reading in order makes sense if you&#39;re still at the moodboard stage. If your designs are done and you need a production partner, skip to Step 4</p>
+<h2 id="why-different">What Makes a Streetwear Brand Different (Before You Spend a Dollar)</h2>
+<p>Streetwear is a cultural position, not a product category. A 400gsm hoodie with a bold back print reads as streetwear when it&#39;s tied to a scene (skate, hip hop, graffiti, dance, city commuting, festival circuits) and as a blank with a logo when it isn&#39;t. The commercial consequence is blunt: the same garment costs the factory roughly the same to build regardless of what&#39;s printed on it, while the brand with a real audience charges two to four times the unbranded price</p>
+<p>Three structural differences separate a streetwear label from a general fashion brand</p>
+<ul class="ar-list">
+<li><strong>Drop rhythm replaces the seasonal calendar.</strong> You sell in limited releases of 100 to 500 units, not four-season wholesale books. That reshapes your inventory model, your production batching, and the conversation you have with a factory about repeat runs</li>
+<li><strong>Silhouette and weight are the identity.</strong> Oversized fits, boxy bodies, drop shoulders, and heavy fabrics are spec decisions, not accidents. A 180gsm tee and a 240gsm tee look like two different brands on the same body</li>
+<li><strong>Community comes before catalog.</strong> People buy the world first. The garment is the entry ticket</li>
+</ul>
+<p>Four questions worth answering honestly before any money moves:</p>
+<ol class="ar-list">
+<li>Who specifically wears this? Age band, city, subculture, spending level</li>
+<li>Which brands does that buyer already own, and what do you give them that those brands don&#39;t?</li>
+<li>Which single product defines the first impression?</li>
+<li>Can you describe the brand in one sentence without using the word &quot;premium&quot;?</li>
+</ol>
+<p>No concrete answer to question 2 means you&#39;re not ready to email a manufacturer. Fabric weight, print method, and trim quality all descend from positioning, and reversing those decisions after bulk fabric is cut costs real money</p>
+<h2 id="step-1">Step 1: Define Your Niche, Audience, and Price Position</h2>
+<p>Niche selection is a sourcing decision disguised as a marketing one. It determines which fabrics, finishes, and factories you can realistically use. A skate-leaning label lives on 12oz canvas, heavy jersey, and screen print that survives grip tape. Go luxury-street and you&#39;re buying garment dye, custom hardware, and a pattern maker comfortable with multi-panel construction. A sports-inspired line needs moisture-wicking knits and a partner with sublimation capability</p>
+<p>Your retail band sets the cost ceiling, and the cost ceiling picks your factory type</p>
+<div class="ar-table-wrap"><table class="ar-table">
+<thead>
+<tr>
+<th>Positioning</th>
+<th>Typical retail band (tee / hoodie)</th>
+<th>Fabric tendency</th>
+<th>Production implication</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Entry / community-driven</td>
+<td>$25–45 / $55–90</td>
+<td>180–220gsm jersey, 280–350gsm fleece</td>
+<td>Screen print, stock blanks or simple cut-and-sew, small batches viable</td>
+</tr>
+<tr>
+<td>Mid-tier independent</td>
+<td>$40–70 / $90–150</td>
+<td>220–260gsm jersey, 350–420gsm fleece</td>
+<td>Cut-and-sew, puff print and embroidery, custom woven labels</td>
+</tr>
+<tr>
+<td>Premium / luxury-street</td>
+<td>$80+ / $180+</td>
+<td>260gsm+ jersey, 400gsm+ fleece, garment-dyed</td>
+<td>Custom development, hardware, three or more sampling rounds</td>
+</tr>
+</tbody></table></div>
+<p>The fastest way to anchor your position: pick three competitors at different price points, buy one garment from each, then take them apart on a table. Count stitches per inch at the side seam. Check whether the neck tape is twill or self-fabric. Wash the printed one five times at 40°C and look at the edges of the graphic. That hour of teardown tells you more about where your product must sit than a week of spreadsheet work</p>
+<h2 id="step-2">Step 2: Turn Your Ideas into Tech Packs and Samples</h2>
+<p>A tech pack lets a factory quote and build your garment without guessing. A usable one contains:</p>
+<ul class="ar-list">
+<li>Flat technical sketches: front, back, and detail views</li>
+<li>Measurement spec by size with tolerance ranges, typically ±0.5 inch on chest and body length, ±0.25 inch on sleeve and cuff</li>
+<li>Fabric spec: composition, GSM, knit type, color reference by Pantone TCX</li>
+<li>Construction notes: seam types, stitch density (10 to 12 SPI on jersey is standard), bar tacks at pocket openings, hem and cuff finishing</li>
+<li>Print and embroidery placement with dimensions measured from HPS, plus color separations</li>
+<li>Label, hangtag, and packaging instructions</li>
+<li>Target quantity with the size breakdown</li>
+</ul>
+<p>Sending a photo and writing &quot;make this&quot; is the most expensive shortcut in apparel. The factory interprets, you correct, and each clarification loop adds two to four days of dead time. In our sampling work with new streetwear brands, the same three gaps surface again and again: rib composition left blank on the collar and cuff, print placement given as &quot;centered&quot; with no measurement down from HPS, and no stated tolerance on body length. Each gap generates a question, each question waits for a time-zone cycle, and a vague tech pack routinely burns two extra confirmation rounds before anyone cuts fabric</p>
+<p><strong>Five things to lock before sampling starts:</strong></p>
+<ol class="ar-list">
+<li><strong>Measurements and tolerances.</strong> Get the spec sheet signed off, including how much variance you&#39;ll accept per point of measure</li>
+<li><strong>Fabric and color.</strong> Approve a lab dip or a physical swatch. A Pantone chip on a monitor and a dyed knit almost never match, and dye lots on heavy fleece drift more than on light jersey</li>
+<li><strong>Artwork.</strong> Supply vector files at final print size, with separations for multi-color screens</li>
+<li><strong>Trims and labels.</strong> Woven labels, printed neck tags, drawcords, custom zipper pulls, and metal eyelets each carry their own minimum and their own lead time, often 10 to 20 days</li>
+<li><strong>Sample type and fee.</strong> Clarify whether you&#39;re getting a proto, a fit sample, or a salesman sample, and whether the fee credits back against bulk</li>
+</ol>
+<h2 id="step-3">Step 3: Choose Fabrics, Weights, and Prints That Fit Streetwear</h2>
+<p>Fabric weight is the fastest quality signal in this market. Commodity tees sit at 140 to 160gsm. Streetwear starts at 180gsm and climbs to 240gsm or beyond for statement pieces. Hoodie fleece runs 280 to 450gsm, and 350 to 400gsm hits the balance most buyers want: substantial in the hand, still wearable indoors. Above 450gsm you gain presence and lose sales in warm markets</p>
+<p>Print method drives both the look and the cost curve</p>
+<div class="ar-table-wrap"><table class="ar-table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Effect</th>
+<th>Best for</th>
+<th>Cost tendency</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Screen print</td>
+<td>Flat, bold, durable</td>
+<td>Large graphics, multi-color fronts and backs</td>
+<td>Low per unit at volume</td>
+<td>One setup charge per color; economics work past roughly 300 pieces per design</td>
+</tr>
+<tr>
+<td>Puff print</td>
+<td>Raised, tactile, 3D</td>
+<td>Logos, chest hits, retro graphics</td>
+<td>Medium</td>
+<td>Additive cost per hit; wash-test before bulk</td>
+</tr>
+<tr>
+<td>Embroidery</td>
+<td>Structured, premium</td>
+<td>Chest logos, caps, small marks</td>
+<td>Medium to high</td>
+<td>Stitch count drives price; backing choice prevents puckering on 180gsm knits</td>
+</tr>
+<tr>
+<td>DTG</td>
+<td>Full-color, photographic</td>
+<td>Batches under 100, complex art</td>
+<td>High per unit, near-zero setup</td>
+<td>Best tool for testing designs before cutting screens</td>
+</tr>
+<tr>
+<td>Garment dye / wash</td>
+<td>Vintage, faded, individual</td>
+<td>Premium drops, acid and enzyme washes</td>
+<td>Medium to high</td>
+<td>Batch color variation is built in; write a tolerance into your spec</td>
+</tr>
+</tbody></table></div>
+<p>Two rules worth following. Match the decoration to the order size: DTG for a 30-piece test, screen print once a single design clears a few hundred units. And wash-test every fabric-plus-print combination before bulk, five cycles at 40°C with a tumble dry. A puff print that cracks on wash three will cost you more in returns and reputation than you saved on unit price</p>
+<p>Comparing weights across categories? <a href="/our-services/">Heavyweight cotton and fleece options</a> covers the fabrics and finishes used for hoodies, tees, and sweatpants</p>
+<h2 id="step-4">Step 4: How to Find and Vet a Streetwear Manufacturer</h2>
+<p>This is where the guide earns its keep. Your manufacturer sets your MOQ, your quality ceiling, your lead times, and how painful year one feels</p>
+<h3>Factory vs Trading Company vs Platform</h3>
+<div class="ar-table-wrap"><table class="ar-table">
+<thead>
+<tr>
+<th>Supplier type</th>
+<th>What they offer</th>
+<th>Strengths</th>
+<th>Watch-outs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Direct factory</td>
+<td>In-house cut-and-sew, usually with named finishing partners</td>
+<td>Quality control, direct answers, better pricing as volume grows</td>
+<td>Narrower capability range; not every decoration sits in-house</td>
+</tr>
+<tr>
+<td>Trading company / agent</td>
+<td>Coordination across multiple factories</td>
+<td>Broad capability, one contact, flexible on mixed-category orders</td>
+<td>Thinner quality control, markup on unit price, accountability blurs when things go wrong</td>
+</tr>
+<tr>
+<td>B2B platform</td>
+<td>Supplier directory with escrow tools</td>
+<td>Easy discovery, payment protection</td>
+<td>Verification depth varies widely; the vetting is still your job</td>
+</tr>
+</tbody></table></div>
+<p>For a first run under 300 pieces per style, pick a direct factory that accepts small batches. You need fast, accurate sample feedback far more than you need a wide catalog. Once you&#39;re running five or six styles across hoodies, pants, and outerwear, an agent starts to pay for itself</p>
+<h3>How to Vet a Supplier</h3>
+<p>Verification is a sequence, not a gut call</p>
+<ol class="ar-list">
+<li><strong>Request a live video call from the production floor.</strong> A photo gallery proves nothing. Ask them to walk the sewing line and the sampling room while you watch</li>
+<li><strong>Ask for references in your category.</strong> A shirting factory can sew beautifully and still have no instinct for drop-shoulder blocks or back-print placement</li>
+<li><strong>Send a real tech pack as a test inquiry.</strong> Judge the questions they ask back. A factory that flags your missing rib composition before quoting is a factory that will catch problems in bulk</li>
+<li><strong>Confirm sampling capability.</strong> In-house pattern makers and a fit sample before bulk, or walk away</li>
+<li><strong>Map in-house versus subcontracted.</strong> Printing, embroidery, washing, and dyeing get farmed out constantly. Know whose hands touch your garment</li>
+</ol>
+<h3>Eight Questions to Ask Before You Commit</h3>
+<ul class="ar-list">
+<li>What is your MOQ per style and per color, and how does it shift with fabric?</li>
+<li>What is your sampling lead time and fee, and does the fee credit against bulk?</li>
+<li>Which processes run in-house, and which are subcontracted?</li>
+<li>How does your pre-production sample approval process work?</li>
+<li>What are your payment terms: deposit percentage and balance timing?</li>
+<li>How do you handle defects and short shipments?</li>
+<li>What is your production lead time at my quantity, and what pushes it out?</li>
+<li>Can you handle my packaging, labeling, and hangtag requirements?</li>
+</ul>
+<p>If you want a partner already running this workflow end to end, <a href="/streetwear-manufacturer/">custom streetwear manufacturing services</a> explains how a project moves from tech pack to shipped cartons</p>
+<blockquote class="ar-quote">
+<p><strong>Not sure which factory fits your first run?</strong> <a href="/contact-us/">Get a sampling consultation</a> and we&#39;ll review your tech pack before you book a production slot</p>
+</blockquote>
+<h2 id="step-5">Step 5: MOQ, Sampling, and Cost Breakdown (What Beginners Get Wrong)</h2>
+<h3>Understanding MOQ</h3>
+<p>Minimum order quantity looks like a gate. It&#39;s arithmetic. Mills sell by the roll, and a roll of custom-knitted or custom-dyed fleece can yield far more garments than you want to make. Lines also need setup time per style and per color: marker making, cutting, sewing changeovers, screen burning. MOQ is simply the point where that fixed setup spreads thin enough to be worth running</p>
+<p>Cut-and-sew streetwear on stock fabric generally starts around 100 to 300 pieces per style and color. Specify custom fabric or custom dyeing and the floor moves to 300 to 500 and up, because the mill&#39;s own minimum takes over. Low-MOQ programs exist and are the right entry point for a first drop, with a higher per-unit price as the trade. Treat that premium as tuition, not waste</p>
+<h3>Where Your Money Goes</h3>
+<div class="ar-table-wrap"><table class="ar-table">
+<thead>
+<tr>
+<th>Cost stage</th>
+<th>What it covers</th>
+<th>Commonly underestimated</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Design &amp; tech pack</td>
+<td>Pattern making, spec development, artwork</td>
+<td>Pattern development for original silhouettes</td>
+</tr>
+<tr>
+<td>Sampling</td>
+<td>Proto, fit, and PP samples; lab dips</td>
+<td>Revision rounds and international courier fees</td>
+</tr>
+<tr>
+<td>Fabric &amp; trims</td>
+<td>Shell, rib, lining, labels, hardware</td>
+<td>Trim minimums and custom label setup</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>Cutting, sewing, finishing, decoration</td>
+<td>Screen setup per color, per design</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>Polybags, hangtags, custom boxes, tissue</td>
+<td>Custom box MOQ and freight volume</td>
+</tr>
+<tr>
+<td>Logistics</td>
+<td>Freight, duties, customs clearance</td>
+<td>Duty rates and port-to-door buffer</td>
+</tr>
+</tbody></table></div>
+<p>Want a real number for your first drop? <a href="/contact-us/">Request a quote</a> with your tech pack and target quantity. We break out sampling, unit cost, and freight separately so you can see where the money actually sits</p>
+<h2 id="step-6">Step 6: Production, Quality Control, and Fulfillment</h2>
+<h3>The Pre-Production Sample Is Not Optional</h3>
+<p>Before bulk cutting starts, approve a pre-production sample: the exact garment built from final fabric, final trims, and final artwork. The PP sample is your last cheap chance to catch a shade that drifted two steps off the lab dip, a print sitting an inch high, or a body length that crept during grading. Skipping it causes more large-scale rework than any other single decision</p>
+<h3>QC Checkpoints</h3>
+<p>Three inspection points belong in every order</p>
+<ul class="ar-list">
+<li><strong>Pre-production:</strong> fabric and trim verified against approved standards, PP sample signed off in writing</li>
+<li><strong>In-line:</strong> measurements, stitch quality, and decoration placement checked on the first 50 pieces off the line, not after the last one</li>
+<li><strong>Final:</strong> AQL-based random sampling (2.5 for major defects under Level II is the common commercial standard), measurement conformance, packing accuracy, and label correctness before cartons close</li>
+</ul>
+<p>A workable final checklist covers six things: measurements within tolerance, print and embroidery placement plus adhesion, seam strength and stitch density, color consistency across dye lots, label and hangtag accuracy, and carton condition. Our <a href="/production/">quality control process</a> applies these checkpoints to every bulk order</p>
+<h3>Fulfillment and Packaging</h3>
+<p>Settle polybag versus custom box, tissue and sticker inserts, size stickers, and flat-fold versus hanging before production opens, because each choice moves your shipping volume and your warehouse handling time. Retrofitting packaging after goods are sewn means repacking labor and a delayed ship date, so put the spec in the PO</p>
+<h2 id="step-7">Step 7: Launch, Drop Strategy, and Sales Channels</h2>
+<p>The drop model exists to manage inventory risk: produce a limited run, create urgency, sell through, then restock only what demand proved. One hero product, built properly, teaches you more than a scattered six-piece collection that ties up cash in sizes nobody wanted</p>
+<p>Channel mix for a new label:</p>
+<ul class="ar-list">
+<li><strong>Owned storefront</strong> (Shopify or similar): best margin, full control of presentation, and it builds the customer list you&#39;ll need for drop two</li>
+<li><strong>Instagram and TikTok:</strong> where discovery actually happens. Content first, product second</li>
+<li><strong>Markets, pop-ups, and community events:</strong> cheap physical validation, plus fit feedback you can&#39;t get from a return form</li>
+<li><strong>Wholesale:</strong> a later move, once sell-through is proven and your margin can absorb a retailer&#39;s</li>
+</ul>
+<p>A launch sequence that works: seed 15 to 30 units with people inside the scene, collect fit and quality notes, fix what surfaces, then run the public drop</p>
+<h2 id="mistakes">Common Mistakes When Starting a Streetwear Brand</h2>
+<ol class="ar-list">
+<li><strong>Ordering without a tech pack.</strong> You get mismatched samples and an open-ended revision loop. Build the spec sheet before you contact a single factory</li>
+<li>The fit sample arrived looking close enough, so it got approved and the order went straight to bulk. Three hundred hoodies later, every sleeve is an inch short. Round one proves the pattern, round two proves the fit, and the PP sample proves the whole package before any of it multiplies</li>
+<li><strong>Picking a factory on price alone.</strong> The cheapest quote usually comes from whoever read your tech pack least carefully. Weigh capability and communication first; negotiate price after</li>
+<li><strong>Misjudging lead time.</strong> Sampling, bulk, inspection, and ocean freight stack up fast. Work backward from your drop date, add a buffer, and get every date in writing</li>
+<li>How many units of drop one can you afford to still own in six months? That number, not your optimism, sets the order quantity. Dead stock locks up the cash that funds drop two, which is why small first runs plus restocking against real sell-through beats a confident forecast</li>
+<li><strong>Working without written terms.</strong> Payment schedule, tolerances, defect remedies, and delay consequences all belong in the PO before the deposit leaves your account</li>
+</ol>
+<blockquote class="ar-quote">
+<p><strong>Want the Streetwear Brand Production Checklist (PDF)?</strong> It is a printable version of the tech pack, sampling, and QC steps in this guide. <a href="/contact-us/">Ask us for the checklist</a></p>
+</blockquote>
+<h2 id="faq">FAQ: Starting a Streetwear Brand</h2>
+<details class="ar-faq-item" open><summary><h3>How much does it cost to start a streetwear brand?</h3></summary><p>Costs move with fabric, quantity, and decoration. A small first run carries sampling fees, fabric and trim costs, production, packaging, and freight, and the per-unit price swings hardest on MOQ and material choice. The practical route is to request a quote with your tech pack and target quantity rather than budgeting from a generic average</p></details>
+<details class="ar-faq-item"><summary><h3>What is the minimum order quantity (MOQ) for a streetwear brand?</h3></summary><p>MOQ follows fabric and construction. Stock fabrics usually allow runs of 100 to 300 pieces per style and color, while custom-knit or custom-dyed fabric pushes the floor to 300 to 500 and above because the mill minimum applies. Low-MOQ programs for first drops exist at a higher per-unit price</p></details>
+<details class="ar-faq-item"><summary><h3>How long does sampling and production take?</h3></summary><p>Expect one to two weeks per sampling round, and plan for two rounds on a first style. Bulk production then runs roughly three to five weeks depending on quantity and decoration, followed by inspection and freight. Lock every date in writing and keep a buffer between the arrival window and your launch</p></details>
+<details class="ar-faq-item"><summary><h3>Do I need a tech pack before contacting a manufacturer?</h3></summary><p>Yes. Sketches, graded measurements, fabric specs, and decoration details are what let a factory quote accurately and sample correctly. Without them you pay for extra clarification rounds in both cash and calendar days</p></details>
+<details class="ar-faq-item"><summary><h3>Can I start with a small batch or a single style?</h3></summary><p>Yes, and you should. One hero style in a small batch validates fit, quality, and demand before you commit capital to a wider range. Restock against real sell-through instead of a forecast</p></details>
+<details class="ar-faq-item"><summary><h3>How do I find a reliable streetwear manufacturer?</h3></summary><p>Ask for a live production-floor walkthrough, request references in your category, send a test inquiry with a real tech pack, and confirm which processes run in-house. The questions a factory asks you back during that inquiry predict how the relationship will run</p></details>
+<details class="ar-faq-item"><summary><h3>Should I use a trading company or a direct factory?</h3></summary><p>For a first small run, a direct factory gives tighter sample feedback and more control. Trading companies earn their margin once you source several categories and need a single coordination point. Either way, verify who physically produces your garment</p></details>
+<details class="ar-faq-item"><summary><h3>What fabrics and GSM are best for streetwear?</h3></summary><p>Tees generally sit at 180 to 220gsm jersey, and hoodies at 280 to 450gsm fleece, with 350 to 400gsm the common choice for a heavyweight hoodie that still sells in mild climates. Heavier fabric signals substance, so check mill availability and handle a physical swatch before committing</p></details>
+<h2 id="start">Ready to Move from Design to Production?</h2>
+<p>YAUUM works with streetwear brands, private label buyers, and sourcing teams across hoodies, T-shirts, jackets, pants, sportswear, and streetwear. Our custom streetwear manufacturing services run from tech pack review through sampling, bulk production, inspection, and shipping</p>
+<p><a href="/contact-us/">Talk to our production team</a> about your first drop</p>
+
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="Streetwear"
+    kicker="Start an inquiry"
+    title="Send the Streetwear Brief Behind Your First Drop"
+    lead="Category, target quantity, fabric and GSM direction, and your launch window: the inputs that turn a design idea into a production quote"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>
