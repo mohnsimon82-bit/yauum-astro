@@ -1,0 +1,223 @@
+---
+/**
+ * /oversized-t-shirt-suppliers-china-guide/ 文章页（流水线 · 审核 86）。
+ *
+ * 来源：内容生产系统（Dify）2026-10-13 00:50 运行（id 6823e83c）——运行成功但
+ * 从未导出到 `输出/`，因此一直没上线；2026-10-27 补发。
+ * 正文取自 html_document（html_integrity PASS），按站内结构重排。
+ *
+ * 上线前处理：
+ *   - 配图：按默认口径不配图，4 处图标记全部跳过
+ *   - 占位链接落到真实锚点：QC 标准→/our-services/#group-05、
+ *     工艺→/t-shirt-manufacturer/#tshirt-process、小批量→/production/#important-note、
+ *     品控清单→/t-shirt-manufacturer/#tshirt-quality、其余 CTA→/contact-us/
+ *   - 段末句号剥除；FAQ 7 组与 seo.ts faqJsonLd 逐字一致（差尾句号）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-china", "Why China"],
+  ["02", "method", "How we evaluated"],
+  ["03", "supplier-types", "10 supplier types"],
+  ["04", "specs", "What matters"],
+  ["05", "choose", "Choosing a supplier"],
+  ["06", "mistakes", "Common mistakes"],
+  ["07", "faq", "FAQ"],
+  ["08", "start", "Next step"],
+];
+
+const LEDE = "Sourcing oversized t-shirts from China stopped being a search problem years ago. It is a filtering problem. One platform query returns thousands of results: trading companies, trading companies dressed up as factories, and factories that list every apparel category on earth while running two sewing lines";
+---
+
+<V2Layout
+  seo={SEO["/oversized-t-shirt-suppliers-china-guide/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">10 Types of Oversized T-Shirt Suppliers in China</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>10 Types of Oversized T-Shirt Suppliers in China: How to Pick the Right One (2026)</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-27">October 27, 2026</time></span>
+        <span class="ar-views" data-views-for="/oversized-t-shirt-suppliers-china-guide/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">{LEDE}</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <p>The useful distinction is not which company ranks first. It is which <em>type</em> of supplier matches your volume, your fit, and your stage. This guide maps ten supplier types, gives you the evaluation framework to score any candidate against them, and discloses where our own facility sits</p>
+        <hr>
+        
+        <h2 id="why-china">Why China Dominates Oversized T-Shirt Manufacturing</h2>
+        <p>China's knitwear advantage is structural. China has consistently ranked among the world's largest apparel exporters by value in WTO trade statistics, and oversized tees sit inside the strongest part of that base: cluster density. Within a few hours' drive in Guangdong, Zhejiang, or Jiangsu, you can buy combed cotton yarn, commission a knit-and-dye mill, order matching ribbing, book a wash house for an enzyme or acid wash, and finish at a factory that cuts and sews drop-shoulder panels</p>
+        <p>Oversized tees stress that chain in specific places. A standard crew neck runs 160–180 GSM. A credible oversized body lands at 220–280 GSM, and heavyweight streetwear builds push 280–320 GSM. Heavier fabric changes everything downstream: shrinkage climbs, collar ribbing needs more structure so it does not stretch under its own weight, and drop-shoulder seams carry more load at the armhole. A factory that only runs light jersey will quote confidently, then deliver a body that twists after one wash</p>
+        <p>Three practical reasons buyers keep coming back:</p>
+        <ul class="ar-list">
+        <li><strong>Cost banding at volume.</strong> FOB pricing for a 240 GSM cotton oversized tee commonly falls in the $3.8–7.5/piece range at 3,000 pieces, depending on fabric origin, wash treatment, and print method. Treat that as a planning band, never a quote</li>
+        <li><strong>MOQ flexibility.</strong> Chinese factories cover the full spectrum, from 100–300 pieces per color for small brands to 5,000+ for mass retail</li>
+        <li><strong>Category depth.</strong> Print, embroidery, garment dye, and specialty washes sit in-house or next door, which compresses the sampling loop</li>
+        </ul>
+        <p>The catch: that depth is unevenly distributed. A factory that nails 180 GSM basics may be mediocre at 300 GSM boxy fits. Hence the framework matters more than the list</p>
+        
+        <hr>
+        
+        <h2 id="method">How We Evaluated These Oversized T-Shirt Suppliers</h2>
+        <p>No ranking survives contact with a real brief unless the scoring is visible. We weighted six dimensions and deliberately put category specialization above scale, because a 2,000-worker generalist loses to a 200-worker oversized specialist on exactly the details that decide whether your fit sells</p>
+        <div class="ar-table-wrap"><table class="ar-table">
+        <thead>
+        <tr><th>Evaluation Dimension</th><th>Weight</th><th>What We Look For</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Oversized category specialization</td><td>25%</td><td>Evidence of drop-shoulder, boxy, and heavyweight (220–320 GSM) production; pattern blocks already on file</td></tr>
+        <tr><td>MOQ flexibility</td><td>20%</td><td>Per-color minimums from 100–300 pieces (small brand tier) up to 1,000+ (mass tier); willingness to quote mixed-color orders</td></tr>
+        <tr><td>Sampling capability</td><td>20%</td><td>In-house or tightly controlled sample room; 5–15 working day sample turnaround as a common industry range</td></tr>
+        <tr><td>Quality control system</td><td>15%</td><td>Documented inline and final inspection; shrinkage and colorfastness testing before shipment</td></tr>
+        <tr><td>Compliance and certifications</td><td>10%</td><td>Verifiable audit documentation; buyers should request certificate numbers directly rather than rely on website badges</td></tr>
+        <tr><td>Communication responsiveness</td><td>10%</td><td>English-language account management; quote turnaround within 24–72 hours as a working benchmark</td></tr>
+        </tbody>
+        </table></div>
+        <p>This is a fit-based framework, not an absolute quality ladder: a supplier built for small-batch flexibility is not better than one built for container-scale production, only better for a specific buyer. Pricing, MOQ, and lead times shift with fabric, quantity, and season, so confirm every figure here against a live quote</p>
+        <p>To see how we apply these standards internally, review <a href="/our-services/#group-05">our factory audit and quality control standards</a></p>
+        
+        <hr>
+        
+        <h2 id="supplier-types">The 10 Oversized T-Shirt Supplier Types in China (2026)</h2>
+        <p>This list ranks supplier <em>types</em>, not individual companies; only YAUUM is named, because it is our own facility. Read the type labels before the numbering. They carry more information than the order does</p>
+        <h3>1. Full-Category Multi-Product Manufacturers</h3>
+        <p>Factories running tees, hoodies, jackets, and bottoms on one floor, with oversized blocks already developed rather than improvised per order. Best fit for brands building a coordinated capsule who want one accountable partner from sample to shipment. Watch-out: capacity windows tighten from roughly August through November, so confirm slots before locking a launch date</p>
+        <h3>2. Guangdong Knit Cluster Factories (Dongguan / Guangzhou)</h3>
+        <p><strong>Positioning:</strong> Dense cluster of mid-to-large knitwear factories strong on 180–260 GSM jersey, reactive and pigment dyeing, and screen printing at volume</p>
+        <p><strong>Best fit:</strong> Buyers running 1,000–5,000 pieces per style who need competitive FOB pricing and fast print turnaround</p>
+        <p><strong>Watch-out:</strong> Quality swings sharply between factories inside the same industrial zone. Cluster proximity is not a quality signal; audit each facility individually</p>
+        <h3>3. Zhejiang Export-Oriented Knitwear Mills (Ningbo / Shaoxing)</h3>
+        <p>Export programs for European and North American retail have shaped these mills around consistency: 160–220 GSM basics, dependable color matching across repeat orders, and compliance paperwork that survives retail audits. They suit replenishment buyers who value color continuity over trend speed. The limitation is weight — heavyweight 280 GSM+ streetwear is rarely their default, so verify fabric supply before paying for sampling</p>
+        <h3>4. Jiangsu Mid-Weight Specialists</h3>
+        <p><strong>Positioning:</strong> Factories concentrated on 200–260 GSM cotton and cotton-blend tees with tight shrinkage and measurement tolerances</p>
+        <p><strong>Best fit:</strong> DTC brands whose return rates react to fit drift</p>
+        <p><strong>Watch-out:</strong> Specialty wash capability is thin. Acid wash and heavy garment dye often get outsourced, adding a week or more to lead time</p>
+        <h3>5. Fujian Sportswear-Adjacent Knit Factories</h3>
+        <p>Rooted in performance and athleisure production, these factories bring cotton-poly blends, moisture-management finishes, and clean flatlock and coverstitch construction to oversized silhouettes. They are the right call when the brief is a hybrid casual-sport fit. They are the wrong call when the brief is 100% cotton heavyweight streetwear, so pin down fabric sourcing in the first call</p>
+        <h3>6. Shandong Large-Volume Basic Tee Producers</h3>
+        <p><strong>Positioning:</strong> High-capacity producers built for container-scale basic knitwear at 160–200 GSM</p>
+        <p><strong>Best fit:</strong> Mass retail and promotional buyers ordering 10,000+ pieces per style</p>
+        <p><strong>Watch-out:</strong> High minimums and little appetite for small batches or experimental washes. The wrong partner for a first drop</p>
+        <h3>7. Small-Batch / Low-MOQ Oversized Specialists</h3>
+        <p>Smaller factories and studios organized around 100–300 piece per-color runs, rapid sample iteration, and mixed-color orders. They lower financial risk per style, which is what a first collection actually needs. Expect unit costs well above volume tiers, and expect capacity to tighten in peak season; book sample and production slots early</p>
+        <h3>8. Sustainable and Certified Production Facilities</h3>
+        <p><strong>Positioning:</strong> Manufacturers organized around organic and recycled cotton programs with documented traceability and lower-impact dye processes</p>
+        <p><strong>Best fit:</strong> Brands whose marketing rests on verifiable material claims</p>
+        <p><strong>Watch-out:</strong> Higher unit costs and longer lead times. Check that the certificate covers the specific facility and product line, not just a parent group</p>
+        <h3>9. Full-Package OEM/ODM Developers</h3>
+        <p>These suppliers take a mood board or a reference garment and return a production-ready oversized block with grading and construction specs included, which removes any dependency on external pattern services. They fit brands without an in-house technical designer. Settle development fees and IP ownership in writing before you share a single design file</p>
+        <h3>10. Trading Companies with Vetted Factory Networks</h3>
+        <p><strong>Positioning:</strong> Sourcing intermediaries coordinating several factories rather than manufacturing in-house, useful for placing tees, hoodies, and accessories in one order cycle</p>
+        <p><strong>Best fit:</strong> Buyers assembling a wide, shallow range who want one point of contact</p>
+        <p><strong>Watch-out:</strong> Quality accountability sits one step removed from the floor. Insist on factory disclosure and third-party inspection</p>
+        <hr>
+        <h3>YAUUM (Our Own Facility — Disclosed)</h3>
+        <p>We fall into type 1 above, and we are naming ourselves rather than quietly ranking ourselves first. YAUUM is a B2B men's apparel manufacturer covering hoodies, t-shirts, jackets, pants, sportswear, and streetwear, with oversized tees produced across the 220–300 GSM band on drop-shoulder and boxy blocks</p>
+        <p>Because the same floor runs tees, hoodies, and streetwear, a brand can build a coordinated capsule without splitting production across vendors, and custom labels, neck tags, and packaging move through the order itself instead of arriving as third-party add-ons. Sample and bulk stay in the same facility. Judge that claim the way you would judge any supplier on this page: against the six criteria above, with a sample in hand</p>
+        <p><a href="/contact-us/">Get a Quote</a> | <a href="/contact-us/">Request a Sample</a></p>
+        
+        <hr>
+        
+        <h2 id="specs">Oversized T-Shirt Manufacturing: What Actually Matters</h2>
+        
+        <p>Nearly every sourcing failure on oversized tees traces back to four technical decisions made before the cutting table</p>
+        <p><strong>Fabric weight and construction.</strong> GSM drives perceived quality, but weight alone tells you little. A 260 GSM single jersey and a 260 GSM French terry behave nothing alike on a drop-shoulder body. For oversized silhouettes, 220–280 GSM single jersey is the working range across most streetwear programs, with 280–320 GSM reserved for builds where structure is the whole point. Ask for the fabric spec sheet, not the marketing description</p>
+        <p><strong>Drop-shoulder pattern engineering.</strong> Oversized is a pattern decision, never a sizing decision. A true drop-shoulder block moves the shoulder seam down the arm, which rewrites armhole depth, sleeve pitch, and drape. Factories that simply grade up a standard block hand you a tee that looks large instead of intentionally oversized. Ask to see the block and a photo from a previous drop-shoulder run</p>
+        <p><strong>Wash and shrinkage control.</strong> Every garment-dyed or washed tee shrinks. The only question is whether the factory controls it or your customer discovers it. Pre-shrunk and compacted fabrics cut residual shrinkage, and a factory running its own wash trials will hand you tested shrinkage percentages per colorway</p>
+        <p><strong>Sampling-to-bulk consistency.</strong> A perfect sample means nothing when bulk fabric arrives from a different mill lot. The control point is lot reservation: the factory should reserve and record the fabric lot behind the approved sample, then draw bulk from that lot wherever volume allows</p>
+        <div class="ar-table-wrap"><table class="ar-table">
+        <thead>
+        <tr><th>Fabric Type</th><th>Typical GSM Range</th><th>Best For</th><th>Trade-off</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>100% combed cotton single jersey</td><td>180–240</td><td>Everyday oversized tees</td><td>Moderate shrinkage; needs pre-shrinking</td></tr>
+        <tr><td>Heavyweight cotton jersey</td><td>240–320</td><td>Streetwear, boxy fits</td><td>Higher cost; longer wash cycles</td></tr>
+        <tr><td>Cotton-poly blend</td><td>180–240</td><td>Athleisure, lower-shrink programs</td><td>Less natural hand feel</td></tr>
+        <tr><td>Organic / recycled cotton</td><td>180–260</td><td>Sustainability-led brands</td><td>Higher cost; longer lead time</td></tr>
+        <tr><td>French terry</td><td>240–320</td><td>Oversized tees with structure, matching hoodies</td><td>Heavier freight cost</td></tr>
+        </tbody>
+        </table></div>
+        <p>For a closer look at how these choices play out on the floor, see our <a href="/t-shirt-manufacturer/#tshirt-process">custom oversized t-shirt manufacturing process</a></p>
+        
+        <hr>
+        
+        <h2 id="choose">How to Choose the Right Supplier for Your Brand</h2>
+        
+        <p>The right supplier depends on your stage, not on a universal ranking</p>
+        <p><strong>Startup or first collection (100–300 pieces per color).</strong> Prioritize low-MOQ specialists and fast sample loops. You are buying information as much as product: how the fit sells, which colorways move, where returns land. Unit cost is secondary at this volume. Explore <a href="/production/#important-note">low MOQ oversized t-shirt options</a></p>
+        <p><strong>Growth stage (500–2,000 pieces per style).</strong> Repeat-order consistency becomes the constraint. Look for reserved fabric lots, documented shrinkage testing, and a track record on replenishment programs. Switching costs climb quickly here, so invest in the relationship rather than chasing quotes</p>
+        <p><strong>Mature brand (2,000+ pieces per style).</strong> Capacity reliability, compliance documentation, and multi-category capability for vendor consolidation take priority. At this scale, a 5% unit cost difference matters far less than a two-week delay on a seasonal drop</p>
+        <p>Before you send a single inquiry, prepare four things:</p>
+        <ol class="ar-list">
+        <li><strong>A reference garment or clear fit spec.</strong> Photos plus measurements (chest, body length, shoulder drop, sleeve opening) beat any written description</li>
+        <li><strong>Fabric requirements.</strong> Target GSM, composition, and whether you need a specific wash or finish</li>
+        <li><strong>Quantity estimate by colorway.</strong> This sets your MOQ tier and your pricing band</li>
+        <li><strong>Target price and timeline.</strong> Stating both upfront filters out mismatched suppliers in a single round</li>
+        </ol>
+        <p>Then run the process in order: inquiry and capability screening, sample development, sample approval against written specs, bulk production, inline and final inspection, shipment. Never skip the written spec at sample approval. Verbal approvals are where disputes begin</p>
+        
+        <hr>
+        
+        <h2 id="mistakes">Common Mistakes When Sourcing Oversized T-Shirts from China</h2>
+        <p><strong>Skipping the sample, or rushing it.</strong> A sample is the cheapest place on earth to find a problem. Approve one without measuring it against your spec and a 2 cm shoulder discrepancy will be replicated across all 3,000 units</p>
+        <p>Verification gets skipped more often than it should. Trading companies presenting as factories remains common, so ask for the production address, request a video walkthrough, and commission third-party inspection on your first bulk order</p>
+        <p><strong>Ignoring shrinkage and colorfastness testing.</strong> Request test results before shipment, not after the complaints land. A <a href="/t-shirt-manufacturer/#tshirt-quality">t-shirt quality control checklist</a> standardizes what you ask for</p>
+        <p>Labels and packaging are the last items buyers think about and the first to delay a shipment. Custom neck tags, hangtags, and polybag specs carry their own lead times, so lock them at sample stage rather than after bulk approval</p>
+        
+        <hr>
+        
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <details class="ar-faq-item" open><summary><h3>What is the typical MOQ for custom oversized t-shirts from China?</h3></summary><p>MOQ varies by factory tier. Small-batch specialists commonly open at 100–300 pieces per color, mid-size factories at 500–1,000 pieces per color, and large-volume producers at 2,000+ pieces per style. Fabric choice affects this: specialty or custom-dyed fabric usually raises the minimum. Confirm the per-color minimum, not just the per-order minimum</p></details>
+        <details class="ar-faq-item"><summary><h3>How long does sampling take for oversized t-shirts?</h3></summary><p>Sampling typically runs 7–15 working days for a standard cotton oversized tee, and 15–25 working days when custom dyeing, washing, or specialty printing is involved. Add shipping time for the sample itself. Peak season can extend these windows, so build buffer into your launch timeline</p></details>
+        <details class="ar-faq-item"><summary><h3>Can I get custom labels and packaging for oversized tees?</h3></summary><p>Yes. Custom woven or printed neck labels, hangtags, size tags, and polybag printing are standard services at most export-oriented factories. Provide artwork and specs at sample stage so labels are approved alongside the garment. Some factories handle this in-house; others coordinate with local suppliers, which adds a few days</p></details>
+        <details class="ar-faq-item"><summary><h3>How do I verify a Chinese oversized t-shirt manufacturer?</h3></summary><p>Request the production address, then confirm it matches the business license. Ask for a live video walkthrough of the production floor, request references from comparable buyers, and check whether the factory can show recent inspection reports. For a first order, commission a third-party inspection before shipment. A factory that resists these steps is telling you something</p></details>
+        <details class="ar-faq-item"><summary><h3>What certifications should I look for in a t-shirt manufacturer?</h3></summary><p>The relevant certifications depend on your market and claims. Common programs cover social compliance, quality management, and organic or recycled material traceability. Always request the certificate number and verify it directly with the issuing body, and confirm the certificate covers the specific facility and product line you are ordering from</p></details>
+        <details class="ar-faq-item"><summary><h3>How much does it cost to manufacture oversized t-shirts in China?</h3></summary><p>For a 240 GSM cotton oversized tee at 3,000 pieces, FOB pricing commonly falls in the $3.8–7.5/piece range, with heavier fabrics, specialty washes, and complex printing pushing above that band. Small-batch orders under 300 pieces carry higher unit costs. These are planning ranges only; request a live quote against your spec</p></details>
+        <details class="ar-faq-item"><summary><h3>Can small brands order low quantities of oversized t-shirts?</h3></summary><p>Yes. A meaningful segment of Chinese factories is built specifically around 100–300 piece per-color runs for emerging brands. Expect higher unit pricing and tighter capacity during peak season. Booking sample slots early matters more at low volume than at high volume</p></details>
+        
+        <hr>
+        
+        <h2 id="start">Ready to Start? Get a Quote or Request a Sample</h2>
+        <p>You have the framework. What comes next is a spec sheet and a factory conversation</p>
+        <p>Send YAUUM your reference garment, target GSM, colorways, and quantity estimate, and we will come back with a quote and a sampling plan. Quotes are returned within two business days against a written spec. Sample cost and courier terms are confirmed in the quote, so there is no ambiguity before you commit. Still shaping the collection? Start with a sample and judge fit and hand feel before bulk. The YAUUM team works in English and keeps sample and bulk production on the same floor</p>
+        
+        <p><a href="/contact-us/">Request a Quote</a> | <a href="/contact-us/">Request a Sample</a> | <a href="/contact-us/">Contact Our Sourcing Team</a></p>
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="T-shirts"
+    kicker="Start an inquiry"
+    title="Send the Oversized T-Shirt Brief You Need Quoted"
+    lead="GSM, fit block, print or embroidery, colorways, and quantity per color: the inputs that turn a supplier shortlist into a real quote"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>

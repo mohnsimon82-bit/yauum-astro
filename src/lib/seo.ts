@@ -2463,6 +2463,85 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 补发（运行于更早、2026-10-27 上线, oversized-t-shirt-suppliers-china-guide）。
+  "/oversized-t-shirt-suppliers-china-guide/": {
+    title: "10 Oversized T-Shirt Supplier Types in China (2026 Buyer Guide) | Yauum",
+    description:
+      "Compare the 10 supplier types behind China's oversized t-shirt production. Learn how to evaluate factories, avoid sourcing mistakes, and request a sample.",
+    path: "/oversized-t-shirt-suppliers-china-guide/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Oversized T-Shirt Suppliers in China", "/oversized-t-shirt-suppliers-china-guide/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "10 Types of Oversized T-Shirt Suppliers in China: How to Pick the Right One (2026)",
+        description:
+          "Compare the 10 supplier types behind China's oversized t-shirt production. Learn how to evaluate factories, avoid sourcing mistakes, and request a sample.",
+        path: "/oversized-t-shirt-suppliers-china-guide/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-27T00:00:00+08:00",
+        dateModified: "2026-10-27T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        ["What is the typical MOQ for custom oversized t-shirts from China?", "MOQ varies by factory tier. Small-batch specialists commonly open at 100–300 pieces per color, mid-size factories at 500–1,000 pieces per color, and large-volume producers at 2,000+ pieces per style. Fabric choice affects this: specialty or custom-dyed fabric usually raises the minimum. Confirm the per-color minimum, not just the per-order minimum."],
+        ["How long does sampling take for oversized t-shirts?", "Sampling typically runs 7–15 working days for a standard cotton oversized tee, and 15–25 working days when custom dyeing, washing, or specialty printing is involved. Add shipping time for the sample itself. Peak season can extend these windows, so build buffer into your launch timeline."],
+        ["Can I get custom labels and packaging for oversized tees?", "Yes. Custom woven or printed neck labels, hangtags, size tags, and polybag printing are standard services at most export-oriented factories. Provide artwork and specs at sample stage so labels are approved alongside the garment. Some factories handle this in-house; others coordinate with local suppliers, which adds a few days."],
+        ["How do I verify a Chinese oversized t-shirt manufacturer?", "Request the production address, then confirm it matches the business license. Ask for a live video walkthrough of the production floor, request references from comparable buyers, and check whether the factory can show recent inspection reports. For a first order, commission a third-party inspection before shipment. A factory that resists these steps is telling you something."],
+        ["What certifications should I look for in a t-shirt manufacturer?", "The relevant certifications depend on your market and claims. Common programs cover social compliance, quality management, and organic or recycled material traceability. Always request the certificate number and verify it directly with the issuing body, and confirm the certificate covers the specific facility and product line you are ordering from."],
+        ["How much does it cost to manufacture oversized t-shirts in China?", "For a 240 GSM cotton oversized tee at 3,000 pieces, FOB pricing commonly falls in the $3.8–7.5/piece range, with heavier fabrics, specialty washes, and complex printing pushing above that band. Small-batch orders under 300 pieces carry higher unit costs. These are planning ranges only; request a live quote against your spec."],
+        ["Can small brands order low quantities of oversized t-shirts?", "Yes. A meaningful segment of Chinese factories is built specifically around 100–300 piece per-color runs for emerging brands. Expect higher unit pricing and tighter capacity during peak season. Booking sample slots early matters more at low volume than at high volume."]
+      ]),
+    ],
+  },
+  // 文章详情页 · 补发（运行于更早、2026-10-27 上线, jacket-manufacturers-china-types-vetting）。
+  "/jacket-manufacturers-china-types-vetting/": {
+    title: "Jacket Manufacturers in China: 10 Types & Vetting Guide | Yauum",
+    description:
+      "Compare 10 types of jacket manufacturers in China by MOQ, certifications, and specialty, plus the vetting steps that separate real factories from traders.",
+    path: "/jacket-manufacturers-china-types-vetting/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Jacket Manufacturers in China", "/jacket-manufacturers-china-types-vetting/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "10 Types of Jacket Manufacturers in China: How to Match and Vet Them (2026)",
+        description:
+          "Compare 10 types of jacket manufacturers in China by MOQ, certifications, and specialty, plus the vetting steps that separate real factories from traders.",
+        path: "/jacket-manufacturers-china-types-vetting/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-27T00:00:00+08:00",
+        dateModified: "2026-10-27T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        ["What is the MOQ for custom jackets from Chinese manufacturers?", "Most factories set MOQ between 300 and 500 pieces per color for standard styles, and 500 to 1,000 for technical outerwear. Smaller runs are possible with stock fabric or through development-focused suppliers."],
+        ["How much does it cost to manufacture a jacket in China?", "FOB pricing typically ranges from about $8–18 for a lightweight windbreaker to $30–90 for a leather jacket, depending on fabric, fill, construction, and order volume. Confirm current pricing with your supplier before budgeting."],
+        ["How do I verify if a Chinese jacket factory is legitimate?", "Request social compliance and quality certificates, ask for a live video factory tour, order a sample, and run a small trial order before committing to volume. Cross-check the company's registration details independently."],
+        ["Which region in China is best for down jacket manufacturing?", "Zhejiang's Pinghu cluster is the leading region for down outerwear, with deep supply chains for down filling, down-proof fabrics, and quilting."],
+        ["Can Chinese jacket factories produce small batches for new brands?", "Yes. Development-focused suppliers and some casual jacket makers accept orders from 100 to 300 pieces, though unit costs are higher than at volume."],
+        ["What certifications should a Chinese jacket manufacturer have?", "At minimum, a social compliance audit and a quality management certification. Depending on your market, you may also need product testing for chemicals, flammability, or performance."],
+        ["How long does it take to manufacture and ship jackets from China?", "Sampling usually takes 7 to 30 days. Production runs 30 to 60 days, and sea freight adds roughly 25 to 35 days. Air freight is faster but costs more."],
+        ["Do Chinese jacket factories accept OEM/ODM orders?", "Yes. Most accept OEM production from your patterns and tech packs, and many offer ODM development if you need design support."]
+      ]),
+    ],
+  },
   // 文章详情页 · 第二十九篇（2026-10-26 生成，2026-10-27 上线, streetwear-business-guide）。
   "/streetwear-business-guide/": {
     title: "Streetwear Business Guide: From Brand to Supply Chain | Yauum",

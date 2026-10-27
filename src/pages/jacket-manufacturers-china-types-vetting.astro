@@ -1,0 +1,209 @@
+---
+/**
+ * /jacket-manufacturers-china-types-vetting/ 文章页（流水线 · 审核 84）。
+ *
+ * 来源：内容生产系统（Dify）2026-10-15 05:55 运行（id d3343c81）——运行成功但
+ * 从未导出到 `输出/`，因此一直没上线；2026-10-27 补发。
+ * 正文取自 html_document（html_integrity PASS），按站内结构重排。
+ *
+ * 上线前处理：
+ *   - 年份：H1/正文 "(2025)"→"(2026)"（发布年一致规则）
+ *   - 配图：按默认口径不配图，4 处图标记全部跳过
+ *   - 占位链接落到真实锚点：合规→/our-services/、打样沟通→/production/#production-process、
+ *     羽绒工艺→/jackets-manufacturer/、AQL→/our-services/#group-05、其余→/contact-us/
+ *   - 承诺类锚文本改写（free supplier shortlist / checklist / 货运指南均为站内无资源页）
+ *   - 段末句号剥除；FAQ 8 组与 seo.ts faqJsonLd 逐字一致（差尾句号）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-china", "Why China"],
+  ["02", "method", "Methodology"],
+  ["03", "comparison", "Comparison table"],
+  ["04", "profiles", "10 manufacturer types"],
+  ["05", "clusters", "Clusters"],
+  ["06", "vetting", "How to vet"],
+  ["07", "cost", "Cost, MOQ, lead time"],
+  ["08", "faq", "FAQ"],
+  ["09", "next-step", "Next step"],
+];
+
+const LEDE = "Choosing a jacket manufacturer in China has almost nothing to do with who ranks first on a list. It has everything to do with who matches your order profile. A brand shipping 300 quilted coach jackets to a niche audience shares no common ground with a retailer placing a 30,000-unit puffer program across four colorways. This guide organizes suppliers by buyer fit, not by factory headcount, and hands you the vetting framework to check every claim yourself";
+---
+
+<V2Layout
+  seo={SEO["/jacket-manufacturers-china-types-vetting/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">10 Types of Jacket Manufacturers in China</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>10 Types of Jacket Manufacturers in China: How to Match and Vet Them (2026)</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-27">October 27, 2026</time></span>
+        <span class="ar-views" data-views-for="/jacket-manufacturers-china-types-vetting/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">{LEDE}</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <h2 id="why-china">Why China Still Leads Global Jacket Manufacturing</h2>
+        <p>China's edge in jacket production is not cheap labor. It is <strong>vertical integration</strong>. Within a two-hour drive of most major jacket clusters, you can source 75D shell fabric, taffeta lining, YKK or local-equivalent zippers, drawcords, woven labels, and polybags, then drop the cut-and-sew order into a factory that already runs the same construction every week. That density compresses lead times and strips out the coordination risk that drags down multi-country sourcing</p>
+        <p>According to WTO trade statistics, China has ranked first in global apparel exports by value for years, and outerwear sits among its strongest categories. For a jacket buyer, the practical meaning is depth of capability. Quilting, seam sealing, down filling, garment washing, and 12-head embroidery all exist as mature, competitive sub-industries rather than favors a factory does on the side. Cluster density raises the average quality of the supplier pool, but it never guarantees that one specific factory fits your MOQ, your compliance requirements, or your ship window</p>
+        
+        <h2 id="method">How We Selected These 10 Manufacturer Types (Our Methodology)</h2>
+        <p>The YAUUM Sourcing Team scored candidates against six dimensions that actually change how an order lands:</p>
+        <ol class="ar-list">
+        <li><strong>Category specialization</strong>. Weekly production of your jacket type, not seasonal</li>
+        <li><strong>MOQ flexibility</strong>. Room for a 300-piece test order</li>
+        <li><strong>Compliance and certification</strong>. Social audits and testing your market demands</li>
+        <li><strong>Sampling capability</strong>. In-house patterns, fit samples, lab dips</li>
+        <li><strong>Export experience</strong>. Labeling, carton marking, customs paperwork fluency</li>
+        <li><strong>Communication responsiveness</strong>. English account management, timelines that hold</li>
+        </ol>
+        <p>We deliberately did <strong>not</strong> rank by factory size. A 2,000-worker plant is the wrong home for a startup's first 200-unit run, and a 40-machine workshop will choke on a 50,000-unit seasonal program. Each entry below states plainly who it suits and who should walk away</p>
+        <p><strong>Disclosure:</strong> YAUUM operates in apparel manufacturing and sourcing. Some supplier types described here overlap with partners and competitors. The selection criteria are written so you can apply them independently, and every "what to verify" note can be checked without us. For background on what factory certifications actually cover, see our guide to <a href="/our-services/">social compliance certifications for apparel factories</a></p>
+        
+        <h2 id="comparison">Quick Comparison Table: 10 Jacket Manufacturer Types at a Glance</h2>
+        <div class="ar-table-wrap"><table class="ar-table">
+        <thead>
+        <tr><th>#</th><th>Manufacturer Type</th><th>Cluster</th><th>Specialty</th><th>Typical MOQ</th><th>Common Certifications</th><th>Best For</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>1</td><td>Down outerwear specialist</td><td>Zhejiang (Pinghu)</td><td>Puffer, parka, down-filled</td><td>300–500 pcs/style</td><td>BSCI, ISO 9001</td><td>Winter programs, down expertise</td></tr>
+        <tr><td>2</td><td>Casual woven jacket maker</td><td>Fujian (Shishi)</td><td>Coach, bomber, windbreaker</td><td>500–1,000 pcs</td><td>BSCI, WRAP</td><td>Mid-volume casual ranges</td></tr>
+        <tr><td>3</td><td>Fast-fashion jacket supplier</td><td>Guangdong (Humen)</td><td>Trend jackets, lightweight</td><td>300–800 pcs/color</td><td>BSCI, OEKO-TEX</td><td>Quick-turn trend drops</td></tr>
+        <tr><td>4</td><td>Men's business casual maker</td><td>Jiangsu (Changshu)</td><td>Harrington, field, softshell</td><td>500–1,000 pcs</td><td>ISO 9001, BSCI</td><td>Structured menswear</td></tr>
+        <tr><td>5</td><td>Functional/outdoor specialist</td><td>Zhejiang / Fujian</td><td>Softshell, rain, technical</td><td>500–1,000 pcs</td><td>BSCI, ISO 9001</td><td>Performance outerwear</td></tr>
+        <tr><td>6</td><td>Leather &amp; PU jacket maker</td><td>Guangdong</td><td>Leather, faux leather</td><td>200–500 pcs</td><td>BSCI</td><td>Fashion leather lines</td></tr>
+        <tr><td>7</td><td>Workwear &amp; uniform maker</td><td>Jiangsu / Shandong</td><td>Work, field, utility</td><td>1,000–3,000 pcs</td><td>ISO 9001, BSCI</td><td>Bulk uniform contracts</td></tr>
+        <tr><td>8</td><td>Varsity &amp; collegiate maker</td><td>Fujian / Guangdong</td><td>Varsity, chenille patches</td><td>100–300 pcs</td><td>BSCI</td><td>Small-batch branded merch</td></tr>
+        <tr><td>9</td><td>Knit &amp; fleece jacket maker</td><td>Zhejiang / Jiangsu</td><td>Fleece, track, hybrid</td><td>500–1,000 pcs</td><td>BSCI, OEKO-TEX</td><td>Soft knit outerwear</td></tr>
+        <tr><td>10</td><td>Small-batch development studio</td><td>Guangdong / Zhejiang</td><td>Sampling-first, low MOQ</td><td>100–300 pcs</td><td>Varies by partner factory</td><td>New brands, test runs</td></tr>
+        </tbody>
+        </table></div>
+        <p><strong>How to read this table:</strong> filter on MOQ against your realistic first order, then on specialty, and treat certifications as the last screen rather than the first</p>
+        <p>Want a personalized shortlist based on your product type and order volume? <a href="/contact-us/">Ask us for a supplier shortlist</a></p>
+        
+        <h2 id="profiles">The 10 Jacket Manufacturer Types in China (Detailed Profiles)</h2>
+        <p>This list profiles 10 manufacturer archetypes rather than named factories, so the criteria stay verifiable after supplier rosters change. Match each profile against real candidates during your search, then apply the verification questions attached to it</p>
+        <h3>1. Down Outerwear Specialist: Best for Winter Programs</h3>
+        <p><strong>Core Capabilities &amp; Product Specialties</strong><br>Built around down filling machines, baffle construction, and multi-needle quilting. Handles fill-power grading, down-proof shell selection (typically 20D–40D nylon with a calendered or coated finish), and seam sealing for water resistance. Output runs to puffers, parkas, and hybrid down jackets</p>
+        <p><strong>Who It's Best For</strong><br>Brands with a defined winter collection and enough volume to justify a down-specific line. A single lightweight style will not absorb the setup cost that a down line carries</p>
+        <p><strong>What to Verify Before Contacting</strong><br>Ask for the down origin certificate and the fill-power test report as documents separate from the social audit, since factories routinely bundle them and hope you stop reading. Then ask which fill-power range they buy most often (550 and 700 are the common anchors), who supplies their down-proof shell, and whether quilting runs in-house or goes to a subcontractor. Confirm MOQ per color, not per style</p>
+        <h3>2. Casual Woven Jacket Maker: Best for Mid-Volume Casual Ranges</h3>
+        <p>Coach jackets, bombers, and windbreakers in woven shells. These factories live on snap and zipper closures, ribbed trims, and screen print or embroidery decoration, with trim suppliers two streets away. A brand building a 500 to 1,000 piece casual range with repeat potential gets the best economics here. Taped seams and a 10,000mm waterproof rating belong elsewhere</p>
+        <p>Before you write, ask for standard shell weights (most sit between 60gsm nylon and 240gsm cotton canvas), confirm that product testing covers your destination market rather than a generic chemical panel, and find out whether they hold stock fabric or impose a minimum fabric order per color, usually 1,000 to 1,500 meters for a custom dye lot</p>
+        <h3>3. Fast-Fashion Jacket Supplier: Best for Quick-Turn Trend Drops</h3>
+        <p>Speed is the product. Lightweight trend jackets, development cycles measured in days, and small color runs that let you test eight SKUs instead of two. Trend-led brands refreshing assortments every six to eight weeks are the natural customer. If you need the same shade and hand-feel across four consecutive seasons, this model will frustrate you</p>
+        <p>Chemical testing deserves more attention here than in any other segment, because the fabric base changes constantly and last season's passing report says nothing about this season's print. Ask how many days a fit sample takes door to door, and get their method for holding a fabric standard across repeat orders in writing</p>
+        <h3>4. Men's Business Casual Maker: Best for Structured Menswear</h3>
+        <p>Harrington, field, and softshell jackets cut on a cleaner, tailored block. The skill sits in collar roll, pocket placement, and lining construction that does not twist after the first wash. Menswear labels running a disciplined size grading system see the value immediately; oversized streetwear blocks pay for tailoring precision that never shows on the hanger</p>
+        <p>Request the size chart and grading rules, then confirm tolerance ranges on chest, shoulder, and sleeve length. A ±1cm tolerance on chest and ±0.6cm on sleeve is a reasonable benchmark for structured outerwear. Quality management and social certificates are usually on file here; check that the audited entity name matches the company quoting you</p>
+        <h3>5. Functional / Outdoor Specialist: Best for Performance Outerwear</h3>
+        <p><strong>Core Capabilities &amp; Product Specialties</strong><br>Softshells, rain jackets, and technical shells. These factories run waterproof-breathable membranes, seam tape machines, and DWR finishing, and their operators recognize a delaminated sample on sight</p>
+        <p><strong>Who It's Best For</strong><br>Outdoor and performance brands with genuine testing requirements. Fashion lines that only want the look of a technical shell will pay for capability they never use</p>
+        <p><strong>What to Verify Before Contacting</strong><br>Collect fabric performance test reports from a recognized lab alongside the usual social and quality certificates. Ask for the test method behind every waterproof and breathability claim (hydrostatic head in mm, MVTR in g/m²/24h), and confirm whether seam sealing happens in-house or ships out</p>
+        <h3>6. Leather &amp; PU Jacket Maker: Best for Fashion Leather Lines</h3>
+        <p>Genuine leather and faux leather jackets: biker, racer, moto. The craft lives in panel matching across hides and in hardware finishing that survives a season of wear. This is a margin-driven category rather than a volume one, so it works for fashion brands whose pricing tolerates a $30 to $90 FOB and whose assortment depth stays shallow</p>
+        <p>Material sourcing documentation varies widely across this segment, which is exactly why you request it in the first email. Confirm leather grade and origin, and ask whether they can build a matched PU alternative at a lower price point from the same pattern. Most capable leather houses can, which gives you a two-tier assortment out of one development cycle</p>
+        <h3>7. Workwear &amp; Uniform Maker: Best for Bulk Contracts</h3>
+        <p><strong>Core Capabilities &amp; Product Specialties</strong><br>Work jackets, utility jackets, and uniform outerwear built for abrasion and repeat laundering. Reinforced bartacks, double-needle seams, and sizing that holds across a 10,000-piece run</p>
+        <p><strong>Who It's Best For</strong><br>Uniform programs that reorder the same spec every year get the most out of this type of factory; a one-off 300-piece fashion test will sit at the back of the queue</p>
+        <p><strong>What to Verify Before Contacting</strong><br>Quality management and social certificates are standard in this segment, often backed by institutional supply history, so ask for references in your sector. Then request monthly capacity in pieces, the size consistency controls applied between cutting lots, and whether they hold stock fabric for repeat contracts. Stock fabric is the difference between a six-week and a twelve-week reorder</p>
+        <h3>8. Varsity &amp; Collegiate Maker: Best for Small-Batch Branded Merch</h3>
+        <p>Varsity jackets with chenille patches, direct embroidery, and contrast melton sleeves. Minimums start around 100 pieces, which is why school, team, and merch programs gravitate here. The same factories will accept a softshell order they should politely decline, so keep technical outerwear out of the conversation</p>
+        <p>Confirm that patch and embroidery work happens in-house, and ask for testing on decoration materials, patch backings and adhesives in particular, against your market's chemical rules. Request a physical sample of their chenille before committing anything; chenille quality varies more than any other decoration method</p>
+        <h3>9. Knit &amp; Fleece Jacket Maker: Best for Soft Knit Outerwear</h3>
+        <p>Fleece, track jackets, and hybrid knit outerwear, built by operators comfortable with knit panel construction, elastic trims, and brushed or anti-pill finishes. Athleisure and casual brands form the core customer base. A structured woven field jacket pushed through this type of line usually comes back with soft collars, wavy zip tapes, and a fit nobody is willing to sign off on</p>
+        <p>Ask which fleece weights they stock (200gsm, 280gsm, and 320gsm polar fleece are the usual options), whether they can match a specific hand-feel reference you mail them, and request fiber content testing that matches the claim you intend to print on the label</p>
+        <h3>10. Small-Batch Development Studio: Best for New Brands</h3>
+        <p>Sampling-first operations with MOQs from 100 pieces, usually paired with a partner factory once a style proves itself. That arrangement is a strength during validation and a liability at scale, because compliance status depends entirely on the partner rather than on the studio you are talking to. New brands testing a design before committing capital belong here; a fixed ship date for 20,000 pieces does not</p>
+        <p>Ask which factory handles production and request that factory's certificates directly rather than a forwarded PDF, then settle the question before you scale past the trial order. For sampling communication, see our guide on <a href="/production/#production-process">how to communicate with Chinese factories for sampling</a></p>
+        
+        <h2 id="clusters">China's Jacket Manufacturing Clusters: Why Location Matters</h2>
+        <p>Where a factory sits shapes what it builds well. Four clusters dominate jacket production</p>
+        <p><strong>Zhejiang (Pinghu): Down Outerwear</strong><br>The center of China's down jacket industry, with deep supply chains for down filling, down-proof fabrics, and quilting. If your product is a puffer or parka, start here and work outward</p>
+        <p><strong>Fujian (Shishi): Casual &amp; Sport Jackets</strong><br>A long-established casual and sportswear cluster. Strong on coach jackets, bombers, and varsity styles, with embroidery and print houses operating in the same industrial zones</p>
+        <p><strong>Guangdong (Humen): Fashion &amp; Fast Turn</strong><br>A fashion-forward cluster built for speed, backed by the fabric markets that let a buyer source, sample, and confirm within a week. Best suited to trend jackets and fast replenishment</p>
+        <p><strong>Jiangsu (Changshu): Men's Business Casual</strong><br>Known for structured menswear. The natural fit for Harrington, field, and softshell jackets that need clean lines and consistent grading</p>
+        <p>Choosing the right cluster shortens development and keeps a factory from learning your construction on your production order. For down-specific construction and quality standards, see our guide to <a href="/jackets-manufacturer/">down jacket manufacturing process and quality standards</a></p>
+        
+        <h2 id="vetting">How to Vet a Chinese Jacket Manufacturer: A Step-by-Step Checklist</h2>
+        <p>Vetting is a sequence, not a single check. Run these in order and stop the moment a step fails</p>
+        <ol class="ar-list">
+        <li><strong>Initial contact and capability screening</strong>: confirm they build your jacket type and can meet your MOQ. Ask for a recent production photo or video of a comparable style, with the date visible</li>
+        <li><strong>Certification request</strong>: collect social compliance and quality certificates, plus product test reports relevant to your market. Check expiry dates and the audited entity name against the company you are quoting</li>
+        <li><strong>Video factory tour</strong>: request a live walkthrough of the production floor. A polished stock video tells you nothing</li>
+        <li><strong>Sample evaluation</strong>: order a fit sample and then a production sample. Measure against your tech pack, inspect seam quality, and check trims</li>
+        <li><strong>Small trial order</strong>: run 300 to 500 pieces before committing to a full program</li>
+        <li><strong>Mass production and inspection</strong>: agree the AQL standard and inspection point in writing before cutting starts</li>
+        </ol>
+        <p><strong>Red flags:</strong> vague answers on certification, refusal of a live video tour, quotes 30% below everyone else in the bid set, and pressure to skip sampling. For inspection standards, see our guide to <a href="/our-services/#group-05">AQL inspection standards for garment manufacturing</a></p>
+        <p>Download our Factory Vetting Checklist (PDF) and run these steps against any candidate. <a href="/contact-us/">Ask us for the vetting checklist</a></p>
+        
+        <h2 id="cost">Cost, MOQ &amp; Lead Time: What to Expect from Chinese Jacket Factories</h2>
+        <p>Five variables drive cost: shell fabric, fill or lining, construction complexity, order quantity, and certification requirements. Construction complexity is the one buyers underestimate most, since every extra welded pocket or taped seam adds both material and line time</p>
+        <div class="ar-table-wrap"><table class="ar-table">
+        <thead>
+        <tr><th>Jacket Type</th><th>Typical FOB Range</th><th>Typical MOQ</th><th>Sampling</th><th>Production + Shipping</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Lightweight windbreaker</td><td>$8–18/pc</td><td>300–500 pcs/color</td><td>7–15 days</td><td>30–45 days + 25–35 days sea</td></tr>
+        <tr><td>Quilted / coach jacket</td><td>$12–25/pc</td><td>300–500 pcs/color</td><td>10–20 days</td><td>35–50 days + 25–35 days sea</td></tr>
+        <tr><td>Down puffer (mid-fill)</td><td>$25–60/pc</td><td>300–500 pcs/style</td><td>15–25 days</td><td>45–60 days + 25–35 days sea</td></tr>
+        <tr><td>Technical softshell</td><td>$20–45/pc</td><td>500–1,000 pcs</td><td>15–25 days</td><td>40–55 days + 25–35 days sea</td></tr>
+        <tr><td>Leather / PU jacket</td><td>$30–90/pc</td><td>200–500 pcs</td><td>15–30 days</td><td>40–60 days + 25–35 days sea</td></tr>
+        </tbody>
+        </table></div>
+        <p>Treat these as planning ranges and confirm current pricing against your own tech pack. MOQ drops when you accept stock fabric and climbs the moment a custom dye lot enters the picture. The lead times above assume fabric is in stock and exclude peak-season congestion, which routinely adds two to three weeks between August and November</p>
+        <p>For freight and customs questions, <a href="/contact-us/">ask us about jacket freight and customs</a>. Need help negotiating MOQ and pricing? <a href="/contact-us/">Book a sourcing consultation</a></p>
+        
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <details class="ar-faq-item" open><summary><h3>What is the MOQ for custom jackets from Chinese manufacturers?</h3></summary><p>Most factories set MOQ between 300 and 500 pieces per color for standard styles, and 500 to 1,000 for technical outerwear. Smaller runs are possible with stock fabric or through development-focused suppliers</p></details>
+        <details class="ar-faq-item"><summary><h3>How much does it cost to manufacture a jacket in China?</h3></summary><p>FOB pricing typically ranges from about $8–18 for a lightweight windbreaker to $30–90 for a leather jacket, depending on fabric, fill, construction, and order volume. Confirm current pricing with your supplier before budgeting</p></details>
+        <details class="ar-faq-item"><summary><h3>How do I verify if a Chinese jacket factory is legitimate?</h3></summary><p>Request social compliance and quality certificates, ask for a live video factory tour, order a sample, and run a small trial order before committing to volume. Cross-check the company's registration details independently</p></details>
+        <details class="ar-faq-item"><summary><h3>Which region in China is best for down jacket manufacturing?</h3></summary><p>Zhejiang's Pinghu cluster is the leading region for down outerwear, with deep supply chains for down filling, down-proof fabrics, and quilting</p></details>
+        <details class="ar-faq-item"><summary><h3>Can Chinese jacket factories produce small batches for new brands?</h3></summary><p>Yes. Development-focused suppliers and some casual jacket makers accept orders from 100 to 300 pieces, though unit costs are higher than at volume</p></details>
+        <details class="ar-faq-item"><summary><h3>What certifications should a Chinese jacket manufacturer have?</h3></summary><p>At minimum, a social compliance audit and a quality management certification. Depending on your market, you may also need product testing for chemicals, flammability, or performance</p></details>
+        <details class="ar-faq-item"><summary><h3>How long does it take to manufacture and ship jackets from China?</h3></summary><p>Sampling usually takes 7 to 30 days. Production runs 30 to 60 days, and sea freight adds roughly 25 to 35 days. Air freight is faster but costs more</p></details>
+        <details class="ar-faq-item"><summary><h3>Do Chinese jacket factories accept OEM/ODM orders?</h3></summary><p>Yes. Most accept OEM production from your patterns and tech packs, and many offer ODM development if you need design support</p></details>
+        
+        <h2 id="next-step">Next Step: Get Your Shortlist or Talk to a Sourcing Expert</h2>
+        <p>Filtering dozens of factories eats weeks you should be spending on product. Send us your jacket type, target order volume, and destination market, and YAUUM will return a shortlist matched to those requirements. Prefer to talk it through first? <a href="/contact-us/">Book a sourcing consultation</a> and we will walk your options line by line</p>
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="Jackets"
+    kicker="Start an inquiry"
+    title="Send the Jacket Spec That Decides the Factory"
+    lead="Shell fabric, lining and fill, MOQ per color, decoration, and your delivery window: what a jacket factory needs before it can quote"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>

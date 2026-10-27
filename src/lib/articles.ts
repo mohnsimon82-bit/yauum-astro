@@ -20,6 +20,22 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/oversized-t-shirt-suppliers-china-guide/",
+    title: "10 Types of Oversized T-Shirt Suppliers in China: How to Pick the Right One (2026)",
+    description: "Compare the 10 supplier types behind China's oversized t-shirt production: evaluation criteria, sourcing mistakes, and how to request a sample.",
+    date: "2026-10-27",
+    dateLabel: "October 27, 2026",
+    tag: "Buyer's guide",
+  },
+  {
+    route: "/jacket-manufacturers-china-types-vetting/",
+    title: "10 Types of Jacket Manufacturers in China: How to Match and Vet Them (2026)",
+    description: "Compare 10 types of jacket manufacturers in China by MOQ, certifications, and specialty, plus the vetting steps that separate real factories from traders.",
+    date: "2026-10-27",
+    dateLabel: "October 27, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/streetwear-business-guide/",
     title: "Streetwear Business: A Practical 0-to-1 Guide from Brand Positioning to Supply Chain",
     description: "A practical streetwear business guide: positioning, sourcing, pricing and scaling. Get our supplier checklist and request a sampling quote.",
