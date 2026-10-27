@@ -2463,6 +2463,46 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第二十九篇（2026-10-26 生成，2026-10-27 上线, streetwear-business-guide）。
+  "/streetwear-business-guide/": {
+    title: "Streetwear Business Guide: From Brand to Supply Chain | Yauum",
+    description:
+      "A practical streetwear business guide: positioning, sampling, sourcing, pricing and scaling. Get our supplier checklist and request a sampling quote.",
+    path: "/streetwear-business-guide/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Streetwear Business Guide", "/streetwear-business-guide/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "Streetwear Business: A Practical 0-to-1 Guide from Brand Positioning to Supply Chain",
+        description:
+          "A practical streetwear business guide: positioning, sourcing, pricing and scaling. Get our supplier checklist and request a sampling quote.",
+        path: "/streetwear-business-guide/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-26T00:00:00+08:00",
+        dateModified: "2026-10-27T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        ["How much does it cost to start a streetwear business?", "Four buckets: development and sampling, first production run, branding and packaging, launch marketing. Samples typically cost 3 to 8 times the bulk unit price, and a 100-piece drop across 3 styles behaves nothing like 500 pieces across 8, so budget per style instead of chasing one headline figure. Hold back 30 to 40 percent of your cash for the reorder, because the style that sells out is where the money actually sits."],
+        ["What is the typical MOQ for streetwear manufacturing?", "MOQ depends on fabric, color, and decoration, and it is usually quoted per style per color rather than per order. Stock-fabric jersey tees often start at 50 to 100 pieces per color, while custom-knitted or piece-dyed heavy fleece generally needs 300 pieces or more per color to justify a dye lot. Small runs are available at roughly 20 to 40 percent above volume pricing. Get the number in writing for the exact fabric and print combination before development starts."],
+        ["How do I find a reliable streetwear manufacturer?", "Shortlist from referrals, trade shows, and sourcing platforms, then screen four things: sampling capability on your silhouette, a written quality control procedure, response speed on technical questions, and reorder reliability. Ask for compliance documentation and verify the certificate numbers with the issuing body rather than trusting a logo on a profile page. A supplier who answers with measurements and photos beats one who answers in ten minutes with reassurance."],
+        ["How long does sampling and production take?", "Budget 10 to 15 days for a first sample on stock fabric, and three to four weeks when the fabric has to be knitted and dyed for you. Each revision round adds about a week. Bulk production commonly runs 25 to 45 days from sample approval and deposit, plus 25 to 35 days of sea freight or roughly one week by air. Ask for a milestone timeline in writing and keep two weeks of buffer ahead of your drop date."],
+        ["Should I use private label or build from scratch?", "Private label on a factory's proven block gets you to market faster and cuts sampling spend, which makes sense when you are testing a category or filling out a basics range. Building from scratch buys silhouette originality and a pattern you own, at the cost of extra fit rounds and higher development spend. The common split works like this: private label the tees and basics, develop original blocks for the two or three hero styles that carry the brand."],
+        ["What profit margin can a streetwear brand expect?", "Positioning and channel mix decide it, so treat published benchmarks as noise. Build the landed-cost model set out in the pricing section above, apply the multiplier your positioning supports, and run the result at a partial sell-through rate before committing to quantities. A margin that only works at full sell-through is not a margin."],
+        ["Do I need a tech pack before contacting a supplier?", "Not for a first conversation, but it is what converts that conversation into a real quotation instead of a vague range. Without specs, a factory prices off the nearest style it has already made. Even a one-page pack with flat sketches, a graded measurement chart, fabric weight in gsm, and print placements measured from the high point of the shoulder usually removes a full revision round from sampling."],
+        ["How do I protect my designs when working with a factory?", "Sign an agreement covering confidentiality and ownership of patterns and artwork before you send files, release only what each production stage requires, and keep source artwork on your side rather than on a factory server. Ask directly whether they produce similar styles for other buyers, and how they handle leftover screens and digitized embroidery files. Keep the agreement and the file-access list as the controls, and review both before each new supplier onboarding."]
+      ]),
+    ],
+  },
   // 文章详情页 · 第二十八篇（2026-10-26, how-to-start-a-streetwear-brand）。
   "/how-to-start-a-streetwear-brand/": {
     title: "How to Start a Streetwear Brand: Design to First Production | Yauum",

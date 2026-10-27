@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/streetwear-business-guide/",
+    title: "Streetwear Business: A Practical 0-to-1 Guide from Brand Positioning to Supply Chain",
+    description: "A practical streetwear business guide: positioning, sourcing, pricing and scaling. Get our supplier checklist and request a sampling quote.",
+    date: "2026-10-26",
+    dateLabel: "October 26, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/how-to-start-a-streetwear-brand/",
     title: "How to Start a Streetwear Brand: From First Design to First Production Run",
     description: "A start-to-finish route from niche and price position through tech packs, fabrics, manufacturer vetting, MOQ, sampling, quality control, and the first drop",
