@@ -20,6 +20,14 @@ export const PAGE_SIZE = 10;
 
 export const articles: Article[] = [
   {
+    route: "/best-fabric-for-streetwear/",
+    title: "The Best Fabrics for Streetwear: A Designer & Sourcing Guide",
+    description: "Compare the best fabrics for streetwear by style, GSM and performance, plus the sourcing checks that keep bulk fabric on spec.",
+    date: "2026-10-27",
+    dateLabel: "October 27, 2026",
+    tag: "Buyer's guide",
+  },
+  {
     route: "/oversized-t-shirt-suppliers-china-guide/",
     title: "10 Types of Oversized T-Shirt Suppliers in China: How to Pick the Right One (2026)",
     description: "Compare the 10 supplier types behind China's oversized t-shirt production: evaluation criteria, sourcing mistakes, and how to request a sample.",

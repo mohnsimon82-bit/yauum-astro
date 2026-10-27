@@ -1,0 +1,223 @@
+---
+/**
+ * /best-fabric-for-streetwear/ 文章页（流水线第三十二篇 · 终稿 · 审核 82）。
+ *
+ * 来源：内容生产系统（Dify）2026-10-27 12:36 运行（id 0d3cb576）——本次为
+ * 运行成功后直接取库内 outputs 发布（未走导出文件夹）。
+ * 正文取自 html_document（html_integrity PASS），按站内结构重排。
+ *
+ * 上线前处理：
+ *   - 配图：按默认口径不配图，4 处图标记全部跳过
+ *   - 5 处绝对/占位内链落到真实页：heavyweight hoodie→/hoodie-manufacturer/、
+ *     t-shirt→/t-shirt-manufacturer/、GSM 指南→/our-services/#group-02、
+ *     面料打样→/production/#production-process、streetwear→/streetwear-manufacturer/
+ *   - 3 处 CTA→/contact-us/；两处"下载 PDF 清单"承诺改为索取式说法（站上无资源页）
+ *   - 禁用词 premium ×4 → high-end（含对比表单元格与 FAQ 文本）
+ *   - 段末句号剥除；FAQ 8 组与 seo.ts faqJsonLd 逐字一致（差尾句号）
+ */
+import V2Layout from "../layouts/V2Layout.astro";
+import V2Inquiry from "../components/V2Inquiry.astro";
+import ViewCounter from "../components/ViewCounter.astro";
+import { SEO } from "../lib/seo";
+import "../styles/article-v2.css";
+
+const toc: Array<[string, string, string]> = [
+  ["01", "why-fabric", "Why fabric decides"],
+  ["02", "sub-genre", "Fabric by sub-genre"],
+  ["03", "comparison", "Fabrics compared"],
+  ["04", "checklist", "Selection checklist"],
+  ["05", "mistakes", "Common mistakes"],
+  ["06", "sample-to-bulk", "Sample to bulk"],
+  ["07", "partner", "Choosing a partner"],
+  ["08", "faq", "FAQ"],
+];
+
+const LEDE = "Streetwear lives or dies on fabric. You can nail the silhouette, the graphic and the drop date, then watch a hoodie fall apart in the wash because the loopback ran too loose or the fleece was under-carded. There is no single best fabric for streetwear. There is a chain of decisions: sub-genre, GSM range, fiber blend, knit or weave structure, and a finishing route that survives a 3,000-piece bulk run without drifting";
+---
+
+<V2Layout
+  seo={SEO["/best-fabric-for-streetwear/"]}
+  navCurrent={["/blog/"]}
+>
+  <section class="ar-hero" data-od-id="article-hero">
+    <div class="shell">
+      <nav class="ar-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Best Fabric for Streetwear</span>
+      </nav>
+      <p class="label">Buyer's guide</p>
+      <h1>The Best Fabrics for Streetwear: A Designer &amp; Sourcing Guide</h1>
+      <p class="ar-meta">
+        <span>By <strong rel="author">YAUUM Sourcing Team</strong></span>
+        <span>Published <time datetime="2026-10-27">October 27, 2026</time></span>
+        <span class="ar-views" data-views-for="/best-fabric-for-streetwear/" data-views-hit></span>
+      </p>
+      <p class="ar-lede">{LEDE}</p>
+    </div>
+  </section>
+
+  <section class="section" data-od-id="article-body">
+    <div class="shell ar-grid">
+      <article class="ar-body">
+        <p>This guide serves two readers. Designers get the style-to-fabric logic and the hand-feel trade-offs. Brand owners and sourcing leads get the parameter checks, the failure points and the questions to ask before a PO goes out. The notes below come from the issues that keep recurring across hoodie, tee, jacket, pant, activewear and streetwear programs on the factory floor</p>
+        
+        <h2 id="why-fabric">Why Fabric Choice Makes or Breaks a Streetwear Drop</h2>
+        <p>A customer judges a streetwear garment in about three seconds: how it hangs, how it feels, how it holds shape on a moving body. Pattern cutting sets proportion. Fabric sets character. A 400 GSM brushed fleece and a 280 GSM loopback can share the identical block and read as two unrelated products on the rack</p>
+        <p>Fabric also decides whether the drop earns a second order. The complaints that kill repeat purchase are boringly consistent: the hem twists after one wash, the chest print cracks along the ink edge, the cuffs pill inside a month, the garment-dyed black fades to charcoal. None of those are design failures. Every one of them was locked in at sampling</p>
+        <p><strong>Three things fabric decides before anything else:</strong></p>
+        <ul class="ar-list">
+        <li><strong>Silhouette behavior.</strong> Drape, structure, and whether an oversized cut falls or balloons</li>
+        <li><strong>Print and wash compatibility.</strong> Whether a screen, puff or discharge print sits flat on the surface, and whether a garment dye distorts the body</li>
+        <li><strong>Durability perception.</strong> Pilling, shrinkage and color retention are the metrics customers actually use to decide whether a brand is serious</li>
+        </ul>
+        <p>Read the style sections for what to specify. Read the performance and sourcing sections for how to verify it</p>
+        
+        <h2 id="sub-genre">Streetwear Is Not One Style: Match Fabric to Sub-Genre</h2>
+        <p>Treating streetwear as a single aesthetic is the fastest route to the wrong material. An oversized hoodie, a cargo pant, a vintage-wash tee and a technical shell each run on different fabric logic. The table maps the main sub-genres to their fabric families and the GSM bands most mills quote against. Check them against your own approved sample and the qualities your supplier actually stocks before you commit</p>
+        <p><strong>Table 1: Style-to-Fabric Mapping</strong></p>
+        <div class="ar-table-wrap"><table class="ar-table">
+        <thead>
+        <tr><th>Sub-genre</th><th>Primary fabric families</th><th>Typical GSM range (knit/woven)</th><th>Key structural note</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Oversized hoodie / sweatshirt</td><td>French terry, brushed fleece, loopback</td><td>280–450 GSM</td><td>Loopback for drape, fleece for warmth and structure</td></tr>
+        <tr><td>Workwear / cargo pants</td><td>Cotton canvas, twill, ripstop</td><td>240–380 GSM (woven)</td><td>Canvas holds shape; ripstop adds tear resistance</td></tr>
+        <tr><td>Vintage-wash / heavyweight tee</td><td>Heavyweight cotton jersey, garment-dyed jersey</td><td>180–260 GSM</td><td>Compact yarn resists distortion after dye</td></tr>
+        <tr><td>Techwear / functional layers</td><td>Stretch woven, nylon, bonded softshell</td><td>120–220 GSM (woven)</td><td>Focus on stretch direction and DWR finish</td></tr>
+        <tr><td>Skate / everyday graphic tee</td><td>Cotton single jersey, cotton-poly blend</td><td>150–200 GSM</td><td>Balanced print surface and cost</td></tr>
+        </tbody>
+        </table></div>
+        <h3>Oversized Hoodies and Sweatshirts: French Terry vs. Fleece vs. Loopback</h3>
+        <p>The oversized hoodie is the signature piece, and the three-way choice between French terry, brushed fleece and loopback decides how it behaves on body</p>
+        <p>French terry runs a smooth face with a looped back. It drapes, it breathes better than fleece, and it suits mid-weight oversized cuts around 280–340 GSM where you want volume without board-stiffness. Brushed fleece is napped on the inside, warmer, fuller, and gives real structure at 380 GSM and up. Loopback sits between them: an unbrushed looped back with a clean, slightly drier hand, and still the default for high-end sweatshirt programs</p>
+        <p>Working rule: loopback or French terry for a year-round drop, brushed fleece for cold-weather capsules. For heavyweight programs, <a href="/hoodie-manufacturer/">custom heavyweight hoodie manufacturing</a> covers the construction that has to pair with these fabrics, from rib density to shoulder taping</p>
+        <h3>Workwear and Cargo: Canvas, Ripstop, and Twill</h3>
+        <p>Cargo and workwear silhouettes need fabric that holds a shape and takes abrasion. Cotton canvas around 300–380 GSM gives the stiff, structured utility read, but it needs an enzyme or stone wash so it doesn't arrive feeling like cardboard. Twill is the wearable middle ground: a diagonal weave with better drape and a cleaner surface for garment dye. Ripstop, with its reinforcing grid, wins when tear resistance matters and you want a lighter hand around 200–240 GSM</p>
+        <p>The trade-off is weight against comfort and freight. Heavy canvas photographs beautifully and keeps patch pockets flat. Lighter twill moves better, wrinkles less in transit and costs less to ship. Decide what the silhouette is selling, then fix the GSM</p>
+        <h3>Vintage-Wash and Heavyweight Tees: Garment-Dyed Jersey</h3>
+        <p>The vintage tee is a finish problem more than a fiber problem. Heavyweight cotton jersey at 180–260 GSM delivers the substantial hand high-end tees rely on, and compact-spun yarn keeps the face smooth enough for crisp print edges. Garment dyeing, where the finished piece goes into the bath instead of the greige roll, produces the slightly uneven washed tone that defines the category</p>
+        <p>Garment dye is also where shrinkage and shade variation enter your program. The body will move during dyeing, so specify a pre-shrunk base fabric and a post-wash measurement tolerance before sampling closes. For print-heavy drops, <a href="/t-shirt-manufacturer/">custom t-shirt printing and manufacturing</a> explains how fabric choice interacts with screen, puff and discharge techniques</p>
+        <h3>Techwear and Functional Layers: Stretch Woven and Softshell</h3>
+        <p>Techwear shifts the conversation from hand-feel to measurable fields. Break the spec into parts: stretch direction (two-way or four-way), elongation percentage, recovery after relaxation, and support. "High stretch" is marketing language, not a specification. Get the direction and the recovery target in writing</p>
+        <p>Nylon and polyester stretch wovens at 120–220 GSM with a DWR finish are the usual base. Bonded softshell buys wind resistance and gives up breathability, which is a fair trade on a shell and a bad one on a mid-layer. On functional pieces the fabric choice and the seam construction are one decision, so pull your factory in during the first sample round rather than after</p>
+        
+        <h2 id="comparison">The Core Streetwear Fabrics Compared (Performance Table)</h2>
+        <p>With the sub-genre fixed, compare candidates on the dimensions that generate returns and complaints. Ratings below are qualitative; cost tiers are relative planning signals, not quotations</p>
+        <p><strong>Table 2: Fabric Performance Comparison</strong></p>
+        <div class="ar-table-wrap"><table class="ar-table">
+        <thead>
+        <tr><th>Fabric</th><th>Hand feel</th><th>Typical GSM range</th><th>Color fastness (wash)</th><th>Shrinkage risk</th><th>Pilling risk</th><th>Relative cost tier</th><th>Production difficulty</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>100% cotton single jersey</td><td>Soft, dry, breathable</td><td>150–200</td><td>Good to very good</td><td>Medium (untreated)</td><td>Low to medium</td><td>$</td><td>Low</td></tr>
+        <tr><td>Cotton-poly blend jersey</td><td>Smooth, slightly slick</td><td>150–200</td><td>Very good</td><td>Low</td><td>Low</td><td>$</td><td>Low</td></tr>
+        <tr><td>French terry</td><td>Soft face, looped back, drapes</td><td>240–340</td><td>Good</td><td>Medium</td><td>Medium</td><td>$$</td><td>Medium</td></tr>
+        <tr><td>Brushed fleece</td><td>Warm, full, structured</td><td>280–450</td><td>Good</td><td>Medium</td><td>Medium to high</td><td>$$</td><td>Medium</td></tr>
+        <tr><td>Loopback sweatshirt knit</td><td>Dry, clean, high-end</td><td>280–400</td><td>Good</td><td>Medium</td><td>Low to medium</td><td>$$–$$$</td><td>Medium</td></tr>
+        <tr><td>Cotton canvas / twill (woven)</td><td>Stiff to firm, structured</td><td>240–380</td><td>Good</td><td>Medium</td><td>Low</td><td>$$</td><td>Medium</td></tr>
+        <tr><td>Stretch nylon / polyester woven</td><td>Smooth, technical</td><td>120–220</td><td>Very good</td><td>Low</td><td>Low</td><td>$$$</td><td>High</td></tr>
+        </tbody>
+        </table></div>
+        <h3>Reading GSM, Composition, and Weave Like a Buyer</h3>
+        <p>GSM is the first number everyone quotes and the one most often misread. It measures weight per square meter. It says nothing about thickness, yarn quality or loop density. A 300 GSM fleece and a 300 GSM French terry feel like different materials because the construction behind the number differs. Use GSM as a filter, then interrogate the structure</p>
+        <p>Composition is filter two. A 100% cotton tee and a 60/40 cotton-poly tee at 180 GSM wash differently, hold print differently and price differently. Neither wins in the abstract. You are choosing between hand-feel plus dye depth (cotton) and dimensional stability plus cost control (blend). Our <a href="/our-services/#group-02">guide to fabric GSM and composition</a> breaks down how those parameters interact</p>
+        <p>Filter three is knit or weave structure, and buyers skip it most. Single jersey, interlock and rib at the same 200 GSM behave differently in stretch, recovery and surface smoothness. In streetwear, structure is what keeps a garment in shape through twenty home washes</p>
+        <h3>Where Cheap Fabric Fails First (Fastness, Shrinkage, Pilling)</h3>
+        <p>Low-cost fabric rarely fails on day one. It fails in the customer's washing machine, in a predictable sequence</p>
+        <p>Color fastness usually goes first, hardest on deep blacks, indigos and garment-dyed tones. Shrinkage follows, visible as a shortened body length or a twisted side seam. Pilling arrives last and does the most brand damage: a hoodie that fuzzes at the cuff and underarm reads cheap no matter what the price tag said. Test all three before you fall in love with the hand-feel</p>
+        
+        <h2 id="checklist">The Streetwear Fabric Selection Checklist</h2>
+        <p>Run this four-step sequence on every new development. It moves from creative intent to production reality and catches most problems while they are still cheap to fix</p>
+        <p><strong>Step 1 — Match the fabric to the sub-genre.</strong> Confirm what the silhouette is selling, then pick the fabric family that supports it. The question is whether this quality drapes, structures or stretches the way the cut needs</p>
+        <p><strong>Step 2 — Lock the parameters in writing.</strong> Record fiber composition and ratio, fabric structure, GSM with tolerance, color and lot requirements, and surface hand-feel. On stretch fabrics add direction, elongation, recovery and support</p>
+        <p><strong>Step 3 — Validate through sampling.</strong> Test print adhesion, wash shrinkage, color fastness and pilling on the actual sample, never on a fabric card. A lab dip answers a color question. Only a wash test answers a garment question</p>
+        <p><strong>Step 4 — Confirm bulk consistency.</strong> Settle shade tolerance between lots, post-wash measurement tolerance and the inspection standard before the first bulk cut</p>
+        <p><strong>Questions to put to any supplier at each step:</strong></p>
+        <ul class="ar-list">
+        <li>Which exact fabric quality are you quoting, and can I see its composition and GSM in writing?</li>
+        <li>What shrinkage and fastness tests did this quality pass, and under what wash condition?</li>
+        <li>Can you supply a pre-production sample in the final fabric rather than a stock substitute?</li>
+        <li>How do you control shade variation across bulk lots?</li>
+        </ul>
+        <p>Run this list against your next development. <a href="/contact-us/">Ask us for the streetwear fabric selection checklist</a></p>
+        
+        <h2 id="mistakes">Common Fabric Mistakes Streetwear Brands Make (Factory-Floor Notes)</h2>
+        <p>Fabric failures are predictable, which makes them preventable. These are the scenarios that show up when a program goes sideways</p>
+        <h3>Prints That Crack After Washing</h3>
+        <p>Fine cracks open along the ink edge after three or four home washes. The cause is almost always surface movement the ink can't tolerate, either a jersey too loose and open for the ink film or an incomplete cure in the dryer. Wash a printed sample through the agreed cycle, then inspect the print edge under raking light before you release bulk. If the edge is already feathering at wash three, it will be unsellable at wash ten</p>
+        <h3>Fleece That Pills at the Cuffs</h3>
+        <p><strong>Symptom:</strong> the inside of the cuff and the underarm fuzz within three to four weeks of wear.<br>
+        <strong>Root cause:</strong> short-staple fiber combined with aggressive or uneven brushing, which releases loose fiber that balls under friction.<br>
+        <strong>Pre-bulk check:</strong> run a pilling test on the exact fleece quality you approved and ask your supplier for the yarn's staple length and brushing passes</p>
+        <h3>Garment-Dyed Shade Drift</h3>
+        <p>Two bulk lots of the same "vintage black" land on the same shelf looking visibly different. That is normal behavior for garment dye, which carries wider batch-to-batch variation than piece dyeing, and it becomes a dispute only when nobody agreed a tolerance. Fix it by setting a shade tolerance in the PO and approving each lot against a retained physical standard. Memory and phone photos are not standards</p>
+        <h3>GSM That Does Not Match the Sample</h3>
+        <p>Bulk arrives feeling lighter than the approved sample, usually because weight drifted between mill runs or because the quoted GSM was a rounded nominal figure. Cut a swatch from bulk, weigh it, and compare against the approved spec with the tolerance you agreed. A 20 GSM shortfall on a 320 GSM hoodie is easy to feel and hard to argue about once the goods have shipped</p>
+        <h3>Blend Ratio That Changes the Hand</h3>
+        <p>A cotton-poly tee comes back slicker and less substantial than the sample. The ratio moved, which changes both hand-feel and ink behavior. Request the fiber composition report for the bulk lot and set it beside the approved spec before cutting</p>
+        <blockquote>
+        <p><strong>Factory Note:</strong> The most common cause of a rejected bulk lot in our sampling work is not the wrong fabric family. It is a parameter nobody wrote down at approval. Composition, GSM, shade standard and wash tolerance are the four fields that head off most disputes. Lock them before the first bulk cut</p>
+        </blockquote>
+        
+        <h2 id="sample-to-bulk">From Sample to Bulk: What Buyers Should Confirm Before Ordering</h2>
+        <p>Documentation closes the gap between a beautiful sample and a consistent bulk order. Sampling proves a fabric can work. Bulk proves it works at 3,000 pieces across three dye lots. The parameters you lock at approval are the ones that protect you at delivery</p>
+        <p><strong>Confirm at sampling:</strong></p>
+        <ul class="ar-list">
+        <li>Fiber composition and ratio, in writing, for the exact quality being sampled</li>
+        <li>Fabric structure and GSM, with a stated tolerance</li>
+        <li>Color reference: a physical standard or approved lab dip, not a screen image</li>
+        <li>Wash shrinkage and color fastness results, with the test condition named</li>
+        <li>Surface hand-feel, described in terms both sides read the same way</li>
+        </ul>
+        <p><strong>Confirm before bulk:</strong></p>
+        <ul class="ar-list">
+        <li>Shade tolerance between lots and the approval route for each lot</li>
+        <li>Post-wash measurement tolerance on the finished garment</li>
+        <li>Inspection standard and the threshold at which a lot gets rejected</li>
+        <li>A retained standard sample held by both parties</li>
+        </ul>
+        <p>Our <a href="/production/#production-process">fabric sampling process</a> shows how these checkpoints sit on a real development timeline. The principle does not change: anything left unwritten at approval becomes a negotiation at delivery</p>
+        
+        <h2 id="partner">How to Choose the Right Fabric Partner</h2>
+        <p>Judge a fabric partner on four things. Price is only one of them, and rarely the decisive one</p>
+        <p><strong>Sampling capability.</strong> Can they deliver a pre-production sample in the final fabric, at the right GSM and shade, inside your calendar? A supplier who can only hand you stock cards cannot de-risk your development</p>
+        <p><strong>Parameter transparency.</strong> Do composition, GSM, structure and test results arrive in writing without a chase email? Vagueness at quoting predicts vagueness at bulk, every time</p>
+        <p><strong>Bulk consistency.</strong> Ask how shade variation and measurement tolerance get controlled across lots. A partner with a real system answers in specifics, naming standards, retained samples and who signs off</p>
+        <p><strong>Communication speed.</strong> Development is iterative. A supplier who takes four days to answer a technical question will push your whole launch calendar</p>
+        <p>YAUUM manufactures across hoodies, tees, jackets, pants, activewear and streetwear, with fabric consultation and sampling built into the development path. Weighing options for an upcoming drop? <a href="/contact-us/">Talk to a fabric consultant about your project</a> and bring your sub-genre, target GSM and print or wash plan. You will get a straight read on what is feasible and where the risk sits</p>
+        <p>For how fabric selection fits a full production program, see our <a href="/streetwear-manufacturer/">streetwear manufacturing services</a></p>
+        
+        <h2 id="faq">FAQ: Best Fabric for Streetwear</h2>
+        <details class="ar-faq-item" open><summary><h3>What is the best fabric for streetwear overall?</h3></summary><p>There is no single best fabric; it depends on the sub-genre. For oversized hoodies, French terry, loopback and brushed fleece in the 280–450 GSM range are the workhorses. For heavyweight tees, compact cotton jersey in the 180–260 GSM range is the standard. Match the fabric to the silhouette first, then confirm the parameters in writing</p></details>
+        <details class="ar-faq-item"><summary><h3>Is cotton or polyester better for streetwear hoodies?</h3></summary><p>Neither is universally better. Cotton gives a softer hand, deeper dye and a high-end feel, but it shrinks more and costs more. Polyester and cotton-poly blends hold dimensional stability and color better at a lower cost, with a slightly slicker hand. Decide whether the product is selling hand-feel or durability and price</p></details>
+        <details class="ar-faq-item"><summary><h3>What GSM is best for an oversized hoodie?</h3></summary><p>Most oversized hoodie programs land between 280 and 450 GSM. Lighter weights around 280–320 GSM drape more and suit year-round drops; 380–450 GSM delivers structure and warmth for cold-weather capsules. Confirm the exact GSM against your approved sample, since construction changes how a given weight feels</p></details>
+        <details class="ar-faq-item"><summary><h3>What fabric is best for screen printing on streetwear?</h3></summary><p>A compact, smooth-surfaced cotton or cotton-poly jersey gives the most reliable screen print. Loose or heavily brushed surfaces cause ink cracking and poor edge definition. Wash-test a printed sample through the agreed cycle before bulk, and confirm the cure temperature and dwell time with your printer</p></details>
+        <details class="ar-faq-item"><summary><h3>Why do some streetwear fabrics shrink or pill after washing?</h3></summary><p>Shrinkage comes from insufficient pre-shrinking or from a fabric never tested under the actual wash condition. Pilling comes from short-staple fiber and loose brushing releasing fiber under friction. Both are testable before bulk, so request shrinkage and pilling results on the actual quality rather than a generic fabric card</p></details>
+        <details class="ar-faq-item"><summary><h3>What's the difference between French terry and fleece for sweatshirts?</h3></summary><p>French terry has a smooth face and a looped back, so it drapes well and breathes better. Brushed fleece is napped on the inside, warmer and more structured. Loopback is unbrushed and sits between the two, with a drier hand. Pick French terry or loopback for year-round wear, fleece for warmth</p></details>
+        <details class="ar-faq-item"><summary><h3>How do I choose fabric for a vintage-wash or garment-dyed tee?</h3></summary><p>Start with a heavyweight compact cotton jersey in the 180–260 GSM range so the garment holds its shape through dyeing. Garment dyeing produces the washed, uneven tone but widens shade variation and shrinkage, so agree a shade tolerance and a post-wash measurement tolerance with your supplier before bulk</p></details>
+        <details class="ar-faq-item"><summary><h3>What should I confirm with a fabric supplier before bulk ordering?</h3></summary><p>Confirm fiber composition and ratio, fabric structure, GSM with tolerance, color standard, wash shrinkage and color fastness results, shade tolerance between lots, and the inspection standard. Keep a retained standard sample with both parties. Anything left unwritten at approval becomes a dispute at delivery</p></details>
+        <p>Ready to move from fabric shortlist to sample? <a href="/contact-us/">Start a fabric consultation with YAUUM</a></p>
+      </article>
+
+      <aside class="ar-rail" aria-label="In this guide">
+        <p class="label">In this guide</p>
+        <nav aria-label="Article sections">
+          {toc.map(([num, id, text]) => (
+            <a href={`#${id}`}><span>{num}</span>{text}</a>
+          ))}
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <V2Inquiry
+    product="Streetwear"
+    kicker="Start an inquiry"
+    title="Send the Fabric Direction Behind Your Next Drop"
+    lead="Fabric type, GSM target, a hand-feel reference, colorways, and quantity per color: what a mill and a factory need before sampling"
+    ctaLabel="Request a quote"
+  />
+
+  <ViewCounter />
+</V2Layout>

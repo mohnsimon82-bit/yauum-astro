@@ -2463,6 +2463,46 @@ const RAW_SEO: Record<string, SeoData> = {
     ],
   },
 
+  // 文章详情页 · 第三十二篇（2026-10-27, best-fabric-for-streetwear）。
+  "/best-fabric-for-streetwear/": {
+    title: "Best Fabric for Streetwear: Designer & Sourcing Guide | Yauum",
+    description:
+      "Compare the best fabrics for streetwear by style, GSM and performance, plus the sourcing checks that keep bulk fabric on spec.",
+    path: "/best-fabric-for-streetwear/",
+    ogType: "article",
+    ogImage: abs("/uploads/factory/factory-sewing-line-wide-v2.webp"),
+    ogImageAlt: "Garment production line in the supplied manufacturing environment",
+    ogImageWidth: 2400,
+    ogImageHeight: 1600,
+    jsonLd: [
+      breadcrumb([
+        ["Home", "/"],
+        ["Blog", "/blog/"],
+        ["Best Fabric for Streetwear", "/best-fabric-for-streetwear/"],
+      ]),
+      articleJsonLd({
+        headline:
+          "The Best Fabrics for Streetwear: A Designer & Sourcing Guide",
+        description:
+          "Compare the best fabrics for streetwear by style, GSM and performance, plus the sourcing checks that keep bulk fabric on spec.",
+        path: "/best-fabric-for-streetwear/",
+        image: "/uploads/factory/factory-sewing-line-wide-v2.webp",
+        author: "YAUUM Sourcing Team",
+        datePublished: "2026-10-27T00:00:00+08:00",
+        dateModified: "2026-10-27T00:00:00+08:00",
+      }),
+      faqJsonLd([
+        ["What is the best fabric for streetwear overall?", "There is no single best fabric; it depends on the sub-genre. For oversized hoodies, French terry, loopback and brushed fleece in the 280–450 GSM range are the workhorses. For heavyweight tees, compact cotton jersey in the 180–260 GSM range is the standard. Match the fabric to the silhouette first, then confirm the parameters in writing."],
+        ["Is cotton or polyester better for streetwear hoodies?", "Neither is universally better. Cotton gives a softer hand, deeper dye and a high-end feel, but it shrinks more and costs more. Polyester and cotton-poly blends hold dimensional stability and color better at a lower cost, with a slightly slicker hand. Decide whether the product is selling hand-feel or durability and price."],
+        ["What GSM is best for an oversized hoodie?", "Most oversized hoodie programs land between 280 and 450 GSM. Lighter weights around 280–320 GSM drape more and suit year-round drops; 380–450 GSM delivers structure and warmth for cold-weather capsules. Confirm the exact GSM against your approved sample, since construction changes how a given weight feels."],
+        ["What fabric is best for screen printing on streetwear?", "A compact, smooth-surfaced cotton or cotton-poly jersey gives the most reliable screen print. Loose or heavily brushed surfaces cause ink cracking and poor edge definition. Wash-test a printed sample through the agreed cycle before bulk, and confirm the cure temperature and dwell time with your printer."],
+        ["Why do some streetwear fabrics shrink or pill after washing?", "Shrinkage comes from insufficient pre-shrinking or from a fabric never tested under the actual wash condition. Pilling comes from short-staple fiber and loose brushing releasing fiber under friction. Both are testable before bulk, so request shrinkage and pilling results on the actual quality rather than a generic fabric card."],
+        ["What's the difference between French terry and fleece for sweatshirts?", "French terry has a smooth face and a looped back, so it drapes well and breathes better. Brushed fleece is napped on the inside, warmer and more structured. Loopback is unbrushed and sits between the two, with a drier hand. Pick French terry or loopback for year-round wear, fleece for warmth."],
+        ["How do I choose fabric for a vintage-wash or garment-dyed tee?", "Start with a heavyweight compact cotton jersey in the 180–260 GSM range so the garment holds its shape through dyeing. Garment dyeing produces the washed, uneven tone but widens shade variation and shrinkage, so agree a shade tolerance and a post-wash measurement tolerance with your supplier before bulk."],
+        ["What should I confirm with a fabric supplier before bulk ordering?", "Confirm fiber composition and ratio, fabric structure, GSM with tolerance, color standard, wash shrinkage and color fastness results, shade tolerance between lots, and the inspection standard. Keep a retained standard sample with both parties. Anything left unwritten at approval becomes a dispute at delivery."]
+      ]),
+    ],
+  },
   // 文章详情页 · 补发（运行于更早、2026-10-27 上线, oversized-t-shirt-suppliers-china-guide）。
   "/oversized-t-shirt-suppliers-china-guide/": {
     title: "10 Oversized T-Shirt Supplier Types in China (2026 Buyer Guide) | Yauum",
