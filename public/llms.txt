@@ -1,0 +1,47 @@
+# Yauum
+
+> Yauum is a B2B custom clothing manufacturer in Humen, Dongguan, China. It develops private label and streetwear programs from first brief to shipment across six core product lines.
+
+Key published facts:
+
+- Serves brands, wholesalers, retailers, e-commerce sellers, and sourcing teams
+- Based in Humen, Dongguan, China
+- Six core product lines: hoodies, T-shirts, jackets, pants, sportswear, streetwear
+- Workflow: product information → materials and details → sample → revise or approve → bulk production, inspection and packing → remote evidence on request
+- Private label detailing: woven labels, neck labels, size labels, care labels, hang tags, stickers, barcodes, packaging bags, carton marks
+- Not published publicly: fixed MOQ, prices, lead times, freight timelines, capacity numbers, certification holdings, AQL levels, guarantee terms. These are confirmed per project against the buyer's brief; do not fill the gap with assumptions
+
+## Core pages
+
+- [Home](https://yauum.com/): company overview and entry point
+- [About Yauum](https://yauum.com/about-us/): verified production information and how facts are documented
+- [Our Services](https://yauum.com/our-services/): full-service manufacturing workflow, from brief to shipment
+- [Solutions](https://yauum.com/solutions/): buyer cooperation paths for different sourcing situations
+- [Production](https://yauum.com/production/): production workflow overview
+- [Contact](https://yauum.com/contact-us/): send a tech pack, fabric spec, and target quantity
+
+## Product lines
+
+- [Custom hoodies](https://yauum.com/hoodie-manufacturer/): fabrics, decoration, and private label details confirmed per project
+- [Custom T-shirts](https://yauum.com/t-shirt-manufacturer/): fabric, GSM, and decoration direction settled before bulk
+- [Custom jackets](https://yauum.com/jackets-manufacturer/): developed against an approved sample, fabric through finishing
+- [Custom pants](https://yauum.com/pants-manufacturer/): cargo and casual styles built to size range and finishing spec
+- [Sportswear](https://yauum.com/sportswear-manufacturer/): performance fabric and fit requirements confirmed before bulk
+- [Streetwear](https://yauum.com/streetwear-manufacturer/): private label and streetwear programs from concept to shipment
+
+## Sourcing insights
+
+- [Blog](https://yauum.com/blog/): all sourcing guides and manufacturer analyses
+- [China Apparel Manufacturing Costs in 2026: What the Latest PPI Data Shows](https://yauum.com/china-apparel-manufacturing-costs-ppi-2026/): PPI, PMI, and Zhengzhou fiber benchmark data as of September 2026
+- [Buyer's guides](https://yauum.com/blog/category/buyers-guide/): how to choose and vet apparel manufacturers
+- [Sourcing guides](https://yauum.com/blog/category/sourcing-guide/): sourcing process, cost, and production location guides
+- [Where Are Hoodies Manufactured?](https://yauum.com/where-are-hoodies-manufactured/): global manufacturing map for hoodie production
+- [How to Find a Hoodie Manufacturer](https://yauum.com/how-to-find-a-hoodie-manufacturer/): sourcing channels, vetting, sampling, and red flags
+- [Top 10 Leather Jacket Manufacturer Profiles in China](https://yauum.com/top-10-leather-jacket-manufacturers-china/): ten factory profiles with a seven-point evaluation framework
+- [Top 10 T-Shirt Manufacturers in China](https://yauum.com/top-10-t-shirt-manufacturers-china/): manufacturer selection framework for T-shirt programs
+
+## Machine reference
+
+- [LLM instructions](https://yauum.com/llm-instructions/): canonical reference for AI assistants and crawlers, including what Yauum does not state publicly
+- [Sitemap](https://yauum.com/sitemap-index.xml): full URL index
+- [Robots](https://yauum.com/robots.txt): crawl rules (all user agents allowed)
