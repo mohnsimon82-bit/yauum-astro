@@ -21,6 +21,7 @@ import V2Inquiry from "../components/V2Inquiry.astro";
 import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
 import "../styles/article-v2.css";
+import RelatedArticles from "../components/RelatedArticles.astro";
 
 const toc: Array<[string, string, string]> = [
   ["01", "why", "Why it's hard"],
@@ -151,6 +152,8 @@ const toc: Array<[string, string, string]> = [
       </aside>
     </div>
   </section>
+
+  <RelatedArticles current="/how-to-find-alibaba-hoodie-manufacturers/" />
 
   <V2Inquiry
     product="Hoodies"

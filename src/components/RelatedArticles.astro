@@ -1,0 +1,72 @@
+---
+/**
+ * 相关文章模块（2026-11-03）。
+ * 用于所有文章页：每篇输出 3 条同簇/邻簇链接，样式复用 article-v2.css 的
+ * .grid-list / .grid-card（与博客列表卡片一致）。
+ *
+ * 用法：<RelatedArticles current="/slug/" />
+ */
+import { SEO } from "../lib/seo";
+import { articles } from "../lib/articles";
+import { getRelated } from "../lib/related-articles";
+
+interface Props {
+  current: string;
+  heading?: string;
+}
+
+const { current, heading = "Related guides" } = Astro.props;
+const byRoute = new Map(articles.map((a) => [a.route, a]));
+const related = getRelated(current, 3)
+  .map((r) => byRoute.get(r))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+---
+
+{related.length > 0 && (
+  <section class="related-band" aria-label="Related articles">
+    <div class="shell">
+      <div class="related-head">
+        <p class="eyebrow">Keep reading</p>
+        <h2 class="related-title">{heading}</h2>
+      </div>
+      <ul class="grid-list related-grid">
+        {related.map((article) => (
+          <li class="grid-card">
+            <a href={article.route}>
+              <span class="media">
+                <img
+                  src={SEO[article.route].ogImage}
+                  alt={SEO[article.route].ogImageAlt}
+                  width={SEO[article.route].ogImageWidth}
+                  height={SEO[article.route].ogImageHeight}
+                  loading="lazy"
+                />
+              </span>
+              <span class="card-meta">
+                <span class="cat num">{article.tag}</span><span class="dot">·</span>
+                <time class="date" datetime={article.date}>{article.dateLabel}</time>
+              </span>
+              <h3 class="card-title">{article.title}</h3>
+              <p class="card-excerpt">{article.description}</p>
+              <span class="card-cta">Read the guide <span class="arrow">→</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .related-band {
+    background: #fff;
+    border-top: 1px solid var(--yv-line);
+    padding-block: clamp(56px, 7vw, 88px);
+  }
+  .related-head { margin-bottom: clamp(24px, 3vw, 36px); }
+  .related-title {
+    font-size: clamp(22px, 2.4vw, 30px);
+    margin: 0;
+  }
+  .related-grid { margin: 0; padding: 0; }
+</style>

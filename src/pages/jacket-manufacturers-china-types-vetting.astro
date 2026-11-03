@@ -19,6 +19,7 @@ import V2Inquiry from "../components/V2Inquiry.astro";
 import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
 import "../styles/article-v2.css";
+import RelatedArticles from "../components/RelatedArticles.astro";
 
 const toc: Array<[string, string, string]> = [
   ["01", "why-china", "Why China"],
@@ -196,6 +197,8 @@ const LEDE = "Choosing a jacket manufacturer in China has almost nothing to do w
       </aside>
     </div>
   </section>
+
+  <RelatedArticles current="/jacket-manufacturers-china-types-vetting/" />
 
   <V2Inquiry
     product="Jackets"

@@ -24,6 +24,7 @@ import V2Inquiry from "../components/V2Inquiry.astro";
 import ViewCounter from "../components/ViewCounter.astro";
 import { SEO } from "../lib/seo";
 import "../styles/article-v2.css";
+import RelatedArticles from "../components/RelatedArticles.astro";
 
 const toc: Array<[string, string, string]> = [
   ["01", "why-lists", "Why these lists fail"],
@@ -154,6 +155,8 @@ const toc: Array<[string, string, string]> = [
       </aside>
     </div>
   </section>
+
+  <RelatedArticles current="/cotton-hoodie-manufacturer-types-china/" />
 
   <V2Inquiry
     product="Hoodies"
