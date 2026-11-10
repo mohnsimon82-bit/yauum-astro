@@ -64,6 +64,28 @@
     document.head.appendChild(loader);
   }
 
+  // 状态提示按页面语言输出（小语种页面的 <html lang> 由路由推导）
+  const FORM_MESSAGES: Record<string, { ok: string; err: string }> = {
+    en: {
+      ok: "Thanks — your inquiry is on its way. We reply within one business day.",
+      err: "Something went wrong — please email mumu@yauum.com instead.",
+    },
+    de: {
+      ok: "Danke — Ihre Anfrage ist unterwegs. Wir antworten innerhalb eines Werktags.",
+      err: "Etwas ist schiefgelaufen — schreiben Sie uns bitte an mumu@yauum.com.",
+    },
+    fr: {
+      ok: "Merci — votre demande est en cours d'envoi. Nous répondons sous un jour ouvré.",
+      err: "Un problème est survenu — écrivez-nous à mumu@yauum.com.",
+    },
+    es: {
+      ok: "Gracias — tu consulta está en camino. Respondemos en un día hábil.",
+      err: "Algo salió mal — escríbenos a mumu@yauum.com.",
+    },
+  };
+  const formMessages =
+    FORM_MESSAGES[document.documentElement.lang] ?? FORM_MESSAGES.en;
+
   document.querySelectorAll<HTMLFormElement>('form[action$="/api/inquiry"]').forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -98,10 +120,10 @@
         // 投递到同源接口：主收件 + 提醒邮箱的分发在服务端完成
         if (!(await deliver(payload))) throw new Error("delivery failed");
         form.reset();
-        if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = "Thanks — your inquiry is on its way. We reply within one business day."; }
+        if (status) { status.hidden = false; status.classList.add("is-ok"); status.textContent = formMessages.ok; }
         if (window.gtag) window.gtag("event", "inquiry_form_submit", { product: form.dataset.product || "General", moq: payload.moq_tier || "" });
       } catch {
-        if (status) { status.hidden = false; status.classList.add("is-err"); status.textContent = "Something went wrong — please email mumu@yauum.com instead."; }
+        if (status) { status.hidden = false; status.classList.add("is-err"); status.textContent = formMessages.err; }
       } finally {
         submit?.removeAttribute("disabled");
         // Turnstile token 单次有效：无论成败都重置，下一次提交重新取证

@@ -20,6 +20,10 @@ Key published facts:
 - [Production](https://yauum.com/production/): production workflow overview
 - [Contact](https://yauum.com/contact-us/): send a tech pack, fabric spec, and target quantity
 
+## Localized versions
+
+German (/de/), French (/fr/), and Spanish (/es/) versions are published for the core commercial pages: home, the six product lines, production, services, solutions, about, contact, and men's hoodies. Examples: [German home](https://yauum.com/de/), [French hoodies](https://yauum.com/fr/hoodie-manufacturer/), [Spanish contact](https://yauum.com/es/contact-us/). Each page links to the others with hreflang tags; sourcing articles remain English-only.
+
 ## Product lines
 
 - [Custom hoodies](https://yauum.com/hoodie-manufacturer/): fabrics, decoration, and private label details confirmed per project

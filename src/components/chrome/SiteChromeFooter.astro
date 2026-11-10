@@ -2,52 +2,56 @@
 // 站点公共页脚：全站唯一实现，两个 layout 都只调用本组件。
 // 样式全部来自 site-chrome.css 的全局 .site-footer 选择器（不依赖 .ed 作用域），
 // 因此无论页面是否带 ed 类，页脚渲染都一致。
+import { localeFromPathname } from "../../lib/i18n";
+import { chromeLabels } from "../../lib/chrome-labels";
+
 interface Props {
   navCurrent?: string[];
 }
 
 const { navCurrent = [] } = Astro.props;
 const isCurrent = (href: string) => navCurrent.includes(href);
+const labels = chromeLabels(localeFromPathname(Astro.url.pathname));
 ---
 
-    <footer class="site-footer" data-od-id="site-footer">
+    <footer class="site-footer" data-od-id="site-footer" data-no-translate>
           <div class="shell footer-grid">
             <div class="footer-brand-col">
-              <a class="brand brand-chip" href="/" aria-label="Yauum home">
+              <a class="brand brand-chip" href="/" aria-label={labels.brandHome}>
                 <img src="/uploads/logo/yauum-site-logo.webp" alt="Yauum" width="594" height="594" loading="lazy" decoding="async" />
               </a>
-              <p>B2B menswear and streetwear development, sampling, private label execution, quality checks, packing, and shipment preparation for buyers in the United States, Europe, Australia, and the Middle East</p>
-              <div class="footer-contact" aria-label="Direct contact details">
+              <p>{labels.footerIntro}</p>
+              <div class="footer-contact" aria-label={labels.directContactDetails}>
                 <a href="https://wa.me/8615733728976?text=Hello%20Yauum%2C%20I%27d%20like%20to%20discuss%20a%20clothing%20manufacturing%20project." target="_blank" rel="noopener noreferrer">WhatsApp / +86 157 3372 8976</a>
                 <a href="mailto:mumu@yauum.com?subject=Yauum%20manufacturing%20inquiry">Email / mumu@yauum.com</a>
               </div>
             </div>
-            <nav class="footer-col" aria-label="Company links">
-              <p class="footer-label">Company</p>
-              <a href="/">Home</a>
-              <a aria-current={isCurrent("/our-services/") ? "page" : undefined} href="/our-services/">Our Services</a>
-              <a aria-current={isCurrent("/solutions/") ? "page" : undefined} href="/solutions/">Solutions</a>
-              <a href="/production/">Production</a>
-              <a aria-current={isCurrent("/about-us/") ? "page" : undefined} href="/about-us/">About</a>
-              <a aria-current={isCurrent("/blog/") ? "page" : undefined} href="/blog/">Blog</a>
+            <nav class="footer-col" aria-label={labels.companyLinks}>
+              <p class="footer-label">{labels.company}</p>
+              <a href="/">{labels.home}</a>
+              <a aria-current={isCurrent("/our-services/") ? "page" : undefined} href="/our-services/">{labels.ourServices}</a>
+              <a aria-current={isCurrent("/solutions/") ? "page" : undefined} href="/solutions/">{labels.solutions}</a>
+              <a href="/production/">{labels.production}</a>
+              <a aria-current={isCurrent("/about-us/") ? "page" : undefined} href="/about-us/">{labels.about}</a>
+              <a aria-current={isCurrent("/blog/") ? "page" : undefined} href="/blog/">{labels.blog}</a>
             </nav>
-            <nav class="footer-col" aria-label="Product links one">
-              <p class="footer-label">Products / 01–03</p>
-              <a aria-current={isCurrent("/hoodie-manufacturer/") ? "page" : undefined} href="/hoodie-manufacturer/">Hoodies</a>
-              <a aria-current={isCurrent("/t-shirt-manufacturer/") ? "page" : undefined} href="/t-shirt-manufacturer/">T-Shirts</a>
-              <a aria-current={isCurrent("/jackets-manufacturer/") ? "page" : undefined} href="/jackets-manufacturer/">Jackets</a>
+            <nav class="footer-col" aria-label={labels.productLinks1}>
+              <p class="footer-label">{labels.products1}</p>
+              <a aria-current={isCurrent("/hoodie-manufacturer/") ? "page" : undefined} href="/hoodie-manufacturer/">{labels.hoodies}</a>
+              <a aria-current={isCurrent("/t-shirt-manufacturer/") ? "page" : undefined} href="/t-shirt-manufacturer/">{labels.tshirts}</a>
+              <a aria-current={isCurrent("/jackets-manufacturer/") ? "page" : undefined} href="/jackets-manufacturer/">{labels.jackets}</a>
             </nav>
-            <nav class="footer-col" aria-label="Product links two">
-              <p class="footer-label">Products / 04–06</p>
-              <a aria-current={isCurrent("/pants-manufacturer/") ? "page" : undefined} href="/pants-manufacturer/">Pants</a>
-              <a aria-current={isCurrent("/sportswear-manufacturer/") ? "page" : undefined} href="/sportswear-manufacturer/">Sportswear</a>
-              <a aria-current={isCurrent("/streetwear-manufacturer/") ? "page" : undefined} href="/streetwear-manufacturer/">Streetwear</a>
-              <a href="/contact-us/">Contact Yauum ↗</a>
+            <nav class="footer-col" aria-label={labels.productLinks2}>
+              <p class="footer-label">{labels.products2}</p>
+              <a aria-current={isCurrent("/pants-manufacturer/") ? "page" : undefined} href="/pants-manufacturer/">{labels.pants}</a>
+              <a aria-current={isCurrent("/sportswear-manufacturer/") ? "page" : undefined} href="/sportswear-manufacturer/">{labels.sportswear}</a>
+              <a aria-current={isCurrent("/streetwear-manufacturer/") ? "page" : undefined} href="/streetwear-manufacturer/">{labels.streetwear}</a>
+              <a href="/contact-us/">{labels.contactYauum}</a>
             </nav>
           </div>
           <div class="shell footer-bottom">
-            <span>Copyright © 2026 Dongguan Yauum Apparel Co., Ltd. All rights reserved</span>
-            <a class="footer-llm-link" href="/llm-instructions/">AI &amp; crawler reference</a>
+            <span>{labels.copyright}</span>
+            <a class="footer-llm-link" href="/llm-instructions/">{labels.aiReference}</a>
           </div>
         </footer>
 

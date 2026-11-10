@@ -1,0 +1,9 @@
+---
+// 输出 hreflang 互指链接。只有存在小语种版本的页面才输出，
+// 这样英文文章等单语页面不会指向不存在的 /de/ 地址。
+import { alternatesFor } from "../lib/i18n";
+
+const links = alternatesFor(Astro.url.pathname);
+---
+
+{links && links.map((link) => <link rel="alternate" hreflang={link.hreflang} href={link.href} />)}

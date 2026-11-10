@@ -1,0 +1,36 @@
+---
+// 小语种内容页路由：/de/<path>/、/fr/<path>/、/es/<path>/。
+//
+// 只渲染 src/i18n/config.json 中 localizedPaths 列出的页面。页面组件直接复用
+// 英文版本，因此 HTML 结构与英文页完全一致；翻译脚本在构建后按「文本块」
+// 原位替换可见文案，标签、图片、链接属性一律保持不动。
+import config from "../../i18n/config.json";
+import { LOCALES } from "../../lib/i18n";
+
+const modules = import.meta.glob("../*.astro", { eager: true }) as Record<
+  string,
+  { default: unknown }
+>;
+
+const pages: Record<string, unknown> = {};
+for (const [file, mod] of Object.entries(modules)) {
+  const key = file.replace(/^\.\.\//, "").replace(/\.astro$/, "");
+  if (!key || key === "index" || key.startsWith("[") || key === "404" || key === "thank-you") continue;
+  pages[key] = mod.default;
+}
+
+export function getStaticPaths() {
+  const paths = (config.localizedPaths as string[])
+    .filter((path) => path !== "/")
+    .map((path) => path.replace(/^\/|\/$/g, ""));
+  return LOCALES.flatMap((lang) =>
+    paths.map((path) => ({ params: { lang, path } })),
+  );
+}
+
+const route = Astro.params.path ?? "";
+const Page = pages[route];
+if (!Page) throw new Error(`No localized page component for route: ${route}`);
+---
+
+<Page />

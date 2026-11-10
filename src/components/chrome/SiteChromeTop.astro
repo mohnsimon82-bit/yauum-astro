@@ -3,6 +3,16 @@
 // 由 OpenDesign 导出逐字提取，以最晚导出的设计稿（streetwear 2026-09-25）为准，
 // Production 下拉带 + 切换按钮。新设计页面直接使用；旧设计页面额外挂 ed 作用域类，
 // 配合 src/styles/site-chrome.css 压过 global.css 中的旧页头样式。
+import {
+  LOCALES,
+  LOCALE_META,
+  isLocalizedPath,
+  localeFromPathname,
+  localizePath,
+  stripLocale,
+} from "../../lib/i18n";
+import { chromeLabels } from "../../lib/chrome-labels";
+
 interface Props {
   mainId?: string;
   navCurrent?: string[];
@@ -15,85 +25,217 @@ const {
 const isCurrent = (href: string) => navCurrent.includes(href);
 // 全站统一页头：所有页面都挂 ed 作用域类，样式只来自 site-chrome.css
 const c = (base: string) => `${base} ed`;
+
+// 语言切换只在该页存在小语种版本时出现（英文文章页不显示，避免指向不存在的地址）
+const pathname = Astro.url.pathname;
+const locale = localeFromPathname(pathname);
+const basePath = stripLocale(pathname);
+const showLanguage = isLocalizedPath(pathname);
+const languageOptions = (["en", ...LOCALES] as const).map((code) => ({
+  code,
+  label: LOCALE_META[code].label,
+  href: localizePath(basePath, code),
+}));
+const labels = chromeLabels(locale);
 ---
 
-    <a class={c("skip-link")} href={"#" + mainId}>Skip to content</a>
+    <a class={c("skip-link")} href={"#" + mainId}>{labels.skipToContent}</a>
 
-    <header class={c("site-header")} data-od-id="site-header">
+    <header class={c("site-header")} data-od-id="site-header" data-no-translate>
           <div class="shell header-inner">
-            <a class="brand" href="/" aria-label="Yauum home">
+            <a class="brand" href="/" aria-label={labels.brandHome}>
               <img src="/uploads/logo/yauum-site-logo.webp" alt="Yauum" width="594" height="594" decoding="async" />
             </a>
 
-            <nav class="nav" aria-label="Primary navigation">
-              <a  aria-current={isCurrent("/") ? "page" : undefined} href="/">Home</a>
-              <a aria-current={isCurrent("/our-services/") ? "page" : undefined} href="/our-services/">Our Services</a>
-              <a aria-current={isCurrent("/solutions/") ? "page" : undefined} href="/solutions/">Solutions</a>
+            <nav class="nav" aria-label={labels.primaryNav}>
+              <a  aria-current={isCurrent("/") ? "page" : undefined} href="/">{labels.home}</a>
+              <a aria-current={isCurrent("/our-services/") ? "page" : undefined} href="/our-services/">{labels.ourServices}</a>
+              <a aria-current={isCurrent("/solutions/") ? "page" : undefined} href="/solutions/">{labels.solutions}</a>
               <div class="nav-prod">
-                <a class="nav-prod-btn" aria-current={isCurrent("/production/") ? "page" : undefined} href="/production/">Production</a>
-                <button class="nav-prod-toggle" type="button" aria-label="Show production categories" aria-haspopup="true" aria-expanded="false" aria-controls="production-panel">+</button>
-                <div class="prod-panel" id="production-panel" aria-label="Production product categories">
-                  <a aria-current={isCurrent("/hoodie-manufacturer/") ? "page" : undefined} href="/hoodie-manufacturer/"><span>01 / PRODUCT</span><strong>Hoodies</strong></a>
-                  <a aria-current={isCurrent("/t-shirt-manufacturer/") ? "page" : undefined} href="/t-shirt-manufacturer/"><span>02 / PRODUCT</span><strong>T-Shirts</strong></a>
-                  <a aria-current={isCurrent("/jackets-manufacturer/") ? "page" : undefined} href="/jackets-manufacturer/"><span>03 / PRODUCT</span><strong>Jackets</strong></a>
-                  <a aria-current={isCurrent("/pants-manufacturer/") ? "page" : undefined} href="/pants-manufacturer/"><span>04 / PRODUCT</span><strong>Pants</strong></a>
-                  <a aria-current={isCurrent("/sportswear-manufacturer/") ? "page" : undefined} href="/sportswear-manufacturer/"><span>05 / PRODUCT</span><strong>Sportswear</strong></a>
-                  <a aria-current={isCurrent("/streetwear-manufacturer/") ? "page" : undefined} href="/streetwear-manufacturer/"><span>06 / PRODUCT</span><strong>Streetwear</strong></a>
+                <a class="nav-prod-btn" aria-current={isCurrent("/production/") ? "page" : undefined} href="/production/">{labels.production}</a>
+                <button class="nav-prod-toggle" type="button" aria-label={labels.showProductCategories} aria-haspopup="true" aria-expanded="false" aria-controls="production-panel">+</button>
+                <div class="prod-panel" id="production-panel" aria-label={labels.productCategories}>
+                  <a aria-current={isCurrent("/hoodie-manufacturer/") ? "page" : undefined} href="/hoodie-manufacturer/"><span>01 / {labels.product}</span><strong>{labels.hoodies}</strong></a>
+                  <a aria-current={isCurrent("/t-shirt-manufacturer/") ? "page" : undefined} href="/t-shirt-manufacturer/"><span>02 / {labels.product}</span><strong>{labels.tshirts}</strong></a>
+                  <a aria-current={isCurrent("/jackets-manufacturer/") ? "page" : undefined} href="/jackets-manufacturer/"><span>03 / {labels.product}</span><strong>{labels.jackets}</strong></a>
+                  <a aria-current={isCurrent("/pants-manufacturer/") ? "page" : undefined} href="/pants-manufacturer/"><span>04 / {labels.product}</span><strong>{labels.pants}</strong></a>
+                  <a aria-current={isCurrent("/sportswear-manufacturer/") ? "page" : undefined} href="/sportswear-manufacturer/"><span>05 / {labels.product}</span><strong>{labels.sportswear}</strong></a>
+                  <a aria-current={isCurrent("/streetwear-manufacturer/") ? "page" : undefined} href="/streetwear-manufacturer/"><span>06 / {labels.product}</span><strong>{labels.streetwear}</strong></a>
                 </div>
               </div>
-              <a aria-current={isCurrent("/about-us/") ? "page" : undefined} href="/about-us/">About</a>
-              <a aria-current={isCurrent("/blog/") ? "page" : undefined} href="/blog/">Blog</a>
+              <a aria-current={isCurrent("/about-us/") ? "page" : undefined} href="/about-us/">{labels.about}</a>
+              <a aria-current={isCurrent("/blog/") ? "page" : undefined} href="/blog/">{labels.blog}</a>
             </nav>
 
-            <a class="button header-cta" href="/contact-us/">Send an inquiry</a>
-            <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-open>
+            {showLanguage && (
+              <details class="lang-switch" data-no-translate>
+                <summary class="lang-btn" aria-label={labels.language}>
+                  <span class="lang-code">{LOCALE_META[locale].short}</span>
+                  <span class="lang-caret" aria-hidden="true">▾</span>
+                </summary>
+                <div class="lang-menu" role="menu">
+                  {languageOptions.map((option) => (
+                    <a
+                      href={option.href}
+                      role="menuitem"
+                      data-no-prefix
+                      aria-current={option.code === locale ? "true" : undefined}
+                    >
+                      {option.label}
+                    </a>
+                  ))}
+                </div>
+              </details>
+            )}
+
+            <a class="button header-cta" href="/contact-us/">{labels.sendInquiry}</a>
+            <button class="menu-btn" type="button" aria-label={labels.openMenu} aria-controls="mobile-menu" aria-expanded="false" data-menu-open>
               <span class="menu-lines" aria-hidden="true"><i></i><i></i></span>
             </button>
           </div>
         </header>
 
-    <div class={c("mobile-menu")} id="mobile-menu" data-menu aria-hidden="true" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div class={c("mobile-menu")} id="mobile-menu" data-menu data-no-translate aria-hidden="true" role="dialog" aria-modal="true" aria-label={labels.siteMenu}>
           <div class="mm-inner">
             <div class="mm-head">
-              <a class="brand brand-chip" href="/" aria-label="Yauum home">
+              <a class="brand brand-chip" href="/" aria-label={labels.brandHome}>
                 <img src="/uploads/logo/yauum-site-logo.webp" alt="Yauum" width="594" height="594" loading="lazy" decoding="async" />
               </a>
-              <button class="mm-close" type="button" aria-label="Close menu" data-menu-close>&times;</button>
+              <button class="mm-close" type="button" aria-label={labels.closeMenu} data-menu-close>&times;</button>
             </div>
-            <nav class="mm-nav" aria-label="Mobile primary navigation">
-              <a aria-current={isCurrent("/") ? "page" : undefined} href="/">Home</a>
-              <a aria-current={isCurrent("/our-services/") ? "page" : undefined} href="/our-services/">Our Services</a>
-              <a aria-current={isCurrent("/solutions/") ? "page" : undefined} href="/solutions/">Solutions</a>
+            <nav class="mm-nav" aria-label={labels.mobileNav}>
+              <a aria-current={isCurrent("/") ? "page" : undefined} href="/">{labels.home}</a>
+              <a aria-current={isCurrent("/our-services/") ? "page" : undefined} href="/our-services/">{labels.ourServices}</a>
+              <a aria-current={isCurrent("/solutions/") ? "page" : undefined} href="/solutions/">{labels.solutions}</a>
               <details class="mm-prod" open={isCurrent("/production/")}>
-                <summary class="mm-prod-summary" aria-current={isCurrent("/production/") ? "page" : undefined}>Production</summary>
-                <div class="mm-prod-list" aria-label="Production product categories">
-                  <a href="/production/">Production overview</a>
-                  <a  aria-current={isCurrent("/hoodie-manufacturer/") ? "page" : undefined} href="/hoodie-manufacturer/"><span>01</span>Hoodies</a>
-                  <a aria-current={isCurrent("/t-shirt-manufacturer/") ? "page" : undefined} href="/t-shirt-manufacturer/"><span>02</span>T-Shirts</a>
-                  <a aria-current={isCurrent("/jackets-manufacturer/") ? "page" : undefined} href="/jackets-manufacturer/"><span>03</span>Jackets</a>
-                  <a aria-current={isCurrent("/pants-manufacturer/") ? "page" : undefined} href="/pants-manufacturer/"><span>04</span>Pants</a>
-                  <a aria-current={isCurrent("/sportswear-manufacturer/") ? "page" : undefined} href="/sportswear-manufacturer/"><span>05</span>Sportswear</a>
-                  <a aria-current={isCurrent("/streetwear-manufacturer/") ? "page" : undefined} href="/streetwear-manufacturer/"><span>06</span>Streetwear</a>
+                <summary class="mm-prod-summary" aria-current={isCurrent("/production/") ? "page" : undefined}>{labels.production}</summary>
+                <div class="mm-prod-list" aria-label={labels.productCategories}>
+                  <a href="/production/">{labels.productionOverview}</a>
+                  <a  aria-current={isCurrent("/hoodie-manufacturer/") ? "page" : undefined} href="/hoodie-manufacturer/"><span>01</span>{labels.hoodies}</a>
+                  <a aria-current={isCurrent("/t-shirt-manufacturer/") ? "page" : undefined} href="/t-shirt-manufacturer/"><span>02</span>{labels.tshirts}</a>
+                  <a aria-current={isCurrent("/jackets-manufacturer/") ? "page" : undefined} href="/jackets-manufacturer/"><span>03</span>{labels.jackets}</a>
+                  <a aria-current={isCurrent("/pants-manufacturer/") ? "page" : undefined} href="/pants-manufacturer/"><span>04</span>{labels.pants}</a>
+                  <a aria-current={isCurrent("/sportswear-manufacturer/") ? "page" : undefined} href="/sportswear-manufacturer/"><span>05</span>{labels.sportswear}</a>
+                  <a aria-current={isCurrent("/streetwear-manufacturer/") ? "page" : undefined} href="/streetwear-manufacturer/"><span>06</span>{labels.streetwear}</a>
                 </div>
               </details>
-              <a aria-current={isCurrent("/about-us/") ? "page" : undefined} href="/about-us/">About</a>
-              <a aria-current={isCurrent("/blog/") ? "page" : undefined} href="/blog/">Blog</a>
+              <a aria-current={isCurrent("/about-us/") ? "page" : undefined} href="/about-us/">{labels.about}</a>
+              <a aria-current={isCurrent("/blog/") ? "page" : undefined} href="/blog/">{labels.blog}</a>
+              {showLanguage && (
+                <div class="mm-lang" data-no-translate>
+                  <span class="mm-lang-label">{labels.language}</span>
+                  <div class="mm-lang-links">
+                    {languageOptions.map((option) => (
+                      <a
+                        href={option.href}
+                        data-no-prefix
+                        aria-current={option.code === locale ? "true" : undefined}
+                      >
+                        {option.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </nav>
             <div class="mm-cta">
-              <a class="button" href="/contact-us/">Send an inquiry</a>
+              <a class="button" href="/contact-us/">{labels.sendInquiry}</a>
             </div>
           </div>
         </div>
 
-    <div class={c("contact-dock")} aria-label="Direct contact options">
-          <a class="dock-btn" href="https://wa.me/8615733728976?text=Hello%20Yauum%2C%20I%27d%20like%20to%20discuss%20a%20clothing%20manufacturing%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat with Yauum on WhatsApp" title="WhatsApp">
+    <div class={c("contact-dock")} data-no-translate aria-label={labels.directContactOptions}>
+          <a class="dock-btn" href="https://wa.me/8615733728976?text=Hello%20Yauum%2C%20I%27d%20like%20to%20discuss%20a%20clothing%20manufacturing%20project." target="_blank" rel="noopener noreferrer" aria-label={labels.chatWhatsApp} title="WhatsApp">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 11.4a8.4 8.4 0 0 1-12.4 7.4L3.5 20l1.3-4.3A8.4 8.4 0 1 1 20.5 11.4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.8 8.2c.2-.3.4-.3.7-.3h.5c.2 0 .4.1.5.4l.6 1.5c.1.2.1.4-.1.6l-.5.6c.5 1 1.2 1.7 2.2 2.2l.6-.5c.2-.2.4-.2.6-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3-.1.5-.3.7-.3.3-.8.5-1.2.4-2.5-.4-5.5-3.4-5.9-5.9-.1-.4.1-.9.4-1.2Z" fill="currentColor"/></svg>
           </a>
-          <a class="dock-btn" href="mailto:mumu@yauum.com?subject=Yauum%20manufacturing%20inquiry" aria-label="Email Yauum" title="Email">
+          <a class="dock-btn" href="mailto:mumu@yauum.com?subject=Yauum%20manufacturing%20inquiry" aria-label={labels.emailYauum} title="Email">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
 
-    <button class={c("back-top")} type="button" aria-label="Back to top" title="Back to top" data-back-to-top>
+    <button class={c("back-top")} type="button" data-no-translate aria-label="Back to top" title="Back to top" data-back-to-top>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
+
+<style>
+  /* 语言切换：桌面下拉 + 移动端菜单行。配色全部取当前页头皮肤变量，
+     V2 深色页头与 Editorial 浅色页头自动适配。 */
+  .lang-switch {
+    position: relative;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 2px;
+  }
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    height: 72px;
+    padding: 0 8px;
+    cursor: pointer;
+    list-style: none;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    transition: color 0.16s;
+  }
+  .lang-btn::-webkit-details-marker { display: none; }
+  .lang-btn:hover,
+  .lang-switch[open] .lang-btn { color: var(--fg); }
+  .lang-caret { font-size: 9px; line-height: 1; transition: transform 0.18s; }
+  .lang-switch[open] .lang-caret { transform: rotate(180deg); }
+  .lang-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 120;
+    min-width: 150px;
+    padding: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+  }
+  .lang-menu a {
+    display: block;
+    padding: 9px 11px;
+    color: var(--fg);
+    font-family: var(--body);
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  .lang-menu a:hover { background: color-mix(in srgb, var(--fg) 8%, transparent); }
+  .lang-menu a[aria-current="true"] { color: var(--accent); }
+  .mm-lang {
+    display: grid;
+    gap: 6px;
+    padding: 18px 0 4px;
+    border-bottom: 1px solid var(--dark-border);
+  }
+  .mm-lang-label {
+    color: var(--dark-muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .mm-lang-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .mm-lang .mm-lang-links a {
+    display: inline-block;
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.4;
+    text-transform: none;
+    padding: 6px 0;
+    border: 0;
+  }
+  .mm-lang .mm-lang-links a[aria-current="true"] { color: var(--accent); }
+  @media (max-width: 1080px) {
+    .lang-switch { display: none; }
+  }
+</style>

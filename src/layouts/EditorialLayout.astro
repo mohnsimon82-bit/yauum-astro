@@ -1,12 +1,13 @@
 ---
 import Analytics from "../components/Analytics.astro";
+import AlternateLinks from "../components/AlternateLinks.astro";
 import ContactIntentTracking from "../components/ContactIntentTracking.astro";
 import SeoMeta from "../components/SeoMeta.astro";
 import scriptSite from "../scripts/editorial/site.js?raw";
 import scriptScrollRestore from "../scripts/editorial/scroll-restore.js?raw";
 import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
 import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
-import { canonicalUrl, type SeoData } from "../lib/seo";
+import { canonicalFor, localeFromPathname, type SeoData } from "../lib/i18n";
 import "../styles/fonts.css";
 import "../styles/site-chrome.css";
 
@@ -23,18 +24,20 @@ const {
   navCurrent = [],
 } = Astro.props;
 
-const canonical = canonicalUrl(seo);
+const canonical = canonicalFor(Astro.url.pathname);
+const htmlLang = localeFromPathname(Astro.url.pathname);
 const mainId = variant === "home" ? "main" : "main-content";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{seo.title}</title>
     <meta name="description" content={seo.description} />
     <link rel="canonical" href={canonical} />
+    <AlternateLinks />
     {seo.noindex && <meta name="robots" content="noindex, nofollow" />}
     <SeoMeta seo={seo} />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />

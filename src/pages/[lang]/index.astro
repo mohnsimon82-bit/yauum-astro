@@ -1,0 +1,13 @@
+---
+// [lang] 首页：/de/、/fr/、/es/。
+// 直接复用英文首页组件，<html lang>、canonical、hreflang 由布局按 URL 推导；
+// 文案在构建后由 scripts/i18n/translate.mjs 原位替换。
+import HomePage from "../index.astro";
+import { LOCALES } from "../../lib/i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+---
+
+<HomePage />

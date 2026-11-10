@@ -1,11 +1,12 @@
 ---
 import Analytics from "../components/Analytics.astro";
+import AlternateLinks from "../components/AlternateLinks.astro";
 import ContactIntentTracking from "../components/ContactIntentTracking.astro";
 import SeoMeta from "../components/SeoMeta.astro";
 import SiteChromeTop from "../components/chrome/SiteChromeTop.astro";
 import SiteChromeFooter from "../components/chrome/SiteChromeFooter.astro";
 import chromeScript from "../scripts/editorial/site.js?raw";
-import { canonicalUrl, type SeoData } from "../lib/seo";
+import { canonicalFor, localeFromPathname, type SeoData } from "../lib/i18n";
 import "../styles/fonts.css";
 import "../styles/global.css";
 import "../styles/redesign.css";
@@ -19,7 +20,8 @@ interface Props {
 }
 
 const { seo } = Astro.props;
-const canonical = canonicalUrl(seo);
+const canonical = canonicalFor(Astro.url.pathname);
+const htmlLang = localeFromPathname(Astro.url.pathname);
 const jsonLd = seo.jsonLd;
 
 // 页头来自新设计系统，用规范链接推断当前导航项以正确标注 aria-current
@@ -36,13 +38,14 @@ const navCurrent = productSlugs.includes(path) ? ["/production/", path] : [path]
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={seo.description} />
     <meta name="theme-color" content="#171b18" />
     <link rel="canonical" href={canonical} />
+    <AlternateLinks />
     {seo.noindex && <meta name="robots" content="noindex, nofollow" />}
     <SeoMeta seo={seo} />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />

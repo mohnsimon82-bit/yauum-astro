@@ -154,7 +154,11 @@ function collectSources(entry, depth = 0, seen = new Set()) {
 
 /** 每个 URL 的入口文件；依赖遍历后取其中最新的提交时间作为 lastmod */
 function lastmodFor(url) {
-  const path = new URL(url).pathname.replace(/^\/+|\/+$/g, "");
+  // 小语种页面（/de/…、/fr/…、/es/…）与英文页共用同一个页面组件，
+  // 因此 lastmod 取英文入口的日期：先剥掉语言前缀再映射。
+  const path = new URL(url).pathname
+    .replace(/^\/+|\/+$/g, "")
+    .replace(/^(de|fr|es)(\/|$)/, "");
   // 首页、6 个产品页与 /production/ 都有自己的页面文件，各自独立算 lastmod；
   // 其余内容页（about-us / blog / contact-us / our-services / solutions）由动态
   // 路由 [...slug].astro 渲染，共用同一个入口，因此它们的 lastmod 同组。

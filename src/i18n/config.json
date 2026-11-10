@@ -1,0 +1,19 @@
+{
+  "defaultLocale": "en",
+  "locales": ["de", "fr", "es"],
+  "localizedPaths": [
+    "/",
+    "/hoodie-manufacturer/",
+    "/t-shirt-manufacturer/",
+    "/jackets-manufacturer/",
+    "/pants-manufacturer/",
+    "/sportswear-manufacturer/",
+    "/streetwear-manufacturer/",
+    "/production/",
+    "/our-services/",
+    "/solutions/",
+    "/about-us/",
+    "/contact-us/",
+    "/mens-hoodie-manufacturer/"
+  ]
+}
