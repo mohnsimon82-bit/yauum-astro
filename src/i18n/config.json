@@ -1,6 +1,10 @@
 {
   "defaultLocale": "en",
-  "locales": ["de", "fr", "es"],
+  "locales": [
+    "de",
+    "fr",
+    "es"
+  ],
   "localizedPaths": [
     "/",
     "/hoodie-manufacturer/",
@@ -14,6 +18,40 @@
     "/solutions/",
     "/about-us/",
     "/contact-us/",
-    "/mens-hoodie-manufacturer/"
+    "/mens-hoodie-manufacturer/",
+    "/blog/",
+    "/best-400-gsm-hoodie-manufacturers-china/",
+    "/best-fabric-for-streetwear/",
+    "/bomber-jacket-manufacturers-china-factory-types/",
+    "/china-apparel-manufacturing-costs-ppi-2026/",
+    "/cotton-hoodie-manufacturer-types-china/",
+    "/custom-jacket-manufacturer-guide/",
+    "/custom-t-shirt-manufacturer-guide/",
+    "/fleece-hoodie-manufacturer-types-china/",
+    "/how-to-find-a-hoodie-manufacturer/",
+    "/how-to-find-a-streetwear-factory/",
+    "/how-to-find-alibaba-hoodie-manufacturers/",
+    "/how-to-find-custom-streetwear-manufacturer/",
+    "/how-to-find-the-best-streetwear-cut-and-sew-manufacturers/",
+    "/how-to-start-a-streetwear-brand/",
+    "/jacket-manufacturers-china-types-vetting/",
+    "/oversized-hoodie-manufacturer-types-china/",
+    "/oversized-t-shirt-suppliers-china-guide/",
+    "/streetwear-business-guide/",
+    "/top-10-cargo-pants-manufacturers-in-china/",
+    "/top-10-casual-pants-manufacturers-in-china/",
+    "/top-10-embroidered-hoodie-manufacturers-china/",
+    "/top-10-jogger-pants-manufacturers-in-china/",
+    "/top-10-leather-jacket-manufacturers-china/",
+    "/top-10-leather-pants-manufacturers-in-china/",
+    "/top-10-pant-manufacturers-in-china/",
+    "/top-10-streetwear-manufacturers-china/",
+    "/top-10-t-shirt-manufacturers-china/",
+    "/top-10-varsity-jacket-manufacturers-china/",
+    "/top-10-windbreaker-manufacturers-china/",
+    "/top-8-zip-up-hoodie-manufacturers-china/",
+    "/top-puff-print-hoodie-manufacturers-china/",
+    "/where-are-hoodies-manufactured/",
+    "/where-are-t-shirts-manufactured/"
   ]
 }

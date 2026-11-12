@@ -22,7 +22,7 @@ Key published facts:
 
 ## Localized versions
 
-German (/de/), French (/fr/), and Spanish (/es/) versions are published for the core commercial pages: home, the six product lines, production, services, solutions, about, contact, and men's hoodies. Examples: [German home](https://yauum.com/de/), [French hoodies](https://yauum.com/fr/hoodie-manufacturer/), [Spanish contact](https://yauum.com/es/contact-us/). Each page links to the others with hreflang tags; sourcing articles remain English-only.
+German (/de/), French (/fr/), and Spanish (/es/) versions are published for every public content page: the home page, six product lines, production, services, solutions, about, contact, men's hoodies, the sourcing blog index, and all sourcing articles. `/llm-instructions/` and `/thank-you/` remain English-only. Examples: [German home](https://yauum.com/de/), [French hoodies](https://yauum.com/fr/hoodie-manufacturer/), [Spanish contact](https://yauum.com/es/contact-us/). Each translated page carries hreflang links to the other languages.
 
 ## Product lines
 

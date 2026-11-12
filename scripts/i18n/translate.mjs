@@ -31,11 +31,15 @@ import {
 } from "./lib.mjs";
 
 const SPLIT = "\n@@@\n";
-const MAX_BATCH_CHARS = 2800;
+const MAX_BATCH_CHARS = 750; // 同时兼容 Google 与 Bing（Bing 单次上限约 1000 字符）
 const repairMode = process.argv.includes("--repair");
 const provider =
   process.argv.find((arg) => arg.startsWith("--provider="))?.split("=")[1] ?? "google";
-const BATCH_LIMIT = provider === "bing" ? 700 : MAX_BATCH_CHARS;
+const argValue = (name) =>
+  process.argv.find((arg) => arg.startsWith(`${name}=`))?.split("=")[1];
+// 本地批量补词时可放宽批大小提速；默认 750 兼容 Bing 上限，CI 更稳。
+const allowBingFallback = !process.argv.includes("--no-bing");
+const BATCH_LIMIT = Number(argValue("--batch") ?? MAX_BATCH_CHARS);
 const args = process.argv.slice(2).filter((arg) => !arg.startsWith("--"));
 const locales = args.length ? args : CONFIG.locales;
 
@@ -77,11 +81,15 @@ const GLOSSARY = {
     [/\bKapuzenpullis\b/g, "Kapuzenpullover"],
     [/\bKapuzenpulli\b/g, "Kapuzenpullover"],
     [/\bUnterhosen\b/g, "Hosen"],
+    [/Schneid-und-Näh/g, "Cut-and-Sew"],
+    [/\bSTÜCK\b/g, "Stück"],
+    [/\bSTK\b/g, "Stück"],
     [/\bT-Shirt-Hersteller\b/g, "T-Shirt Hersteller"],
     [/\bBekleidungshersteller\b/g, "Bekleidungshersteller"],
   ],
   fr: [
     [/\bBlogue\b/g, "Blog"],
+    [/\b(\d+)\s*PCS\b/gi, (m, n) => `${n} pièces`],
     [/\bblogue\b/g, "blog"],
     [/\bvêtements de rue\b/gi, "streetwear"],
     [/\bmode de rue\b/gi, "streetwear"],
@@ -91,6 +99,7 @@ const GLOSSARY = {
   es: [
     [/\bropa urbana\b/gi, "streetwear"],
     [/\bropa de calle\b/gi, "streetwear"],
+    [/\b(\d+)\s*PCS\b/gi, (m, n) => `${n} piezas`],
     [/\bplayeras\b/gi, "camisetas"],
     [/\bfranelas\b/gi, "camisetas"],
     [/\bpoleras\b/gi, "camisetas"],
@@ -235,10 +244,13 @@ async function bingTranslate(text, locale) {
 async function translateText(text, locale) {
   if (provider === "bing") return bingTranslate(text, locale);
   const viaGoogle = await googleTranslate(text, locale);
-  return viaGoogle ?? bingTranslate(text, locale);
+  if (viaGoogle) return viaGoogle;
+  return allowBingFallback ? bingTranslate(text, locale) : null;
 }
 
-function chunk(text, size = provider === "bing" ? 700 : 2600) {
+const CHUNK_SIZE = Number(argValue("--chunk") ?? 750);
+
+function chunk(text, size = CHUNK_SIZE) {
   if (text.length <= size) return [text];
   const chunks = [];
   let rest = text;
@@ -285,35 +297,47 @@ async function translateMissing(keys, locale, dictionary) {
   }
   if (batch.length) batches.push(batch);
 
-  let done = 0;
-  for (const group of batches) {
-    done += 1;
-    let translated = null;
-    if (group.length === 1 && group[0].length > 1800) {
-      translated = [await translateLong(group[0], locale)];
-    } else {
-      const raw = await translateText(group.join(SPLIT), locale);
-      const parts = raw == null ? null : raw.split(/\s*@@@\s*/);
-      translated = parts && parts.length === group.length ? parts : null;
+  // 批次失败（限流/分隔符被改写）时二分重试，避免整批逐条翻译造成长时间卡顿。
+  async function translateGroup(group) {
+    if (group.length === 1 && group[0].length > BATCH_LIMIT) {
+      return [await translateLong(group[0], locale)];
     }
-
-    if (!translated) {
-      // 分隔符被改写：逐条翻译，保证 key 与译文一一对应
-      translated = [];
-      for (const key of group) translated.push(await translateLong(key, locale));
-    }
-
-    group.forEach((key, index) => {
-      const value = translated[index];
-      if (value && value.trim()) dictionary[key] = postprocess(value, locale);
-    });
-
-    if (done % 10 === 0 || done === batches.length) {
-      saveDictionary(locale, dictionary);
-      console.log(`  ${locale}: batch ${done}/${batches.length}`);
-    }
-    await sleep(900);
+    const raw = await translateText(group.join(SPLIT), locale);
+    const parts = raw == null ? null : raw.split(/\s*@@@\s*/);
+    if (parts && parts.length === group.length) return parts;
+    if (group.length === 1) return [await translateLong(group[0], locale)];
+    const mid = Math.ceil(group.length / 2);
+    return [
+      ...(await translateGroup(group.slice(0, mid))),
+      ...(await translateGroup(group.slice(mid))),
+    ];
   }
+
+  // Bing 支持并发请求（实测 8 路并发均成功），默认 6 路以缩短补词时间；
+  // Google gtx 对并发不友好，默认保持串行。
+  const CONCURRENCY = Number(argValue("--concurrency") ?? (provider === "bing" ? 6 : 1));
+  let cursor = 0;
+  let done = 0;
+  async function worker() {
+    while (true) {
+      const index = cursor++;
+      if (index >= batches.length) return;
+      const translated = await translateGroup(batches[index]);
+      batches[index].forEach((key, i) => {
+        const value = translated[i];
+        if (value && value.trim()) dictionary[key] = postprocess(value, locale);
+      });
+      done += 1;
+      if (done % 20 === 0 || done === batches.length) {
+        saveDictionary(locale, dictionary);
+        console.log(`  ${locale}: batch ${done}/${batches.length}`);
+      }
+      await sleep(provider === "bing" || googleRateLimited ? 150 : 150);
+    }
+  }
+  await Promise.all(
+    Array.from({ length: Math.min(CONCURRENCY, batches.length) }, () => worker()),
+  );
   saveDictionary(locale, dictionary);
   return dictionary;
 }
