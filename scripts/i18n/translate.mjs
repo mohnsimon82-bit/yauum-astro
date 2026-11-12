@@ -89,6 +89,7 @@ const GLOSSARY = {
   ],
   fr: [
     [/\bBlogue\b/g, "Blog"],
+    [/\bEnquête\b/g, "Demande"],
     [/\b(\d+)\s*PCS\b/gi, (m, n) => `${n} pièces`],
     [/\bblogue\b/g, "blog"],
     [/\bvêtements de rue\b/gi, "streetwear"],

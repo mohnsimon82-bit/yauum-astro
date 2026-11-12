@@ -20,14 +20,14 @@ export const SEO_OVERRIDES = JSON.parse(
 );
 
 export const SELECTOR =
-  "h1,h2,h3,h4,h5,h6,p,li,td,th,summary,figcaption,blockquote,dt,dd,a,button,label,option,time,span,div";
+  "h1,h2,h3,h4,h5,h6,p,li,td,th,summary,figcaption,blockquote,dt,dd,a,button,label,option,time,span,strong,small,b,em,div";
 
 // 可翻译容器：命中这些标签的祖先已经把其内部文本整体翻译过一次，
 // 因此后代元素不再单独翻译，避免同一段文字被重复替换。
 const CONTAINER_TAGS = new Set([
   "H1", "H2", "H3", "H4", "H5", "H6", "P", "LI", "TD", "TH",
   "SUMMARY", "FIGCAPTION", "BLOCKQUOTE", "DT", "DD", "LABEL", "BUTTON",
-  "OPTION", "TIME", "A", "SPAN", "DIV",
+  "OPTION", "TIME", "A", "SPAN", "STRONG", "SMALL", "B", "EM", "DIV",
 ]);
 
 const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "CODE", "PRE", "SVG"]);
