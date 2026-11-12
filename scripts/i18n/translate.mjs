@@ -21,6 +21,7 @@ import {
   applyReplacements,
   buildTextReplacements,
   collectBlocks,
+  fixTypography,
   escapeHtml,
   loadDictionary,
   localizedFile,
@@ -90,6 +91,7 @@ const GLOSSARY = {
   fr: [
     [/\bBlogue\b/g, "Blog"],
     [/\bEnquête\b/g, "Demande"],
+    [/Quel est un MOQ/gi, "Quel est le MOQ"],
     [/\b(\d+)\s*PCS\b/gi, (m, n) => `${n} pièces`],
     [/\bblogue\b/g, "blog"],
     [/\bvêtements de rue\b/gi, "streetwear"],
@@ -140,7 +142,7 @@ function normalizeTitle(value, locale) {
   title = title.replace(/\|/g, " ");
   title = title.replace(/\bYauum\b/gi, "").replace(/\s+/g, " ").trim();
   title = title.replace(/[\s\-–—:|,.;]+$/g, "");
-  return `${title} | Yauum`;
+  return `${fixTypography(title, locale)} | Yauum`;
 }
 
 // ---------- Google 翻译 ----------
@@ -469,7 +471,7 @@ function translateJsonLd(html, locale, dictionary) {
           } else if (typeof value === "string") {
             if (URL_LIKE.test(value) || /\d{4}-\d{2}-\d{2}/.test(value)) continue;
             const hit = dictionary[value] ?? dictionary[norm(value)];
-            if (hit) node[key] = norm(plainText(hit));
+            if (hit) node[key] = fixTypography(norm(plainText(hit)), locale);
           } else {
             node[key] = walk(value);
           }
@@ -515,7 +517,7 @@ function translatePage(file, route, locale, dictionary) {
   for (const block of blocks) {
     const translated = lookup(dictionary, block.inner);
     if (!translated) continue;
-    const parts = buildTextReplacements(block, translated);
+    const parts = buildTextReplacements(block, translated, locale);
     if (!parts) continue;
     replacements.push(...parts);
     matched += 1;
@@ -536,7 +538,7 @@ function translatePage(file, route, locale, dictionary) {
     if (!content) return tag;
     const hit = dictionary[norm(content)];
     if (!hit) return tag;
-    return setAttribute(tag, "content", escapeHtml(norm(plainText(hit))));
+    return setAttribute(tag, "content", escapeHtml(fixTypography(norm(plainText(hit)), locale)));
   });
 
   // img alt / aria-label / placeholder / title —— 只处理 <main> 内。
@@ -553,7 +555,7 @@ function translatePage(file, route, locale, dictionary) {
           if (!value) continue;
           const hit = dictionary[norm(value)];
           if (!hit) continue;
-          out = setAttribute(out, attr, escapeHtml(norm(plainText(hit))));
+          out = setAttribute(out, attr, escapeHtml(fixTypography(norm(plainText(hit)), locale)));
         }
         return out;
       });

@@ -217,6 +217,12 @@ function splitTranslation(lengths, text) {
   return parts;
 }
 
+/** 法语排版：问号/感叹号前补不换行空格（只作用于纯文本，不碰 HTML 属性与 URL）。 */
+export function fixTypography(text, locale) {
+  if (locale !== "fr") return text;
+  return String(text).replace(/([^\s\u00A0])([?!])/g, "$1\u00A0$2");
+}
+
 function withSpacing(original, translated) {
   const leading = original.match(/^\s*/)?.[0] ?? "";
   const trailing = original.match(/\s*$/)?.[0] ?? "";
@@ -233,7 +239,7 @@ function withSpacing(original, translated) {
 }
 
 /** 生成用于替换的 {start,end,text} 列表；失败返回 null */
-export function buildTextReplacements(block, translatedFragment) {
+export function buildTextReplacements(block, translatedFragment, locale = "en") {
   const originalTexts = block.texts;
   const translated = fragmentTexts(translatedFragment);
   if (!translated.length) return null;
@@ -259,7 +265,7 @@ export function buildTextReplacements(block, translatedFragment) {
   return originalTexts.map((node, index) => ({
     start: node.start,
     end: node.end,
-    text: withSpacing(node.raw, mapped[index]),
+    text: withSpacing(node.raw, fixTypography(mapped[index], locale)),
   }));
 }
 
