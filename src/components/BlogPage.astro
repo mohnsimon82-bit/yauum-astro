@@ -45,6 +45,7 @@ const seo: SeoData = activeCategory
   ? {
       ...SEO["/blog/"],
       title: `${activeCategory.label} Articles | Yauum`,
+      description: `${activeCategory.label}: practical B2B sourcing guidance for apparel buyers, from product development and fabrics to decoration, private label, and packing.`,
       path: categoryHref(activeCategory.slug),
       jsonLd: [
         breadcrumb([
@@ -59,6 +60,7 @@ const seo: SeoData = activeCategory
     : {
         ...SEO["/blog/"],
         title: `Blog – Page ${page} | Yauum`,
+        description: `Page ${page} of Yauum's apparel manufacturing insights: sourcing, fabrics, decoration, private label, and production guidance for apparel buyers.`,
         path: `/blog/page/${page}/`,
         jsonLd: [
           breadcrumb([

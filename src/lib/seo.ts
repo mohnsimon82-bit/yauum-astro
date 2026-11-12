@@ -133,7 +133,8 @@ function serviceJsonLd(opts: {
   serviceType: string;
   path: string;
   description: string;
-  image: string;
+  /** 缺省时不输出 image，避免 abs(undefined) 生成 https://yauum.comundefined */
+  image?: string;
   /** 该服务产出的产品实体 @id（产品页指向同页 Product 节点） */
   produces?: string;
 }): Record<string, unknown> {
@@ -146,7 +147,7 @@ function serviceJsonLd(opts: {
     provider: provider(),
     url: abs(opts.path),
     description: opts.description,
-    image: abs(opts.image),
+    ...(opts.image ? { image: abs(opts.image) } : {}),
     inLanguage: "en",
     audience: {
       "@type": "BusinessAudience",
@@ -426,6 +427,7 @@ const RAW_SEO: Record<string, SeoData> = {
         path: "/our-services/",
         description:
           "Yauum covers product development and sampling, fabrics, printing and decoration, sizing, private label finishing, packaging, and quality inspection.",
+        image: "/uploads/factory/factory-printing.webp",
       }),
     ],
   },
